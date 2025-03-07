@@ -5,6 +5,7 @@ public class playerController : MonoBehaviour
     [SerializeField] CharacterController controller;
 
     [SerializeField] int speed;
+    [SerializeField] int sprintMod;
 
     Vector3 moveDir;
 
@@ -18,6 +19,8 @@ public class playerController : MonoBehaviour
     void Update()
     {
         movement();
+
+        sprint();
     }
 
     void movement()
@@ -28,5 +31,13 @@ public class playerController : MonoBehaviour
                   (Input.GetAxis("Vertical") * transform.forward);
         //move player
         controller.Move(moveDir * speed * Time.deltaTime);
+    }
+
+    void sprint()
+    {
+        if (Input.GetButtonDown("Sprint"))
+            speed *= sprintMod;
+        else if (Input.GetButtonUp("Sprint"))
+            speed /= sprintMod;
     }
 }
