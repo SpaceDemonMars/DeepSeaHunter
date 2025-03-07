@@ -1221,6 +1221,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 3
+  model: {fileID: 907153968474580657}
+--- !u!23 &907153968474580657 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2794280056663606756, guid: fedb62038a4422a4290f79e362371ce7, type: 3}
+  m_PrefabInstance: {fileID: 907153968474580653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4538005330582256669
 PrefabInstance:
   m_ObjectHideFlags: 0
