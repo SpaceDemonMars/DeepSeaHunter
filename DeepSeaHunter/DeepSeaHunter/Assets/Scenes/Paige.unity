@@ -1139,6 +1139,9 @@ MonoBehaviour:
   jumpStr: 12
   jumpMax: 3
   grav: 16
+  shootDmg: 1
+  shootRate: 0.25
+  shootDist: 10
 --- !u!1001 &907153968474580653
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 public class playerController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class playerController : MonoBehaviour
     [SerializeField] float grav;
 
     [SerializeField] int shootDmg;
-    [SerializeField] int shootRate;
+    [SerializeField] float shootRate;
     [SerializeField] int shootDist;
 
     Vector3 moveDir;
@@ -22,12 +23,14 @@ public class playerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist, Color.red);
+
         movement();
 
         sprint();
@@ -57,9 +60,8 @@ public class playerController : MonoBehaviour
         playerVel.y -= grav * Time.deltaTime;
 
         //SHOOT LOGIC       
-        if(Input.GetButton("Fire1") && shootRate >= shootTimer)
+        if(Input.GetButton("Fire1") && shootRate <= shootTimer)
         {
-            shootTimer = 0;
             shoot();
         }
     }
@@ -83,17 +85,17 @@ public class playerController : MonoBehaviour
 
     void shoot()
     {
+        shootTimer = 0;
         RaycastHit hit;
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist))
         {
             Debug.Log(hit.collider.name); 
-            IDamage dmg;
-            dmg = hit.collider.GetComponent<IDamage>();
+            IDamage dmg = hit.collider.GetComponent<IDamage>();
 
             if (dmg != null)
             {
-                //dmg.takeDamage(shootDmg);
+                dmg.takeDamage(shootDmg);
             }
         }
     }
