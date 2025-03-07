@@ -20,6 +20,7 @@ Gameplay mechanic Ideas :
 	-Harpoon can be charged before firing for more damage/range
 	-look into boids again for a school of fish
 	-weighted boots to walk on ocean floor
+	-dash/evade instead of sprint (maybe)
 
 Enemy Ideas :
 	-Final Boss Leviathan (combine elements from all enemies)
