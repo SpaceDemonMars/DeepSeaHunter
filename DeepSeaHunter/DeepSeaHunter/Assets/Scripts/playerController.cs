@@ -10,9 +10,14 @@ public class playerController : MonoBehaviour
     [SerializeField] int jumpMax;
     [SerializeField] float grav;
 
+    [SerializeField] int shootDmg;
+    [SerializeField] int shootRate;
+    [SerializeField] int shootDist;
+
     Vector3 moveDir;
     Vector3 playerVel;
     int jumpCount;
+    float shootTimer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +35,9 @@ public class playerController : MonoBehaviour
 
     void movement()
     {
+        //increment shoot timer
+        shootTimer += Time.deltaTime;
+
         //reset jumps
         if (controller.isGrounded)
         {
@@ -47,6 +55,13 @@ public class playerController : MonoBehaviour
         jump();
         controller.Move(playerVel * Time.deltaTime);
         playerVel.y -= grav * Time.deltaTime;
+
+        //SHOOT LOGIC       
+        if(Input.GetButton("Fire1") && shootRate >= shootTimer)
+        {
+            shootTimer = 0;
+            shoot();
+        }
     }
 
     void sprint()
@@ -63,6 +78,23 @@ public class playerController : MonoBehaviour
         {
             jumpCount++;
             playerVel.y = jumpStr;
+        }
+    }
+
+    void shoot()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist))
+        {
+            Debug.Log(hit.collider.name); 
+            IDamage dmg;
+            dmg = hit.collider.GetComponent<IDamage>();
+
+            if (dmg != null)
+            {
+                //dmg.takeDamage(shootDmg);
+            }
         }
     }
 }
