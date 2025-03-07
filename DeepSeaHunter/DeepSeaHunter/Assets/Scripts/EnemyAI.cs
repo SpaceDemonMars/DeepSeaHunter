@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour, IDamage
 {
+    [SerializeField] int HP;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,5 +15,15 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void takeDamage(int damage)
+    {
+        HP -= damage;
+
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
