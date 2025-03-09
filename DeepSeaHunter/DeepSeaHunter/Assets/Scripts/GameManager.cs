@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void statePause()
+    public void statePause()
     {
         isPaused = !isPaused;
         Cursor.visible = true;
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    void stateUnpause()
+    public void stateUnpause()
     {
         isPaused = !isPaused;
         Cursor.visible = false;
