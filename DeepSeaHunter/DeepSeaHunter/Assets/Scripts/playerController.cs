@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
-public class playerController : MonoBehaviour
+public class playerController : MonoBehaviour, IDamage
 {
+    [SerializeField] int HP;
+    [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
 
     [SerializeField] int speed;
@@ -88,7 +90,7 @@ public class playerController : MonoBehaviour
         shootTimer = 0;
         RaycastHit hit;
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreLayer))
         {
             Debug.Log(hit.collider.name); 
             IDamage dmg = hit.collider.GetComponent<IDamage>();
@@ -97,6 +99,17 @@ public class playerController : MonoBehaviour
             {
                 dmg.takeDamage(shootDmg);
             }
+        }
+    }
+
+    public void takeDamage(int damage)
+    {
+        HP -= damage;
+        //add feedback here
+
+        if( HP <= 0 )
+        {
+            GameManager.instance.youLose();
         }
     }
 }
