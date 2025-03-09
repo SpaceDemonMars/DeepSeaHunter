@@ -5,9 +5,8 @@ Jellyfish
 	DUR : 3s
 
 Gameplay Feel/Notes:
-	Halve player movespeed
-	Double player weapon rates (take twice as long to charge)
-	Prevent dash/jump (set counts = max)
+	call playerController.toggleTangled()
+	call again after DUR
 
 Pufferfish
 	DMG : 1
