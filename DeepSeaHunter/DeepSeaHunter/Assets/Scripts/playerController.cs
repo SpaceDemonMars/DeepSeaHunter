@@ -13,6 +13,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int dashStr;
     [SerializeField] int dashMax;
     [SerializeField] float dashRechargeTimer;
+    [SerializeField] float dashDuration;
 
     [SerializeField] int jumpStr;
     [SerializeField] int jumpMax;
@@ -22,11 +23,13 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
 
+    [SerializeField] int tangleMod;
     Vector3 moveDir;
     Vector3 playerVel;
     int dashCount;
     int jumpCount;
     float shootTimer;
+    public bool isTangled;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -73,6 +76,11 @@ public class playerController : MonoBehaviour, IDamage
         if(Input.GetButton("Fire1") && shootRate <= shootTimer)
         {
             shoot();
+        }
+        //TANGLED TESTING
+        if (Input.GetButtonDown("Fire2"))
+        {
+            toggleTangled();
         }
     }
 
@@ -143,8 +151,29 @@ public class playerController : MonoBehaviour, IDamage
     }
     IEnumerator endDash()
     {
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(dashDuration);
         playerVel.x = 0;
         playerVel.z = 0;
+    }
+
+    public void toggleTangled()
+    {
+        isTangled = !isTangled;
+        if (isTangled)
+        {
+            speed /= tangleMod; //
+            jumpStr /= tangleMod;
+            dashStr /= tangleMod;
+            dashDuration /= tangleMod;
+            shootRate *= tangleMod;
+        }
+        else
+        {
+            speed *= tangleMod; //
+            jumpStr *= tangleMod;
+            dashStr *= tangleMod;
+            dashDuration *= tangleMod;
+            shootRate /= tangleMod;
+        }
     }
 }
