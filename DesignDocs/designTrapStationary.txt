@@ -10,6 +10,5 @@ Kelp
 	DMG : 0
 
 Gameplay Feel/Notes:
-	Halve player movespeed
-	Prevent dash/jump (set counts = max)
-	Block Harpoon (just having a collider should do this i think)
+	Halve player movespeed/dash/jump/shoot
+	See: playerController.toggleTangled()
