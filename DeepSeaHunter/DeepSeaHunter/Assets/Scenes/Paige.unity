@@ -3561,9 +3561,12 @@ MonoBehaviour:
   jumpStr: 12
   jumpMax: 3
   grav: 16
+  knifeDmg: 1
+  knifeRate: 1
+  knifeDist: 3
   shootDmg: 1
-  shootRate: 0.25
-  shootDist: 10
+  shootRate: 5
+  shootDist: 15
   tangleMod: 2
   isTangled: 0
 --- !u!1 &1905420648
