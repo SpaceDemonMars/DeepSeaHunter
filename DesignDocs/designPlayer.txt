@@ -1,7 +1,7 @@
 Player Controls
 
 
-Replace Sprint with Dash
+Replace Sprint with Dash --IMPLEMENTED
 	dash will control like jump, in the direction the player is facing
 	dash strength : 5 (test)
 	(the gravity function will not be needed for dash)
