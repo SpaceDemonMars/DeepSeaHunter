@@ -3565,9 +3565,11 @@ MonoBehaviour:
   knifeRate: 1
   knifeDist: 3
   shootDmg: 1
-  shootRate: 5
-  shootDist: 15
+  shootRate: 4
+  shootMin: 10
+  shootMax: 20
   tangleMod: 2
+  shootDist: 15
   isTangled: 0
 --- !u!1 &1905420648
 GameObject:

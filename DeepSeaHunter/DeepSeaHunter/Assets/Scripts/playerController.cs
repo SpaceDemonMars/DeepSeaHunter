@@ -24,7 +24,8 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int knifeDist;
     [SerializeField] int shootDmg;
     [SerializeField] float shootRate;
-    [SerializeField] int shootDist;
+    [SerializeField] float shootMin;
+    [SerializeField] float shootMax;
 
     [SerializeField] int tangleMod;
     Vector3 moveDir;
@@ -33,12 +34,13 @@ public class playerController : MonoBehaviour, IDamage
     int jumpCount;
     float knifeTimer;
     float shootTimer;
+    public float shootDist;
     public bool isTangled;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        shootDist = shootMin;
     }
 
     // Update is called once per frame
@@ -48,6 +50,8 @@ public class playerController : MonoBehaviour, IDamage
 
         movement();
 
+        if (shootRate <= shootTimer)
+            harpoon();
         //sprint();
     }
 
@@ -82,14 +86,22 @@ public class playerController : MonoBehaviour, IDamage
         {
             knife();
         }
-        if (Input.GetButton("Fire2") && shootRate <= shootTimer)
-        {
-            shoot();
-        }
         //TANGLED TESTING
         if (Input.GetButtonDown("Fire3"))
         {
             toggleTangled();
+        }
+    }
+
+    void harpoon()
+    {
+        if (Input.GetButton("Fire2") && shootDist < shootMax) //start charging
+        {
+            shootDist += Time.deltaTime * 5; 
+        }
+        else if (Input.GetButtonUp("Fire2")) //fire
+        {
+            shoot();
         }
     }
 
@@ -144,6 +156,7 @@ public class playerController : MonoBehaviour, IDamage
     void shoot()
     {
         shootTimer = 0;
+        knifeTimer = 0; //so you cant use your knife while using harpoon gun
         RaycastHit hit;
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreLayer))
@@ -156,6 +169,7 @@ public class playerController : MonoBehaviour, IDamage
                 dmg.takeDamage(shootDmg);
             }
         }
+        shootDist = shootMin;//reset shoot dist
     }
 
     public void takeDamage(int damage)
