@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameManager.instance.updateGameGoal(1);
         modelColor = model.material.color;
     }
 
@@ -26,6 +27,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
+            GameManager .instance.updateGameGoal(-1);
             Destroy(gameObject);
         }
     }
