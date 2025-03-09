@@ -19,6 +19,9 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int jumpMax;
     [SerializeField] float grav;
 
+    [SerializeField] int knifeDmg;
+    [SerializeField] float knifeRate;
+    [SerializeField] int knifeDist;
     [SerializeField] int shootDmg;
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
@@ -28,6 +31,7 @@ public class playerController : MonoBehaviour, IDamage
     Vector3 playerVel;
     int dashCount;
     int jumpCount;
+    float knifeTimer;
     float shootTimer;
     public bool isTangled;
 
@@ -50,6 +54,7 @@ public class playerController : MonoBehaviour, IDamage
     void movement()
     {
         //increment shoot timer
+        knifeTimer += Time.deltaTime;
         shootTimer += Time.deltaTime;
 
         //reset jumps
@@ -72,8 +77,12 @@ public class playerController : MonoBehaviour, IDamage
         controller.Move(playerVel * Time.deltaTime);
         playerVel.y -= grav * Time.deltaTime;
 
-        //SHOOT LOGIC       
-        if(Input.GetButton("Fire1") && shootRate <= shootTimer)
+        //SHOOT LOGIC           
+        if (Input.GetButton("Fire1") && knifeRate <= knifeTimer)
+        {
+            knife();
+        }
+        if (Input.GetButton("Fire2") && shootRate <= shootTimer)
         {
             shoot();
         }
@@ -112,6 +121,23 @@ public class playerController : MonoBehaviour, IDamage
         {
             jumpCount++;
             playerVel.y = jumpStr;
+        }
+    }
+
+    void knife()
+    {
+        knifeTimer = 0;
+        RaycastHit hit;
+
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, knifeDist, ~ignoreLayer))
+        {
+            Debug.Log(hit.collider.name);
+            IDamage dmg = hit.collider.GetComponent<IDamage>();
+
+            if (dmg != null)
+            {
+                dmg.takeDamage(knifeDmg);
+            }
         }
     }
 
