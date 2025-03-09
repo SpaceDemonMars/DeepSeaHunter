@@ -6,13 +6,13 @@ Replace Sprint with Dash --IMPLEMENTED
 	dash strength : 5 (test)
 	(the gravity function will not be needed for dash)
 
-L Mouse Click :Knife
+L Mouse Click :Knife --IMPLEMENTED
 	range : 1-3 (test to feel whats a good knife range)
 	DMG : 1
 	shootRate : 1s (test if feels good)
 	**UI bar to show recharge time
 
-R Mouse Click :Harpoon
+R Mouse Click :Harpoon --PARTIAL : MISSING: push/pull on hit
 	range base : 15 (dash strength *3)
 	range max : 30 (base *2)
 	DMG : 1
