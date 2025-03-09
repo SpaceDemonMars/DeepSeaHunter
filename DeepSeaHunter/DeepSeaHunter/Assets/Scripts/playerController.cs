@@ -78,7 +78,7 @@ public class playerController : MonoBehaviour, IDamage
             shoot();
         }
         //TANGLED TESTING
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire3"))
         {
             toggleTangled();
         }
