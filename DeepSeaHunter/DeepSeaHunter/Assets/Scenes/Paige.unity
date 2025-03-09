@@ -3554,7 +3554,9 @@ MonoBehaviour:
     m_Bits: 8
   controller: {fileID: 1852704079}
   speed: 2
-  sprintMod: 2
+  dashStr: 12
+  dashMax: 3
+  dashRechargeTimer: 0
   jumpStr: 12
   jumpMax: 3
   grav: 16

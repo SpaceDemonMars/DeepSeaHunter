@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
@@ -8,7 +9,11 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] CharacterController controller;
 
     [SerializeField] int speed;
-    [SerializeField] int sprintMod;
+    //[SerializeField] int sprintMod;
+    [SerializeField] int dashStr;
+    [SerializeField] int dashMax;
+    [SerializeField] float dashRechargeTimer;
+
     [SerializeField] int jumpStr;
     [SerializeField] int jumpMax;
     [SerializeField] float grav;
@@ -19,6 +24,7 @@ public class playerController : MonoBehaviour, IDamage
 
     Vector3 moveDir;
     Vector3 playerVel;
+    int dashCount;
     int jumpCount;
     float shootTimer;
 
@@ -35,7 +41,7 @@ public class playerController : MonoBehaviour, IDamage
 
         movement();
 
-        sprint();
+        //sprint();
     }
 
     void movement()
@@ -56,8 +62,10 @@ public class playerController : MonoBehaviour, IDamage
         //move player
         controller.Move(moveDir * speed * Time.deltaTime);
 
-        //JUMP LOGIC
+        //JUMP/DASH LOGIC
         jump();
+        dash();
+        //this needs to reduce x and z to zero 0 overtime
         controller.Move(playerVel * Time.deltaTime);
         playerVel.y -= grav * Time.deltaTime;
 
@@ -68,12 +76,26 @@ public class playerController : MonoBehaviour, IDamage
         }
     }
 
-    void sprint()
+    /*void sprint()
     {
         if (Input.GetButtonDown("Sprint"))
             speed *= sprintMod;
         else if (Input.GetButtonUp("Sprint"))
             speed /= sprintMod;
+    }*/
+
+    void dash()
+    {
+        if (Input.GetButtonDown("Dash") && dashCount < dashMax)
+        {
+            dashCount++;
+            //this needs math to get the angle right; look at polar to cart coords
+            playerVel.x = dashStr * moveDir.x; //x = r cos theta; dashStr = r //z = r sin theta; theta = moveDir
+            playerVel.z = dashStr * moveDir.z; //movedir might already has the cart coords
+            Debug.Log("Dashed");
+            StartCoroutine(endDash());
+            StartCoroutine(rechargeDash());
+        }
     }
 
     void jump()
@@ -111,5 +133,18 @@ public class playerController : MonoBehaviour, IDamage
         {
             GameManager.instance.youLose();
         }
+    }
+
+    IEnumerator rechargeDash()
+    {
+        yield return new WaitForSeconds(dashRechargeTimer);
+        dashCount--;
+        Debug.Log("Dash Recharged");
+    }
+    IEnumerator endDash()
+    {
+        yield return new WaitForSeconds(.2f);
+        playerVel.x = 0;
+        playerVel.z = 0;
     }
 }
