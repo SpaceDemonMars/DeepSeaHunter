@@ -1,0 +1,22 @@
+Design Hud
+
+Hp Bar
+	bottom center
+
+Weapon Icons
+	bottom left
+
+Reticle
+	dot in center
+	>radial bar rim that fills with harpoon charge
+
+Game goal
+	top left
+
+Player Damage indicator
+	glass crack overlays
+	fade over time (5s)
+
+Extra	
+	Edges of screen will look like old timey scuba helmet
+	

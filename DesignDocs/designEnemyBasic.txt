@@ -1,0 +1,17 @@
+Enemy Basic
+
+Low Level : Reef Shark
+High Level : Great White Shark
+	
+Stats 		Low > High
+	HP:	3   > 5
+	Range: 	6   > 5 (distance it will charge the player from)
+	DMG : 	2   > 4
+	Rate : 	7s  > 7s (reduce by 2s in takeDamage, 1s on harpoon hit)
+	Weight: Lht > Hvy
+
+Gameplay Feel/Notes:
+	Circle player at range, till it can attack
+	Attacks by charging at player, player takes damage on contact
+	**contact damage should ONLY happen if shark is in attack
+		>maybe toggle damage collider or smth

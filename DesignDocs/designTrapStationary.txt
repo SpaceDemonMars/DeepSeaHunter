@@ -1,0 +1,15 @@
+Trap Stationary
+
+Urchin
+	DMG : 1
+
+Gameplay Feel/Notes:
+
+
+Kelp
+	DMG : 0
+
+Gameplay Feel/Notes:
+	Halve player movespeed
+	Prevent dash/jump (set counts = max)
+	Block Harpoon (just having a collider should do this i think)

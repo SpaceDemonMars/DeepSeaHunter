@@ -1,0 +1,23 @@
+Trap DOT
+
+Jellyfish
+	DMG : 0
+	DUR : 3s
+
+Gameplay Feel/Notes:
+	Halve player movespeed
+	Double player weapon rates (take twice as long to charge)
+	Prevent dash/jump (set counts = max)
+
+Pufferfish
+	DMG : 1
+	DUR : 3s
+
+Gameplay Feel/Notes:
+	Two states, swaps on hit
+	Puffed  /  Unpuffed
+	
+	TakeDamage()
+		isPuffed = !isPuffed;
+
+	ONLY applies dot when PUFFED
