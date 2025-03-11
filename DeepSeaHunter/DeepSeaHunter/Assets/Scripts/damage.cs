@@ -7,6 +7,7 @@ public class damage : MonoBehaviour
     [SerializeField] damageType type;
     [SerializeField] Rigidbody rb;
 
+    [SerializeField] int speed;
     [SerializeField] int dmgAmount;
     [SerializeField] int dmgTime;
     [SerializeField] int destroyTime;
@@ -18,7 +19,7 @@ public class damage : MonoBehaviour
     {
         if (type == damageType.moving)
         {
-            rb.linearVelocity = transform.forward;
+            rb.linearVelocity = transform.forward * speed;
             Destroy(gameObject, dmgTime);
         }
     }
