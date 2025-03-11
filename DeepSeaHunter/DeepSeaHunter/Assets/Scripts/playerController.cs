@@ -36,13 +36,10 @@ public class playerController : MonoBehaviour, IDamage
     float shootTimer;
     public float shootDist;
     public bool isTangled;
-    int HPOrig;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        HPOrig = HP;
-        updatePlayerUI();
         shootDist = shootMin;
     }
 
@@ -179,25 +176,13 @@ public class playerController : MonoBehaviour, IDamage
     {
         HP -= damage;
         //add feedback here
-        updatePlayerUI();
-        StartCoroutine(flashDamageScreen());
 
-        if ( HP <= 0 )
+        if( HP <= 0 )
         {
             GameManager.instance.youLose();
         }
     }
-    IEnumerator flashDamageScreen()
-    {
-        GameManager.instance.playerDamageScreen.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        GameManager.instance.playerDamageScreen.SetActive(true);
 
-    }
-    public void updatePlayerUI()
-    {
-        GameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
-    }
     IEnumerator rechargeDash()
     {
         yield return new WaitForSeconds(dashRechargeTimer);
