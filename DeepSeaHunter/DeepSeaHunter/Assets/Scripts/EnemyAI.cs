@@ -1,10 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
     [SerializeField] int HP;
     [SerializeField] Renderer model;
+
+    [SerializeField] NavMeshAgent agent;
+
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPos;
 
@@ -23,6 +27,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+        agent.SetDestination(GameManager.instance.player.transform.position);
+
         shootTimer += Time.deltaTime;
         if (shootTimer >= shootRate)
             shoot();
