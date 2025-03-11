@@ -175,12 +175,20 @@ public class playerController : MonoBehaviour, IDamage
     public void takeDamage(int damage)
     {
         HP -= damage;
+        StartCoroutine(flashDamageScreen());
         //add feedback here
 
         if( HP <= 0 )
         {
             GameManager.instance.youLose();
         }
+    }
+
+    IEnumerator flashDamageScreen()
+    {
+        GameManager.instance.playerDamageScreen.SetActive(true);
+        yield return new WaitForSeconds(.1f);
+        GameManager.instance.playerDamageScreen.SetActive(false);
     }
 
     IEnumerator rechargeDash()

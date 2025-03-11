@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
 
+    public GameObject playerDamageScreen;
+
     public bool isPaused;
     public int goalCount;
 
