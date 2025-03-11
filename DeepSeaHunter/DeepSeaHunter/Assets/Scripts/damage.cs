@@ -54,4 +54,5 @@ public class damage : MonoBehaviour
                 StartCoroutine(damageOther(dmg));
         }
     }
+    //
 }
