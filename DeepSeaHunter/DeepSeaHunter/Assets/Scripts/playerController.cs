@@ -28,6 +28,8 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float shootMax;
 
     [SerializeField] int tangleMod;
+
+    int HPOrig;
     Vector3 moveDir;
     Vector3 playerVel;
     int dashCount;
@@ -40,6 +42,8 @@ public class playerController : MonoBehaviour, IDamage
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        HPOrig = HP;
+        updatePlayerUI();
         shootDist = shootMin;
     }
 
@@ -175,6 +179,7 @@ public class playerController : MonoBehaviour, IDamage
     public void takeDamage(int damage)
     {
         HP -= damage;
+        updatePlayerUI();
         StartCoroutine(flashDamageScreen());
         //add feedback here
 
@@ -225,4 +230,9 @@ public class playerController : MonoBehaviour, IDamage
         }
     }
     //
+
+    public void updatePlayerUI()
+    {
+        GameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
+    }
 }

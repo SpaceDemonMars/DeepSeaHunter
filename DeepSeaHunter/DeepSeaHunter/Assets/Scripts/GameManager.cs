@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuLose;
 
     public GameObject playerDamageScreen;
+    public Image playerHPBar;
 
     public bool isPaused;
     public int goalCount;
