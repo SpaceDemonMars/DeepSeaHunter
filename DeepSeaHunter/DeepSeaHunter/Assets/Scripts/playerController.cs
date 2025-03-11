@@ -101,7 +101,8 @@ public class playerController : MonoBehaviour, IDamage
     {
         if (Input.GetButton("Fire2") && shootDist < shootMax) //start charging
         {
-            shootDist += Time.deltaTime * 5; 
+            shootDist += Time.deltaTime * 5;
+            updateChargeUI();
         }
         else if (Input.GetButtonUp("Fire2")) //fire
         {
@@ -174,6 +175,7 @@ public class playerController : MonoBehaviour, IDamage
             }
         }
         shootDist = shootMin;//reset shoot dist
+        updateChargeUI();
     }
 
     public void takeDamage(int damage)
@@ -234,5 +236,13 @@ public class playerController : MonoBehaviour, IDamage
     public void updatePlayerUI()
     {
         GameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
+        updateChargeUI();
+    }
+
+    void updateChargeUI()
+    {
+        float charge = shootDist - shootMin;
+        float maxCharge = shootMax - shootMin;
+        GameManager.instance.harpoonChargeBar.fillAmount = charge / maxCharge;
     }
 }

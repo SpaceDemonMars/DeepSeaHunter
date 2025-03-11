@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject playerDamageScreen;
     public Image playerHPBar;
 
+    public Image harpoonChargeBar;
+
     public bool isPaused;
     public int goalCount;
 
