@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public Image playerHPBar;
 
     public Image harpoonChargeBar;
+    public Image harpoonReloadBar;
+    public Image knifeReloadBar;
 
     public bool isPaused;
     public int goalCount;

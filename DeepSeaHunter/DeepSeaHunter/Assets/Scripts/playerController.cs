@@ -57,6 +57,7 @@ public class playerController : MonoBehaviour, IDamage
         if (shootRate <= shootTimer)
             harpoon();
         //sprint();
+        updateReloadUI();
     }
 
     void movement()
@@ -237,6 +238,7 @@ public class playerController : MonoBehaviour, IDamage
     {
         GameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
         updateChargeUI();
+        updateReloadUI();
     }
 
     void updateChargeUI()
@@ -244,5 +246,11 @@ public class playerController : MonoBehaviour, IDamage
         float charge = shootDist - shootMin;
         float maxCharge = shootMax - shootMin;
         GameManager.instance.harpoonChargeBar.fillAmount = charge / maxCharge;
+    }
+
+    void updateReloadUI()
+    {
+        GameManager.instance.knifeReloadBar.fillAmount = knifeTimer / knifeRate;
+        GameManager.instance.harpoonReloadBar.fillAmount = shootTimer / shootRate;
     }
 }
