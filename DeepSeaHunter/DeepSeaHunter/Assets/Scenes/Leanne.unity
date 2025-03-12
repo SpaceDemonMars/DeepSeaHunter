@@ -1555,6 +1555,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8589297086339960684, guid: 495fd3a4c7a68274385d1d3b833a5d98, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a521bb3181959c4478d7e95548c45a53, type: 2}
     - target: {fileID: 8755711269591188826, guid: 495fd3a4c7a68274385d1d3b833a5d98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -13.807167
@@ -1617,9 +1621,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8589297086339960683, guid: 495fd3a4c7a68274385d1d3b833a5d98, type: 3}
       insertIndex: -1
       addedObject: {fileID: 602922658}
-    - targetCorrespondingSourceObject: {fileID: 8589297086339960683, guid: 495fd3a4c7a68274385d1d3b833a5d98, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 602922659}
   m_SourcePrefab: {fileID: 100100000, guid: 495fd3a4c7a68274385d1d3b833a5d98, type: 3}
 --- !u!1 &602922651 stripped
 GameObject:
@@ -1639,9 +1640,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 3
-  model: {fileID: 0}
+  model: {fileID: 1855916432}
   agent: {fileID: 602922658}
-  anim: {fileID: 0}
+  anim: {fileID: 602922659}
   faceTargetSpeed: 5
   animTranSpeed: 5
 --- !u!195 &602922658
@@ -1662,26 +1663,15 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
+  m_Height: 1
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!111 &602922659
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!95 &602922659 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8589297086339960684, guid: 495fd3a4c7a68274385d1d3b833a5d98, type: 3}
+  m_PrefabInstance: {fileID: 602922650}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 602922651}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 4b72feb9a75a06d4ba44b53bcc84e1d6, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1 &610745887
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,7 +2986,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1543313585}
   m_Father: {fileID: 816795014}
@@ -3026,7 +3016,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 488c68f28327e7342b6fb23322bb6434, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b31c5e94507ac264d9b31e463c3c45dd, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4665,7 +4655,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 488c68f28327e7342b6fb23322bb6434, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b31c5e94507ac264d9b31e463c3c45dd, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5581,6 +5571,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 139145709261866105, guid: ce544f8de5c3a8449a9cf837459a07f7, type: 3}
   m_PrefabInstance: {fileID: 1854384103}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &1855916432 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7824840612062274271, guid: 495fd3a4c7a68274385d1d3b833a5d98, type: 3}
+  m_PrefabInstance: {fileID: 602922650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2031999192
 GameObject:
   m_ObjectHideFlags: 0
@@ -5898,7 +5893,7 @@ Animator:
   m_GameObject: {fileID: 2104949405}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f4209d51d1ad0434299f2d498ee076ba, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a521bb3181959c4478d7e95548c45a53, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
