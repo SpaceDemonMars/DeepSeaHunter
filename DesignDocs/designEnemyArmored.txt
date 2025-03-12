@@ -1,0 +1,27 @@
+Enemy Armored
+
+Low Level : Crab
+High Level : Giant Crab
+	
+Stats 		Low > High
+	HP:	3(5)> 5(8)
+	Armor:  2   > 3
+	Range: 	1   > 1
+	DMG : 	1   > 2
+	Rate : 	5s  > 5s
+	Weight: Lht > Hvy
+
+Gameplay Feel/Notes:
+	**when hit with harpoon, crabs should flip (3s), exposing weak spot
+	attack then back away ~3
+	make front of model a leg side of the crab, so that the forward
+	is sideways
+
+Armor Damage
+	if(hit == armor)
+		if (armorHP > 0)
+			armorHP -= dmg
+		else
+			HP -= dmg
+something like this so if the armor is hit, it takes dmg
+	if the armor is hit, but is at 0, the dmg goes to the HP

@@ -1,0 +1,18 @@
+Enemy Ranged
+
+Low Level : Cuttlefish
+High Level : Squid
+	
+Stats 		Low > High
+	HP:	3   > 4
+	Range: 	15  > 15
+	DMG : 	1   > 1
+	Rate : 	6s  > 4s
+	Weight: Lht > Lht
+
+Gameplay Feel/Notes:
+	Should be a nuisance, not a threat
+	Overal weak/squishy, think archer
+	Attacks while player is focused on other enemies
+	**if harpooned, should run from player
+	**trail should be black, like ink

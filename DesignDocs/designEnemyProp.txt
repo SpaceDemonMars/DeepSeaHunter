@@ -1,0 +1,11 @@
+Enemy Prop
+
+Low Level : Barrel
+High Level : Chest
+	
+Stats 		Low > High
+	HP:	1   > 2
+	Weight: Hvy > Hvy
+
+Gameplay Feel/Notes:
+	drop smth on break

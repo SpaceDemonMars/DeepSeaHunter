@@ -1,0 +1,22 @@
+Trap DOT
+
+Jellyfish
+	DMG : 0
+	DUR : 3s
+
+Gameplay Feel/Notes:
+	call playerController.toggleTangled()
+	call again after DUR
+
+Pufferfish
+	DMG : 1
+	DUR : 3s
+
+Gameplay Feel/Notes:
+	Two states, swaps on hit
+	Puffed  /  Unpuffed
+	
+	TakeDamage()
+		isPuffed = !isPuffed;
+
+	ONLY applies dot when PUFFED

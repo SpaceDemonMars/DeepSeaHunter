@@ -1,0 +1,65 @@
+GDB229 Project and Portfolio
+Game Idea
+
+Name (wip) : Deep Sea Hunter
+Genre : FPS
+Premise : Undersea spear fishing
+
+Ideas
+Weapon (Main): Harpoon Gun
+		On hit will pull player towards heavy objects (terrain or large enemies)
+		or pull light objects (small enemies/loot) to player
+Weapon (Secondary): Knife
+
+Player taking damage HUD : glass cracks, like scuba helmet being broken	
+				more damage >> more cracks
+
+Gameplay mechanic Ideas :
+	-Eat fish for buffs
+	-Breakable terrain
+	-Harpoon can be charged before firing for more damage/range
+	-look into boids again for a school of fish
+	-weighted boots to walk on ocean floor
+	-dash/evade instead of sprint (maybe)
+
+Enemy Ideas :
+	-Final Boss Leviathan (combine elements from all enemies)
+	-Crabs : armored top(will flip if pulled by harpoon, only takes knife damage)
+	-Swordfish/Sawfish/Marlin/Sharks : player colliding with them will cause damage, will use charge attacks
+	-??? : (some sorta fish that looks like it could use a beam attack) fires a water beam
+	-School of fish : player collision takes damage, higher toward the center, sustained while in contact
+	-low level versions of the above, as more basic fish
+	-barrel (for tutorial)
+
+Trap Ideas : 
+	-jellyfish : nondamaging, cause a paralysis on contact
+	-urchin : think spike trap
+	-Pufferfish : after taking damage, will puff up
+			player colliding with puffed fish get poison DOT
+	-kelp that slows player/blocks shots (breakable)
+
+Terrain Ideas :
+	rock formations/coral (breakable, should create rubble)
+	undersea ruins (for boss stage, partially breakable, create rubble)
+
+Scene Progression :
+	Beach (Tutorial)
+		Enemies : Barrel
+		Progress : walk into ocean
+	Reef (Stage 1)
+		Enemies : low level fish, low level crab
+		Traps : urchin
+		Progress : walk deeper
+	Trench (Stage 2)
+		Enemies : low level fish, low level crab, school
+		Traps : Jellyfish, urchin
+		Progress : go deeper
+	Deep Sea (Stage 3)
+		Enemies : School, high level fish/crabs
+		Traps: jelly, urchin, puffer
+	Not-Atlantis (Final)
+		Enemies : all
+		Boss : Leviathan
+		Traps : all
+		Win : Slay Leviathan
+	
