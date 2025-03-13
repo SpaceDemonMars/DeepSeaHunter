@@ -6,10 +6,13 @@ public class EnemyAI : MonoBehaviour, IDamage
 {
     [SerializeField] int HP;
     [SerializeField] Renderer model;
+<<<<<<< Updated upstream
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
     [SerializeField] int faceTargetSpeed;
     [SerializeField] int animTranSpeed;
+=======
+>>>>>>> Stashed changes
     [SerializeField] int biteDmg;
     [SerializeField] float biteRate;
     [SerializeField] int biteDist;
@@ -87,6 +90,23 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 =======
+
+    void bite()
+    {
+        biteTimer = 0;
+        RaycastHit hit;
+
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, biteDist, ~ignoreLayer))
+        {
+            Debug.Log(hit.collider.name);
+            IDamage dmg = hit.collider.GetComponent<IDamage>();
+
+            if (dmg != null)
+            {
+                dmg.takeDamage(biteDmg);
+            }
+        }
+    }
 
     void bite()
     {
