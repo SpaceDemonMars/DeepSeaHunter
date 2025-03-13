@@ -4512,10 +4512,10 @@ MonoBehaviour:
   grav: 16
   knifeDmg: 1
   knifeRate: 0.5
-  knifeDist: 3
+  knifeDist: 5
   shootDmg: 1
   shootRate: 3
-  shootMin: 5
+  shootMin: 10
   shootMax: 20
   tangleMod: 2
   shootDist: 0
@@ -5937,6 +5937,7 @@ MonoBehaviour:
   shootPos: {fileID: 65809075}
   shootRate: 1
   faceTargetSpeed: 3
+  animTranSpeed: 8
 --- !u!195 &5176465524919959411
 NavMeshAgent:
   m_ObjectHideFlags: 0
