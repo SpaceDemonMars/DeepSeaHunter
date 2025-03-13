@@ -5931,10 +5931,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 3
   model: {fileID: 5176465524915765680}
+  anim: {fileID: 5176465524919959408}
   agent: {fileID: 5176465524919959411}
   bullet: {fileID: 3220944449693001656, guid: 4bb60c7ee1bd44f4e89efd2f9f5e702b, type: 3}
   shootPos: {fileID: 65809075}
   shootRate: 1
+  faceTargetSpeed: 3
 --- !u!195 &5176465524919959411
 NavMeshAgent:
   m_ObjectHideFlags: 0

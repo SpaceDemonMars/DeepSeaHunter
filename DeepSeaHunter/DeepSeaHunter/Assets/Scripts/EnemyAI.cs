@@ -6,6 +6,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 {
     [SerializeField] int HP;
     [SerializeField] Renderer model;
+    [SerializeField] Animator anim;
 
     [SerializeField] NavMeshAgent agent;
 
@@ -13,10 +14,14 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] Transform shootPos;
 
     [SerializeField] float shootRate;
+    [SerializeField] int faceTargetSpeed;
+    [SerializeField] int animTranSpeed;
 
     float shootTimer;
 
     Color modelColor;
+
+    Vector3 playerDir;
 
     bool playerInRange;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,14 +34,31 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+        setAnimLocomotion();
         shootTimer += Time.deltaTime;
         if (playerInRange)
         {
+            playerDir = GameManager.instance.player.transform.position - transform.position;
             agent.SetDestination(GameManager.instance.player.transform.position);
 
             if (shootTimer >= shootRate)
                 shoot();
+            if (agent.remainingDistance <= agent.stoppingDistance)
+                faceTarget();
         }
+    }
+
+    void setAnimLocomotion()
+    {
+        float agentSpeed = agent.velocity.normalized.magnitude;
+        float animSpeed = anim.GetFloat("Speed");
+        anim.SetFloat("Speed", Mathf.Lerp(animSpeed, agentSpeed, Time.deltaTime * animTranSpeed));
+    }
+
+    void faceTarget()
+    {
+        Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, transform.position.y, playerDir.z));
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceTargetSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
