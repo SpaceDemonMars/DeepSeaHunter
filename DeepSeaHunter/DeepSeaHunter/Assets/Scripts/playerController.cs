@@ -28,6 +28,8 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float shootMax;
 
     [SerializeField] int tangleMod;
+
+    int HPOrig;
     Vector3 moveDir;
     Vector3 playerVel;
     int dashCount;
@@ -40,6 +42,8 @@ public class playerController : MonoBehaviour, IDamage
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        HPOrig = HP;
+        updatePlayerUI();
         shootDist = shootMin;
     }
 
@@ -53,6 +57,7 @@ public class playerController : MonoBehaviour, IDamage
         if (shootRate <= shootTimer)
             harpoon();
         //sprint();
+        updateReloadUI();
     }
 
     void movement()
@@ -97,7 +102,8 @@ public class playerController : MonoBehaviour, IDamage
     {
         if (Input.GetButton("Fire2") && shootDist < shootMax) //start charging
         {
-            shootDist += Time.deltaTime * 5; 
+            shootDist += Time.deltaTime * 5;
+            updateChargeUI();
         }
         else if (Input.GetButtonUp("Fire2")) //fire
         {
@@ -170,17 +176,27 @@ public class playerController : MonoBehaviour, IDamage
             }
         }
         shootDist = shootMin;//reset shoot dist
+        updateChargeUI();
     }
 
     public void takeDamage(int damage)
     {
         HP -= damage;
+        updatePlayerUI();
+        StartCoroutine(flashDamageScreen());
         //add feedback here
 
         if( HP <= 0 )
         {
             GameManager.instance.youLose();
         }
+    }
+
+    IEnumerator flashDamageScreen()
+    {
+        GameManager.instance.playerDamageScreen.SetActive(true);
+        yield return new WaitForSeconds(.1f);
+        GameManager.instance.playerDamageScreen.SetActive(false);
     }
 
     IEnumerator rechargeDash()
@@ -215,5 +231,26 @@ public class playerController : MonoBehaviour, IDamage
             dashDuration *= tangleMod;
             shootRate /= tangleMod;
         }
+    }
+    //
+
+    public void updatePlayerUI()
+    {
+        GameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
+        updateChargeUI();
+        updateReloadUI();
+    }
+
+    void updateChargeUI()
+    {
+        float charge = shootDist - shootMin;
+        float maxCharge = shootMax - shootMin;
+        GameManager.instance.harpoonChargeBar.fillAmount = charge / maxCharge;
+    }
+
+    void updateReloadUI()
+    {
+        GameManager.instance.knifeReloadBar.fillAmount = knifeTimer / knifeRate;
+        GameManager.instance.harpoonReloadBar.fillAmount = shootTimer / shootRate;
     }
 }

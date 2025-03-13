@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+
+    public GameObject playerDamageScreen;
+    public Image playerHPBar;
+
+    public Image harpoonChargeBar;
+    public Image harpoonReloadBar;
+    public Image knifeReloadBar;
 
     public bool isPaused;
     public int goalCount;
@@ -78,4 +86,5 @@ public class GameManager : MonoBehaviour
         menuActive = menuLose;
         menuActive.SetActive(true);
     }
+    //
 }
