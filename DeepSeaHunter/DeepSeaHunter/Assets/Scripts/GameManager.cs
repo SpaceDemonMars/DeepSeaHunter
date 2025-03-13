@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -6,11 +9,14 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public playerController playerScript;
+    public Image playerHPBar;
+    public GameObject playerDamageScreen;
 
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+    [SerializeField] TMP_Text goalCountText;
 
     public bool isPaused;
     public int goalCount;
@@ -63,7 +69,7 @@ public class GameManager : MonoBehaviour
     public void updateGameGoal(int amount)
     {
         goalCount += amount;
-
+        goalCountText.text = goalCount.ToString("F0");
         if (goalCount <= 0)
         {
             statePause();
@@ -79,3 +85,4 @@ public class GameManager : MonoBehaviour
         menuActive.SetActive(true);
     }
 }
+

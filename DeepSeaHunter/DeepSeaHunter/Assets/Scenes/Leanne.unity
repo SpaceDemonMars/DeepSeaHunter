@@ -1548,6 +1548,10 @@ MonoBehaviour:
   anim: {fileID: 602922659}
   faceTargetSpeed: 5
   animTranSpeed: 5
+  biteDmg: 2
+  biteRate: 2
+  biteDist: 3
+  biteTimer: 2
 --- !u!195 &602922658
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5786,6 +5790,10 @@ MonoBehaviour:
   anim: {fileID: 2104949408}
   faceTargetSpeed: 8
   animTranSpeed: 8
+  biteDmg: 0
+  biteRate: 0
+  biteDist: 0
+  biteTimer: 0
 --- !u!95 &2104949408
 Animator:
   serializedVersion: 7
