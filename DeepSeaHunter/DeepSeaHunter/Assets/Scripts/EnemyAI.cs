@@ -6,16 +6,15 @@ public class EnemyAI : MonoBehaviour, IDamage
 {
     [SerializeField] int HP;
     [SerializeField] Renderer model;
-<<<<<<< Updated upstream
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
     [SerializeField] int faceTargetSpeed;
     [SerializeField] int animTranSpeed;
-=======
->>>>>>> Stashed changes
     [SerializeField] int biteDmg;
     [SerializeField] float biteRate;
     [SerializeField] int biteDist;
+   
+    public int biteTimer;
 
     Color modelColor;
     Vector3 playerDir;
@@ -81,22 +80,12 @@ public class EnemyAI : MonoBehaviour, IDamage
             Destroy(gameObject);
         }
     }
-<<<<<<< Updated upstream
-        IEnumerator flashRed()
-        {
-            model.material.color = Color.red;
-            yield return new WaitForSeconds(0.1f);
-            model.material.color = Color.white;
-        }
-    }
-=======
-
     void bite()
     {
         biteTimer = 0;
         RaycastHit hit;
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, biteDist, ~ignoreLayer))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, biteDist))
         {
             Debug.Log(hit.collider.name);
             IDamage dmg = hit.collider.GetComponent<IDamage>();
@@ -107,24 +96,6 @@ public class EnemyAI : MonoBehaviour, IDamage
             }
         }
     }
-
-    void bite()
-    {
-        biteTimer = 0;
-        RaycastHit hit;
-
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, biteDist, ~ignoreLayer))
-        {
-            Debug.Log(hit.collider.name);
-            IDamage dmg = hit.collider.GetComponent<IDamage>();
-
-            if (dmg != null)
-            {
-                dmg.takeDamage(biteDmg);
-            }
-        }
-    }
-
     IEnumerator flashRed()
     {
         model.material.color = Color.red;
@@ -132,4 +103,3 @@ public class EnemyAI : MonoBehaviour, IDamage
         model.material.color = modelColor;
     }
 }
->>>>>>> Stashed changes
