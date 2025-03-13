@@ -313,6 +313,11 @@ MonoBehaviour:
   menuPause: {fileID: 357795287}
   menuWin: {fileID: 1568712076}
   menuLose: {fileID: 2031999192}
+  playerDamageScreen: {fileID: 0}
+  playerHPBar: {fileID: 0}
+  harpoonChargeBar: {fileID: 0}
+  harpoonReloadBar: {fileID: 0}
+  knifeReloadBar: {fileID: 0}
   isPaused: 0
   goalCount: 15
 --- !u!1 &334398711
@@ -1544,6 +1549,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 3
   model: {fileID: 1855916432}
+  agent: {fileID: 0}
+  bullet: {fileID: 0}
+  shootPos: {fileID: 0}
+  shootRate: 0
 --- !u!195 &602922658
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2885,9 +2894,9 @@ RectTransform:
   - {fileID: 1543313585}
   m_Father: {fileID: 816795014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -46}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 51}
   m_SizeDelta: {x: 526, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &932939836
@@ -4714,6 +4723,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   dmgAmount: 1
   dmgTime: 1
+  speed: 0
   destroyTime: 3
 --- !u!65 &1665427092
 BoxCollider:
@@ -5162,9 +5172,9 @@ RectTransform:
   - {fileID: 683505511}
   m_Father: {fileID: 816795014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -21, y: -105}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -21, y: 91}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1827496580
@@ -5773,6 +5783,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 3
   model: {fileID: 1284476880}
+  agent: {fileID: 0}
+  bullet: {fileID: 0}
+  shootPos: {fileID: 0}
+  shootRate: 0
 --- !u!95 &2104949408
 Animator:
   serializedVersion: 7
