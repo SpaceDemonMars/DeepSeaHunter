@@ -8,6 +8,13 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
+
+
+    [SerializeField] GameObject bullet;
+    [SerializeField] float shootRate;
+    [SerializeField] Transform shootPos;
+    float shootTimer;
+
     [SerializeField] int faceTargetSpeed;
     [SerializeField] int animTranSpeed;
     [SerializeField] int biteDmg;
@@ -23,11 +30,19 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-    }
+        agent = GetComponent<NavMeshAgent>(); 
+        agent.enabled = true;
+        
+        GameManager.instance.updateGameGoal(1);
+            }
     // Update is called once per frame
     void Update()
     {
+        shootTimer += Time.deltaTime;
+        if (shootTimer >= shootRate)
+        {
+            shoot();
+        }
         setAnimLocomotion();
 
         if (playerInRange)
@@ -95,6 +110,12 @@ public class EnemyAI : MonoBehaviour, IDamage
                 dmg.takeDamage(biteDmg);
             }
         }
+    }
+    void shoot()
+    {
+        shootTimer = 0;
+        Instantiate(bullet, shootPos.position, transform.rotation);
+
     }
     IEnumerator flashRed()
     {
