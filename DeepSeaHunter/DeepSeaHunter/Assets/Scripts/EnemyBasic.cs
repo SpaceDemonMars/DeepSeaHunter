@@ -50,18 +50,20 @@ public class EnemyBasic : MonoBehaviour, IDamage
                 playerDir = GameManager.instance.player.transform.position - transform.position;
                 agent.SetDestination(GameManager.instance.player.transform.position);
 
+                if (agent.remainingDistance <= agent.stoppingDistance)
+                { 
+                    //figure out how to make enemy circle target
+                    faceTarget(); 
+                }
+
                 if (attackTimer >= attackRate)
                 {
                     Attack();
                 }
-
-                if (agent.remainingDistance <= agent.stoppingDistance)
-                    faceTarget();
             }
         }
-        if (isAttacking && agent.remainingDistance <= 0.5) //enemy isAttacking && and reached destination, outside to prevent player exitting range, locking enemy into attack
+        if (isAttacking && agent.remainingDistance <= agent.stoppingDistance) //enemy isAttacking && and reached destination, outside to prevent player exitting range, locking enemy into attack
         {
-            Debug.Log("agent.isStopped");
             endAttack();
         }
     }
@@ -69,6 +71,7 @@ public class EnemyBasic : MonoBehaviour, IDamage
     void Attack()
     {
         isAttacking = true;
+        anim.Play("Attack");
         agent.stoppingDistance = 0;
         agent.speed = attackSpeed;
         attackCollider.GetComponent<Collider>().enabled = true; //turns on attack collider, so enemy can damage player
@@ -77,9 +80,9 @@ public class EnemyBasic : MonoBehaviour, IDamage
     }
     void endAttack()
     {
-        Debug.Log("End Attack Called");
         attackTimer = 0; //only reset attack timer here, so it cant reset during enemy attack
         isAttacking = false;
+        anim.Play("Swim");
         agent.stoppingDistance = stoppingDistance;
         agent.speed = agentSpeed;
         attackCollider.GetComponent<Collider>().enabled = false; 
