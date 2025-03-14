@@ -54,7 +54,7 @@ public class playerController : MonoBehaviour, IDamage
 
         movement();
 
-        if (shootRate <= shootTimer)
+        if (shootRate <= shootTimer && GameManager.instance.isPaused == false)
             harpoon();
         //sprint();
         updateReloadUI();
@@ -87,7 +87,7 @@ public class playerController : MonoBehaviour, IDamage
         playerVel.y -= grav * Time.deltaTime;
 
         //SHOOT LOGIC           
-        if (Input.GetButton("Fire1") && knifeRate <= knifeTimer)
+        if (Input.GetButton("Fire1") && knifeRate <= knifeTimer && GameManager.instance.isPaused == false)
         {
             knife();
         }
