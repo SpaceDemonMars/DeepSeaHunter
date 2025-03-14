@@ -4921,10 +4921,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GiantSquid
       objectReference: {fileID: 0}
-    - target: {fileID: 3564171174197936835, guid: fa1e2d8b421f52348866b500a48aaefc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4981,10 +4977,6 @@ PrefabInstance:
     - target: {fileID: 7535857315245549223, guid: 21c5cb62a5bb391419f1f6743e07ba3f, type: 3}
       propertyPath: m_Name
       value: ReefShark
-      objectReference: {fileID: 0}
-    - target: {fileID: 7535857315245549223, guid: 21c5cb62a5bb391419f1f6743e07ba3f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6225,10 +6217,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crab
       objectReference: {fileID: 0}
-    - target: {fileID: 6428303542693987154, guid: 110ec1a3a7d70234aad47c51715c64f9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6363,10 +6351,6 @@ PrefabInstance:
     - target: {fileID: 448182942238094671, guid: 4c6c42ea2b7a2ce4da54d5a82607f0e4, type: 3}
       propertyPath: m_Name
       value: GiantCrab
-      objectReference: {fileID: 0}
-    - target: {fileID: 448182942238094671, guid: 4c6c42ea2b7a2ce4da54d5a82607f0e4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5123396290307834416, guid: 4c6c42ea2b7a2ce4da54d5a82607f0e4, type: 3}
       propertyPath: m_LocalPosition.x
