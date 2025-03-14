@@ -352,11 +352,12 @@ MonoBehaviour:
   model: {fileID: 5114947771490130980}
   anim: {fileID: 3109867949448269307}
   agent: {fileID: 9184990504939649995}
+  bullet: {fileID: 3004315732962467996}
+  shootPos: {fileID: 0}
+  shootRate: 6
   faceTargetSpeed: 3
   animTranSpeed: 8
-  attackRate: 10
   attackSpeed: 8
-  attackCollider: {fileID: 3004315732962467996}
 --- !u!135 &5798977802177743797
 SphereCollider:
   m_ObjectHideFlags: 0

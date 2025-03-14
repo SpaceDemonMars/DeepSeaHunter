@@ -87,7 +87,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8845573040018601780
 Transform:
   m_ObjectHideFlags: 0
@@ -121,11 +121,12 @@ MonoBehaviour:
   model: {fileID: 7902062562959012675}
   anim: {fileID: 7700089369541600057}
   agent: {fileID: 9154799912327602769}
+  bullet: {fileID: 5957886602306386315}
+  shootPos: {fileID: 0}
+  shootRate: 7
   faceTargetSpeed: 2
   animTranSpeed: 8
-  attackRate: 12
   attackSpeed: 10
-  attackCollider: {fileID: 5957886602306386315}
 --- !u!135 &5300986647074914388
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -4,28 +4,28 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
-    [SerializeField] int HP;
+    public int HP;
     public Renderer model;
-    [SerializeField] Animator anim;
+    public Animator anim;
 
-    [SerializeField] NavMeshAgent agent;
+    public NavMeshAgent agent;
 
-    [SerializeField] GameObject bullet;
-    [SerializeField] Transform shootPos;
+    public GameObject bullet;
+    public Transform shootPos;
 
-    [SerializeField] float shootRate;
-    [SerializeField] int faceTargetSpeed;
-    [SerializeField] int animTranSpeed;
+    public float shootRate;
+    public int faceTargetSpeed;
+    public int animTranSpeed;
 
-    float shootTimer;
+    protected float shootTimer;
 
-    Color modelColor;
+    protected Color modelColor;
 
-    Vector3 playerDir;
+    protected Vector3 playerDir;
 
-    bool playerInRange;
+    protected bool playerInRange;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected virtual void Start()
     {
         GameManager.instance.updateGameGoal(1);
         modelColor = model.material.color;
@@ -48,14 +48,14 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 
-    void setAnimLocomotion()
+    protected void setAnimLocomotion()
     {
         float agentSpeed = agent.velocity.normalized.magnitude;
         float animSpeed = anim.GetFloat("Speed");
         anim.SetFloat("Speed", Mathf.Lerp(animSpeed, agentSpeed, Time.deltaTime * animTranSpeed));
     }
 
-    void faceTarget()
+    protected void faceTarget()
     {
         Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, transform.position.y, playerDir.z));
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceTargetSpeed);
@@ -76,7 +76,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 
-    public void takeDamage(int damage)
+    public virtual void takeDamage(int damage)
     {
         HP -= damage;
         StartCoroutine(flashRed());
@@ -89,14 +89,14 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 
-    IEnumerator flashRed()
+    protected IEnumerator flashRed()
     {
         model.material.color = Color.red;
         yield return new WaitForSeconds(.1f);
         model.material.color = modelColor;
     }
 
-    void shoot()
+    protected virtual void shoot()
     {
         shootTimer = 0;
         Instantiate(bullet, shootPos.position, transform.rotation);
