@@ -34,7 +34,7 @@ public class EnemyArmored : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        //setAnimLocomotion();
+        setAnimLocomotion();
         shootTimer += Time.deltaTime;
         if (playerInRange)
         {

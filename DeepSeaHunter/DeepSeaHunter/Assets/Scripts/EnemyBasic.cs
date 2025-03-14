@@ -41,7 +41,7 @@ public class EnemyBasic : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        //setAnimLocomotion();
+        setAnimLocomotion();
         attackTimer += Time.deltaTime;
         if (playerInRange)
         {
@@ -71,7 +71,7 @@ public class EnemyBasic : MonoBehaviour, IDamage
     void Attack()
     {
         isAttacking = true;
-        anim.Play("Attack");
+        //anim.Play("Attack");
         agent.stoppingDistance = 0;
         agent.speed = attackSpeed;
         attackCollider.GetComponent<Collider>().enabled = true; //turns on attack collider, so enemy can damage player
@@ -82,7 +82,7 @@ public class EnemyBasic : MonoBehaviour, IDamage
     {
         attackTimer = 0; //only reset attack timer here, so it cant reset during enemy attack
         isAttacking = false;
-        anim.Play("Swim");
+        //anim.Play("Swim");
         agent.stoppingDistance = stoppingDistance;
         agent.speed = agentSpeed;
         attackCollider.GetComponent<Collider>().enabled = false; 
