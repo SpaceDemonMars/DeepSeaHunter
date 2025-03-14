@@ -89,7 +89,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 
-    protected IEnumerator flashRed()
+    protected virtual IEnumerator flashRed()
     {
         model.material.color = Color.red;
         yield return new WaitForSeconds(.1f);

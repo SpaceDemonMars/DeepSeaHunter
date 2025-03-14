@@ -2,81 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyArmored : MonoBehaviour, IDamage
+public class EnemyArmored : EnemyAI
 {
-    [SerializeField] int HP;
-    [SerializeField] Animator anim;
-    public Renderer model;
-    public Material flashDamage;
-
-    public NavMeshAgent agent;
+    public Material flashDamage; //public so armor.cs can access
 
     [SerializeField] int numBullets;
     [SerializeField] float timeBetweenShots;
-    [SerializeField] GameObject bullet;
-    [SerializeField] Transform shootPos;
 
-    [SerializeField] float shootRate;
-    [SerializeField] int faceTargetSpeed;
-    [SerializeField] int animTranSpeed;
-
-    float shootTimer;
-
-    Vector3 playerDir;
-
-    bool playerInRange;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        GameManager.instance.updateGameGoal(1);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        setAnimLocomotion();
-        shootTimer += Time.deltaTime;
-        if (playerInRange)
-        {
-            playerDir = GameManager.instance.player.transform.position - transform.position;
-            agent.SetDestination(GameManager.instance.player.transform.position);
-
-            if (shootTimer >= shootRate)
-                shoot();
-            if (agent.remainingDistance <= agent.stoppingDistance)
-                faceTarget();
-        }
-    }
-
-    void setAnimLocomotion()
-    {
-        float agentSpeed = agent.velocity.normalized.magnitude;
-        float animSpeed = anim.GetFloat("Speed");
-        anim.SetFloat("Speed", Mathf.Lerp(animSpeed, agentSpeed, Time.deltaTime * animTranSpeed));
-    }
-
-    void faceTarget()
-    {
-        Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, transform.position.y, playerDir.z));
-        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceTargetSpeed);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-        }
-    }
-
-    public void takeDamage(int damage)
+    override public void takeDamage(int damage)
     {
         HP -= damage;
         StartCoroutine(flashRed());
@@ -89,7 +22,7 @@ public class EnemyArmored : MonoBehaviour, IDamage
         }
     }
 
-    IEnumerator flashRed()
+    override protected IEnumerator flashRed()
     {
         Material mat = model.material;
         model.material = flashDamage;
@@ -97,7 +30,7 @@ public class EnemyArmored : MonoBehaviour, IDamage
         model.material = mat;
     }
 
-    void shoot()
+    override protected void shoot()
     {
         StartCoroutine(shootMultiple());
         shootTimer = 0;
