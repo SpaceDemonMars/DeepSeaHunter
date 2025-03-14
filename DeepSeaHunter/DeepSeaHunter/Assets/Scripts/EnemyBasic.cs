@@ -1,6 +1,7 @@
 using UnityEngine.AI;
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class EnemyBasic : MonoBehaviour, IDamage
 {
@@ -14,8 +15,14 @@ public class EnemyBasic : MonoBehaviour, IDamage
     [SerializeField] int animTranSpeed;
 
     [SerializeField] int attackRate;
+    [SerializeField] float attackSpeed; //speed enemy moves at player while attacking
+
+    [SerializeField] GameObject attackCollider;
 
     float attackTimer;
+    bool isAttacking;
+    float stoppingDistance;
+    float agentSpeed;
 
     Color modelColor;
 
@@ -27,6 +34,8 @@ public class EnemyBasic : MonoBehaviour, IDamage
     {
         GameManager.instance.updateGameGoal(1);
         modelColor = model.material.color;
+        stoppingDistance = agent.stoppingDistance;
+        agentSpeed = agent.speed;
     }
 
     // Update is called once per frame
@@ -36,22 +45,45 @@ public class EnemyBasic : MonoBehaviour, IDamage
         attackTimer += Time.deltaTime;
         if (playerInRange)
         {
-            playerDir = GameManager.instance.player.transform.position - transform.position;
-            agent.SetDestination(GameManager.instance.player.transform.position);
-
-            if (attackTimer >= attackRate)
+            if (isAttacking == false)
             {
-                Attack();
-            }
+                playerDir = GameManager.instance.player.transform.position - transform.position;
+                agent.SetDestination(GameManager.instance.player.transform.position);
 
-            if (agent.remainingDistance <= agent.stoppingDistance)
-                faceTarget();
+                if (attackTimer >= attackRate)
+                {
+                    Attack();
+                }
+
+                if (agent.remainingDistance <= agent.stoppingDistance)
+                    faceTarget();
+            }
+        }
+        if (isAttacking && agent.remainingDistance <= 0.5) //enemy isAttacking && and reached destination, outside to prevent player exitting range, locking enemy into attack
+        {
+            Debug.Log("agent.isStopped");
+            endAttack();
         }
     }
 
     void Attack()
     {
-
+        isAttacking = true;
+        agent.stoppingDistance = 0;
+        agent.speed = attackSpeed;
+        attackCollider.GetComponent<Collider>().enabled = true; //turns on attack collider, so enemy can damage player
+        agent.SetDestination(GameManager.instance.player.transform.position + (playerDir/2)); //set enemy to go a little past player
+        //enemy should attack player location at time attack was called (this creates player dodge window)
+    }
+    void endAttack()
+    {
+        Debug.Log("End Attack Called");
+        attackTimer = 0; //only reset attack timer here, so it cant reset during enemy attack
+        isAttacking = false;
+        agent.stoppingDistance = stoppingDistance;
+        agent.speed = agentSpeed;
+        attackCollider.GetComponent<Collider>().enabled = false; 
+        //reset all values back to normal
     }
 
     void setAnimLocomotion()
@@ -85,6 +117,7 @@ public class EnemyBasic : MonoBehaviour, IDamage
     public void takeDamage(int damage)
     {
         HP -= damage;
+        attackTimer += attackRate / 2; //reduces attack cooldown when taking damage
         StartCoroutine(flashRed());
         agent.SetDestination(GameManager.instance.player.transform.position);
 
