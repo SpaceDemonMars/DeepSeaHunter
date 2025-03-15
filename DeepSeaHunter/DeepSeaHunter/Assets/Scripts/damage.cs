@@ -6,10 +6,11 @@ public class damage : MonoBehaviour
     enum damageType {  moving, stationary, dot }
     [SerializeField] damageType type;
     [SerializeField] Rigidbody rb;
-    [SerializeField] int speed;
-    [SerializeField] int dmgAmount;
-    [SerializeField] float dmgTime;
-    [SerializeField] int destroyTime;
+
+    [Range(1, 10)][SerializeField] int dmgAmount;
+    [Range(0.25f, 1)][SerializeField] float dmgTime;
+    [Range(10, 45)][SerializeField] int speed;
+    [Range(1, 5)][SerializeField] int destroyTime;
 
     bool isDamaging;
 
