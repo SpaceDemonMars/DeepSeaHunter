@@ -51,8 +51,13 @@ MonoBehaviour:
   rb: {fileID: 5445268077776354321}
   dmgAmount: 1
   dmgTime: 0
-  speed: 5
+  speed: 10
   destroyTime: 2
+  entangleDuration: 0
+  slowFactor: 0
+  poisonDamage: 1
+  poisonDuration: 1
+  poisonInterval: 0
 --- !u!135 &1485834516679890249
 SphereCollider:
   m_ObjectHideFlags: 0
