@@ -7,16 +7,16 @@ public class damage : MonoBehaviour
     [SerializeField] damageType type;
     [SerializeField] Rigidbody rb;
 
-    [Range(1, 10)][SerializeField] int dmgAmount;
-    [Range(0.25f, 1)][SerializeField] float dmgTime;
+    [Range(0, 10)][SerializeField] int dmgAmount;
+    [Range(0, 10)][SerializeField] float dmgTime;
     [Range(10, 45)][SerializeField] int speed;
-    [Range(1, 5)][SerializeField] int destroyTime;
-    [Range(0.25f, 1)][SerializeField] float entangleDuration;
-    [Range(1, 5)][SerializeField] int slowFactor;
+    [Range(0, 5)][SerializeField] int destroyTime;
+    [Range(0, 10)][SerializeField] float entangleDuration;
+    [Range(0, 5)][SerializeField] int slowFactor;
 
     [Range(1, 10)][SerializeField] int poisonDamage;
     [Range(1, 10)][SerializeField] float poisonDuration;
-    [Range(0.5f, 2f)][SerializeField] float poisonInterval;
+    [Range(0f, 2f)][SerializeField] float poisonInterval;
 
     bool isDamaging;
 
