@@ -8,14 +8,14 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
 
-    [SerializeField] int speed;
+    [SerializeField] public int speed;
     //[SerializeField] int sprintMod;
-    [SerializeField] int dashStr;
+    [SerializeField] public int dashStr;
     [SerializeField] int dashMax;
     [SerializeField] float dashRechargeTimer;
     [SerializeField] float dashDuration;
 
-    [SerializeField] int jumpStr;
+    [SerializeField] public int jumpStr;
     [SerializeField] int jumpMax;
     [SerializeField] float grav;
 

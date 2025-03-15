@@ -49,10 +49,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rb: {fileID: 7948111976187764106}
-  speed: 25
   dmgAmount: 1
   dmgTime: 0.25
+  speed: 25
   destroyTime: 3
+  entangleDuration: 0.25
+  slowFactor: 1
 --- !u!135 &4609330607433343326
 SphereCollider:
   m_ObjectHideFlags: 0
