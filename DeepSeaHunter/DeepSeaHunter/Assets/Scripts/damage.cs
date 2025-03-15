@@ -3,7 +3,7 @@ using System.Collections;
 
 public class damage : MonoBehaviour
 {
-    enum damageType {  moving, stationary, dot, entangling }
+    enum damageType {  moving, stationary, dot, entangling, poison }
     [SerializeField] damageType type;
     [SerializeField] Rigidbody rb;
 
@@ -14,6 +14,9 @@ public class damage : MonoBehaviour
     [Range(0.25f, 1)][SerializeField] float entangleDuration;
     [Range(1, 5)][SerializeField] int slowFactor;
 
+    [Range(1, 10)][SerializeField] int poisonDamage;
+    [Range(1, 10)][SerializeField] float poisonDuration;
+    [Range(0.5f, 2f)][SerializeField] float poisonInterval;
 
     bool isDamaging;
 
@@ -45,6 +48,10 @@ public class damage : MonoBehaviour
             else if (type == damageType.dot)
             {
                 StartCoroutine(damageOther(dmg));
+            }
+            else if (type == damageType.poison && player != null)
+            {
+                StartCoroutine(poisonPlayer(player));
             }
         }
         if (player != null && type == damageType.entangling)
@@ -95,6 +102,17 @@ public class damage : MonoBehaviour
             player.jumpStr *= slowFactor;
             player.dashStr *= slowFactor;
             player.isTangled = false;
+        }
+    }
+    private IEnumerator poisonPlayer(playerController player)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < poisonDuration)
+        {
+            player.takeDamage(poisonDamage);
+            yield return new WaitForSeconds(poisonInterval);
+            elapsedTime += poisonInterval;
         }
     }
 }

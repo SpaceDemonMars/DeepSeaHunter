@@ -332,9 +332,10 @@ GameObject:
   - component: {fileID: 1898680481308792221}
   - component: {fileID: 7031948996634196047}
   - component: {fileID: 6250319807707177928}
-  - component: {fileID: 844622929486134508}
-  - component: {fileID: 7775937645407598464}
   - component: {fileID: 3516577123979326058}
+  - component: {fileID: 844622929486134508}
+  - component: {fileID: -1684367212168164150}
+  - component: {fileID: 7775937645407598464}
   m_Layer: 0
   m_Name: barracuda
   m_TagString: Untagged
@@ -406,48 +407,6 @@ MonoBehaviour:
   biteRate: 2
   biteDist: 1
   biteTimer: 2
---- !u!114 &844622929486134508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8085057919005263849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 546806fd7be3cbb4093ac87036edb7ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  rb: {fileID: 3516577123979326058}
-  dmgAmount: 1
-  dmgTime: 0.25
-  speed: 10
-  destroyTime: 1
-  entangleDuration: 0.25
-  slowFactor: 1
---- !u!195 &7775937645407598464
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8085057919005263849}
-  m_Enabled: 1
-  m_AgentTypeID: -1372625422
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 8
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!54 &3516577123979326058
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -474,7 +433,73 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &844622929486134508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085057919005263849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 546806fd7be3cbb4093ac87036edb7ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  rb: {fileID: 3516577123979326058}
+  dmgAmount: 1
+  dmgTime: 0.25
+  speed: 10
+  destroyTime: 1
+  entangleDuration: 0.25
+  slowFactor: 1
+  poisonDamage: 1
+  poisonDuration: 1
+  poisonInterval: 0.5
+--- !u!135 &-1684367212168164150
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085057919005263849}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!195 &7775937645407598464
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085057919005263849}
+  m_Enabled: 1
+  m_AgentTypeID: -1372625422
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 8
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8146419107615929676
 GameObject:
   m_ObjectHideFlags: 0
