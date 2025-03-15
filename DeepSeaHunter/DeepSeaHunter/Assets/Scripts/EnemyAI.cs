@@ -4,36 +4,47 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
-    public int HP;
-    public Renderer model;
-    public Animator anim;
+    [SerializeField] int HP;
+    [SerializeField] Renderer model;
+    [SerializeField] NavMeshAgent agent;
+    [SerializeField] Animator anim;
 
-    public NavMeshAgent agent;
 
-    public GameObject bullet;
-    public Transform shootPos;
+    [SerializeField] GameObject bullet;
+    [SerializeField] float shootRate;
+    [SerializeField] Transform shootPos;
+    float shootTimer;
 
-    public float shootRate;
-    public int faceTargetSpeed;
-    public int animTranSpeed;
+    [SerializeField] int faceTargetSpeed;
+    [SerializeField] int animTranSpeed;
+    [SerializeField] int biteDmg;
+    [SerializeField] float biteRate;
+    [SerializeField] int biteDist;
+   
+    public int biteTimer;
 
-    protected float shootTimer;
+    Color modelColor;
+    Vector3 playerDir;
+    bool playerInRange;
 
-    protected Color modelColor;
-
-    protected Vector3 playerDir;
-
-    protected bool playerInRange;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Start()
     {
-        GameManager.instance.updateGameGoal(1);
+        agent = GetComponent<NavMeshAgent>(); 
+        agent.enabled = true;
+                GameManager.instance.updateGameGoal(1);
         modelColor = model.material.color;
-    }
+        GameManager.instance.updateGameGoal(1);
+            }
 
     // Update is called once per frame
     void Update()
     {
+        shootTimer += Time.deltaTime;
+        if (shootTimer >= shootRate)
+        {
+            shoot();
+        }
         setAnimLocomotion();
         shootTimer += Time.deltaTime;
         if (playerInRange)
@@ -88,8 +99,29 @@ public class EnemyAI : MonoBehaviour, IDamage
             Destroy(gameObject);
         }
     }
+    void bite()
+    {
+        biteTimer = 0;
+        RaycastHit hit;
 
-    protected virtual IEnumerator flashRed()
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, biteDist))
+        {
+            Debug.Log(hit.collider.name);
+            IDamage dmg = hit.collider.GetComponent<IDamage>();
+
+            if (dmg != null)
+            {
+                dmg.takeDamage(biteDmg);
+            }
+        }
+    }
+    void shoot()
+    {
+        shootTimer = 0;
+        Instantiate(bullet, shootPos.position, transform.rotation);
+
+    }
+    IEnumerator flashRed()
     {
         model.material.color = Color.red;
         yield return new WaitForSeconds(.1f);

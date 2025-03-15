@@ -1,2 +1,16 @@
 fileFormatVersion: 2
 guid: 4d80de0d0dd9a5a4294599061d52534b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - model: {instanceID: 0}
+  - agent: {instanceID: 0}
+  - anim: {instanceID: 0}
+  - bullet: {fileID: 2595745353453595110, guid: 2ef7bf2206aada34b9fd4150747f77af, type: 3}
+  - shootPos: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
