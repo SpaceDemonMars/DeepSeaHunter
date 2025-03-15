@@ -71,7 +71,7 @@ public class damage : MonoBehaviour
                 StartCoroutine(damageOther(dmg));
         }
     }
-        private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (type == damageType.dot)
         {

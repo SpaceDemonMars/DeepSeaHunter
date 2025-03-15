@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
-public class playerController : MonoBehaviour, IDamage
+public class playerController : MonoBehaviour, IDamage, ITangle
 {
     [SerializeField] int HP;
     [SerializeField] LayerMask ignoreLayer;
@@ -26,8 +26,6 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
     [SerializeField] float shootMin;
     [SerializeField] float shootMax;
-
-    [SerializeField] int tangleMod;
 
     int HPOrig;
     Vector3 moveDir;
@@ -94,7 +92,7 @@ public class playerController : MonoBehaviour, IDamage
         //TANGLED TESTING
         if (Input.GetButtonDown("Fire3"))
         {
-            toggleTangled();
+            toggleTangled(2);
         }
     }
 
@@ -212,7 +210,7 @@ public class playerController : MonoBehaviour, IDamage
         playerVel.z = 0;
     }
 
-    public void toggleTangled()
+    public void toggleTangled(int tangleMod)
     {
         isTangled = !isTangled;
         if (isTangled)
