@@ -55,6 +55,9 @@ MonoBehaviour:
   destroyTime: 3
   entangleDuration: 0.25
   slowFactor: 1
+  poisonDamage: 1
+  poisonDuration: 1
+  poisonInterval: 0.5
 --- !u!135 &6469811642442711062
 SphereCollider:
   m_ObjectHideFlags: 0

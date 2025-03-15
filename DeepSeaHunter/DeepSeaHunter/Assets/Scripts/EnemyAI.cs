@@ -30,9 +30,13 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>(); 
-        agent.enabled = true;
-        
+        agent = GetComponent<NavMeshAgent>();
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(transform.position, out hit, 5f, NavMesh.AllAreas))
+        {
+            transform.position = hit.position;
+            agent.enabled = true;
+        }
         GameManager.instance.updateGameGoal(1);
             }
     // Update is called once per frame
