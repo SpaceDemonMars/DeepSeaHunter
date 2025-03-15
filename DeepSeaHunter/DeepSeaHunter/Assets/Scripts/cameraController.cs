@@ -35,4 +35,5 @@ public class cameraController : MonoBehaviour
         //move player
         transform.parent.Rotate(Vector3.up * mouseX);
     }
+    //
 }
