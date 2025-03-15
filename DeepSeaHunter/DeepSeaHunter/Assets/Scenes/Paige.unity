@@ -368,6 +368,11 @@ MonoBehaviour:
   dmgTime: 1
   speed: 0
   destroyTime: 3
+  entangleDuration: 0
+  slowFactor: 0
+  poisonDamage: 0
+  poisonDuration: 0
+  poisonInterval: 0
 --- !u!65 &47370414
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -993,6 +998,7 @@ MonoBehaviour:
   menuPause: {fileID: 1419510582}
   menuWin: {fileID: 1674065708}
   menuLose: {fileID: 1669347203}
+  goalCountText: {fileID: 0}
   playerDamageScreen: {fileID: 1415801887}
   playerHPBar: {fileID: 1103816684}
   harpoonChargeBar: {fileID: 1208672436}

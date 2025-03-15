@@ -330,8 +330,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1898680481308792221}
+  - component: {fileID: 5893759726302719455}
   - component: {fileID: 7031948996634196047}
-  - component: {fileID: 6250319807707177928}
   - component: {fileID: 3516577123979326058}
   - component: {fileID: 844622929486134508}
   - component: {fileID: -1684367212168164150}
@@ -360,6 +360,30 @@ Transform:
   - {fileID: 3889874354550400521}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5893759726302719455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085057919005263849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42c2f37cd2f6e29469e012f96855743c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 3
+  model: {fileID: 8402821448927390643}
+  anim: {fileID: 7031948996634196047}
+  agent: {fileID: 7775937645407598464}
+  bullet: {fileID: 0}
+  shootPos: {fileID: 7860144111126553050}
+  shootRate: 2
+  faceTargetSpeed: 5
+  animTranSpeed: 5
+  biteDmg: 0
+  biteRate: 0
+  biteDist: 0
 --- !u!95 &7031948996634196047
 Animator:
   serializedVersion: 7
@@ -382,31 +406,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6250319807707177928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8085057919005263849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d80de0d0dd9a5a4294599061d52534b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 3
-  model: {fileID: 8402821448927390643}
-  agent: {fileID: 7775937645407598464}
-  anim: {fileID: 7031948996634196047}
-  bullet: {fileID: 0}
-  shootRate: 2
-  shootPos: {fileID: 7860144111126553050}
-  faceTargetSpeed: 5
-  animTranSpeed: 5
-  biteDmg: 2
-  biteRate: 2
-  biteDist: 1
-  biteTimer: 2
 --- !u!54 &3516577123979326058
 Rigidbody:
   m_ObjectHideFlags: 0
