@@ -2,21 +2,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
     public GameObject player;
     public playerController playerScript;
-    public Image playerHPBar;
-    public GameObject playerDamageScreen;
 
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
     [SerializeField] TMP_Text goalCountText;
+
+    public GameObject playerDamageScreen;
+    public Image playerHPBar;
+
+    public Image harpoonChargeBar;
+    public Image harpoonReloadBar;
+    public Image knifeReloadBar;
 
     public bool isPaused;
     public int goalCount;
@@ -85,5 +89,5 @@ public class GameManager : MonoBehaviour
         menuActive = menuLose;
         menuActive.SetActive(true);
     }
+    //
 }
-
