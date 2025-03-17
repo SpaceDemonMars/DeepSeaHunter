@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 9115e1933724c964b816c92ff9977f82
+labels:
+- Architecture
+- Column
+- Environment
+- Marble
+- Pillar
+- Prop
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 13103
+  packageName: Pillars and columns
+  packageVersion: 1.0
+  assetPath: Assets/Meshes/Pillars/Marble/Pillar marble prefab.prefab
+  uploadId: 29459
