@@ -543,14 +543,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9028923487959050655, guid: 52edc1164f13fd646bed6369b8869dec, type: 3}
-      propertyPath: dashStr
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028923487959050655, guid: 52edc1164f13fd646bed6369b8869dec, type: 3}
-      propertyPath: pushResolve
-      value: 12
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
