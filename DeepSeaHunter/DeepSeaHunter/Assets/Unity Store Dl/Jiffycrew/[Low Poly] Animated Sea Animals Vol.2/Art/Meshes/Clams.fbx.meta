@@ -1,11 +1,8 @@
 fileFormatVersion: 2
-guid: 4c3f647e762e6534d86dab888a7804e8
+guid: 28d0bf4d36cb8b441a0b1786f92c85e7
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: -623603649343465320
-    second: Scene
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -108,5 +105,5 @@ AssetOrigin:
   productId: 220200
   packageName: '[Low Poly] Animated Sea Animals Vol.2'
   packageVersion: 1.0.0
-  assetPath: Assets/Jiffycrew/[Low Poly] Animated Sea Animals Vol.2/Art/Meshes/Orca.fbx
+  assetPath: Assets/Jiffycrew/[Low Poly] Animated Sea Animals Vol.2/Art/Meshes/Clams.fbx
   uploadId: 496984
