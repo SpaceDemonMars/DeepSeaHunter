@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 4f315ab66b9844a479d5cdb40350024a
+labels:
+- Architecture
+- Column
+- Environment
+- Metal
+- Old-school
+- Pillar
+- Prop
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 13103
+  packageName: Pillars and columns
+  packageVersion: 1.0
+  assetPath: Assets/Meshes/Pillars/Old-school/Pillar old-school metal prefab.prefab
+  uploadId: 29459
