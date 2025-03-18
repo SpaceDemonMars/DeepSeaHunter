@@ -93,10 +93,10 @@ public class playerController : MonoBehaviour, IDamage, ITangle
             knife();
         }
         //TANGLED TESTING
-        if (Input.GetButtonDown("Fire3"))
+        /*if (Input.GetButtonDown("Fire3"))
         {
             toggleTangled(2);
-        }
+        }*/
     }
 
     void harpoon()
@@ -233,6 +233,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle
             dashDuration *= tangleMod;
             shootRate /= tangleMod;
         }
+        GameManager.instance.playerSlowScreen.SetActive(isTangled);
     }
     //
 

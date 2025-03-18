@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text goalCountText;
 
     public GameObject playerDamageScreen;
+    public GameObject playerSlowScreen;
     public Image playerHPBar;
 
     public Image harpoonChargeBar;
