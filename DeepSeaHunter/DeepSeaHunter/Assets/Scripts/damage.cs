@@ -35,7 +35,8 @@ public class damage : MonoBehaviour
         if (other.isTrigger)
             return;
         IDamage dmg = other.GetComponent<IDamage>();
-        playerController player = other.GetComponent<playerController>();
+        //playerController player = other.GetComponent<playerController>();
+        ITangle tangle = other.GetComponent<ITangle>();
 
         if (dmg != null)
         {
@@ -49,14 +50,14 @@ public class damage : MonoBehaviour
             {
                 StartCoroutine(damageOther(dmg));
             }
-            else if (type == damageType.poison && player != null)
+            else if (type == damageType.poison && tangle != null)
             {
-                StartCoroutine(poisonPlayer(player));
+                StartCoroutine(poisonPlayer(dmg));
             }
         }
-        if (player != null && type == damageType.entangling)
+        if (tangle != null && type == damageType.entangling)
         {
-            StartCoroutine(entanglePlayer(player));
+            StartCoroutine(entanglePlayer(tangle));
         }
     }
 
@@ -86,31 +87,33 @@ public class damage : MonoBehaviour
         yield return new WaitForSeconds(dmgTime);
         isDamaging = false;
     }
-    private IEnumerator entanglePlayer(playerController player)
-    {
-        if (!player.isTangled)
+    private IEnumerator entanglePlayer(ITangle t)
+    {    //tweaks
+        t.stateTangled(slowFactor); //will auto tangle
+        yield return new WaitForSeconds(entangleDuration);
+        t.stateUntangled(slowFactor); //will untangle
+        /*if (!t.isTangled)
         {
             player.isTangled = true;
             player.speed /= slowFactor;
             player.jumpStr /= slowFactor;
             player.dashStr /= slowFactor;
         }
-        yield return new WaitForSeconds(entangleDuration);
-        if (player.isTangled)
+        if (t.isTangled)
         {
             player.speed *= slowFactor;
             player.jumpStr *= slowFactor;
             player.dashStr *= slowFactor;
             player.isTangled = false;
-        }
+        }*/
     }
-    private IEnumerator poisonPlayer(playerController player)
+    private IEnumerator poisonPlayer(IDamage d)
     {
         float elapsedTime = 0f;
 
         while (elapsedTime < poisonDuration)
         {
-            player.takeDamage(poisonDamage);
+            d.takeDamage(poisonDamage);
             yield return new WaitForSeconds(poisonInterval);
             elapsedTime += poisonInterval;
         }

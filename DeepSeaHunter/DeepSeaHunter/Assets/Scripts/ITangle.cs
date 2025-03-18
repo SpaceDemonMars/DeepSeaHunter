@@ -2,5 +2,6 @@ using UnityEngine;
 
 public interface ITangle
 {
-    void toggleTangled(int tangleMod);
+    void stateTangled(int tangleMod);
+    void stateUntangled(int tangleMod);
 }

@@ -6,21 +6,22 @@ public class tangle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        CallThisTheyDoTheSameThing(other);
+        if (other.isTrigger)
+            return;
+        ITangle tangle = other.GetComponent<ITangle>();
+        if (tangle != null)
+        {
+            tangle.stateTangled(tangleMod);
+        }
     }
     private void OnTriggerExit(Collider other)
-    {
-        CallThisTheyDoTheSameThing(other);
-    }
-
-    void CallThisTheyDoTheSameThing(Collider other)
     {
         if (other.isTrigger)
             return;
         ITangle tangle = other.GetComponent<ITangle>();
         if (tangle != null)
         {
-            tangle.toggleTangled(tangleMod);
+            tangle.stateUntangled(tangleMod);
         }
     }
 }

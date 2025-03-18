@@ -8,15 +8,15 @@ public class playerController : MonoBehaviour, IDamage, ITangle
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
 
-    [SerializeField] public int speed;
+    [SerializeField] public float speed;
     //[SerializeField] int sprintMod;
     [SerializeField] int pushResolve;
-    [SerializeField] public int dashStr;
+    [SerializeField] public float dashStr;
     [SerializeField] int dashMax;
     [SerializeField] float dashRechargeTimer;
     [SerializeField] float dashDuration;
 
-    [SerializeField] public int jumpStr;
+    [SerializeField] public float jumpStr;
     [SerializeField] int jumpMax;
     [SerializeField] float grav;
 
@@ -29,6 +29,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle
     [SerializeField] float shootMax;
 
     int HPOrig;
+    float speedOrig;
     Vector3 moveDir;
     public Vector3 pushDir;
     Vector3 playerVel;
@@ -43,6 +44,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle
     void Start()
     {
         HPOrig = HP;
+        speedOrig = speed;
         updatePlayerUI();
         shootDist = shootMin;
     }
@@ -217,25 +219,26 @@ public class playerController : MonoBehaviour, IDamage, ITangle
         playerVel.z = 0;
     }
 
-    public void toggleTangled(int tangleMod)
+    public void stateTangled(int tangleMod)
     {
-        isTangled = !isTangled;
-        if (isTangled)
-        {
-            speed /= tangleMod; //
-            jumpStr /= tangleMod;
-            dashStr /= tangleMod;
-            dashDuration /= tangleMod;
-            shootRate *= tangleMod;
-        }
-        else
-        {
-            speed *= tangleMod; //
-            jumpStr *= tangleMod;
-            dashStr *= tangleMod;
-            dashDuration *= tangleMod;
-            shootRate /= tangleMod;
-        }
+        isTangled = true;
+        speed /= tangleMod; //
+        jumpStr /= tangleMod;
+        dashStr /= tangleMod;
+        dashDuration /= tangleMod;
+        shootRate *= tangleMod;
+        GameManager.instance.playerSlowScreen.SetActive(isTangled);
+    }
+
+    public void stateUntangled(int tangleMod) 
+    {
+        speed *= tangleMod; //
+        jumpStr *= tangleMod;
+        dashStr *= tangleMod;
+        dashDuration *= tangleMod;
+        shootRate /= tangleMod;
+        if (speed == speedOrig) //if there are multiple sources of tangled, this (should) ensure that player is fully untangled before being set to false
+            isTangled = false;
         GameManager.instance.playerSlowScreen.SetActive(isTangled);
     }
     //
