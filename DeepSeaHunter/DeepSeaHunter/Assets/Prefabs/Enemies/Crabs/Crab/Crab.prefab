@@ -288,8 +288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 6324642400233627385}
   flashDamage: {fileID: 2100000, guid: 37dabd0d99d496646851a29f8e35be94, type: 2}
-  damaged: {fileID: 2100000, guid: dfd049a26635f0f4c87abf78c7ecee98, type: 2}
-  parentDamaged: {fileID: 2100000, guid: 2dbe361a781e3064b8021f6aa76b1c7e, type: 2}
+  damaged: {fileID: 2100000, guid: 2dbe361a781e3064b8021f6aa76b1c7e, type: 2}
+  parentDamaged: {fileID: 2100000, guid: dfd049a26635f0f4c87abf78c7ecee98, type: 2}
   HP: 2
 --- !u!1 &1456546006155481257
 GameObject:
@@ -964,17 +964,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 3
-  anim: {fileID: 1416566167301456603}
   model: {fileID: 6219099881564837271}
-  flashDamage: {fileID: 2100000, guid: 53c5c02c9a8412945850a233ddaebc07, type: 2}
+  anim: {fileID: 1416566167301456603}
   agent: {fileID: 1669143317712705176}
-  numBullets: 3
-  timeBetweenShots: 0.2
   bullet: {fileID: 3220944449693001656, guid: 3270c502ad33436428073e6a15decb94, type: 3}
   shootPos: {fileID: 3123728028503310601}
   shootRate: 6
   faceTargetSpeed: 6
   animTranSpeed: 8
+  flashDamage: {fileID: 2100000, guid: 53c5c02c9a8412945850a233ddaebc07, type: 2}
+  numBullets: 3
+  timeBetweenShots: 0.2
 --- !u!95 &1416566167301456603
 Animator:
   serializedVersion: 7
