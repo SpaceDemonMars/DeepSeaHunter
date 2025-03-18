@@ -128,7 +128,10 @@ public class playerController : MonoBehaviour, IDamage, ITangle
             //this needs math to get the angle right; look at polar to cart coords
             /*playerVel.x = dashStr * moveDir.x; //x = r cos theta; dashStr = r //z = r sin theta; theta = moveDir
             playerVel.z = dashStr * moveDir.z; //movedir might already has the cart coords*/
-            pushDir = moveDir * dashStr;
+            if (moveDir.normalized == Vector3.zero) //if no moveDir
+                pushDir = transform.forward * dashStr;
+            else
+                pushDir = moveDir * dashStr;
             Debug.Log("Dashed");
             StartCoroutine(endDash());
             StartCoroutine(rechargeDash());
