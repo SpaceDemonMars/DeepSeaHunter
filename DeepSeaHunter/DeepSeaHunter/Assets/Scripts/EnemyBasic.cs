@@ -58,6 +58,7 @@ public class EnemyBasic : EnemyAI
         agent.speed = attackSpeed;
         bullet.GetComponent<Collider>().enabled = true; //turns on attack collider, so enemy can damage player
         agent.SetDestination(GameManager.instance.player.transform.position + (playerDir/2)); //set enemy to go a little past player
+        anim.Play("Attack");
         //enemy should attack player location at time attack was called (this creates player dodge window)
     }
     void endAttack()
@@ -67,7 +68,8 @@ public class EnemyBasic : EnemyAI
         isAttacking = false;
         agent.stoppingDistance = stoppingDistance;
         agent.speed = agentSpeed;
-        bullet.GetComponent<Collider>().enabled = false; 
+        bullet.GetComponent<Collider>().enabled = false;
+        anim.Play("Swim");
         //reset all values back to normal
     }
 

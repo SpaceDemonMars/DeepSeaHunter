@@ -54,7 +54,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -7617168046759550301}
+  m_DefaultState: {fileID: -3299226053077436406}
 --- !u!1102 &-6509514797988195099
 AnimatorState:
   serializedVersion: 6
@@ -118,25 +118,25 @@ BlendTree:
   m_Name: Attack
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 3753fca13f2dd3848bf684ba8eed2cb5, type: 2}
+    m_Motion: {fileID: 7400000, guid: ac0ae47a27f4c58488407923897e5050, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 5
     m_CycleOffset: 0
     m_DirectBlendParameter: Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 332a2ca2bd0fd654fb8879593c48e04a, type: 2}
-    m_Threshold: 1
+    m_Motion: {fileID: 7400000, guid: 3753fca13f2dd3848bf684ba8eed2cb5, type: 2}
+    m_Threshold: 0.5
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 5
     m_CycleOffset: 0
     m_DirectBlendParameter: Speed
     m_Mirror: 0
   m_BlendParameter: Speed
   m_BlendParameterY: Blend
   m_MinThreshold: 0
-  m_MaxThreshold: 1
+  m_MaxThreshold: 0.5
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
   m_BlendType: 0
