@@ -54,6 +54,10 @@ MonoBehaviour:
   model: {fileID: 6658382985148939355}
   anim: {fileID: 4512614420973575659}
   agent: {fileID: 5895396461157913520}
+  headPos: {fileID: 2286680988349001440}
+  FOV: 150
+  roamPauseTime: 5
+  roamDist: 5
   bullet: {fileID: 3220944449693001656, guid: 90f66dd05fb32cd46b4125bbf03f82db, type: 3}
   shootPos: {fileID: 8333682057926395267}
   shootRate: 3

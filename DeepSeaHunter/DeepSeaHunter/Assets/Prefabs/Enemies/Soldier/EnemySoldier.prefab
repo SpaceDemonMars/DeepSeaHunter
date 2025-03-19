@@ -342,7 +342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7564655570352459449
 Transform:
   m_ObjectHideFlags: 0
@@ -398,6 +398,10 @@ MonoBehaviour:
   model: {fileID: 8744716705036386372}
   anim: {fileID: 5770368800769804363}
   agent: {fileID: 8847098071526950929}
+  headPos: {fileID: 7599904224203148019}
+  FOV: 90
+  roamPauseTime: 3
+  roamDist: 10
   bullet: {fileID: 3220944449693001656, guid: 4bb60c7ee1bd44f4e89efd2f9f5e702b, type: 3}
   shootPos: {fileID: 4295304980318666549}
   shootRate: 1

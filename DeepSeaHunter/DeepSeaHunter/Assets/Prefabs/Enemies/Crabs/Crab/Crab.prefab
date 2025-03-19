@@ -721,6 +721,7 @@ Transform:
   - {fileID: 4043473075656675305}
   - {fileID: 3353116350357670833}
   - {fileID: 30117631902005490}
+  - {fileID: 4880348090271590065}
   m_Father: {fileID: 4355556580009398702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4607787890144084434
@@ -816,6 +817,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4644752573688445859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5145835316547832244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4880348090271590065}
+  m_Layer: 0
+  m_Name: HeadPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4880348090271590065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145835316547832244}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0014, z: 0.00038}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4819989993753554063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5617828562430467154
 GameObject:
@@ -967,6 +999,10 @@ MonoBehaviour:
   model: {fileID: 6219099881564837271}
   anim: {fileID: 1416566167301456603}
   agent: {fileID: 1669143317712705176}
+  headPos: {fileID: 4880348090271590065}
+  FOV: 100
+  roamPauseTime: 3
+  roamDist: 6
   bullet: {fileID: 3220944449693001656, guid: 3270c502ad33436428073e6a15decb94, type: 3}
   shootPos: {fileID: 3123728028503310601}
   shootRate: 6

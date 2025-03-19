@@ -67,8 +67,8 @@ MonoBehaviour:
   knifeDist: 5
   shootDmg: 1
   shootRate: 3
-  shootMin: 10
-  shootMax: 20
+  shootMin: 15
+  shootMax: 50
   pushDir: {x: 0, y: 0, z: 0}
   shootDist: 0
   isTangled: 0
