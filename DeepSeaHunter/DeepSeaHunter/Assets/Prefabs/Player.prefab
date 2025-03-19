@@ -51,7 +51,7 @@ MonoBehaviour:
   HP: 10
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   controller: {fileID: 5603928613518264459}
   speed: 3
   pushResolve: 12
@@ -59,8 +59,8 @@ MonoBehaviour:
   dashMax: 3
   dashRechargeTimer: 5
   dashDuration: 0.2
-  jumpStr: 12
-  jumpMax: 3
+  jumpStr: 7
+  jumpMax: 1
   grav: 16
   knifeDmg: 1
   knifeRate: 0.5
