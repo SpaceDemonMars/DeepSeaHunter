@@ -1106,6 +1106,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreatWhiteShark
       objectReference: {fileID: 0}
+    - target: {fileID: 1314839165503862878, guid: ca8b34a9e9cd0a04386a6b6f1aa96ea3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8845573040018601780, guid: ca8b34a9e9cd0a04386a6b6f1aa96ea3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.05
