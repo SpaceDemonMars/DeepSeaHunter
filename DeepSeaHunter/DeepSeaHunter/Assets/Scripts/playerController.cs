@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.HID;
 
 public class playerController : MonoBehaviour, IDamage, ITangle
 {
-    [SerializeField] int HP;
+    public int HP;
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
 

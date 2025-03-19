@@ -87,7 +87,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8845573040018601780
 Transform:
   m_ObjectHideFlags: 0
@@ -121,6 +121,10 @@ MonoBehaviour:
   model: {fileID: 7902062562959012675}
   anim: {fileID: 7700089369541600057}
   agent: {fileID: 9154799912327602769}
+  headPos: {fileID: 0}
+  FOV: 75
+  roamPauseTime: 4
+  roamDist: 8
   bullet: {fileID: 5957886602306386315}
   shootPos: {fileID: 0}
   shootRate: 7
@@ -446,6 +450,11 @@ MonoBehaviour:
   dmgTime: 0
   speed: 0
   destroyTime: 0
+  entangleDuration: 0
+  slowFactor: 0
+  poisonDamage: 0
+  poisonDuration: 0
+  poisonInterval: 0
 --- !u!1 &7032873733823392042
 GameObject:
   m_ObjectHideFlags: 0

@@ -232,6 +232,11 @@ MonoBehaviour:
   dmgTime: 0
   speed: 0
   destroyTime: 0
+  entangleDuration: 0
+  slowFactor: 0
+  poisonDamage: 0
+  poisonDuration: 0
+  poisonInterval: 0
 --- !u!1 &3278319274182609923
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +357,10 @@ MonoBehaviour:
   model: {fileID: 5114947771490130980}
   anim: {fileID: 3109867949448269307}
   agent: {fileID: 9184990504939649995}
+  headPos: {fileID: 5061619288892890550}
+  FOV: 60
+  roamPauseTime: 3
+  roamDist: 10
   bullet: {fileID: 3004315732962467996}
   shootPos: {fileID: 0}
   shootRate: 6

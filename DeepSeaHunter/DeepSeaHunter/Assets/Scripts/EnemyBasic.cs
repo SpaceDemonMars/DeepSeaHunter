@@ -68,7 +68,7 @@ public class EnemyBasic : EnemyAI
         isAttacking = false;
         agent.stoppingDistance = stoppingDistance;
         agent.speed = agentSpeed;
-        bullet.GetComponent<Collider>().enabled = false;
+        bullet.GetComponent<Collider>().enabled = false; 
         anim.Play("Swim");
         //reset all values back to normal
     }
