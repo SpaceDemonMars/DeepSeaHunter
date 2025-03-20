@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: c8ab5a8e32ef19a45bdd7973feee577a
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/PufferOrca/[Low Poly] Animated Sea Animals Vol.2/Art/Meshes/Blowfish.fbx.meta
+guid: daf213f1dbb030b489202cb164c3b9ea
+========
+guid: 367a2ab42518bbe478aaaff21c57d7d5
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/shotgun_001.fbx.meta
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -17,6 +21,10 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/PufferOrca/[Low Poly] Animated Sea Animals Vol.2/Art/Meshes/Blowfish.fbx.meta
+========
+    removeConstantScaleCurves: 1
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/shotgun_001.fbx.meta
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -46,6 +54,10 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/PufferOrca/[Low Poly] Animated Sea Animals Vol.2/Art/Meshes/Blowfish.fbx.meta
+========
+    nodeNameCollisionStrategy: 1
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/shotgun_001.fbx.meta
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -57,6 +69,10 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/PufferOrca/[Low Poly] Animated Sea Animals Vol.2/Art/Meshes/Blowfish.fbx.meta
+========
+    optimizeBones: 1
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/shotgun_001.fbx.meta
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -99,14 +115,26 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/PufferOrca/[Low Poly] Animated Sea Animals Vol.2/Art/Meshes/Blowfish.fbx.meta
+========
+  remapMaterialsIfMaterialImportModeIsNone: 0
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/shotgun_001.fbx.meta
   additionalBone: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/PufferOrca/[Low Poly] Animated Sea Animals Vol.2/Art/Meshes/Blowfish.fbx.meta
   productId: 220200
   packageName: '[Low Poly] Animated Sea Animals Vol.2'
   packageVersion: 1.0.0
   assetPath: Assets/Jiffycrew/[Low Poly] Animated Sea Animals Vol.2/Art/Meshes/Blowfish.fbx
   uploadId: 496984
+========
+  productId: 260492
+  packageName: Weapons FREE - Low Poly 3D Models Pack
+  packageVersion: 1.0
+  assetPath: Assets/ithappy/Weapons_FREE/Meshes/shotgun_001.fbx
+  uploadId: 728486
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/shotgun_001.fbx.meta

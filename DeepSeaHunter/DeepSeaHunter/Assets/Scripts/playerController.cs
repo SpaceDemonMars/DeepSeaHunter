@@ -3,11 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.HID;
 using System.Collections.Generic;
 
-<<<<<<< Updated upstream
-public class playerController : MonoBehaviour, IDamage, ITangle
-=======
-public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPickup
->>>>>>> Stashed changes
+public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 {
     [SerializeField] int HP;
     [SerializeField] LayerMask ignoreLayer;

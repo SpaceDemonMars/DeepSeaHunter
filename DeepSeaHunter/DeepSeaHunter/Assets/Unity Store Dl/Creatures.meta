@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Creatures.meta
 guid: 50e0549d0f0e79a4e8ff7551514c8648
+========
+guid: ebabdf262be8e744683f5ec2dcb6f99c
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Prefabs/Weapons.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
