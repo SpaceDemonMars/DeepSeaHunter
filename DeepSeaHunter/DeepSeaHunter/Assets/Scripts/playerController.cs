@@ -321,4 +321,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         weaponModel.GetComponent<MeshFilter>().sharedMesh = meleeList[meleeListPos].model.GetComponent<MeshFilter>().sharedMesh;
         weaponModel.GetComponent<MeshRenderer>().sharedMaterial = meleeList[meleeListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
     }
+
+    void IHarpoon.harpoonPull()
+    {
+    }
 }
