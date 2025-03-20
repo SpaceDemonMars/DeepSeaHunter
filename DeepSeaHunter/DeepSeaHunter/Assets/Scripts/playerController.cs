@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
-public class playerController : MonoBehaviour, IDamage, ITangle
+public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon
 {
     public int HP;
     [SerializeField] LayerMask ignoreLayer;
@@ -27,12 +27,14 @@ public class playerController : MonoBehaviour, IDamage, ITangle
     [SerializeField] float shootRate;
     [SerializeField] float shootMin;
     [SerializeField] float shootMax;
+    [SerializeField] int harpoonSpeed;
 
     int HPOrig;
     float speedOrig;
     Vector3 moveDir;
     public Vector3 pushDir;
     Vector3 playerVel;
+    Vector3 harpoonDir;
     int dashCount;
     int jumpCount;
     float knifeTimer;
@@ -176,14 +178,27 @@ public class playerController : MonoBehaviour, IDamage, ITangle
         {
             Debug.Log(hit.collider.name); 
             IDamage dmg = hit.collider.GetComponent<IDamage>();
+            IHarpoon pull = hit.collider.GetComponent<IHarpoon>();
 
             if (dmg != null)
             {
                 dmg.takeDamage(shootDmg);
             }
+            if (pull != null)
+                pull.harpoonPull();
+            else
+            {
+                harpoonPull();
+                harpoonDir = hit.point - transform.position;
+            }
         }
         shootDist = shootMin;//reset shoot dist
         updateChargeUI();
+    }
+
+    public void harpoonPull()
+    {//get help
+        controller.Move(harpoonDir * harpoonSpeed * Time.deltaTime); 
     }
 
     public void takeDamage(int damage)
