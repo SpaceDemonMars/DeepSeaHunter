@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ec80ecff386e2a24c9a39fdb82054556
+timeCreated: 1554659338
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143766
+  packageName: Combat Knife
+  packageVersion: 1.0
+  assetPath: Assets/Combat/Material/Mobile_Combat_Knife.mat
+  uploadId: 304541

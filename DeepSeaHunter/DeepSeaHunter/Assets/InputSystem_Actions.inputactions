@@ -940,7 +940,7 @@
                     "path": "<Mouse>/scroll",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": ";Keyboard&Mouse;Joystick",
                     "action": "ScrollWheel",
                     "isComposite": false,
                     "isPartOfComposite": false

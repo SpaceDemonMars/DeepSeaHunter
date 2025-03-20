@@ -139,15 +139,15 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 0
-    dead: 0
-    sensitivity: 0.1
+    altNegativeButton: '-'
+    altPositiveButton: +
+    gravity: 1000
+    dead: 0.1
+    sensitivity: 1000
     snap: 0
     invert: 0
     type: 1
-    axis: 2
+    axis: 0
     joyNum: 0
   - serializedVersion: 3
     m_Name: Horizontal
@@ -324,5 +324,21 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: AltMouse ScrollWheel
+    descriptiveName: Alt + Mouse ScrollWheel
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: right alt
+    altPositiveButton: left alt
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 1
+    axis: 2
     joyNum: 0
   m_UsePhysicalKeys: 1

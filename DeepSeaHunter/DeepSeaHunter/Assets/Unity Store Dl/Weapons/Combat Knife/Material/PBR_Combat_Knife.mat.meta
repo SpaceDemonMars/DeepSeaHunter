@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: da5a81d3981db1847b367a02b30d0147
+timeCreated: 1554659338
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143766
+  packageName: Combat Knife
+  packageVersion: 1.0
+  assetPath: Assets/Combat/Material/PBR_Combat_Knife.mat
+  uploadId: 304541

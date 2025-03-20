@@ -1,8 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
+using System.Collections.Generic;
 
+<<<<<<< Updated upstream
 public class playerController : MonoBehaviour, IDamage, ITangle
+=======
+public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPickup
+>>>>>>> Stashed changes
 {
     [SerializeField] int HP;
     [SerializeField] LayerMask ignoreLayer;
@@ -26,6 +31,16 @@ public class playerController : MonoBehaviour, IDamage, ITangle
     [SerializeField] float shootRate;
     [SerializeField] float shootMin;
     [SerializeField] float shootMax;
+
+
+    [SerializeField] List<meleeStats> meleeList = new List<meleeStats>();
+    [SerializeField] List<rangedStats> rangedList = new List<rangedStats>();
+
+    [SerializeField] GameObject weaponModel;
+
+    int meleeListPos;
+    int rangedListPos;
+
 
     int HPOrig;
     Vector3 moveDir;
@@ -89,6 +104,9 @@ public class playerController : MonoBehaviour, IDamage, ITangle
         {
             knife();
         }
+        selectMeleeWeapon();
+        selectRangedWeapon();
+        
         //TANGLED TESTING
         if (Input.GetButtonDown("Fire3"))
         {
@@ -250,5 +268,62 @@ public class playerController : MonoBehaviour, IDamage, ITangle
     {
         GameManager.instance.knifeReloadBar.fillAmount = knifeTimer / knifeRate;
         GameManager.instance.harpoonReloadBar.fillAmount = shootTimer / shootRate;
+    }
+    public void getRangedStats(rangedStats rweapon)
+    {
+        rangedList.Add(rweapon);
+        rangedListPos = rangedList.Count - 1;
+        changeRangedWeapon();
+    }
+    void selectRangedWeapon()
+    {
+        if (Input.GetAxis("AltMouse ScrollWheel;") > 0 && rangedListPos < rangedList.Count - 1)
+        {
+            rangedListPos++;
+            changeRangedWeapon();
+        }
+        else if (Input.GetAxis("AltMouse ScrollWheel;") < 0 && rangedListPos > 0)
+        {
+            rangedListPos--;
+            changeRangedWeapon();
+        }
+    }
+    void changeRangedWeapon()
+    {
+        shootDmg = rangedList[rangedListPos].shootDamage;
+        shootDist = rangedList[rangedListPos].shootDist;
+        shootRate = rangedList[rangedListPos].shootRate;
+
+        weaponModel.GetComponent<MeshFilter>().sharedMesh = rangedList[rangedListPos].model.GetComponent<MeshFilter>().sharedMesh;
+        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = rangedList[rangedListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
+    }
+
+    public void getMeleeStats(meleeStats mweapon)
+    {
+        meleeList.Add(mweapon);
+        meleeListPos = meleeList.Count - 1;
+        changeMeleeWeapon();
+    }
+    void selectMeleeWeapon()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel;") > 0 && meleeListPos < meleeList.Count - 1)
+        {
+            meleeListPos++;
+            changeMeleeWeapon();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel;") < 0 && meleeListPos > 0)
+        {
+            meleeListPos--;
+            changeMeleeWeapon();
+        }
+    }
+    void changeMeleeWeapon()
+    {
+        knifeDmg = meleeList[meleeListPos].meleeDmg;
+        knifeDist = meleeList[meleeListPos].meleeDist;
+        knifeRate = meleeList[meleeListPos].meleeRate;
+
+        weaponModel.GetComponent<MeshFilter>().sharedMesh = meleeList[meleeListPos].model.GetComponent<MeshFilter>().sharedMesh;
+        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = meleeList[meleeListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
     }
 }

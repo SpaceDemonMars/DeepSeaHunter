@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0e2906cc0792559489db915678230a10
+timeCreated: 1554658288
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143766
+  packageName: Combat Knife
+  packageVersion: 1.0
+  assetPath: Assets/Combat/Mesh/OBJ/Material/Combat_LODC.mat
+  uploadId: 304541
