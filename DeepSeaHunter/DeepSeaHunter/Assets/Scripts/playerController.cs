@@ -27,7 +27,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon
     [SerializeField] float shootRate;
     [SerializeField] float shootMin;
     [SerializeField] float shootMax;
-    [SerializeField] int harpoonSpeed;
+    [SerializeField] int harpoonChargeSpeed;
+    [SerializeField] int harpoonPullSpeed;
 
     int HPOrig;
     float speedOrig;
@@ -107,7 +108,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon
     {
         if (Input.GetButton("Fire2") && shootDist < shootMax) //start charging
         {
-            shootDist += Time.deltaTime * 5;
+            shootDist += Time.deltaTime * harpoonChargeSpeed;
             updateChargeUI();
         }
         else if (Input.GetButtonUp("Fire2")) //fire
@@ -198,7 +199,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon
 
     public void harpoonPull()
     {//get help
-        controller.Move(harpoonDir * harpoonSpeed * Time.deltaTime); 
+        controller.Move(harpoonDir * harpoonPullSpeed * Time.deltaTime); 
     }
 
     public void takeDamage(int damage)
