@@ -282,14 +282,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6301559336354591123}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0.7072302, z: 0.7069834, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10.45106, y: 10.451059, z: 10.451059}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1239557308180987922}
   m_Father: {fileID: 1454230119158014785}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 180, z: 0}
 --- !u!1 &7232346346849434621
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +429,8 @@ MonoBehaviour:
   model: {fileID: 1269577304631809325}
   anim: {fileID: 2101165710646623126}
   agent: {fileID: 9058615109296061251}
+  roamPauseTime: 3
+  roamDist: 25
   trapCollider: {fileID: 8138424570974565764}
   takeDmgCollider: {fileID: 8748713213798245676}
   unPuffRate: 20
@@ -464,7 +466,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -498,7 +500,7 @@ CapsuleCollider:
   m_Radius: 0.1
   m_Height: 0.5
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.1}
+  m_Center: {x: 0, y: 0, z: -0.1}
 --- !u!114 &9086061324182260161
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,9 @@ public class Trap : MonoBehaviour, IDamage
 
     [SerializeField] NavMeshAgent agent;
 
+    [SerializeField] int roamPauseTime;
+    [SerializeField] int roamDist;
+
     [SerializeField] Collider trapCollider;
     [SerializeField] Collider takeDmgCollider;
     [SerializeField] float unPuffRate;
@@ -19,6 +22,8 @@ public class Trap : MonoBehaviour, IDamage
     [SerializeField] int animTranSpeed;
 
     Color modelColor;
+    float roamTimer;
+    Vector3 startingPos;
     float unPuffTimer;
     bool isPuffed;
 
@@ -26,12 +31,15 @@ public class Trap : MonoBehaviour, IDamage
     void Start()
     { 
         modelColor = model.material.color;
+        startingPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         unPuffTimer += Time.deltaTime;
+        if (agent.remainingDistance < 0.01f)
+            roamTimer += Time.deltaTime;
         if (isPuffed && unPuffTimer >= unPuffRate)
         {
             Debug.Log("UN-Puffed");
@@ -41,7 +49,25 @@ public class Trap : MonoBehaviour, IDamage
             takeDmgCollider.enabled = !isPuffed;
             anim.Play("Swim");
         }
-        //add roaming movement
+        //trap doesnt need to see the player ignore FOV/In range checks
+        checkRoam();
+    }
+    void checkRoam()
+    { //since trap never stops roaming, ignore player alive check
+        if (roamTimer > roamPauseTime && agent.remainingDistance < 0.01f)
+        {
+            roam();
+        }
+    }
+
+    void roam()
+    {
+        roamTimer = 0;
+        Vector3 ranPos = Random.insideUnitSphere * roamDist;
+        ranPos += startingPos;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(ranPos, out hit, roamDist, 1);
+        agent.SetDestination(hit.position);
     }
     public void takeDamage(int damage)
     {
