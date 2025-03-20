@@ -1,11 +1,17 @@
 fileFormatVersion: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 guid: a1b532913e78c9546959c2610d10fa2a
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
 =======
 guid: 8a2720518a4a1e7418e54bd3d6857d12
+PrefabImporter:
+  externalObjects: {}
+>>>>>>> Stashed changes
+=======
+guid: cff22ebb6392c7d4caba9a165c5ebf8f
 PrefabImporter:
   externalObjects: {}
 >>>>>>> Stashed changes
@@ -18,7 +24,11 @@ AssetOrigin:
   packageName: '[Low Poly] Animated Sea Animals Vol.2'
   packageVersion: 1.0.0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   assetPath: Assets/Jiffycrew/[Low Poly] Animated Sea Animals Vol.2/Art/Materials/Orca.mat
+=======
+  assetPath: Assets/Jiffycrew/[Low Poly] Animated Sea Animals Vol.2/Prefabs/Orca.prefab
+>>>>>>> Stashed changes
 =======
   assetPath: Assets/Jiffycrew/[Low Poly] Animated Sea Animals Vol.2/Prefabs/Orca.prefab
 >>>>>>> Stashed changes

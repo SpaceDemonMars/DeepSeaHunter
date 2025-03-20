@@ -1,9 +1,18 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Textures/Texture.png.meta
 guid: e40c32d558488234680b9c487a21c5f1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
+========
+guid: d9a78c095903f0b4095343b86968b0ba
+timeCreated: 1554658267
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName: {}
+  serializedVersion: 4
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Albedo.png.meta
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -11,8 +20,6 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
-    mipMapsPreserveCoverage: 0
-    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -21,10 +28,13 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Textures/Texture.png.meta
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
   ignoreMasterTextureLimit: 0
+========
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Albedo.png.meta
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -32,13 +42,10 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    serializedVersion: 2
-    filterMode: 1
-    aniso: 1
-    mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: -1
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
@@ -47,34 +54,32 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0
   textureShape: 1
-  singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Textures/Texture.png.meta
   ignorePngGamma: 0
   applyGammaDecoding: 0
   cookieLightType: 0
+========
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Albedo.png.meta
   platformSettings:
-  - serializedVersion: 3
-    buildTarget: DefaultTexturePlatform
+  - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Textures/Texture.png.meta
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -101,10 +106,13 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+========
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Albedo.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Textures/Texture.png.meta
     physicsShape: []
     bones: []
     spriteID: 
@@ -115,16 +123,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable: {}
+========
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Albedo.png.meta
   spritePackingTag: 
-  pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Textures/Texture.png.meta
   productId: 260492
   packageName: Weapons FREE - Low Poly 3D Models Pack
   packageVersion: 1.0
   assetPath: Assets/ithappy/Weapons_FREE/Textures/Texture.png
   uploadId: 728486
+========
+  productId: 143766
+  packageName: Combat Knife
+  packageVersion: 1.0
+  assetPath: Assets/Combat/Texture/PNG/Combat_Albedo.png
+  uploadId: 304541
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Albedo.png.meta

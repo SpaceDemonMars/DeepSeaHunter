@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Ships and decor/Low Poly Single Boat/Textures/boat.psd.meta
 guid: a122bd2b4834c144aaa858a2eba72672
 ========
@@ -7,6 +8,11 @@ guid: d9a78c095903f0b4095343b86968b0ba
 timeCreated: 1554658267
 licenseType: Store
 >>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Albedo.png.meta
+=======
+guid: 6c284cfe4e0fc5b45b2fe9d4c5bb2767
+timeCreated: 1554658232
+licenseType: Store
+>>>>>>> Stashed changes
 =======
 guid: 6c284cfe4e0fc5b45b2fe9d4c5bb2767
 timeCreated: 1554658232
@@ -79,6 +85,7 @@ TextureImporter:
 AssetOrigin:
   serializedVersion: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Ships and decor/Low Poly Single Boat/Textures/boat.psd.meta
   productId: 220200
   packageName: '[Low Poly] Animated Sea Animals Vol.2'
@@ -93,9 +100,14 @@ AssetOrigin:
   uploadId: 304541
 >>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Albedo.png.meta
 =======
+=======
+>>>>>>> Stashed changes
   productId: 143766
   packageName: Combat Knife
   packageVersion: 1.0
   assetPath: Assets/Combat/Texture/PNG/Combat_AO.png
   uploadId: 304541
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

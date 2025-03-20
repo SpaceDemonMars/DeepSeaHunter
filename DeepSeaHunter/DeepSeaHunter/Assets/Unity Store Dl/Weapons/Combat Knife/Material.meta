@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 <<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Material.meta
 guid: b77f08febb0ed3c4b9cbaccf00c409f4
 folderAsset: yes
@@ -8,6 +9,17 @@ guid: 6d8ae172fb8efdc4dab42cca57e80306
 folderAsset: yes
 timeCreated: 1554658192
 >>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Mesh.meta
+=======
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Prefab/LOD.meta
+guid: 432f138a1de4e9949b6705ac918fb216
+folderAsset: yes
+timeCreated: 1554659993
+========
+guid: b77f08febb0ed3c4b9cbaccf00c409f4
+folderAsset: yes
+timeCreated: 1554659330
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Material.meta
+>>>>>>> Stashed changes
 licenseType: Store
 DefaultImporter:
   userData: 

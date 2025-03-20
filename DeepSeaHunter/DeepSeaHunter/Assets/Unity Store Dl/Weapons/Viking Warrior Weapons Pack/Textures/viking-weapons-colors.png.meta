@@ -1,9 +1,18 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Viking Warrior Weapons Pack/Textures/viking-weapons-colors.png.meta
 guid: 89250b359f70e704a8f3863a43f2b0c8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
+========
+guid: 9ccc963236d9d7e489c530b85db705c6
+timeCreated: 1554658251
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName: {}
+  serializedVersion: 4
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Diffuse.png.meta
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -11,8 +20,6 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
-    mipMapsPreserveCoverage: 0
-    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -22,10 +29,13 @@ TextureImporter:
     normalMapFilter: 0
     flipGreenChannel: 0
   isReadable: 0
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Viking Warrior Weapons Pack/Textures/viking-weapons-colors.png.meta
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
   ignoreMipmapLimit: 0
+========
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Diffuse.png.meta
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -33,6 +43,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Viking Warrior Weapons Pack/Textures/viking-weapons-colors.png.meta
     serializedVersion: 2
     filterMode: 1
     aniso: 1
@@ -40,6 +51,12 @@ TextureImporter:
     wrapU: 1
     wrapV: 1
     wrapW: 1
+========
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: -1
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Diffuse.png.meta
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
@@ -48,20 +65,17 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0
   textureShape: 1
-  singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Viking Warrior Weapons Pack/Textures/viking-weapons-colors.png.meta
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
@@ -69,8 +83,11 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
+========
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Diffuse.png.meta
     maxTextureSize: 2048
-    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -90,6 +107,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Viking Warrior Weapons Pack/Textures/viking-weapons-colors.png.meta
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -106,10 +124,13 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+========
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Diffuse.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Viking Warrior Weapons Pack/Textures/viking-weapons-colors.png.meta
     customData: 
     physicsShape: []
     bones: []
@@ -125,13 +146,24 @@ TextureImporter:
     nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
+========
+  spritePackingTag: 
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Diffuse.png.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Viking Warrior Weapons Pack/Textures/viking-weapons-colors.png.meta
   productId: 310635
   packageName: Low Poly Viking Warrior Weapons Pack
   packageVersion: 1.0
   assetPath: Assets/PolyRonin/Viking Warrior Weapons Pack/Textures/viking-weapons-colors.png
   uploadId: 737886
+========
+  productId: 143766
+  packageName: Combat Knife
+  packageVersion: 1.0
+  assetPath: Assets/Combat/Texture/PNG/Combat_Diffuse.png
+  uploadId: 304541
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Diffuse.png.meta

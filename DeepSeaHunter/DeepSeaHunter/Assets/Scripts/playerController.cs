@@ -3,7 +3,11 @@ using UnityEngine;
 using UnityEngine.InputSystem.HID;
 using System.Collections.Generic;
 
+<<<<<<< Updated upstream
 public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
+=======
+public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPickup
+>>>>>>> Stashed changes
 {
     [SerializeField] int HP;
     [SerializeField] LayerMask ignoreLayer;
@@ -27,6 +31,16 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     [SerializeField] float shootRate;
     [SerializeField] float shootMin;
     [SerializeField] float shootMax;
+
+
+    [SerializeField] List<meleeStats> meleeList = new List<meleeStats>();
+    [SerializeField] List<rangedStats> rangedList = new List<rangedStats>();
+
+    [SerializeField] GameObject weaponModel;
+
+    int meleeListPos;
+    int rangedListPos;
+
 
 
     [SerializeField] List<meleeStats> meleeList = new List<meleeStats>();

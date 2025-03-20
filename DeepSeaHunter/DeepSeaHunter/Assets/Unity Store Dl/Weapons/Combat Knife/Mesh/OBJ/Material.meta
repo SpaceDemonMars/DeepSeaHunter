@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Mesh/OBJ/Material.meta
 guid: 08625579437dae5429e4716270d2f17b
 folderAsset: yes
 timeCreated: 1554658288
+========
+guid: 6d8ae172fb8efdc4dab42cca57e80306
+folderAsset: yes
+timeCreated: 1554658192
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Mesh.meta
 licenseType: Store
 DefaultImporter:
   userData: 
