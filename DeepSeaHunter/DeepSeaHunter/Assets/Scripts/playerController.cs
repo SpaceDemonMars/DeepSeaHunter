@@ -50,6 +50,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     float shootTimer;
     public float shootDist;
     public bool isTangled;
+    private float harpoonChargeSpeed;
+    private float harpoonPullSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
