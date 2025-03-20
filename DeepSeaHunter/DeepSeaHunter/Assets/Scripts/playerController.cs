@@ -299,12 +299,12 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     }
     void selectRangedWeapon()
     {
-        if (Input.GetAxis("AltMouse ScrollWheel;") > 0 && rangedListPos < rangedList.Count - 1)
+        if (Input.GetAxis("AltMouse ScrollWheel") > 0 && rangedListPos < rangedList.Count - 1)
         {
             rangedListPos++;
             changeRangedWeapon();
         }
-        else if (Input.GetAxis("AltMouse ScrollWheel;") < 0 && rangedListPos > 0)
+        else if (Input.GetAxis("AltMouse ScrollWheel") < 0 && rangedListPos > 0)
         {
             rangedListPos--;
             changeRangedWeapon();
@@ -328,12 +328,12 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     }
     void selectMeleeWeapon()
     {
-        if (Input.GetAxis("Mouse ScrollWheel;") > 0 && meleeListPos < meleeList.Count - 1)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && meleeListPos < meleeList.Count - 1)
         {
             meleeListPos++;
             changeMeleeWeapon();
         }
-        else if (Input.GetAxis("Mouse ScrollWheel;") < 0 && meleeListPos > 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && meleeListPos > 0)
         {
             meleeListPos--;
             changeMeleeWeapon();
