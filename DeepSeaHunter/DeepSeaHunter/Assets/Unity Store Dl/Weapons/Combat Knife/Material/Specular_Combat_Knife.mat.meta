@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 19280ab453b518144b52df8f3874e102
+timeCreated: 1554659338
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143766
+  packageName: Combat Knife
+  packageVersion: 1.0
+  assetPath: Assets/Combat/Material/Specular_Combat_Knife.mat
+  uploadId: 304541

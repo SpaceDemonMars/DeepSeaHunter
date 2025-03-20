@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d9ddf3b8edd4aa44db9de493ab801e61
+timeCreated: 1554659919
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143766
+  packageName: Combat Knife
+  packageVersion: 1.0
+  assetPath: Assets/Combat/Prefab/Mobile/Combat_LODB_Mobile.prefab
+  uploadId: 304541

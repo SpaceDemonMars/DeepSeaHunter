@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e68f61d32341bb340a6778746c795b7d
+timeCreated: 1554660913
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143766
+  packageName: Combat Knife
+  packageVersion: 1.0
+  assetPath: Assets/Combat/Prefab/LOD/PBR/Combat_Knife_LOD_PBR.prefab
+  uploadId: 304541

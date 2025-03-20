@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2b9fe92e09c4e3b4589540e328d86271
+timeCreated: 1554659901
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143766
+  packageName: Combat Knife
+  packageVersion: 1.0
+  assetPath: Assets/Combat/Prefab/Mobile/Combat_LODA_Mobile.prefab
+  uploadId: 304541
