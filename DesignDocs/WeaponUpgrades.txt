@@ -1,0 +1,52 @@
+Weapon Pick Ups
+Starting (start with this)
+	Knife
+	Dmg : 1
+	Rate : 1
+
+	Harpoon
+	Dmg : 1
+	Rate : 3
+	ShootMin : 15 (this is min dist)
+	ShootMax : 25 (max dist)
+	Charge Speed : 5
+	Pull Speed : 5 (this isnt working yet)	
+
+Level 1 Pick Up (hide in level 1)
+	Knife +
+	Dmg: 1
+	Rate : .75
+
+	Harpoon +
+	Dmg : 1
+	Rate : 3
+	ShootMin : 15 
+	ShootMax : 40 
+	Charge Speed : 6
+	Pull Speed : 5 (this isnt working yet)	
+
+Level 2 Pick Ups (hide in level 2)
+	Knife ++
+	Dmg: 1
+	Rate : .5
+
+	Harpoon ++
+	Dmg : 1
+	Rate : 4
+	ShootMin : 20 (this is min dist)
+	ShootMax : 45 (max dist)
+	Charge Speed : 6
+	Pull Speed : 6 (this isnt working yet)	
+
+Level 3 Pick Ups (hide in level 3)
+	Knife +++
+	Dmg: 2
+	Rate : .5
+
+	Harpoon +++
+	Dmg : 1
+	Rate : 4
+	ShootMin : 30 (this is min dist)
+	ShootMax : 50 (max dist)
+	Charge Speed : 6
+	Pull Speed : 6 (this isnt working yet)	
