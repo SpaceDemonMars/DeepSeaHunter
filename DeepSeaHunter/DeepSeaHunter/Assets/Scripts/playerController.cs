@@ -12,11 +12,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     [SerializeField] public float speed;
     //[SerializeField] int sprintMod;
     [SerializeField] int pushResolve;
-<<<<<<< Updated upstream
-    [SerializeField] public int dashStr;
-=======
     [SerializeField] public float dashStr;
->>>>>>> Stashed changes
     [SerializeField] int dashMax;
     [SerializeField] float dashRechargeTimer;
     [SerializeField] float dashDuration;
