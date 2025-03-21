@@ -5,19 +5,23 @@ using System.Collections.Generic;
 
 public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPickup
 {
-    [SerializeField] int HP;
+    public int HP;
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
 
-    [SerializeField] public int speed;
+    [SerializeField] public float speed;
     //[SerializeField] int sprintMod;
     [SerializeField] int pushResolve;
+<<<<<<< Updated upstream
     [SerializeField] public int dashStr;
+=======
+    [SerializeField] public float dashStr;
+>>>>>>> Stashed changes
     [SerializeField] int dashMax;
     [SerializeField] float dashRechargeTimer;
     [SerializeField] float dashDuration;
 
-    [SerializeField] public int jumpStr;
+    [SerializeField] public float jumpStr;
     [SerializeField] int jumpMax;
     [SerializeField] float grav;
 
@@ -39,20 +43,25 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     int rangedListPos;
 
     int HPOrig;
+    float speedOrig;
     Vector3 moveDir;
     public Vector3 pushDir;
     Vector3 playerVel;
+    Vector3 harpoonDir;
     int dashCount;
     int jumpCount;
     float knifeTimer;
     float shootTimer;
     public float shootDist;
     public bool isTangled;
+    private float harpoonChargeSpeed;
+    private float harpoonPullSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         HPOrig = HP;
+        speedOrig = speed;
         updatePlayerUI();
         shootDist = shootMin;
     }
@@ -81,7 +90,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         if (controller.isGrounded)
         {
             playerVel.y = 0;
-            jumpCount = 0; 
+            jumpCount = 0;
         }
         //BASIC MOVEMENT
         //getting movement input
@@ -104,19 +113,19 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         }
         selectMeleeWeapon();
         selectRangedWeapon();
-        
+
         //TANGLED TESTING
-        if (Input.GetButtonDown("Fire3"))
+        /*if (Input.GetButtonDown("Fire3"))
         {
             toggleTangled(2);
-        }
+        }*/
     }
 
     void harpoon()
     {
         if (Input.GetButton("Fire2") && shootDist < shootMax) //start charging
         {
-            shootDist += Time.deltaTime * 5;
+            shootDist += Time.deltaTime * harpoonChargeSpeed;
             updateChargeUI();
         }
         else if (Input.GetButtonUp("Fire2")) //fire
@@ -141,7 +150,14 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
             //this needs math to get the angle right; look at polar to cart coords
             /*playerVel.x = dashStr * moveDir.x; //x = r cos theta; dashStr = r //z = r sin theta; theta = moveDir
             playerVel.z = dashStr * moveDir.z; //movedir might already has the cart coords*/
+<<<<<<< Updated upstream
             pushDir = moveDir * dashStr;
+=======
+            if (moveDir.normalized == Vector3.zero) //if no moveDir
+                pushDir = transform.forward * dashStr;
+            else
+                pushDir = moveDir * dashStr;
+>>>>>>> Stashed changes
             Debug.Log("Dashed");
             StartCoroutine(endDash());
             StartCoroutine(rechargeDash());
@@ -182,16 +198,29 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreLayer))
         {
-            Debug.Log(hit.collider.name); 
+            Debug.Log(hit.collider.name);
             IDamage dmg = hit.collider.GetComponent<IDamage>();
+            IHarpoon pull = hit.collider.GetComponent<IHarpoon>();
 
             if (dmg != null)
             {
                 dmg.takeDamage(shootDmg);
             }
+            if (pull != null)
+                pull.harpoonPull();
+            else
+            {
+                harpoonPull();
+                harpoonDir = hit.point - transform.position;
+            }
         }
         shootDist = shootMin;//reset shoot dist
         updateChargeUI();
+    }
+
+    public void harpoonPull()
+    {//get help
+        controller.Move(harpoonDir * harpoonPullSpeed * Time.deltaTime);
     }
 
     public void takeDamage(int damage)
@@ -201,7 +230,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         StartCoroutine(flashDamageScreen());
         //add feedback here
 
-        if( HP <= 0 )
+        if (HP <= 0)
         {
             GameManager.instance.youLose();
         }
@@ -227,25 +256,27 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         playerVel.z = 0;
     }
 
-    public void toggleTangled(int tangleMod)
+    public void stateTangled(int tangleMod)
     {
-        isTangled = !isTangled;
-        if (isTangled)
-        {
-            speed /= tangleMod; //
-            jumpStr /= tangleMod;
-            dashStr /= tangleMod;
-            dashDuration /= tangleMod;
-            shootRate *= tangleMod;
-        }
-        else
-        {
-            speed *= tangleMod; //
-            jumpStr *= tangleMod;
-            dashStr *= tangleMod;
-            dashDuration *= tangleMod;
-            shootRate /= tangleMod;
-        }
+        isTangled = true;
+        speed /= tangleMod; //
+        jumpStr /= tangleMod;
+        dashStr /= tangleMod;
+        dashDuration /= tangleMod;
+        shootRate *= tangleMod;
+        GameManager.instance.playerSlowScreen.SetActive(isTangled);
+    }
+
+    public void stateUntangled(int tangleMod)
+    {
+        speed *= tangleMod; //
+        jumpStr *= tangleMod;
+        dashStr *= tangleMod;
+        dashDuration *= tangleMod;
+        shootRate /= tangleMod;
+        if (speed == speedOrig) //if there are multiple sources of tangled, this (should) ensure that player is fully untangled before being set to false
+            isTangled = false;
+        GameManager.instance.playerSlowScreen.SetActive(isTangled);
     }
     //
 
@@ -276,12 +307,12 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     }
     void selectRangedWeapon()
     {
-        if (Input.GetAxis("AltMouse ScrollWheel;") > 0 && rangedListPos < rangedList.Count - 1)
+        if (Input.GetAxis("AltMouse ScrollWheel") > 0 && rangedListPos < rangedList.Count - 1)
         {
             rangedListPos++;
             changeRangedWeapon();
         }
-        else if (Input.GetAxis("AltMouse ScrollWheel;") < 0 && rangedListPos > 0)
+        else if (Input.GetAxis("AltMouse ScrollWheel") < 0 && rangedListPos > 0)
         {
             rangedListPos--;
             changeRangedWeapon();
@@ -305,12 +336,12 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     }
     void selectMeleeWeapon()
     {
-        if (Input.GetAxis("Mouse ScrollWheel;") > 0 && meleeListPos < meleeList.Count - 1)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && meleeListPos < meleeList.Count - 1)
         {
             meleeListPos++;
             changeMeleeWeapon();
         }
-        else if (Input.GetAxis("Mouse ScrollWheel;") < 0 && meleeListPos > 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && meleeListPos > 0)
         {
             meleeListPos--;
             changeMeleeWeapon();
@@ -326,7 +357,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         weaponModel.GetComponent<MeshRenderer>().sharedMaterial = meleeList[meleeListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
-    void IHarpoon.harpoonPull()
+    void ITangle.toggleTangled(int tangleMod)
     {
+        throw new System.NotImplementedException();
     }
 }
