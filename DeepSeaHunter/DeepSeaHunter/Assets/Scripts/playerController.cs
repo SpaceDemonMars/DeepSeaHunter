@@ -3,13 +3,15 @@ using UnityEngine;
 using UnityEngine.InputSystem.HID;
 using System.Collections.Generic;
 
-public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPickup
+public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 {
     public int HP;
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
 
     [SerializeField] public float speed;
+
+    [Header("Dash")]
     //[SerializeField] int sprintMod;
     [SerializeField] int pushResolve;
     [SerializeField] public float dashStr;
@@ -17,13 +19,17 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     [SerializeField] float dashRechargeTimer;
     [SerializeField] float dashDuration;
 
+    [Header("Jump")]
     [SerializeField] public float jumpStr;
     [SerializeField] int jumpMax;
     [SerializeField] float grav;
 
+    [Header("Knife")]
     [SerializeField] int knifeDmg;
     [SerializeField] float knifeRate;
     [SerializeField] int knifeDist;
+
+    [Header("Harpoon")]
     [SerializeField] int shootDmg;
     [SerializeField] float shootRate;
     [SerializeField] float shootMin;
@@ -192,27 +198,14 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         {
             Debug.Log(hit.collider.name); 
             IDamage dmg = hit.collider.GetComponent<IDamage>();
-            IHarpoon pull = hit.collider.GetComponent<IHarpoon>();
 
             if (dmg != null)
             {
                 dmg.takeDamage(shootDmg);
             }
-            if (pull != null)
-                pull.harpoonPull();
-            else
-            {
-                harpoonPull();
-                harpoonDir = hit.point - transform.position;
-            }
         }
         shootDist = shootMin;//reset shoot dist
         updateChargeUI();
-    }
-
-    public void harpoonPull()
-    {//get help
-        controller.Move(harpoonDir * harpoonPullSpeed * Time.deltaTime); 
     }
 
     public void takeDamage(int damage)
