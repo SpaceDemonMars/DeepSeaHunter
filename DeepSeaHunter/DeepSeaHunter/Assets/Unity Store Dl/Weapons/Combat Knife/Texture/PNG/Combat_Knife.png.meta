@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Knife.png.meta
 guid: 08b7a5af310c6014d8c6bc1f9ec79ab2
 timeCreated: 1554658198
-========
-guid: 6c284cfe4e0fc5b45b2fe9d4c5bb2767
-timeCreated: 1554658232
->>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_AO.png.meta
 licenseType: Store
 TextureImporter:
   fileIDToRecycleName: {}
@@ -76,9 +71,5 @@ AssetOrigin:
   productId: 143766
   packageName: Combat Knife
   packageVersion: 1.0
-<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Knife.png.meta
-  assetPath: Assets/Combat/Texture/PNG/Combat_Knife.png
-========
-  assetPath: Assets/Combat/Texture/PNG/Combat_AO.png
->>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_AO.png.meta
+  assetPath: Assets/Unity Store Dl/Weapons/Combat Knife/Texture/PNG/Combat_Knife.png
   uploadId: 304541

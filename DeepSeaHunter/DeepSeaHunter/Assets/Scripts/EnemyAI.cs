@@ -9,6 +9,10 @@ public class EnemyAI : MonoBehaviour, IDamage
     public Animator anim;
 
     public NavMeshAgent agent;
+    [SerializeField] Transform headPos;
+    [SerializeField] int FOV;
+    [SerializeField] int roamPauseTime;
+    [SerializeField] int roamDist;
 
     public GameObject bullet;
     public Transform shootPos;
@@ -18,10 +22,14 @@ public class EnemyAI : MonoBehaviour, IDamage
     public int animTranSpeed;
 
     protected float shootTimer;
+    float roamTimer;
+    float stoppingDist;
 
     protected Color modelColor;
 
+    Vector3 startingPos;
     protected Vector3 playerDir;
+    float angleToPlayer;
 
     protected bool playerInRange;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,6 +37,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         GameManager.instance.updateGameGoal(1);
         modelColor = model.material.color;
+        stoppingDist = agent.stoppingDistance;
+        startingPos = transform.position;
     }
 
     // Update is called once per frame
@@ -36,16 +46,61 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         setAnimLocomotion();
         shootTimer += Time.deltaTime;
-        if (playerInRange)
+        if (agent.remainingDistance < 0.01f)
+            roamTimer += Time.deltaTime;
+        if (playerInRange && !canSeePlayer())
         {
-            playerDir = GameManager.instance.player.transform.position - transform.position;
-            agent.SetDestination(GameManager.instance.player.transform.position);
-
-            if (shootTimer >= shootRate)
-                shoot();
-            if (agent.remainingDistance <= agent.stoppingDistance)
-                faceTarget();
+            checkRoam();
         }
+        else if (!playerInRange)
+        {
+            checkRoam();
+        }
+    }
+
+    bool canSeePlayer()
+    {
+        playerDir = GameManager.instance.player.transform.position - headPos.position;
+        angleToPlayer = Vector3.Angle(playerDir, transform.forward);
+        Debug.DrawRay(headPos.position, playerDir);
+        RaycastHit hit;
+        if (Physics.Raycast(headPos.position, playerDir, out hit))
+        {
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= FOV)
+            {
+                agent.stoppingDistance = stoppingDist;
+                anim.SetBool("isRoaming", false);
+                agent.SetDestination(GameManager.instance.player.transform.position);
+
+                if (shootTimer >= shootRate)
+                    shoot();
+                if (agent.remainingDistance <= agent.stoppingDistance)
+                    faceTarget();
+                return true;
+            }
+        }
+        agent.stoppingDistance = 0;
+        return false;
+    }
+
+    void checkRoam()
+    {
+        if ((roamTimer > roamPauseTime && agent.remainingDistance < 0.01f) || GameManager.instance.playerScript.HP <= 0)
+        {
+            roam();
+        }
+    }
+
+    void roam()
+    {
+        roamTimer = 0;
+        agent.stoppingDistance = 0;
+        anim.SetBool("isRoaming", true);
+        Vector3 ranPos = Random.insideUnitSphere * roamDist;
+        ranPos += startingPos;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(ranPos, out hit, roamDist, 1);
+        agent.SetDestination(hit.position);
     }
 
     protected void setAnimLocomotion()
@@ -73,18 +128,20 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            agent.stoppingDistance = 0;
         }
     }
 
     public virtual void takeDamage(int damage)
     {
         HP -= damage;
+        roamTimer = 0;
         StartCoroutine(flashRed());
         agent.SetDestination(GameManager.instance.player.transform.position);
 
         if (HP <= 0)
         {
-            GameManager .instance.updateGameGoal(-1);
+            GameManager.instance.updateGameGoal(-1);
             Destroy(gameObject);
         }
     }
@@ -101,5 +158,4 @@ public class EnemyAI : MonoBehaviour, IDamage
         shootTimer = 0;
         Instantiate(bullet, shootPos.position, transform.rotation);
     }
-    //
 }

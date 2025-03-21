@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 194491a351485364e91dede9fb3a1bfc
+timeCreated: 1554659883
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143766
+  packageName: Combat Knife
+  packageVersion: 1.0
+  assetPath: Assets/Unity Store Dl/Weapons/Combat Knife/Prefab/Specular/Combat_LODC_Specular.prefab
+  uploadId: 304541

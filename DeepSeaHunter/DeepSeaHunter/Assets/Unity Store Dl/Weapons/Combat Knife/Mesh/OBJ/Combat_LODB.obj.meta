@@ -1,16 +1,12 @@
 fileFormatVersion: 2
-<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Mesh/OBJ/Combat_LODB.obj.meta
 guid: e6ec3179ac498194cbdf771d6dbbb2d4
 AssetOrigin:
   serializedVersion: 1
   productId: 143766
   packageName: Combat Knife
   packageVersion: 1.0
-  assetPath: Assets/Combat/Mesh/OBJ/Combat_LODB.obj
+  assetPath: Assets/Unity Store Dl/Weapons/Combat Knife/Mesh/OBJ/Combat_LODB.obj
   uploadId: 304541
-========
-guid: c0d77e676f3f0ef4ebbfb067fe81ae27
->>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/rifle_001.fbx.meta
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable:
@@ -37,11 +33,7 @@ ModelImporter:
     second: Combat_LODB
   externalObjects: {}
   materials:
-<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Mesh/OBJ/Combat_LODB.obj.meta
     materialImportMode: 1
-========
-    materialImportMode: 2
->>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/rifle_001.fbx.meta
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -50,7 +42,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 1
+    removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -66,19 +58,14 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
-<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Mesh/OBJ/Combat_LODB.obj.meta
     globalScale: 0.02
-========
-    globalScale: 1
->>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/rifle_001.fbx.meta
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Mesh/OBJ/Combat_LODB.obj.meta
     importPhysicalCameras: 0
     importVisibility: 0
     importBlendShapes: 1
@@ -86,14 +73,6 @@ ModelImporter:
     importLights: 0
     nodeNameCollisionStrategy: 0
     fileIdsGeneration: 1
-========
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
-    nodeNameCollisionStrategy: 1
-    fileIdsGeneration: 2
->>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/rifle_001.fbx.meta
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -106,11 +85,7 @@ ModelImporter:
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
-<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Mesh/OBJ/Combat_LODB.obj.meta
     indexFormat: 1
-========
-    indexFormat: 0
->>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/rifle_001.fbx.meta
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -141,39 +116,20 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Mesh/OBJ/Combat_LODB.obj.meta
     globalScale: 0.02
-========
-    globalScale: 1
->>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/rifle_001.fbx.meta
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
-<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Mesh/OBJ/Combat_LODB.obj.meta
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   importBlendShapeDeformPercent: 0
   remapMaterialsIfMaterialImportModeIsNone: 1
-========
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
->>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/rifle_001.fbx.meta
   additionalBone: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Mesh/OBJ/Combat_LODB.obj.meta
-========
-AssetOrigin:
-  serializedVersion: 1
-  productId: 260492
-  packageName: Weapons FREE - Low Poly 3D Models Pack
-  packageVersion: 1.0
-  assetPath: Assets/ithappy/Weapons_FREE/Meshes/rifle_001.fbx
-  uploadId: 728486
->>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Weapons_FREE/Meshes/rifle_001.fbx.meta
