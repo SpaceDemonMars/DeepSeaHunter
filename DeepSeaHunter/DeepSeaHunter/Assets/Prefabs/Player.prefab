@@ -54,7 +54,8 @@ MonoBehaviour:
     m_Bits: 8
   controller: {fileID: 5603928613518264459}
   speed: 3
-  dashStr: 12
+  pushResolve: 12
+  dashStr: 35
   dashMax: 3
   dashRechargeTimer: 5
   dashDuration: 0.2
@@ -68,6 +69,7 @@ MonoBehaviour:
   shootRate: 3
   shootMin: 10
   shootMax: 20
+  pushDir: {x: 0, y: 0, z: 0}
   shootDist: 0
   isTangled: 0
 --- !u!143 &5603928613518264459

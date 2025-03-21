@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
 
     [SerializeField] public int speed;
     //[SerializeField] int sprintMod;
+    [SerializeField] int pushResolve;
     [SerializeField] public int dashStr;
     [SerializeField] int dashMax;
     [SerializeField] float dashRechargeTimer;
@@ -39,6 +40,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
 
     int HPOrig;
     Vector3 moveDir;
+    public Vector3 pushDir;
     Vector3 playerVel;
     int dashCount;
     int jumpCount;
@@ -58,6 +60,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     // Update is called once per frame
     void Update()
     {
+        pushDir = Vector3.Lerp(pushDir, Vector3.zero, Time.deltaTime * pushResolve);
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist, Color.red);
 
         movement();
@@ -85,7 +88,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         moveDir = (Input.GetAxis("Horizontal") * transform.right) +
                   (Input.GetAxis("Vertical") * transform.forward);
         //move player
-        controller.Move(moveDir * speed * Time.deltaTime);
+        controller.Move((moveDir + pushDir) * speed * Time.deltaTime);
 
         //JUMP/DASH LOGIC
         jump();
@@ -136,8 +139,9 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         {
             dashCount++;
             //this needs math to get the angle right; look at polar to cart coords
-            playerVel.x = dashStr * moveDir.x; //x = r cos theta; dashStr = r //z = r sin theta; theta = moveDir
-            playerVel.z = dashStr * moveDir.z; //movedir might already has the cart coords
+            /*playerVel.x = dashStr * moveDir.x; //x = r cos theta; dashStr = r //z = r sin theta; theta = moveDir
+            playerVel.z = dashStr * moveDir.z; //movedir might already has the cart coords*/
+            pushDir = moveDir * dashStr;
             Debug.Log("Dashed");
             StartCoroutine(endDash());
             StartCoroutine(rechargeDash());

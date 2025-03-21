@@ -32,9 +32,9 @@ public class EnemyBasic : EnemyAI
                 agent.SetDestination(GameManager.instance.player.transform.position);
 
                 if (agent.remainingDistance <= agent.stoppingDistance)
-                { 
+                {
                     //figure out how to make enemy circle target
-                    faceTarget(); 
+                    faceTarget();
                 }
 
                 if (shootTimer >= shootRate)
@@ -57,7 +57,8 @@ public class EnemyBasic : EnemyAI
         agent.stoppingDistance = 0;
         agent.speed = attackSpeed;
         bullet.GetComponent<Collider>().enabled = true; //turns on attack collider, so enemy can damage player
-        agent.SetDestination(GameManager.instance.player.transform.position + (playerDir/2)); //set enemy to go a little past player
+        agent.SetDestination(GameManager.instance.player.transform.position + (playerDir / 2)); //set enemy to go a little past player
+        anim.Play("Attack");
         //enemy should attack player location at time attack was called (this creates player dodge window)
     }
     void endAttack()
@@ -67,7 +68,8 @@ public class EnemyBasic : EnemyAI
         isAttacking = false;
         agent.stoppingDistance = stoppingDistance;
         agent.speed = agentSpeed;
-        bullet.GetComponent<Collider>().enabled = false; 
+        bullet.GetComponent<Collider>().enabled = false;
+        anim.Play("Swim");
         //reset all values back to normal
     }
 
