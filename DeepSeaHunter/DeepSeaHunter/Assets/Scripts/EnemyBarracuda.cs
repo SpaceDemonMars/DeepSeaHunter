@@ -22,7 +22,7 @@ public class EnemyBarracuda : EnemyAI
             transform.position = hit.position;
             base.agent.enabled = true;
         }
-        GameManager.instance.updateGameGoal(1);
+        //GameManager.instance.updateGameGoal(1); //outdated, only bosses call this
         
     }
     //This was the version of update included with the bite code, but i noticed it updates time and

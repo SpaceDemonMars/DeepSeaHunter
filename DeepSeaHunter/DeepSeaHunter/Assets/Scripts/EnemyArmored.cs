@@ -17,7 +17,6 @@ public class EnemyArmored : EnemyAI
 
         if (HP <= 0)
         {
-            GameManager.instance.updateGameGoal(-1);
             Destroy(gameObject);
         }
     }
