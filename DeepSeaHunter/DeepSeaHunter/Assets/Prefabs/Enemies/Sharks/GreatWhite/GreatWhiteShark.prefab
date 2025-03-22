@@ -133,9 +133,9 @@ MonoBehaviour:
   biteCollider: {fileID: 5322983137645816807}
   takeDmgCollider: {fileID: 6184706463446349235}
   biteSpeed: 3
-  body1Trail: {fileID: 2175111172513407221}
-  body2Trail: {fileID: 6108250059851713944}
-  tailTrail: {fileID: 7680114717776287882}
+  body1Trail: {fileID: 7013927676098154632}
+  body2Trail: {fileID: 214568394282957244}
+  tailTrail: {fileID: 798956384232419235}
 --- !u!135 &5300986647074914388
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1178479252552819991}
-  - component: {fileID: 7680114717776287882}
+  - component: {fileID: 798956384232419235}
   m_Layer: 0
   m_Name: Tail
   m_TagString: Untagged
@@ -287,7 +287,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8420794582134600300}
   m_LocalEulerAnglesHint: {x: 0.5796765, y: -0.061962638, z: 1.0995135}
---- !u!96 &7680114717776287882
+--- !u!96 &798956384232419235
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7c4467e9a5103944da9674472bdde79a, type: 2}
+  - {fileID: 2100000, guid: c380a202a009b9346934f98bb08c4631, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -548,7 +548,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.002
   m_Height: 0.006
@@ -570,12 +570,12 @@ MonoBehaviour:
   rb: {fileID: 0}
   dmgAmount: 4
   dmgTime: 0
-  speed: 0
+  speed: 10
   destroyTime: 0
   entangleDuration: 0
   slowFactor: 0
-  poisonDamage: 0
-  poisonDuration: 0
+  poisonDamage: 1
+  poisonDuration: 1
   poisonInterval: 0
 --- !u!1 &7032873733823392042
 GameObject:
@@ -617,7 +617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8420794582134600300}
-  - component: {fileID: 6108250059851713944}
+  - component: {fileID: 214568394282957244}
   m_Layer: 0
   m_Name: Body.002
   m_TagString: Untagged
@@ -641,7 +641,7 @@ Transform:
   - {fileID: 1178479252552819991}
   m_Father: {fileID: 8765862063305582809}
   m_LocalEulerAnglesHint: {x: 0.63818806, y: -0.13798895, z: -11.348589}
---- !u!96 &6108250059851713944
+--- !u!96 &214568394282957244
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -665,7 +665,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7c4467e9a5103944da9674472bdde79a, type: 2}
+  - {fileID: 2100000, guid: c380a202a009b9346934f98bb08c4631, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -705,7 +705,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0
+        value: 0.3
         inSlope: -1.1464283
         outSlope: -1.1464283
         tangentMode: 0
@@ -766,7 +766,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8765862063305582809}
-  - component: {fileID: 2175111172513407221}
+  - component: {fileID: 7013927676098154632}
   m_Layer: 0
   m_Name: Body.001
   m_TagString: Untagged
@@ -790,7 +790,7 @@ Transform:
   - {fileID: 8420794582134600300}
   m_Father: {fileID: 2474910648550174289}
   m_LocalEulerAnglesHint: {x: 0.301778, y: -0.022509584, z: 167.54001}
---- !u!96 &2175111172513407221
+--- !u!96 &7013927676098154632
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -854,12 +854,12 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0.5
-        inSlope: -1.1464283
-        outSlope: -1.1464283
+        value: 0.6
+        inSlope: -0.8010565
+        outSlope: -0.8010565
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.14671808
+        inWeight: 0.15384614
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
