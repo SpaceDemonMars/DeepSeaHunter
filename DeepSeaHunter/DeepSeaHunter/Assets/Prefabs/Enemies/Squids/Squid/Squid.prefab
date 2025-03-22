@@ -58,11 +58,11 @@ MonoBehaviour:
   FOV: 150
   roamPauseTime: 5
   roamDist: 5
+  faceTargetSpeed: 2
+  animTranSpeed: 6
   bullet: {fileID: 3220944449693001656, guid: 90f66dd05fb32cd46b4125bbf03f82db, type: 3}
   shootPos: {fileID: 8333682057926395267}
   shootRate: 3
-  faceTargetSpeed: 2
-  animTranSpeed: 6
 --- !u!95 &4512614420973575659
 Animator:
   serializedVersion: 7

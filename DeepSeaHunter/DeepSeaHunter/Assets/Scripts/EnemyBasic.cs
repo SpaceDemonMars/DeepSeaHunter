@@ -2,82 +2,78 @@ using UnityEngine.AI;
 using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
+using System;
 
 public class EnemyBasic : EnemyAI
 {
-    [SerializeField] float attackSpeed; //speed enemy moves at player while attacking
+    [SerializeField] Collider biteCollider;
+    [SerializeField] CapsuleCollider takeDmgCollider;
+    [SerializeField] float biteSpeed;
+    [SerializeField] TrailRenderer body1Trail;
+    [SerializeField] TrailRenderer body2Trail;
+    [SerializeField] TrailRenderer tailTrail;
 
-    bool isAttacking;
-    float stoppingDistance;
     float agentSpeed;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     override protected void Start()
     {
-        base.Start();
-        stoppingDistance = agent.stoppingDistance;
         agentSpeed = agent.speed;
+        base.Start();
     }
 
-    // Update is called once per frame
-    void Update()
+    //anim events
+    public void onBiteStart()
     {
-        setAnimLocomotion();
-        shootTimer += Time.deltaTime;
-        if (playerInRange)
-        {
-            if (isAttacking == false)
-            {
-                playerDir = GameManager.instance.player.transform.position - transform.position;
-                agent.SetDestination(GameManager.instance.player.transform.position);
-
-                if (agent.remainingDistance <= agent.stoppingDistance)
-                { 
-                    //figure out how to make enemy circle target
-                    faceTarget(); 
-                }
-
-                if (shootTimer >= shootRate)
-                {
-                    Debug.Log("Start Attack");
-                    shoot();
-                }
-            }
-        }
-        if (isAttacking && agent.remainingDistance <= agent.stoppingDistance) //enemy isAttacking && and reached destination, outside to prevent player exitting range, locking enemy into attack
-        {
-            Debug.Log("Call End Attack");
-            endAttack();
-        }
+        Debug.Log("Shark Bite");
+        isSharkAttacking = true;
+        body1Trail.enabled = isSharkAttacking;
+        body2Trail.enabled = isSharkAttacking;
+        tailTrail.enabled = isSharkAttacking;
+        biteCollider.enabled = isSharkAttacking;
+        takeDmgCollider.radius /= 2; //shrink hitbox
+        agent.speed *= biteSpeed;
+        agent.stoppingDistance = 0; 
+        Vector3 attackDest = GameManager.instance.player.transform.position + (playerDir / 2);
+        NavMeshHit hit;
+        NavMesh.SamplePosition(attackDest, out hit, (stoppingDist / 2), 1);
+        agent.SetDestination(hit.position);
     }
 
+    public void onBiteEnd()
+    {
+        Debug.Log("Shark End");
+        isSharkAttacking = false;
+        body1Trail.enabled = isSharkAttacking;
+        body2Trail.enabled = isSharkAttacking;
+        tailTrail.enabled = isSharkAttacking;
+        biteCollider.enabled = isSharkAttacking;
+        takeDmgCollider.radius *= 2;
+        agent.speed /= biteSpeed;
+        agent.stoppingDistance = stoppingDist;
+        agent.SetDestination(GameManager.instance.player.transform.position);
+        shootTimer = 0;
+    }
+
+    //canSeePlayer calls shoot >> use shoot for attack + shootTimer
     protected override void shoot()
     {
-        isAttacking = true;
-        agent.stoppingDistance = 0;
-        agent.speed = attackSpeed;
-        bullet.GetComponent<Collider>().enabled = true; //turns on attack collider, so enemy can damage player
-        agent.SetDestination(GameManager.instance.player.transform.position + (playerDir/2)); //set enemy to go a little past player
-        anim.Play("Attack");
-        //enemy should attack player location at time attack was called (this creates player dodge window)
-    }
-    void endAttack()
-    {
-        Debug.Log("End Attack");
-        shootTimer = 0; //only reset attack timer here, so it cant reset during enemy attack
-        isAttacking = false;
-        agent.stoppingDistance = stoppingDistance;
-        agent.speed = agentSpeed;
-        bullet.GetComponent<Collider>().enabled = false; 
-        anim.Play("Swim");
-        //reset all values back to normal
+        shootTimer = 0; //reset
+        anim.SetTrigger("Bite");
     }
 
     override public void takeDamage(int damage)
     {
-
         shootTimer += shootRate / 2; //reduces attack cooldown when taking damage
         base.takeDamage(damage);
     }
 }
 
+/*
+ * 
+ *      Vector3 attackDest = GameManager.instance.player.transform.position + (playerDir/2);
+        NavMeshHit hit;
+        NavMesh.SamplePosition(ranPos, out hit, (stoppingDist/2), 1);
+        agent.SetDestination(hit.position);
+ * 
+ * 
+ */

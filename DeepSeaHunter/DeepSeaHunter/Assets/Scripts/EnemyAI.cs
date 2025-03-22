@@ -4,34 +4,38 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
+    [Header("General")]
     public int HP;
     public Renderer model;
     public Animator anim;
+    //hidden
+    protected Color modelColor;
 
+    [Header("Navmesh")]
     public NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] int FOV;
     [SerializeField] int roamPauseTime;
     [SerializeField] int roamDist;
-
-    public GameObject bullet;
-    public Transform shootPos;
-
-    public float shootRate;
     public int faceTargetSpeed;
     public int animTranSpeed;
-
-    protected float shootTimer;
+    //hidden
     float roamTimer;
-    float stoppingDist;
-
-    protected Color modelColor;
-
+    protected float stoppingDist;
     Vector3 startingPos;
     protected Vector3 playerDir;
     float angleToPlayer;
 
     protected bool playerInRange;
+
+    [Header("Shooting")]
+    public GameObject bullet;
+    public Transform shootPos;
+    public float shootRate;
+    //hidden
+    protected float shootTimer;
+    protected bool isSharkAttacking; //this is just for shark, so i dont have to override functions
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Start()
     {
@@ -68,9 +72,12 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             if(hit.collider.CompareTag("Player") && angleToPlayer <= FOV)
             {
-                agent.stoppingDistance = stoppingDist;
                 anim.SetBool("isRoaming", false);
-                agent.SetDestination(GameManager.instance.player.transform.position);
+                if (!isSharkAttacking)
+                { //this prevents shark jittering from changing stopping dist/dest every update
+                    agent.stoppingDistance = stoppingDist;
+                    agent.SetDestination(GameManager.instance.player.transform.position);
+                }
 
                 if (shootTimer >= shootRate)
                     shoot();
@@ -103,14 +110,14 @@ public class EnemyAI : MonoBehaviour, IDamage
         agent.SetDestination(hit.position);
     }
 
-    protected void setAnimLocomotion()
+    void setAnimLocomotion()
     {
         float agentSpeed = agent.velocity.normalized.magnitude;
         float animSpeed = anim.GetFloat("Speed");
         anim.SetFloat("Speed", Mathf.Lerp(animSpeed, agentSpeed, Time.deltaTime * animTranSpeed));
     }
 
-    protected void faceTarget()
+    void faceTarget()
     {
         Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, transform.position.y, playerDir.z));
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceTargetSpeed);
@@ -146,7 +153,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 
-    protected virtual IEnumerator flashRed()
+    IEnumerator flashRed()
     {
         model.material.color = Color.red;
         yield return new WaitForSeconds(.1f);

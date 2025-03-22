@@ -12,7 +12,7 @@ public class EnemyArmored : EnemyAI
     override public void takeDamage(int damage)
     {
         HP -= damage;
-        StartCoroutine(flashRed());
+        StartCoroutine(flashMat());
         agent.SetDestination(GameManager.instance.player.transform.position);
 
         if (HP <= 0)
@@ -22,7 +22,7 @@ public class EnemyArmored : EnemyAI
         }
     }
 
-    override protected IEnumerator flashRed()
+    IEnumerator flashMat()
     {
         Material mat = model.material;
         model.material = flashDamage;
