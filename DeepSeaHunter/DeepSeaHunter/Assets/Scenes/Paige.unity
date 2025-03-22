@@ -1344,6 +1344,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 139145709261866105, guid: ce544f8de5c3a8449a9cf837459a07f7, type: 3}
   m_PrefabInstance: {fileID: 5755008629121678704}
   m_PrefabAsset: {fileID: 0}
+--- !u!143 &2000577317 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 5603928613518264459, guid: 52edc1164f13fd646bed6369b8869dec, type: 3}
+  m_PrefabInstance: {fileID: 1341098879498434135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2119977924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,6 +1464,14 @@ PrefabInstance:
     - target: {fileID: 4002661349723570564, guid: 52edc1164f13fd646bed6369b8869dec, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028923487959050655, guid: 52edc1164f13fd646bed6369b8869dec, type: 3}
+      propertyPath: takeDmgCollider
+      value: 
+      objectReference: {fileID: 2000577317}
+    - target: {fileID: 9028923487959050655, guid: 52edc1164f13fd646bed6369b8869dec, type: 3}
+      propertyPath: timeInvulnerable
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

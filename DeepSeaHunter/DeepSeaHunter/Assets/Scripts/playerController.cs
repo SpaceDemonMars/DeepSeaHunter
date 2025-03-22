@@ -18,6 +18,9 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     [SerializeField] int dashMax;
     [SerializeField] float dashRechargeTimer;
     [SerializeField] float dashDuration;
+    [SerializeField] float timeInvulnerable; //iFrames
+    //hidden 
+    bool isInvuln;
 
     [Header("Jump")]
     [SerializeField] public float jumpStr;
@@ -155,10 +158,17 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
                 pushDir = transform.forward * dashStr;
             else
                 pushDir = moveDir * dashStr;
-            Debug.Log("Dashed");
+            StartCoroutine(iFrames());
             StartCoroutine(endDash());
             StartCoroutine(rechargeDash());
         }
+    }
+
+    IEnumerator iFrames()
+    {
+        isInvuln = true;
+        yield return new WaitForSeconds(timeInvulnerable);
+        isInvuln = false;
     }
 
     void jump()
@@ -209,14 +219,16 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
     public void takeDamage(int damage)
     {
-        HP -= damage;
+        if (!isInvuln) {
+            HP -= damage;
         updatePlayerUI();
         StartCoroutine(flashDamageScreen());
-        //add feedback here
+            //add feedback here
 
-        if( HP <= 0 )
-        {
-            GameManager.instance.youLose();
+            if (HP <= 0)
+            {
+                GameManager.instance.youLose();
+            }
         }
     }
 
