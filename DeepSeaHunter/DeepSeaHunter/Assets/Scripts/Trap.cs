@@ -19,12 +19,9 @@ public class Trap : MonoBehaviour, IDamage
     [SerializeField] Collider takeDmgCollider;
     [SerializeField] float unPuffRate;
 
-    [SerializeField] int animTranSpeed;
-
     Color modelColor;
     float roamTimer;
     Vector3 startingPos;
-    float unPuffTimer;
     bool isPuffed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,23 +29,14 @@ public class Trap : MonoBehaviour, IDamage
     { 
         modelColor = model.material.color;
         startingPos = transform.position;
+        isPuffed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        unPuffTimer += Time.deltaTime;
         if (agent.remainingDistance < 0.01f)
             roamTimer += Time.deltaTime;
-        if (isPuffed && unPuffTimer >= unPuffRate)
-        {
-            Debug.Log("UN-Puffed");
-            isPuffed = false;
-            unPuffTimer = 0;
-            trapCollider.enabled = isPuffed;
-            takeDmgCollider.enabled = !isPuffed;
-            anim.Play("Swim");
-        }
         //trap doesnt need to see the player ignore FOV/In range checks
         checkRoam();
     }
@@ -74,13 +62,25 @@ public class Trap : MonoBehaviour, IDamage
         StartCoroutine(flashWhite());
         if (type == trapType.puffer)
         {
-            Debug.Log("Puffed");
-            isPuffed = true;
-            unPuffTimer = 0;
-            trapCollider.enabled = isPuffed;
-            takeDmgCollider.enabled = !isPuffed;
-            anim.Play("BlowUp");
+            anim.SetTrigger("Puff");
+            //starts anim that calls eventPuff
         }
+    }
+
+    public void eventPuff()
+    {
+        isPuffed = !isPuffed;
+        trapCollider.enabled = isPuffed;
+        takeDmgCollider.enabled = !isPuffed;
+        if (isPuffed)
+            StartCoroutine(puffTimer());
+    }
+
+    IEnumerator puffTimer()
+    {
+        yield return new WaitForSeconds(unPuffRate);
+        anim.SetTrigger("Puff");
+        //starts anim that ends puff (by calling event puff)
     }
 
     IEnumerator flashWhite()

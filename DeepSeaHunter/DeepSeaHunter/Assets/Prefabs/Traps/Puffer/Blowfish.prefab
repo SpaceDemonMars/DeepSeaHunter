@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9008732233434676865}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 31.725954, y: -27.690744, z: -5.5853004}
 --- !u!1 &2370542161372063024
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ Transform:
   m_Children:
   - {fileID: 9008732233434676865}
   m_Father: {fileID: 1239557308180987922}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.38651156, y: -1.1377527, z: 1.986084}
 --- !u!1 &2607586839625081209
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ Transform:
   - {fileID: 2696105264298084758}
   - {fileID: 1565755025900410430}
   m_Father: {fileID: 3657457166291807536}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.5038669, y: -6.817664, z: -1.5990404}
 --- !u!1 &3240678450513726153
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +188,8 @@ SkinnedMeshRenderer:
   - {fileID: 3485968969360822311}
   - {fileID: 2696105264298084758}
   - {fileID: 3003264275334524319}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 0
   m_RootBone: {fileID: 1239557308180987922}
   m_AABB:
     m_Center: {x: 0.0011143917, y: -0.011768916, z: -0.0049174493}
@@ -226,7 +227,7 @@ Transform:
   - {fileID: 3657457166291807536}
   - {fileID: 3003264275334524319}
   m_Father: {fileID: 8193307504658212021}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -18.161476, y: -3.6894968, z: 9.153776}
 --- !u!1 &5691216179513225145
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +258,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9008732233434676865}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12.977032, y: 1.5615711, z: 23.897774}
 --- !u!1 &6301559336354591123
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +321,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9008732233434676865}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 41.912567, y: 165.24666, z: -10.581595}
 --- !u!1 &7318380624957995454
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,8 +434,7 @@ MonoBehaviour:
   roamDist: 25
   trapCollider: {fileID: 8138424570974565764}
   takeDmgCollider: {fileID: 8748713213798245676}
-  unPuffRate: 20
-  animTranSpeed: 0
+  unPuffRate: 6
 --- !u!135 &8138424570974565764
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -516,7 +516,7 @@ MonoBehaviour:
   type: 2
   rb: {fileID: 0}
   dmgAmount: 1
-  dmgTime: 3.6
+  dmgTime: 1.5
   speed: 10
   destroyTime: 0
   entangleDuration: 0
@@ -554,4 +554,4 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9008732233434676865}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 41.912563, y: -165.24664, z: 10.581593}

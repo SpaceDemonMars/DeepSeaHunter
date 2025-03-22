@@ -623,10 +623,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blowfish
       objectReference: {fileID: 0}
-    - target: {fileID: 8144988895652417018, guid: 368fe9bc1725d834e8e13934fbabb29d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
