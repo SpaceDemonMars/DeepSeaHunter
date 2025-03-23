@@ -25,7 +25,6 @@ public class EnemyAI : MonoBehaviour, IDamage
     Vector3 startingPos;
     protected Vector3 playerDir;
     float angleToPlayer;
-    float angleToPlayer;
 
     protected bool playerInRange;
 
