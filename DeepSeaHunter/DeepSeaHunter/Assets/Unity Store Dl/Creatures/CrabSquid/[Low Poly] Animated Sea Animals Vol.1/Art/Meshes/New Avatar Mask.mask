@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Avatar Mask
+  m_Mask: 01000000010000000100000001000000010000000100000000000000010000000000000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/Root
+    m_Weight: 0
+  - m_Path: Armature/Root/Body
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Eye.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Eye.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Leg1.001.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Leg1.001.L/Leg1.002.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Leg1.001.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Leg1.001.R/Leg1.002.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Leg2.001.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Leg2.001.L/Leg2.002.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Leg2.001.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Leg2.001.R/Leg2.002.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Leg3.001.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Leg3.001.L/Leg3.002.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Leg3.001.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Leg3.001.R/Leg3.002.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Mouth.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Mouth.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/PoleLeg.L
+    m_Weight: 1
+  - m_Path: Armature/Root/Body/PoleLeg.L/Crab_Hand.L
+    m_Weight: 1
+  - m_Path: Armature/Root/Body/PoleLeg.L/Crab_Hand.L/SmallHand.L
+    m_Weight: 1
+  - m_Path: Armature/Root/Body/PoleLeg.R
+    m_Weight: 1
+  - m_Path: Armature/Root/Body/PoleLeg.R/Crab_Hand.R
+    m_Weight: 1
+  - m_Path: Armature/Root/Body/PoleLeg.R/Crab_Hand.R/SmallHand.R
+    m_Weight: 1
+  - m_Path: Armature/Root/Leg1.IK.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg1.IK.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg1_Pole.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg1_Pole.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg2.IK.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg2.IK.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg2_Pole.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg2_Pole.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg3.IK.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg3.IK.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg3_Pole.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg3_Pole.R
+    m_Weight: 0
+  - m_Path: Crab
+    m_Weight: 0

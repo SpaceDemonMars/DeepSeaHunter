@@ -2,12 +2,11 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public class EnemyBoss : MonoBehaviour
+public class EnemyBoss : MonoBehaviour, IDamage
 {
     [Header("General")]
     [SerializeField] int HP;
-    [SerializeField] string Name;
-    [SerializeField] Renderer model;
+    public Renderer model;
     [SerializeField] Animator anim;
     [SerializeField] bool hasUniqueMaterial;
     public Material flashDamage;
@@ -17,7 +16,7 @@ public class EnemyBoss : MonoBehaviour
     Transform spawnPos;
 
     [Header("NavMesh")]
-    [SerializeField] NavMeshAgent agent;
+    public NavMeshAgent agent;
     [SerializeField] int faceTargetSpeed;
     [SerializeField] int animTranSpeed;
     Vector3 playerDir;
@@ -49,13 +48,15 @@ public class EnemyBoss : MonoBehaviour
     float beamTimer;
 
     [Header("Melee - 1")]
-    [SerializeField] int melee1ShotCooldown;
+    [SerializeField] int melee1Cooldown;
     [SerializeField] Collider melee1Col;
+    [SerializeField] TrailRenderer melee1TrailMain;
+    [SerializeField] TrailRenderer melee1TrailSecond;
     [SerializeField] float melee1MoveSpeed;
     float melee1Timer;
 
     [Header("Melee - 2")]
-    [SerializeField] int melee2ShotCooldown;
+    [SerializeField] int melee2Cooldown;
     [SerializeField] Collider melee2Col;
     [SerializeField] float melee2MoveSpeed;
     float melee2Timer;
@@ -77,17 +78,23 @@ public class EnemyBoss : MonoBehaviour
         UpdateTimers();
         setAnimLocomotion();
         if (playerInRange)
+        {
+            playerDir = GameManager.instance.player.transform.position - transform.position;
+            agent.SetDestination(GameManager.instance.player.transform.position);
+            if (agent.remainingDistance <= agent.stoppingDistance)
+                faceTarget();
             CombatController();
+        }
     }
 
     void UpdateTimers()
     {
-        globalAttackTimer = Time.deltaTime;
-        singleShotTimer = Time.deltaTime;
-        multiShotTimer = Time.deltaTime;
-        beamTimer = Time.deltaTime;
-        melee1Timer = Time.deltaTime;
-        melee2Timer = Time.deltaTime;
+        globalAttackTimer += Time.deltaTime;
+        singleShotTimer += Time.deltaTime;
+        multiShotTimer += Time.deltaTime;
+        beamTimer += Time.deltaTime;
+        melee1Timer += Time.deltaTime;
+        melee2Timer += Time.deltaTime;
     }
     void setAnimLocomotion()
     {
@@ -107,7 +114,7 @@ public class EnemyBoss : MonoBehaviour
             playerInRange = true;
         }
     }
-    public virtual void takeDamage(int damage)
+    public void takeDamage(int damage)
     {
         HP -= damage;
         if (hasUniqueMaterial)
@@ -142,20 +149,75 @@ public class EnemyBoss : MonoBehaviour
     {
         if (!inAttack && globalAttackCooldown <= globalAttackTimer)
         { //global CD up && not in attack
+            //boss should jump backwards before shooting
+            if (singleShotCooldown <= singleShotTimer)
+                singleShot();
+            else if (multiShotCooldown <= multiShotTimer)
+                multiShot();
+            else if (melee1Cooldown <= melee1Timer)
+                melee1();
 
         }
     }
 
     //Single Shot
-
+    void singleShot()
+    {
+        globalAttackTimer = 0;
+        singleShotTimer = 0;
+        Instantiate(bulletSingle, shootPos.position, transform.rotation);
+    }
 
     //Multi Shot
+    void multiShot()
+    {
+        StartCoroutine(shootMulti());
+    }
 
+    IEnumerator shootMulti()
+    {
+        inAttack = true;
+        for (int i = 0; i < numBullets; i++)
+        {
+            Instantiate(bulletMulti, shootPos.position, transform.rotation);
+            yield return new WaitForSeconds(timeBetweenShots);
+        }
+        globalAttackTimer = 0;
+        singleShotTimer = 0;
+        multiShotTimer = 0;
+        inAttack = false;
+    }
 
     //Beam
 
 
     //Melee 1
+    void melee1()
+    {
+        globalAttackTimer = 0;
+        melee1Timer = 0;
+        inAttack = true;
+        agent.stoppingDistance = 1;
+        anim.SetTrigger("Melee 1");
+    }
+
+    public void eventMelee1Start()
+    {
+        melee1Col.enabled = true;
+        melee1TrailMain.enabled = true;
+        melee1TrailSecond.enabled = true;
+    }
+    public void eventMelee1End()
+    {
+        melee1Col.enabled = false;
+        melee1TrailMain.enabled = false;
+        melee1TrailSecond.enabled = false;
+        agent.stoppingDistance = baseStoppingDist;
+        globalAttackTimer = 0;
+        melee1Timer = 0;
+        inAttack = false;
+
+    }
 
 
     //Melee 2
