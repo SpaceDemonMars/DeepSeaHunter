@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Scenes/new s.unity.meta
 guid: a6a947eba00a6414a848f1de372909a7
+========
+guid: ee79c9f46d9cb764486dd23ce59d4a9c
+folderAsset: yes
+timeCreated: 1554659790
+licenseType: Store
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Unity Store Dl/Weapons/Combat Knife/Prefab/Specular.meta
 DefaultImporter:
-  externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
