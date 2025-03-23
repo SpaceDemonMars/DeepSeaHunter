@@ -71,11 +71,11 @@ public class GameManager : MonoBehaviour
         menuActive = null;
     }
 
-    public void updateGameGoal(string bossName, bool slayn)
+    public void updateGameGoal(string bossName, bool slain)
     {
         goalCountText.text = bossName;
 
-        if (slayn)
+        if (slain)
         {
             statePause();
             menuActive = menuWin;
