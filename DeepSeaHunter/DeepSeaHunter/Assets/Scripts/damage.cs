@@ -9,7 +9,7 @@ public class damage : MonoBehaviour
 
     [Range(0, 10)][SerializeField] int dmgAmount;
     [Range(0, 10)][SerializeField] float dmgTime;
-    [Range(10, 45)][SerializeField] int speed;
+    [Range(1, 45)][SerializeField] int speed;
     [Range(0, 5)][SerializeField] int destroyTime;
     [Range(0, 10)][SerializeField] float entangleDuration;
     [Range(0, 5)][SerializeField] int slowFactor;

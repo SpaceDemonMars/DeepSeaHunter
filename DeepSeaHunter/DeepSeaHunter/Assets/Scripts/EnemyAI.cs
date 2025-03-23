@@ -39,10 +39,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Start()
     {
-        GameManager.instance.updateGameGoal(1);
         modelColor = model.material.color;
-        stoppingDist = agent.stoppingDistance;
-        startingPos = transform.position;
         stoppingDist = agent.stoppingDistance;
         startingPos = transform.position;
     }
@@ -138,7 +135,6 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             playerInRange = false;
             agent.stoppingDistance = 0;
-            agent.stoppingDistance = 0;
         }
     }
 
@@ -146,13 +142,11 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         HP -= damage;
         roamTimer = 0;
-        roamTimer = 0;
         StartCoroutine(flashRed());
         agent.SetDestination(GameManager.instance.player.transform.position);
 
         if (HP <= 0)
         {
-            GameManager.instance.updateGameGoal(-1);
             Destroy(gameObject);
         }
     }
@@ -169,4 +163,5 @@ public class EnemyAI : MonoBehaviour, IDamage
         shootTimer = 0;
         Instantiate(bullet, shootPos.position, transform.rotation);
     }
+    //
 }

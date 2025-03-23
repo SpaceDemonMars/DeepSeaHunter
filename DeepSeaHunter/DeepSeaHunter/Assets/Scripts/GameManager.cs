@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public Image knifeReloadBar;
 
     public bool isPaused;
-    public int goalCount;
+    //public int goalCount;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -71,12 +71,11 @@ public class GameManager : MonoBehaviour
         menuActive = null;
     }
 
-    public void updateGameGoal(int amount)
+    public void updateGameGoal(string bossName, bool slayn)
     {
-        goalCount += amount;
-        goalCountText.text = goalCount.ToString("F0");
+        goalCountText.text = bossName;
 
-        if (goalCount <= 0)
+        if (slayn)
         {
             statePause();
             menuActive = menuWin;
