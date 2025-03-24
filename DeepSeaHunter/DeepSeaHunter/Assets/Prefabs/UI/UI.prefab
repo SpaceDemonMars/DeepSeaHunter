@@ -218,7 +218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fish Remaining : '
+  m_text: 'Hunt Target :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -352,7 +352,6 @@ MonoBehaviour:
   harpoonReloadBar: {fileID: 553166912893663190}
   knifeReloadBar: {fileID: 2674173725392276705}
   isPaused: 0
-  goalCount: 0
 --- !u!114 &5355602854221021459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1339,8 +1338,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291312896
-  m_fontColor: {r: 0, g: 0.23968796, b: 0.7830189, a: 1}
+    rgba: 4278192840
+  m_fontColor: {r: 0.78431374, g: 0.037890296, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

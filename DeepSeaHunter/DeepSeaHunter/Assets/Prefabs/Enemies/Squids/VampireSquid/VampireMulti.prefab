@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7074059641878629348}
   - component: {fileID: 5445268077776354321}
   m_Layer: 0
-  m_Name: GiantSquidBullet
+  m_Name: VampireMulti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,10 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rb: {fileID: 5445268077776354321}
-  dmgAmount: 3
+  dmgAmount: 2
   dmgTime: 0
   speed: 8
-  destroyTime: 2
+  destroyTime: 3
   entangleDuration: 0
   slowFactor: 0
   poisonDamage: 1
@@ -128,7 +128,7 @@ TrailRenderer:
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.4
     widthCurve:
       serializedVersion: 2
       m_Curve:

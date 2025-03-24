@@ -44,7 +44,6 @@ public class EnemyBoss : MonoBehaviour, IDamage
     [Header("Beam")]
     [SerializeField] int beamCooldown;
     [SerializeField] GameObject beam;
-    [SerializeField] float beamDuration;
     float beamTimer;
 
     [Header("Melee - 1")]
@@ -150,13 +149,16 @@ public class EnemyBoss : MonoBehaviour, IDamage
         if (!inAttack && globalAttackCooldown <= globalAttackTimer)
         { //global CD up && not in attack
             //boss should jump backwards before shooting
-            if (singleShotCooldown <= singleShotTimer)
+            if (hasSingleShot && singleShotCooldown <= singleShotTimer)
                 singleShot();
-            else if (multiShotCooldown <= multiShotTimer)
+            else if (hasMultiShot && multiShotCooldown <= multiShotTimer)
                 multiShot();
-            else if (melee1Cooldown <= melee1Timer)
+            else if (hasBeam && beamCooldown <= beamTimer)
+                shootBeam();
+            else if (hasMelee1 && melee1Cooldown <= melee1Timer)
                 melee1();
-
+            else if (hasMelee2 && melee2Cooldown <= melee2Timer)
+                melee2();
         }
     }
 
@@ -189,7 +191,13 @@ public class EnemyBoss : MonoBehaviour, IDamage
     }
 
     //Beam
-
+    void shootBeam()
+    {
+        globalAttackTimer = 0;
+        singleShotTimer = 0;
+        beamTimer = 0;
+        Instantiate(beam, shootPos.position + (Vector3.forward * beam.transform.localScale.y), transform.rotation);
+    }
 
     //Melee 1
     void melee1()
@@ -219,6 +227,9 @@ public class EnemyBoss : MonoBehaviour, IDamage
 
     }
 
-
     //Melee 2
+    void melee2()
+    {
+
+    }
 }
