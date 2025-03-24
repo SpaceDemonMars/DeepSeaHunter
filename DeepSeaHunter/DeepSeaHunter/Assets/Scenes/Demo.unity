@@ -236,19 +236,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.42
+      value: -26.4
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.4
+      value: -4.4000006
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.69
+      value: -29.79
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9989283
+      value: 0.9999935
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -256,7 +256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.046285696
+      value: 0.0036025892
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalRotation.z
@@ -268,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -5.306
+      value: 0.413
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -15267,13 +15267,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466121676}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.046285696, z: -0, w: 0.9989283}
-  m_LocalPosition: {x: -26.42, y: -4.4, z: -29.69}
+  m_LocalRotation: {x: -0, y: 0.0036025892, z: -0, w: 0.9999935}
+  m_LocalPosition: {x: -26.4, y: -4.4000006, z: -29.79}
   m_LocalScale: {x: 6.795, y: 9.516713, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1950750911}
-  m_LocalEulerAnglesHint: {x: 0, y: -5.306, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.413, z: 0}
 --- !u!1 &915374343
 GameObject:
   m_ObjectHideFlags: 0
@@ -15385,7 +15385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 9.516713
+      value: 7.3689814
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15442,7 +15442,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.10880846, z: -0, w: 0.9940628}
   m_LocalPosition: {x: -61.45, y: -7.800031, z: -19.21}
-  m_LocalScale: {x: 6.795, y: 9.516713, z: 1}
+  m_LocalScale: {x: 6.795, y: 7.3689814, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1950750911}
@@ -20829,7 +20829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 9.516713
+      value: 17.90094
       objectReference: {fileID: 0}
     - target: {fileID: 139145709261866105, guid: f4c2b3c676ee07c488724b386be7e56d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43722,7 +43722,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.15605994, z: -0, w: 0.98774755}
   m_LocalPosition: {x: -57, y: -5.1, z: -19.27}
-  m_LocalScale: {x: 6.795, y: 9.516713, z: 1}
+  m_LocalScale: {x: 6.795, y: 17.90094, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1950750911}

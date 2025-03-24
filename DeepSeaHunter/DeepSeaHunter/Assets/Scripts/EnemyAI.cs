@@ -5,21 +5,24 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour, IDamage
 {
     public int HP;
+
+    [Header("<----- Model & Stuff ----->")]
     public Renderer model;
     public Animator anim;
-
     public NavMeshAgent agent;
     [SerializeField] Transform headPos;
+
+    [Header("<----- Stats ----->")]
     [SerializeField] int FOV;
     [SerializeField] int roamPauseTime;
     [SerializeField] int roamDist;
+    [SerializeField] public int faceTargetSpeed;
+    [SerializeField] public int animTranSpeed;
+
 
     public GameObject bullet;
     public Transform shootPos;
-
     public float shootRate;
-    public int faceTargetSpeed;
-    public int animTranSpeed;
 
     protected float shootTimer;
     float roamTimer;

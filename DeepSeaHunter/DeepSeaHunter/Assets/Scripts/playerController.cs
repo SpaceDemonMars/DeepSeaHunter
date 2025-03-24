@@ -8,7 +8,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     public int HP;
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
-
+   
+    [Header("<----- Stats ----->")]
     [SerializeField] public float speed;
     //[SerializeField] int sprintMod;
     [SerializeField] int pushResolve;
@@ -16,11 +17,11 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     [SerializeField] int dashMax;
     [SerializeField] float dashRechargeTimer;
     [SerializeField] float dashDuration;
-
     [SerializeField] public float jumpStr;
     [SerializeField] int jumpMax;
     [SerializeField] float grav;
 
+    [Header("<----- Weapons ----->")]
     [SerializeField] int knifeDmg;
     [SerializeField] float knifeRate;
     [SerializeField] int knifeDist;
@@ -28,21 +29,20 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     [SerializeField] float shootRate;
     [SerializeField] float shootMin;
     [SerializeField] float shootMax;
-
-
+    [SerializeField] GameObject weaponModel;
     [SerializeField] List<meleeStats> meleeList = new List<meleeStats>();
     [SerializeField] List<rangedStats> rangedList = new List<rangedStats>();
-
-    [SerializeField] GameObject weaponModel;
-
+    
     int meleeListPos;
     int rangedListPos;
 
     int HPOrig;
     float speedOrig;
+
     Vector3 moveDir;
     public Vector3 pushDir;
     Vector3 playerVel;
+
     Vector3 harpoonDir;
     int dashCount;
     int jumpCount;
@@ -58,8 +58,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     {
         HPOrig = HP;
         speedOrig = speed;
-        updatePlayerUI();
         shootDist = shootMin;
+        spawnPlayer();
     }
 
     // Update is called once per frame
@@ -353,5 +353,12 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     void ITangle.toggleTangled(int tangleMod)
     {
         throw new System.NotImplementedException();
+    }
+    public void spawnPlayer()
+    {
+        controller.transform.position = GameManager.instance.playerSpawnPos.transform.position;
+        HP = HPOrig;
+        updatePlayerUI();
+
     }
 }
