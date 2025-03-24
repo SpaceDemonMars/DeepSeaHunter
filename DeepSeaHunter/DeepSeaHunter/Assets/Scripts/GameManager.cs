@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuLose;
     [SerializeField] TMP_Text goalCountText;
 
+    public GameObject playerSpawnPos;
     public GameObject playerDamageScreen;
     public GameObject playerSlowScreen;
     public Image playerHPBar;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
     public Image harpoonChargeBar;
     public Image harpoonReloadBar;
     public Image knifeReloadBar;
+
+    public GameObject checkpointPopup;
 
     public bool isPaused;
     //public int goalCount;
@@ -33,6 +36,8 @@ public class GameManager : MonoBehaviour
         instance = this;
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+        playerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
+
     }
 
     // Update is called once per frame

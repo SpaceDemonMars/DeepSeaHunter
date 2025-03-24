@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Level Boss
+  - Player Spawn Pos
   layers:
   - Default
   - TransparentFX

@@ -3,55 +3,46 @@ using UnityEngine;
 using UnityEngine.InputSystem.HID;
 using System.Collections.Generic;
 
-public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
+public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPickup
 {
     public int HP;
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
-
+   
+    [Header("<----- Stats ----->")]
     [SerializeField] public float speed;
-
-    [Header("Dash")]
     //[SerializeField] int sprintMod;
     [SerializeField] int pushResolve;
     [SerializeField] public float dashStr;
     [SerializeField] int dashMax;
     [SerializeField] float dashRechargeTimer;
     [SerializeField] float dashDuration;
-    [SerializeField] float timeInvulnerable; //iFrames
-    //hidden 
-    bool isInvuln;
-
-    [Header("Jump")]
     [SerializeField] public float jumpStr;
     [SerializeField] int jumpMax;
     [SerializeField] float grav;
 
-    [Header("Knife")]
+    [Header("<----- Weapons ----->")]
     [SerializeField] int knifeDmg;
     [SerializeField] float knifeRate;
     [SerializeField] int knifeDist;
-
-    [Header("Harpoon")]
     [SerializeField] int shootDmg;
     [SerializeField] float shootRate;
     [SerializeField] float shootMin;
     [SerializeField] float shootMax;
-
-
+    [SerializeField] GameObject weaponModel;
     [SerializeField] List<meleeStats> meleeList = new List<meleeStats>();
     [SerializeField] List<rangedStats> rangedList = new List<rangedStats>();
-
-    [SerializeField] GameObject weaponModel;
-
+    
     int meleeListPos;
     int rangedListPos;
 
     int HPOrig;
     float speedOrig;
+
     Vector3 moveDir;
     public Vector3 pushDir;
     Vector3 playerVel;
+
     Vector3 harpoonDir;
     int dashCount;
     int jumpCount;
@@ -60,14 +51,15 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     public float shootDist;
     public bool isTangled;
     private float harpoonChargeSpeed;
+    private float harpoonPullSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         HPOrig = HP;
         speedOrig = speed;
-        updatePlayerUI();
         shootDist = shootMin;
+        spawnPlayer();
     }
 
     // Update is called once per frame
@@ -94,7 +86,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         if (controller.isGrounded)
         {
             playerVel.y = 0;
-            jumpCount = 0; 
+            jumpCount = 0;
         }
         //BASIC MOVEMENT
         //getting movement input
@@ -117,7 +109,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         }
         selectMeleeWeapon();
         selectRangedWeapon();
-        
+
         //TANGLED TESTING
         /*if (Input.GetButtonDown("Fire3"))
         {
@@ -154,21 +146,15 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
             //this needs math to get the angle right; look at polar to cart coords
             /*playerVel.x = dashStr * moveDir.x; //x = r cos theta; dashStr = r //z = r sin theta; theta = moveDir
             playerVel.z = dashStr * moveDir.z; //movedir might already has the cart coords*/
+            pushDir = moveDir * dashStr;
             if (moveDir.normalized == Vector3.zero) //if no moveDir
                 pushDir = transform.forward * dashStr;
             else
                 pushDir = moveDir * dashStr;
-            StartCoroutine(iFrames());
+            Debug.Log("Dashed");
             StartCoroutine(endDash());
             StartCoroutine(rechargeDash());
         }
-    }
-
-    IEnumerator iFrames()
-    {
-        isInvuln = true;
-        yield return new WaitForSeconds(timeInvulnerable);
-        isInvuln = false;
     }
 
     void jump()
@@ -205,30 +191,41 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreLayer))
         {
-            Debug.Log(hit.collider.name); 
+            Debug.Log(hit.collider.name);
             IDamage dmg = hit.collider.GetComponent<IDamage>();
+            IHarpoon pull = hit.collider.GetComponent<IHarpoon>();
 
             if (dmg != null)
             {
                 dmg.takeDamage(shootDmg);
+            }
+            if (pull != null)
+                pull.harpoonPull();
+            else
+            {
+                harpoonPull();
+                harpoonDir = hit.point - transform.position;
             }
         }
         shootDist = shootMin;//reset shoot dist
         updateChargeUI();
     }
 
+    public void harpoonPull()
+    {//get help
+        controller.Move(harpoonDir * harpoonPullSpeed * Time.deltaTime);
+    }
+
     public void takeDamage(int damage)
     {
-        if (!isInvuln) {
-            HP -= damage;
+        HP -= damage;
         updatePlayerUI();
         StartCoroutine(flashDamageScreen());
-            //add feedback here
+        //add feedback here
 
-            if (HP <= 0)
-            {
-                GameManager.instance.youLose();
-            }
+        if (HP <= 0)
+        {
+            GameManager.instance.youLose();
         }
     }
 
@@ -263,7 +260,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         GameManager.instance.playerSlowScreen.SetActive(isTangled);
     }
 
-    public void stateUntangled(int tangleMod) 
+    public void stateUntangled(int tangleMod)
     {
         speed *= tangleMod; //
         jumpStr *= tangleMod;
@@ -351,5 +348,17 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
         weaponModel.GetComponent<MeshFilter>().sharedMesh = meleeList[meleeListPos].model.GetComponent<MeshFilter>().sharedMesh;
         weaponModel.GetComponent<MeshRenderer>().sharedMaterial = meleeList[meleeListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
+    }
+
+    void ITangle.toggleTangled(int tangleMod)
+    {
+        throw new System.NotImplementedException();
+    }
+    public void spawnPlayer()
+    {
+        controller.transform.position = GameManager.instance.playerSpawnPos.transform.position;
+        HP = HPOrig;
+        updatePlayerUI();
+
     }
 }

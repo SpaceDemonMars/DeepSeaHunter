@@ -4,41 +4,41 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
-    [Header("General")]
     public int HP;
+
+    [Header("<----- Model & Stuff ----->")]
     public Renderer model;
     public Animator anim;
-    //hidden
-    protected Color modelColor;
-
-    [Header("Navmesh")]
     public NavMeshAgent agent;
     [SerializeField] Transform headPos;
+
+    [Header("<----- Stats ----->")]
     [SerializeField] int FOV;
     [SerializeField] int roamPauseTime;
     [SerializeField] int roamDist;
-    public int faceTargetSpeed;
-    public int animTranSpeed;
-    //hidden
+    [SerializeField] public int faceTargetSpeed;
+    [SerializeField] public int animTranSpeed;
+
+
+    public GameObject bullet;
+    public Transform shootPos;
+    public float shootRate;
+
+    protected float shootTimer;
     float roamTimer;
-    protected float stoppingDist;
+    float stoppingDist;
+
+    protected Color modelColor;
+
     Vector3 startingPos;
     protected Vector3 playerDir;
     float angleToPlayer;
 
     protected bool playerInRange;
-
-    [Header("Shooting")]
-    public GameObject bullet;
-    public Transform shootPos;
-    public float shootRate;
-    //hidden
-    protected float shootTimer;
-    protected bool isSharkAttacking; //this is just for shark, so i dont have to override functions
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Start()
     {
+        GameManager.instance.updateGameGoal(1);
         modelColor = model.material.color;
         stoppingDist = agent.stoppingDistance;
         startingPos = transform.position;
@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         setAnimLocomotion();
         shootTimer += Time.deltaTime;
-        if(agent.remainingDistance < 0.01f)
+        if (agent.remainingDistance < 0.01f)
             roamTimer += Time.deltaTime;
         if (playerInRange && !canSeePlayer())
         {
@@ -67,16 +67,13 @@ public class EnemyAI : MonoBehaviour, IDamage
         angleToPlayer = Vector3.Angle(playerDir, transform.forward);
         Debug.DrawRay(headPos.position, playerDir);
         RaycastHit hit;
-        if(Physics.Raycast(headPos.position, playerDir, out hit))
+        if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
-            if(hit.collider.CompareTag("Player") && angleToPlayer <= FOV)
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= FOV)
             {
+                agent.stoppingDistance = stoppingDist;
                 anim.SetBool("isRoaming", false);
-                if (!isSharkAttacking)
-                { //this prevents shark jittering from changing stopping dist/dest every update
-                    agent.stoppingDistance = stoppingDist;
-                    agent.SetDestination(GameManager.instance.player.transform.position);
-                }
+                agent.SetDestination(GameManager.instance.player.transform.position);
 
                 if (shootTimer >= shootRate)
                     shoot();
@@ -91,7 +88,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     void checkRoam()
     {
-        if ((roamTimer > roamPauseTime && agent.remainingDistance < 0.01f) || GameManager.instance.playerScript.HP <= 0) 
+        if ((roamTimer > roamPauseTime && agent.remainingDistance < 0.01f) || GameManager.instance.playerScript.HP <= 0)
         {
             roam();
         }
@@ -109,14 +106,14 @@ public class EnemyAI : MonoBehaviour, IDamage
         agent.SetDestination(hit.position);
     }
 
-    void setAnimLocomotion()
+    protected void setAnimLocomotion()
     {
         float agentSpeed = agent.velocity.normalized.magnitude;
         float animSpeed = anim.GetFloat("Speed");
         anim.SetFloat("Speed", Mathf.Lerp(animSpeed, agentSpeed, Time.deltaTime * animTranSpeed));
     }
 
-    void faceTarget()
+    protected void faceTarget()
     {
         Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, transform.position.y, playerDir.z));
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceTargetSpeed);
@@ -147,11 +144,12 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
+            GameManager.instance.updateGameGoal(-1);
             Destroy(gameObject);
         }
     }
 
-    IEnumerator flashRed()
+    protected virtual IEnumerator flashRed()
     {
         model.material.color = Color.red;
         yield return new WaitForSeconds(.1f);
@@ -163,5 +161,4 @@ public class EnemyAI : MonoBehaviour, IDamage
         shootTimer = 0;
         Instantiate(bullet, shootPos.position, transform.rotation);
     }
-    //
 }
