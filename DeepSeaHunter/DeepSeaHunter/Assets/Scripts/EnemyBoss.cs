@@ -26,7 +26,7 @@ public class EnemyBoss : MonoBehaviour, IDamage
     [SerializeField] Transform shootPos;
     [SerializeField] bool hasSingleShot, hasMultiShot, hasBeam, hasMelee1, hasMelee2; 
     float globalAttackTimer;
-    bool inAttack;
+    bool inAttack, attackLocksMotion;
     bool playerInRange;
 
     [Header("Single Shot")]
@@ -49,16 +49,23 @@ public class EnemyBoss : MonoBehaviour, IDamage
     [Header("Melee - 1")]
     [SerializeField] int melee1Cooldown;
     [SerializeField] Collider melee1Col;
-    [SerializeField] TrailRenderer melee1TrailMain;
-    [SerializeField] TrailRenderer melee1TrailSecond;
-    [SerializeField] float melee1MoveSpeed;
+    [SerializeField] TrailRenderer melee1Trail1;
+    [SerializeField] TrailRenderer melee1Trail2;
+    [SerializeField] TrailRenderer melee1Trail3;
     float melee1Timer;
+    bool useAltDestination;
 
     [Header("Melee - 2")]
     [SerializeField] int melee2Cooldown;
     [SerializeField] Collider melee2Col;
-    [SerializeField] float melee2MoveSpeed;
+    [SerializeField] int numAttacks;
+    [SerializeField] float timeBetweenAttacks;
+    [SerializeField] TrailRenderer melee2Trail1;
+    [SerializeField] TrailRenderer melee2Trail2;
+    [SerializeField] TrailRenderer melee2Trail3;
     float melee2Timer;
+    bool inMelee2;
+    int attackCounter;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -76,9 +83,9 @@ public class EnemyBoss : MonoBehaviour, IDamage
     {
         UpdateTimers();
         setAnimLocomotion();
-        if (playerInRange)
+        playerDir = GameManager.instance.player.transform.position - transform.position;
+        if (playerInRange && !attackLocksMotion)
         {
-            playerDir = GameManager.instance.player.transform.position - transform.position;
             agent.SetDestination(GameManager.instance.player.transform.position);
             if (agent.remainingDistance <= agent.stoppingDistance)
                 faceTarget();
@@ -205,31 +212,105 @@ public class EnemyBoss : MonoBehaviour, IDamage
         globalAttackTimer = 0;
         melee1Timer = 0;
         inAttack = true;
-        agent.stoppingDistance = 1;
+        agent.stoppingDistance = 0;
+        if (useAltDestination)
+        {
+            Vector3 attackDest = GameManager.instance.player.transform.position + playerDir;
+            NavMeshHit hit;
+            NavMesh.SamplePosition(attackDest, out hit, 2, 1);
+            agent.SetDestination(hit.position);
+        }
+        attackLocksMotion = inAttack;
         anim.SetTrigger("Melee 1");
     }
 
     public void eventMelee1Start()
     {
-        melee1Col.enabled = true;
-        melee1TrailMain.enabled = true;
-        melee1TrailSecond.enabled = true;
+        melee1Col.enabled = inAttack;
+        if (melee1Trail1 != null)
+            melee1Trail1.enabled = inAttack;
+        if (melee1Trail2 != null)
+            melee1Trail2.enabled = inAttack;
+        if (melee1Trail3 != null)
+            melee1Trail3.enabled = inAttack;
     }
     public void eventMelee1End()
     {
-        melee1Col.enabled = false;
-        melee1TrailMain.enabled = false;
-        melee1TrailSecond.enabled = false;
+        inAttack = false;
+        attackLocksMotion = inAttack;
+        eventMelee1Start(); //this just toggles stuff lol
         agent.stoppingDistance = baseStoppingDist;
         globalAttackTimer = 0;
         melee1Timer = 0;
-        inAttack = false;
-
     }
 
     //Melee 2
     void melee2()
     {
+        globalAttackTimer = 0;
+        melee1Timer = 0;
+        melee2Timer = 0;
+        inAttack = true;
+        agent.stoppingDistance = 0;
+        attackLocksMotion = inAttack;
+        anim.SetTrigger("Melee 2");
 
+    }
+
+    public void eventMelee2()
+    {
+        inMelee2 = !inMelee2;
+        melee2Toggles();
+        if (inMelee2) //in attack anim
+        {
+            if (useAltDestination)
+            {
+                Vector3 attackDest = GameManager.instance.player.transform.position + playerDir;
+                NavMeshHit hit;
+                NavMesh.SamplePosition(attackDest, out hit, 2, 1);
+                agent.SetDestination(hit.position);
+            }
+            else
+                agent.SetDestination(GameManager.instance.player.transform.position);
+
+            attackCounter++;
+        }
+        else if (!inMelee2 && attackCounter < numAttacks) //out of anim, but has more attacks
+        {
+            StartCoroutine(holdBetweenAttacks());
+        }
+        else //out of anim, out of attacks
+        {
+            globalAttackTimer = 0;
+            melee1Timer = 0;
+            melee2Timer = 0;
+            attackCounter = 0;
+            inAttack = false;
+            agent.stoppingDistance = baseStoppingDist;
+            attackLocksMotion = inAttack;
+        }
+    }
+
+    IEnumerator holdBetweenAttacks()
+    {
+        float timer = 0;
+        while (timer < timeBetweenAttacks)
+        {
+            faceTarget();
+            yield return new WaitForSeconds(.1f);
+            timer += Time.deltaTime;
+        }
+        anim.SetTrigger("Melee 2");
+    }
+
+    void melee2Toggles()
+    {
+        melee2Col.isTrigger = inMelee2;
+        if (melee2Trail1 != null)
+            melee2Trail1.enabled = inMelee2;
+        if (melee2Trail2 != null)
+            melee2Trail2.enabled = inMelee2;
+        if (melee2Trail3 != null)
+            melee2Trail3.enabled = inMelee2;
     }
 }
