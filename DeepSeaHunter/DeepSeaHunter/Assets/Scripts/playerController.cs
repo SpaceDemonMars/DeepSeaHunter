@@ -350,10 +350,11 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         weaponModel.GetComponent<MeshRenderer>().sharedMaterial = meleeList[meleeListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
-    void ITangle.toggleTangled(int tangleMod)
+  /*  void ITangle.toggleTangled(int tangleMod)
     {
         throw new System.NotImplementedException();
     }
+  */
     public void spawnPlayer()
     {
         controller.transform.position = GameManager.instance.playerSpawnPos.transform.position;
