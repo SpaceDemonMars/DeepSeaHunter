@@ -463,21 +463,24 @@ MonoBehaviour:
   hasMelee2: 0
   singleShotCooldown: 4
   bulletSingle: {fileID: 3220944449693001656, guid: ed8fc3d51ba067d4c892ee708ea5ebbd, type: 3}
-  multiShotCooldown: 15
+  multiShotCooldown: 8
   bulletMulti: {fileID: 3220944449693001656, guid: ab43a4e95583e9546980cecaa3f88c58, type: 3}
   numBullets: 7
   timeBetweenShots: 0.5
   beamCooldown: 10
   beam: {fileID: 0}
-  beamDuration: 0
   melee1Cooldown: 6
   melee1Col: {fileID: 1339245394271740003}
-  melee1TrailMain: {fileID: 5705398614890259057}
-  melee1TrailSecond: {fileID: 3756103962367126595}
-  melee1MoveSpeed: 0
+  melee1Trail1: {fileID: 0}
+  melee1Trail2: {fileID: 0}
+  melee1Trail3: {fileID: 0}
   melee2Cooldown: 0
   melee2Col: {fileID: 0}
-  melee2MoveSpeed: 0
+  numAttacks: 0
+  timeBetweenAttacks: 0
+  melee2Trail1: {fileID: 0}
+  melee2Trail2: {fileID: 0}
+  melee2Trail3: {fileID: 0}
 --- !u!95 &8776375924153997075
 Animator:
   serializedVersion: 7

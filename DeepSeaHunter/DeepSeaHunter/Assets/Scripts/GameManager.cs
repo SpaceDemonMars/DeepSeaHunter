@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+    [SerializeField] GameObject goalCountLabel;
     [SerializeField] TMP_Text goalCountText;
+    [SerializeField] GameObject tutorialText;
 
     public GameObject playerSpawnPos;
     public GameObject playerDamageScreen;
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject checkpointPopup;
 
     public bool isPaused;
+    bool isTutorialLevel;
     //public int goalCount;
 
 
@@ -37,7 +40,9 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
         playerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
-
+        isTutorialLevel = (GameObject.FindWithTag("Tutorial") != null) ? true : false;
+        goalCountLabel.SetActive(!isTutorialLevel);
+        tutorialText.SetActive(isTutorialLevel);
     }
 
     // Update is called once per frame

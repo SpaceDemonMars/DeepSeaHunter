@@ -1068,10 +1068,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: King Crab
       objectReference: {fileID: 0}
-    - target: {fileID: 1767639227882592136, guid: 3a6b20ecea6db974e9862799f23c853c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3608140140050023031, guid: 3a6b20ecea6db974e9862799f23c853c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
