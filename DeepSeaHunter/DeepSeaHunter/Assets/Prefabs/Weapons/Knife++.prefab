@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8336230159908197676}
   - component: {fileID: 1891546343132194618}
   - component: {fileID: 1310443051722097555}
-  - component: {fileID: -6040870143844181956}
   - component: {fileID: 6497331782461632499}
   m_Layer: 0
   m_Name: Knife++
@@ -102,27 +101,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &-6040870143844181956
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088271419711653389}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.331213
-  m_Center: {x: 0.000047000125, y: -0.032948986, z: 0.016715001}
 --- !u!135 &6497331782461632499
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -138,7 +116,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

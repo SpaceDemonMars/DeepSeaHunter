@@ -41,7 +41,6 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Start()
     {
-        GameManager.instance.updateGameGoal("Boss Enemy", false);
         modelColor = model.material.color;
         stoppingDist = agent.stoppingDistance;
         startingPos = transform.position;
@@ -153,7 +152,6 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
-            GameManager.instance.updateGameGoal("Boss Enemy", true);
             Destroy(gameObject);
         }
     }
