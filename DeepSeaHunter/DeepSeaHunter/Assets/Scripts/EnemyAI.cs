@@ -4,11 +4,13 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
+    [Header("<----- General ----->")]
     public int HP;
-
-    [Header("<----- Model & Stuff ----->")]
     public Renderer model;
     public Animator anim;
+    protected Color modelColor;
+
+    [Header("<----- Navmesh ----->")]
     public NavMeshAgent agent;
     [SerializeField] Transform headPos;
 
@@ -19,22 +21,23 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] public int faceTargetSpeed;
     [SerializeField] public int animTranSpeed;
 
-
+    [Header("<----- Shooting ----->")]
     public GameObject bullet;
     public Transform shootPos;
     public float shootRate;
 
     protected float shootTimer;
-    float roamTimer;
-    float stoppingDist;
+    protected bool isSharkAttacking; //this is just for shark, so i dont have to override functions
 
-    protected Color modelColor;
+    float roamTimer;
+    protected float stoppingDist;
 
     Vector3 startingPos;
     protected Vector3 playerDir;
     float angleToPlayer;
 
     protected bool playerInRange;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Start()
     {
@@ -73,7 +76,13 @@ public class EnemyAI : MonoBehaviour, IDamage
             {
                 agent.stoppingDistance = stoppingDist;
                 anim.SetBool("isRoaming", false);
-                agent.SetDestination(GameManager.instance.player.transform.position);
+                if (!isSharkAttacking)
+                { //this prevents shark jittering from changing stopping dist/dest every update
+                    agent.stoppingDistance = stoppingDist;
+                    agent.SetDestination(GameManager.instance.player.transform.position);
+                }
+                anim.SetBool("isRoaming", false);
+  //              agent.SetDestination(GameManager.instance.player.transform.position);
 
                 if (shootTimer >= shootRate)
                     shoot();
