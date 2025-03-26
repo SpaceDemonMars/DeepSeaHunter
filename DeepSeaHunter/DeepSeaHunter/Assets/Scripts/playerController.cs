@@ -30,11 +30,13 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     [SerializeField] float shootMin;
     [SerializeField] float shootMax;
     [SerializeField] GameObject weaponModel;
-    [SerializeField] List<meleeStats> meleeList = new List<meleeStats>();
-    [SerializeField] List<rangedStats> rangedList = new List<rangedStats>();
+    //[SerializeField] List<meleeStats> meleeList = new List<meleeStats>(); //player can only have 1 weap >> list not needed
+    [SerializeField] meleeStats meleeCurr;
+    //[SerializeField] List<rangedStats> rangedList = new List<rangedStats>();
+    [SerializeField] rangedStats rangedCurr;
     
-    int meleeListPos;
-    int rangedListPos;
+    /*int meleeListPos;
+    int rangedListPos;*/
 
     int HPOrig;
     float speedOrig;
@@ -105,12 +107,12 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         playerVel.y -= grav * Time.deltaTime;
 
         //SHOOT LOGIC           
-        if (Input.GetButton("Fire1") && meleeList.Count > 0 && knifeRate <= knifeTimer && GameManager.instance.isPaused == false)
+        if (Input.GetButton("Fire1") && meleeCurr != null && knifeRate <= knifeTimer && GameManager.instance.isPaused == false)
         {
             knife();
         }
-        selectMeleeWeapon();
-        selectRangedWeapon();
+        /*selectMeleeWeapon();
+        selectRangedWeapon();*/
 
         //TANGLED TESTING
         /*if (Input.GetButtonDown("Fire3"))
@@ -176,7 +178,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, knifeDist, ~ignoreLayer))
         {
             Debug.Log(hit.collider.name);
-            Instantiate(meleeList[meleeListPos].hitEffect, hit.point, Quaternion.identity);
+            Instantiate(meleeCurr.hitEffect, hit.point, Quaternion.identity);
             IDamage dmg = hit.collider.GetComponent<IDamage>();
 
             if (dmg != null)
@@ -297,11 +299,15 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     }
     public void getRangedStats(rangedStats rweapon)
     {
-        rangedList.Add(rweapon);
-        rangedListPos = rangedList.Count - 1;
-        changeRangedWeapon();
+        /*rangedList.Add(rweapon);
+        rangedListPos = rangedList.Count - 1;*/
+        if (rangedCurr == null || rangedCurr.rank < rweapon.rank) //if pick up is an upgrade (better then curr)
+        {
+            rangedCurr = rweapon; //this replaces the 2 above lines
+            changeRangedWeapon();
+        }
     }
-    void selectRangedWeapon()
+    /*void selectRangedWeapon()
     {
         if (Input.GetAxis("AltMouse ScrollWheel") > 0 && rangedListPos < rangedList.Count - 1)
         {
@@ -313,24 +319,28 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
             rangedListPos--;
             changeRangedWeapon();
         }
-    }
+    }*/
     void changeRangedWeapon()
     {
-        shootDmg = rangedList[rangedListPos].shootDamage;
-        shootDist = rangedList[rangedListPos].shootDist;
-        shootRate = rangedList[rangedListPos].shootRate;
+        shootDmg = rangedCurr.shootDamage;
+        shootDist = rangedCurr.shootDist;
+        shootRate = rangedCurr.shootRate;
 
-        weaponModel.GetComponent<MeshFilter>().sharedMesh = rangedList[rangedListPos].model.GetComponent<MeshFilter>().sharedMesh;
-        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = rangedList[rangedListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
+        weaponModel.GetComponent<MeshFilter>().sharedMesh = rangedCurr.model.GetComponent<MeshFilter>().sharedMesh;
+        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = rangedCurr.model.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
     public void getMeleeStats(meleeStats mweapon)
     {
-        meleeList.Add(mweapon);
-        meleeListPos = meleeList.Count - 1;
-        changeMeleeWeapon();
+        /*meleeList.Add(mweapon);
+        meleeListPos = meleeList.Count - 1;*/ //weapon upgrades >> dont keep old weap
+        if (meleeCurr == null || meleeCurr.rank < mweapon.rank) //if no weapon OR pick up is an upgrade (better then curr)
+        {
+            meleeCurr = mweapon; //this replaces the 2 above lines
+            changeMeleeWeapon();
+        }
     }
-    void selectMeleeWeapon()
+    /*void selectMeleeWeapon()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && meleeListPos < meleeList.Count - 1)
         {
@@ -342,15 +352,15 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
             meleeListPos--;
             changeMeleeWeapon();
         }
-    }
+    }*/
     void changeMeleeWeapon()
     {
-        knifeDmg = meleeList[meleeListPos].meleeDmg;
-        knifeDist = meleeList[meleeListPos].meleeDist;
-        knifeRate = meleeList[meleeListPos].meleeRate;
+        knifeDmg = meleeCurr.meleeDmg;
+        knifeDist = meleeCurr.meleeDist;
+        knifeRate = meleeCurr.meleeRate;
 
-        weaponModel.GetComponent<MeshFilter>().sharedMesh = meleeList[meleeListPos].model.GetComponent<MeshFilter>().sharedMesh;
-        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = meleeList[meleeListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
+        weaponModel.GetComponent<MeshFilter>().sharedMesh = meleeCurr.model.GetComponent<MeshFilter>().sharedMesh;
+        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = meleeCurr.model.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
    /* void ITangle.toggleTangled(int tangleMod)

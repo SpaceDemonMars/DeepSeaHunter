@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Rough Knife
   m_EditorClassIdentifier: 
   model: {fileID: 3927931605939366943, guid: 508612c03a055174a9b8b50183960e29, type: 3}
+  rank: 0
   meleeDmg: 1
   meleeDist: 5
   meleeRate: 1
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 970440554703164915, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   hitSound: []
   hitVol: 0.5
