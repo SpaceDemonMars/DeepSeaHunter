@@ -301,10 +301,17 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     public void takeDamage(int damage)
     {
         HP -= damage;
+        if (HP > HPOrig) //if overhealed
+            HP = HPOrig; //reset
         updatePlayerUI();
-        StartCoroutine(flashDamageScreen());
+        if (damage > 0) //if damaging
+        {
+            StartCoroutine(flashDamageScreen());
+            aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
+        }
+        else if (damage < 0) //if healing; not else bc of small chance dmg = 0, where we do nothing
+            StartCoroutine(flashHealScreen());
         //add feedback here
-        aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
 
         if (HP <= 0)
         {
@@ -319,6 +326,12 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         GameManager.instance.playerDamageScreen.SetActive(false);
     }
 
+    IEnumerator flashHealScreen()
+    {
+        GameManager.instance.playerHealScreen.SetActive(true);
+        yield return new WaitForSeconds(.1f);
+        GameManager.instance.playerHealScreen.SetActive(false);
+    }
     IEnumerator rechargeDash()
     {
         yield return new WaitForSeconds(dashRechargeTimer);

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class rangedPickUp : MonoBehaviour
 {
+    //script combined into pickup
     [SerializeField] rangedStats rweapon;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -7,7 +7,7 @@ public class damage : MonoBehaviour
     [SerializeField] damageType type;
     [SerializeField] Rigidbody rb;
 
-    [Range(0, 10)][SerializeField] int dmgAmount;
+    [Range(-10, 10)][SerializeField] int dmgAmount; //added negative for healing
     [Range(0, 10)][SerializeField] float dmgTime;
     [Range(1, 45)][SerializeField] int speed;
     [Range(0, 5)][SerializeField] int destroyTime;

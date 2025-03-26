@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject playerSpawnPos;
     public GameObject playerDamageScreen;
+    public GameObject playerHealScreen;
     public GameObject playerSlowScreen;
     public Image playerHPBar;
 
