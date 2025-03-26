@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.HID;
 using System.Collections.Generic;
 
-public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPickup
+public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 {
     public int HP;
     [SerializeField] LayerMask ignoreLayer;
@@ -25,11 +25,13 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     [SerializeField] int knifeDmg;
     [SerializeField] float knifeRate;
     [SerializeField] int knifeDist;
-    [SerializeField] int shootDmg;
-    [SerializeField] float shootRate;
-    [SerializeField] float shootMin;
-    [SerializeField] float shootMax;
+    //[SerializeField] int shootDmg;
+    //[SerializeField] float shootRate;
+    //[SerializeField] float shootMin;
+    //[SerializeField] float shootMax;
     [SerializeField] GameObject weaponModel;
+    [SerializeField] LineRenderer grappleLine;
+    [SerializeField] Transform linePos;                                       //UNCOMMENT: THIS IS FOR THE START POS OF LINE RENDERER
     //[SerializeField] List<meleeStats> meleeList = new List<meleeStats>(); //player can only have 1 weap >> list not needed
     [SerializeField] meleeStats meleeCurr;
     //[SerializeField] List<rangedStats> rangedList = new List<rangedStats>();
@@ -45,22 +47,21 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     public Vector3 pushDir;
     Vector3 playerVel;
 
-    Vector3 harpoonDir;
     int dashCount;
     int jumpCount;
     float knifeTimer;
-    float shootTimer;
-    public float shootDist;
-    public bool isTangled;
-    private float harpoonChargeSpeed;
-    private float harpoonPullSpeed;
+    //float shootTimer;
+    public float grappleDist;
+    bool isTangled; //was only public for testing
+    //float harpoonChargeSpeed;
+    public float grappleSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         HPOrig = HP;
         speedOrig = speed;
-        shootDist = shootMin;
+        //shootDist = shootMin;
         spawnPlayer();
     }
 
@@ -68,13 +69,14 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     void Update()
     {
         pushDir = Vector3.Lerp(pushDir, Vector3.zero, Time.deltaTime * pushResolve);
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist, Color.red);
+        if (meleeCurr != null)
+            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * meleeCurr.meleeDist, Color.red);
 
         if (GameManager.instance.isPaused == false)
         { 
             movement();
 
-            harpoon();
+            //harpoon();
         }
         //sprint();
         updateReloadUI();
@@ -84,7 +86,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     {
         //increment shoot timer
         knifeTimer += Time.deltaTime;
-        shootTimer += Time.deltaTime;
+        //shootTimer += Time.deltaTime;
 
         //reset jumps
         if (controller.isGrounded)
@@ -102,9 +104,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         //JUMP/DASH LOGIC
         jump();
         dash();
-        //this needs to reduce x and z to zero 0 overtime
-        controller.Move(playerVel * Time.deltaTime);
-        playerVel.y -= grav * Time.deltaTime;
+
+        isGrappling();
 
         //SHOOT LOGIC           
         if (Input.GetButton("Fire1") && meleeCurr != null && knifeRate <= knifeTimer && GameManager.instance.isPaused == false)
@@ -121,7 +122,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         }*/
     }
 
-    void harpoon()
+    /*void harpoon()
     {//moved timer check to be called AFTER button check, for performance (mentioned in lec5)
         if (Input.GetButton("Fire2") && shootRate <= shootTimer && shootDist < shootMax) //start charging
         {
@@ -132,7 +133,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         {
             shoot();
         }
-    }
+    }*/
 
     /*void sprint()
     {
@@ -188,7 +189,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         }
     }
 
-    void shoot()
+    /*void shoot()
     {
         shootTimer = 0;
         knifeTimer = 0; //so you cant use your knife while using harpoon gun
@@ -214,12 +215,43 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         }
         shootDist = shootMin;//reset shoot dist
         updateChargeUI();
+    }*/
+
+    bool grapple()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, grappleDist, ~ignoreLayer))
+        {
+            if (hit.collider.CompareTag("GrapplePoint"))
+            {
+                controller.Move((hit.point - transform.position).normalized * grappleSpeed * Time.deltaTime);
+
+                grappleLine.SetPosition(0, linePos.position);
+                grappleLine.SetPosition(1, hit.point);
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void harpoonPull()
+    void isGrappling()
+    {
+        if (Input.GetButton("Fire2") && grapple())
+        {
+            grappleLine.enabled = true;
+        }
+        else
+        {
+            grappleLine.enabled = false;
+            controller.Move(playerVel * Time.deltaTime);
+            playerVel.y -= grav * Time.deltaTime;
+        }
+    }
+
+    /*public void harpoonPull()
     {//get help
         controller.Move(harpoonDir * harpoonPullSpeed * Time.deltaTime);
-    }
+    }*/
 
     public void takeDamage(int damage)
     {
@@ -261,7 +293,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         jumpStr /= tangleMod;
         dashStr /= tangleMod;
         dashDuration /= tangleMod;
-        shootRate *= tangleMod;
+        //shootRate *= tangleMod;
         GameManager.instance.playerSlowScreen.SetActive(isTangled);
     }
 
@@ -271,7 +303,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         jumpStr *= tangleMod;
         dashStr *= tangleMod;
         dashDuration *= tangleMod;
-        shootRate /= tangleMod;
+        //shootRate /= tangleMod;
         if (speed == speedOrig) //if there are multiple sources of tangled, this (should) ensure that player is fully untangled before being set to false
             isTangled = false;
         GameManager.instance.playerSlowScreen.SetActive(isTangled);
@@ -281,21 +313,21 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     public void updatePlayerUI()
     {
         GameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
-        updateChargeUI();
+        //updateChargeUI();
         updateReloadUI();
     }
 
-    void updateChargeUI()
+    /*void updateChargeUI()
     {
         float charge = shootDist - shootMin;
         float maxCharge = shootMax - shootMin;
         GameManager.instance.harpoonChargeBar.fillAmount = charge / maxCharge;
-    }
+    }*/
 
     void updateReloadUI()
     {
         GameManager.instance.knifeReloadBar.fillAmount = knifeTimer / knifeRate;
-        GameManager.instance.harpoonReloadBar.fillAmount = shootTimer / shootRate;
+        //GameManager.instance.harpoonReloadBar.fillAmount = shootTimer / shootRate;
     }
     public void getRangedStats(rangedStats rweapon)
     {
@@ -322,9 +354,9 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     }*/
     void changeRangedWeapon()
     {
-        shootDmg = rangedCurr.shootDamage;
-        shootDist = rangedCurr.shootDist;
-        shootRate = rangedCurr.shootRate;
+        //shootDmg = rangedCurr.shootDamage;
+        grappleDist = rangedCurr.shootDist;
+        //shootRate = rangedCurr.shootRate;
 
         weaponModel.GetComponent<MeshFilter>().sharedMesh = rangedCurr.model.GetComponent<MeshFilter>().sharedMesh;
         weaponModel.GetComponent<MeshRenderer>().sharedMaterial = rangedCurr.model.GetComponent<MeshRenderer>().sharedMaterial;
