@@ -317,17 +317,15 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         updateReloadUI();
     }
 
-    /*void updateChargeUI()
+    /*void updateChargeUI(bool canGrapple)
     {
-        float charge = shootDist - shootMin;
-        float maxCharge = shootMax - shootMin;
-        GameManager.instance.harpoonChargeBar.fillAmount = charge / maxCharge;
+        GameManager.instance.harpoonChargeBar.enabled = canGrapple;
     }*/
 
     void updateReloadUI()
     {
         GameManager.instance.knifeReloadBar.fillAmount = knifeTimer / knifeRate;
-        //GameManager.instance.harpoonReloadBar.fillAmount = shootTimer / shootRate;
+        GameManager.instance.harpoonReloadBar.enabled = !grappleLine.enabled;
     }
     public void getRangedStats(rangedStats rweapon)
     {
@@ -355,11 +353,12 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     void changeRangedWeapon()
     {
         //shootDmg = rangedCurr.shootDamage;
-        grappleDist = rangedCurr.shootDist;
+        grappleDist = rangedCurr.grappleDist;
+        grappleSpeed = rangedCurr.grappleSpeed;
         //shootRate = rangedCurr.shootRate;
-
+        /*
         weaponModel.GetComponent<MeshFilter>().sharedMesh = rangedCurr.model.GetComponent<MeshFilter>().sharedMesh;
-        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = rangedCurr.model.GetComponent<MeshRenderer>().sharedMaterial;
+        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = rangedCurr.model.GetComponent<MeshRenderer>().sharedMaterial;*/
     }
 
     public void getMeleeStats(meleeStats mweapon)
