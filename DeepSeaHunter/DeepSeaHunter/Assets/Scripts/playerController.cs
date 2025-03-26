@@ -5,56 +5,76 @@ using System.Collections.Generic;
 
 public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 {
+    [Header("General")]
     public int HP;
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
-   
+    int HPOrig;
+    float speedOrig;
+    Vector3 moveDir;
+
     [Header("<----- Stats ----->")]
     [SerializeField] public float speed;
-    //[SerializeField] int sprintMod;
+    [Header("Dash Stats")]
     [SerializeField] int pushResolve;
     [SerializeField] public float dashStr;
     [SerializeField] int dashMax;
     [SerializeField] float dashRechargeTimer;
     [SerializeField] float dashDuration;
-    [SerializeField] public float jumpStr;
+    Vector3 pushDir;
+    int dashCount;
+    [Header("Jump Stats")]
+    [SerializeField] float jumpStr;
     [SerializeField] int jumpMax;
     [SerializeField] float grav;
+    Vector3 playerVel;
+    int jumpCount;
 
     [Header("<----- Weapons ----->")]
-    [SerializeField] int knifeDmg;
-    [SerializeField] float knifeRate;
-    [SerializeField] int knifeDist;
-    //[SerializeField] int shootDmg;
-    //[SerializeField] float shootRate;
-    //[SerializeField] float shootMin;
-    //[SerializeField] float shootMax;
+    [Header("Knife")]
     [SerializeField] GameObject weaponModel;
-    [SerializeField] LineRenderer grappleLine;
-    [SerializeField] Transform linePos;                                       //UNCOMMENT: THIS IS FOR THE START POS OF LINE RENDERER
-    //[SerializeField] List<meleeStats> meleeList = new List<meleeStats>(); //player can only have 1 weap >> list not needed
     [SerializeField] meleeStats meleeCurr;
-    //[SerializeField] List<rangedStats> rangedList = new List<rangedStats>();
-    [SerializeField] rangedStats rangedCurr;
-    
-    /*int meleeListPos;
-    int rangedListPos;*/
-
-    int HPOrig;
-    float speedOrig;
-
-    Vector3 moveDir;
-    public Vector3 pushDir;
-    Vector3 playerVel;
-
-    int dashCount;
-    int jumpCount;
+    int knifeDmg;
+    float knifeRate;
+    int knifeDist;
     float knifeTimer;
-    //float shootTimer;
-    public float grappleDist;
-    bool isTangled; //was only public for testing
-    //float harpoonChargeSpeed;
-    public float grappleSpeed;
+    [Header("Harpoon")]
+    [SerializeField] LineRenderer grappleLine;
+    [SerializeField] Transform linePos;
+    [SerializeField] rangedStats rangedCurr;
+    float grappleDist;
+    float grappleSpeed;
+
+    [Header("<----- Audio ----->")]
+    [SerializeField] AudioSource aud;
+    [Range(0, 1)][SerializeField] float audStepsVol;
+    [SerializeField] AudioClip[] audSteps;
+    [Range(0, 1)][SerializeField] float audDashVol;
+    [Range(0, 1)][SerializeField] float audJumpVol;
+    [SerializeField] AudioClip[] audJump;
+    [Range(0, 1)][SerializeField] float audHurtVol;
+    [SerializeField] AudioClip[] audHurt;
+    bool isPlayingSteps;
+    bool isDashing;
+    bool hasPlayedGrapple;
+    //STATUS
+    bool isTangled;
+
+    //OLD MEMBER VARS
+    /*[SerializeField] int sprintMod;
+    [SerializeField] int shootDmg;
+    [SerializeField] float shootRate;
+    [SerializeField] float shootMin;
+    [SerializeField] float shootMax;                                //UNCOMMENT: THIS IS FOR THE START POS OF LINE RENDERER
+    [SerializeField] List<meleeStats> meleeList = new List<meleeStats>(); //player can only have 1 weap >> list not needed
+    [SerializeField] List<rangedStats> rangedList = new List<rangedStats>();
+
+    int meleeListPos;
+    int rangedListPos;
+
+
+    float shootTimer;
+    float harpoonChargeSpeed;*/
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -82,6 +102,17 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         updateReloadUI();
     }
 
+    IEnumerator playSteps()
+    {
+        isPlayingSteps = true;
+        aud.PlayOneShot(audSteps[Random.Range(0, audSteps.Length)], audStepsVol);
+        if (isDashing)
+            yield return new WaitForSeconds(.3f);
+        else
+            yield return new WaitForSeconds(.5f);
+        isPlayingSteps = false;
+    }
+
     void movement()
     {
         //increment shoot timer
@@ -91,6 +122,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         //reset jumps
         if (controller.isGrounded)
         {
+            if (moveDir.magnitude > 0.3f && !isPlayingSteps)
+                StartCoroutine(playSteps());
             playerVel.y = 0;
             jumpCount = 0;
         }
@@ -100,6 +133,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
                   (Input.GetAxis("Vertical") * transform.forward);
         //move player
         controller.Move((moveDir + pushDir) * speed * Time.deltaTime);
+        if (pushDir.magnitude < .3f)
+            isDashing = false; //turns off fast foot steps
 
         //JUMP/DASH LOGIC
         jump();
@@ -148,6 +183,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         if (Input.GetButtonDown("Dash") && dashCount < dashMax)
         {
             dashCount++;
+            isDashing = true;
+            aud.PlayOneShot(audJump[Random.Range(0, audJump.Length)], audDashVol);
             //this needs math to get the angle right; look at polar to cart coords
             /*playerVel.x = dashStr * moveDir.x; //x = r cos theta; dashStr = r //z = r sin theta; theta = moveDir
             playerVel.z = dashStr * moveDir.z; //movedir might already has the cart coords*/
@@ -157,7 +194,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
             else
                 pushDir = moveDir * dashStr;
             Debug.Log("Dashed");
-            StartCoroutine(endDash());
+            //StartCoroutine(endDash());
             StartCoroutine(rechargeDash());
         }
     }
@@ -168,12 +205,14 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         {
             jumpCount++;
             playerVel.y = jumpStr;
+            aud.PlayOneShot(audJump[Random.Range(0, audJump.Length)], audJumpVol);
         }
     }
 
     void knife()
     {
         knifeTimer = 0;
+        aud.PlayOneShot(meleeCurr.hitSound[Random.Range(0, meleeCurr.hitSound.Length)], meleeCurr.hitVol);
         RaycastHit hit;
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, knifeDist, ~ignoreLayer))
@@ -239,10 +278,16 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         if (Input.GetButton("Fire2") && grapple())
         {
             grappleLine.enabled = true;
+            if (!hasPlayedGrapple)
+            {
+                hasPlayedGrapple = true;
+                aud.PlayOneShot(rangedCurr.hitSound[Random.Range(0, rangedCurr.hitSound.Length)], rangedCurr.hitVol);
+            }
         }
         else
         {
             grappleLine.enabled = false;
+            hasPlayedGrapple = false;
             controller.Move(playerVel * Time.deltaTime);
             playerVel.y -= grav * Time.deltaTime;
         }
@@ -259,6 +304,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         updatePlayerUI();
         StartCoroutine(flashDamageScreen());
         //add feedback here
+        aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
 
         if (HP <= 0)
         {
@@ -279,12 +325,13 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         dashCount--;
         Debug.Log("Dash Recharged");
     }
-    IEnumerator endDash()
+    /*IEnumerator endDash()
     {
         yield return new WaitForSeconds(dashDuration);
+        isDashing = false;
         playerVel.x = 0;
         playerVel.z = 0;
-    }
+    }*/
 
     public void stateTangled(int tangleMod)
     {

@@ -15,7 +15,7 @@ public class rangedStats : ScriptableObject
     [Range(5, 50)] public int ammoMax;*/
 
     //public ParticleSystem hitEffect;
-    public AudioClip[] grappleSound;
-    [Range(0, 1)] public float grappleVol;
+    public AudioClip[] hitSound;
+    [Range(0, 1)] public float hitVol;
 
 }

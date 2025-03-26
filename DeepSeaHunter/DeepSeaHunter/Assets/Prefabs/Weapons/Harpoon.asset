@@ -15,5 +15,6 @@ MonoBehaviour:
   rank: 0
   grappleDist: 20
   grappleSpeed: 7
-  grappleSound: []
-  grappleVol: 0
+  hitSound:
+  - {fileID: 8300000, guid: 6aec3864b9a16904781ca2fde0c2a2dc, type: 3}
+  hitVol: 0.05
