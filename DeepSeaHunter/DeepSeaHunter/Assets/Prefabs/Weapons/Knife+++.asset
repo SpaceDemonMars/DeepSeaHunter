@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 0}
   meleeDmg: 2
-  meleeDist: 1
+  meleeDist: 5
   meleeRate: 0.5
   hitEffect: {fileID: 0}
   hitSound: []

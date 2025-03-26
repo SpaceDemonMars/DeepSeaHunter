@@ -68,10 +68,12 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         pushDir = Vector3.Lerp(pushDir, Vector3.zero, Time.deltaTime * pushResolve);
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist, Color.red);
 
-        movement();
+        if (GameManager.instance.isPaused == false)
+        { 
+            movement();
 
-        if (shootRate <= shootTimer && GameManager.instance.isPaused == false)
             harpoon();
+        }
         //sprint();
         updateReloadUI();
     }
@@ -103,7 +105,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         playerVel.y -= grav * Time.deltaTime;
 
         //SHOOT LOGIC           
-        if (Input.GetButton("Fire1") && knifeRate <= knifeTimer && GameManager.instance.isPaused == false)
+        if (Input.GetButton("Fire1") && meleeList.Count > 0 && knifeRate <= knifeTimer && GameManager.instance.isPaused == false)
         {
             knife();
         }
@@ -118,13 +120,13 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     }
 
     void harpoon()
-    {
-        if (Input.GetButton("Fire2") && shootDist < shootMax) //start charging
+    {//moved timer check to be called AFTER button check, for performance (mentioned in lec5)
+        if (Input.GetButton("Fire2") && shootRate <= shootTimer && shootDist < shootMax) //start charging
         {
             shootDist += Time.deltaTime * harpoonChargeSpeed;
             updateChargeUI();
         }
-        else if (Input.GetButtonUp("Fire2")) //fire
+        else if (Input.GetButtonUp("Fire2") && shootRate <= shootTimer) //fire
         {
             shoot();
         }
@@ -174,6 +176,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, knifeDist, ~ignoreLayer))
         {
             Debug.Log(hit.collider.name);
+            Instantiate(meleeList[meleeListPos].hitEffect, hit.point, Quaternion.identity);
             IDamage dmg = hit.collider.GetComponent<IDamage>();
 
             if (dmg != null)
