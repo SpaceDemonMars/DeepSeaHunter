@@ -88,13 +88,16 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     // Update is called once per frame
     void Update()
     {
+        //increment shoot timer
+        knifeTimer += Time.deltaTime;
         pushDir = Vector3.Lerp(pushDir, Vector3.zero, Time.deltaTime * pushResolve);
         if (meleeCurr != null)
             Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * meleeCurr.meleeDist, Color.red);
 
         if (GameManager.instance.isPaused == false)
-        { 
-            movement();
+        {
+            isGrappling();
+            //movement();
 
             //harpoon();
         }
@@ -115,8 +118,6 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
     void movement()
     {
-        //increment shoot timer
-        knifeTimer += Time.deltaTime;
         //shootTimer += Time.deltaTime;
 
         //reset jumps
@@ -140,7 +141,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         jump();
         dash();
 
-        isGrappling();
+        controller.Move(playerVel * Time.deltaTime);
+        playerVel.y -= grav * Time.deltaTime;
 
         //SHOOT LOGIC           
         if (Input.GetButton("Fire1") && meleeCurr != null && knifeRate <= knifeTimer && GameManager.instance.isPaused == false)
@@ -212,12 +214,12 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     void knife()
     {
         knifeTimer = 0;
-        aud.PlayOneShot(meleeCurr.hitSound[Random.Range(0, meleeCurr.hitSound.Length)], meleeCurr.hitVol);
         RaycastHit hit;
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, knifeDist, ~ignoreLayer))
         {
             Debug.Log(hit.collider.name);
+            aud.PlayOneShot(meleeCurr.hitSound[Random.Range(0, meleeCurr.hitSound.Length)], meleeCurr.hitVol); //only play on hit
             Instantiate(meleeCurr.hitEffect, hit.point, Quaternion.identity);
             IDamage dmg = hit.collider.GetComponent<IDamage>();
 
@@ -288,8 +290,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         {
             grappleLine.enabled = false;
             hasPlayedGrapple = false;
-            controller.Move(playerVel * Time.deltaTime);
-            playerVel.y -= grav * Time.deltaTime;
+            movement();
         }
     }
 

@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 2000170426198346889}
   m_Layer: 0
   m_Name: Chest - Harpoon+
-  m_TagString: Untagged
+  m_TagString: GrapplePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

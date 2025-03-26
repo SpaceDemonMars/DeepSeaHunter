@@ -16,11 +16,11 @@ GameObject:
   - component: {fileID: 7055358244479699191}
   m_Layer: 0
   m_Name: GiantCrab
-  m_TagString: Untagged
+  m_TagString: GrapplePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5123396290307834416
 Transform:
   m_ObjectHideFlags: 0
@@ -804,7 +804,7 @@ GameObject:
   - component: {fileID: 440889636944382186}
   m_Layer: 0
   m_Name: Armor
-  m_TagString: Untagged
+  m_TagString: GrapplePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -860,6 +860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 3712673141468040319}
+  boss: {fileID: 0}
   flashDamage: {fileID: 2100000, guid: 37dabd0d99d496646851a29f8e35be94, type: 2}
   damaged: {fileID: 2100000, guid: 2dbe361a781e3064b8021f6aa76b1c7e, type: 2}
   parentDamaged: {fileID: 2100000, guid: dfd049a26635f0f4c87abf78c7ecee98, type: 2}
