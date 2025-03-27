@@ -5,11 +5,13 @@ using System.Collections;
 public class EnemyBoss : MonoBehaviour, IDamage
 {
     [Header("General")]
+    [SerializeField] string bossName;
     [SerializeField] int HP;
     public Renderer model;
     [SerializeField] Animator anim;
-    [SerializeField] bool hasUniqueMaterial;
+    [SerializeField] bool hasUniqueMaterial, hasArmor;
     public Material flashDamage;
+    int HPOrig;
     Color modelColor;
     float baseMoveSpeed;
     float baseStoppingDist;
@@ -71,7 +73,8 @@ public class EnemyBoss : MonoBehaviour, IDamage
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameManager.instance.updateGameGoal(name, false);
+        GameManager.instance.updateGameGoal(bossName, false);
+        HPOrig = HP;
         modelColor = model.material.color;
         baseMoveSpeed = agent.speed;
         baseStoppingDist = agent.stoppingDistance;
@@ -118,7 +121,17 @@ public class EnemyBoss : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            GameManager.instance.bossBarText.text = bossName;
+            if (!hasArmor)
+                GameManager.instance.bossArmorBar.fillAmount = 0; //no armor bar
+            GameManager.instance.bossHP.SetActive(true);
+            updateBossUI();
         }
+    }
+
+    public void updateBossUI()
+    {
+        GameManager.instance.bossHPBar.fillAmount = (float)HP / HPOrig;
     }
     public void takeDamage(int damage)
     {
@@ -129,9 +142,12 @@ public class EnemyBoss : MonoBehaviour, IDamage
             StartCoroutine(flashRed());
         agent.SetDestination(GameManager.instance.player.transform.position);
 
+        updateBossUI();
+
         if (HP <= 0)
         {
-            GameManager.instance.updateGameGoal(name, true);
+            GameManager.instance.updateGameGoal(bossName, true);
+            GameManager.instance.bossHP.SetActive(false);
             Destroy(gameObject);
         }
     }

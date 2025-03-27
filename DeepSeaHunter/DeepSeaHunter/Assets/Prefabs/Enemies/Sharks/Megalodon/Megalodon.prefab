@@ -792,6 +792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bec82eb97d9ab149925e96242a653e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossName: Megalodon
   HP: 15
   model: {fileID: 2898356575962111349}
   anim: {fileID: 4027607702504529340}

@@ -1328,6 +1328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bec82eb97d9ab149925e96242a653e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossName: Vampire Squid
   HP: 10
   model: {fileID: 3888288582340915486}
   anim: {fileID: 4163737763132784821}

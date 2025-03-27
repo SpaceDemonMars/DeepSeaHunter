@@ -446,10 +446,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bec82eb97d9ab149925e96242a653e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossName: King Crab
   HP: 7
   model: {fileID: 701174596189537594}
   anim: {fileID: 8776375924153997075}
   hasUniqueMaterial: 1
+  hasArmor: 1
   flashDamage: {fileID: 2100000, guid: 53c5c02c9a8412945850a233ddaebc07, type: 2}
   agent: {fileID: 7219757854608109022}
   faceTargetSpeed: 5

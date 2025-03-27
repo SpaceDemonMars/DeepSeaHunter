@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
     public GameObject playerSlowScreen;
     public Image playerHPBar;
 
+    public GameObject bossHP;
+    public TMP_Text bossBarText;
+    public Image bossHPBar;
+    public Image bossArmorBar;
+
     public Image harpoonChargeBar;
     public Image harpoonReloadBar;
     public Image knifeReloadBar;
@@ -120,11 +125,12 @@ public class GameManager : MonoBehaviour
     public void resetLevelBoss()
     {
         //turn off boss hp UI here
+        bossHP.SetActive(false);
         if (boss !=  null) 
             Destroy(boss);
         spawnerScript.spawn();
         boss = GameObject.FindWithTag("Level Boss");
         bossScript = boss.GetComponent<EnemyBoss>();
-        //reassign hp ui
+        //reassign hp ui //jk do it in enemy boss
     }
 }

@@ -10,15 +10,24 @@ public class armor : MonoBehaviour, IDamage
     [SerializeField] Material damaged;
     [SerializeField] Material parentDamaged;
     [SerializeField] int HP;
+    int HPOrig;
 
     Material parentMaterial;
 
     void Start()
     {
+        HPOrig = HP;
         if (boss != null)
             parentMaterial = boss.model.material;
         else
+        {
             parentMaterial = parent.model.material;
+            updateArmorUI();
+        }
+    }
+    public void updateArmorUI()
+    {
+        GameManager.instance.bossArmorBar.fillAmount = (float)HP / HPOrig;
     }
 
     public void takeDamage(int damage)
@@ -27,6 +36,7 @@ public class armor : MonoBehaviour, IDamage
         StartCoroutine(flashWhite());
         if (boss != null)
         {
+            updateArmorUI();
             boss.agent.SetDestination(GameManager.instance.player.transform.position);
 
             if (HP <= 0)
