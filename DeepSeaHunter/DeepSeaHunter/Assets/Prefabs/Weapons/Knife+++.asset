@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66675d2f7f8fcb4e898ab02af0b7b2a, type: 3}
   m_Name: Knife+++
   m_EditorClassIdentifier: 
-  model: {fileID: 0}
+  model: {fileID: 2476788410470364687, guid: 9ebfcc0c0a4edac4abeda4b45e1003d5, type: 3}
   rank: 3
   meleeDmg: 2
   meleeDist: 5
