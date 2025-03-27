@@ -395,6 +395,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         rangedListPos = rangedList.Count - 1;*/
         if (rangedCurr == null || rangedCurr.rank < rweapon.rank) //if pick up is an upgrade (better then curr)
         {
+            if (rweapon.rank > 0) //not starting weapon
+                StartCoroutine(weaponUpgradePopup(rweapon.name));
             rangedCurr = rweapon; //this replaces the 2 above lines
             changeRangedWeapon();
         }
@@ -429,6 +431,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         meleeListPos = meleeList.Count - 1;*/ //weapon upgrades >> dont keep old weap
         if (meleeCurr == null || meleeCurr.rank < mweapon.rank) //if no weapon OR pick up is an upgrade (better then curr)
         {
+            if (mweapon.rank > 0) //not starting weapon
+                StartCoroutine(weaponUpgradePopup(mweapon.name));
             meleeCurr = mweapon; //this replaces the 2 above lines
             changeMeleeWeapon();
         }
@@ -454,6 +458,14 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
         weaponModel.GetComponent<MeshFilter>().sharedMesh = meleeCurr.model.GetComponent<MeshFilter>().sharedMesh;
         weaponModel.GetComponent<MeshRenderer>().sharedMaterial = meleeCurr.model.GetComponent<MeshRenderer>().sharedMaterial;
+    }
+
+    IEnumerator weaponUpgradePopup(string weaponName)
+    {
+        GameManager.instance.weaponUpgradeText.text = weaponName + " Obtained!";
+        GameManager.instance.weaponUpgradePopup.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        GameManager.instance.weaponUpgradePopup.SetActive(false);
     }
 
    /* void ITangle.toggleTangled(int tangleMod)

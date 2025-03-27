@@ -79,11 +79,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d71d5994895eee478cab5f41fdb7e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 0}
+  objectToSpawn: {fileID: 1340746181183472858, guid: 3e2bb48b7192a4046ae25d558ce5130c, type: 3}
   numToSpawn: 1
   timeBetweenSpawns: 0
   spawnPos:
   - {fileID: 371251047596258077}
+  bossSpawner: 0
   chestSpawnerLid: {fileID: 8661075013456771261}
   chestHalfOpenPos: {fileID: 5119396274394937496}
   chestOpenPos: {fileID: 9106151753410542574}

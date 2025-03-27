@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     public Image harpoonReloadBar;
     public Image knifeReloadBar;
 
+    public GameObject weaponUpgradePopup;
+    public TMP_Text weaponUpgradeText;
     public GameObject checkpointPopup;
 
     public bool isPaused;
@@ -48,8 +50,11 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
         bossSpawner = GameObject.FindWithTag("Boss Spawner");
-        spawnerScript = bossSpawner.GetComponent<spawner>();
-        resetLevelBoss(); //spawns boss
+        if (bossSpawner != null)
+        {
+            spawnerScript = bossSpawner.GetComponent<spawner>();
+            resetLevelBoss(); //spawns boss
+        }
         playerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
         isTutorialLevel = (GameObject.FindWithTag("Tutorial") != null) ? true : false;
         goalCountLabel.SetActive(!isTutorialLevel);

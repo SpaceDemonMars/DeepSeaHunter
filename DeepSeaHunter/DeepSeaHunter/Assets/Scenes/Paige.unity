@@ -1975,7 +1975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4602086610357647610, guid: a822855fd4fc7534ebb409308aecaa7d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2244,7 +2244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 93380175770246540, guid: 81ac5f509cd85ab49a94c18756e8ada9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.98
+      value: -20.2
       objectReference: {fileID: 0}
     - target: {fileID: 93380175770246540, guid: 81ac5f509cd85ab49a94c18756e8ada9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2280,7 +2280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5241119490052474477, guid: 81ac5f509cd85ab49a94c18756e8ada9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2297,7 +2297,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4053387447760951484, guid: e90a04f9a7c3587409cae3ae4a061ebc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.28
       objectReference: {fileID: 0}
     - target: {fileID: 4053387447760951484, guid: e90a04f9a7c3587409cae3ae4a061ebc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2305,7 +2305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4053387447760951484, guid: e90a04f9a7c3587409cae3ae4a061ebc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.98
+      value: -12.48
       objectReference: {fileID: 0}
     - target: {fileID: 4053387447760951484, guid: e90a04f9a7c3587409cae3ae4a061ebc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2341,7 +2341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4928668507072461170, guid: e90a04f9a7c3587409cae3ae4a061ebc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2420,6 +2420,10 @@ PrefabInstance:
     - target: {fileID: 3049493533594858046, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
       propertyPath: m_Name
       value: Boss Spawner - Vampire Squid
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049493533594858046, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7481010957551216120, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2722,10 +2726,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 2546496204343715200, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7106277478165863060, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2805,10 +2805,6 @@ PrefabInstance:
     - target: {fileID: 7106277478165863060, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9185326099716105707, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: m_text
-      value: 00
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
