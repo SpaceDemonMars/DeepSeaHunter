@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Knife++
   m_EditorClassIdentifier: 
   model: {fileID: 1088271419711653389, guid: f965c9909af7af24180f460f36033dc8, type: 3}
+  rank: 2
   meleeDmg: 1
-  meleeDist: 1
+  meleeDist: 5
   meleeRate: 0.5
-  hitEffect: {fileID: 0}
-  hitSound: []
-  hitVol: 0.5
+  hitEffect: {fileID: 970440554703164915, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
+  hitSound:
+  - {fileID: 8300000, guid: 5bda87280e1984f45a44d51c087d81b0, type: 3}
+  hitVol: 0.1

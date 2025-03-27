@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8969837826375822791}
+  - component: {fileID: 885230826552869048}
   - component: {fileID: 8990150725078500383}
   - component: {fileID: 8918438733128151660}
-  - component: {fileID: 8712045318690988720}
   - component: {fileID: 5328455569127739931}
   m_Layer: 0
   m_Name: Knife+
@@ -35,6 +35,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &885230826552869048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348696316584487221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92c65ae822debc429e43cee089a2bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knife: {fileID: 11400000, guid: 23257531b414eab438ad095d8b0b1147, type: 2}
+  harpoon: {fileID: 0}
 --- !u!33 &8990150725078500383
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -88,19 +102,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8712045318690988720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3348696316584487221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d082ead3af1877340b5e7cd3da8e208e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mweapon: {fileID: 11400000, guid: 23257531b414eab438ad095d8b0b1147, type: 2}
 --- !u!135 &5328455569127739931
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -120,5 +121,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.27649954
-  m_Center: {x: 0.00000008754432, y: 0.18938226, z: -0.000000078231096}
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}

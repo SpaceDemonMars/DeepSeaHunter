@@ -1293,7 +1293,7 @@ GameObject:
   - component: {fileID: 6598277299971659832}
   m_Layer: 7
   m_Name: Vampire Squid
-  m_TagString: Level Boss
+  m_TagString: GrapplePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1353,12 +1353,16 @@ MonoBehaviour:
   beam: {fileID: 2459244252662083885, guid: 55aaebc23b93b5c43beff8b408ab0ea4, type: 3}
   melee1Cooldown: 0
   melee1Col: {fileID: 0}
-  melee1TrailMain: {fileID: 0}
-  melee1TrailSecond: {fileID: 0}
-  melee1MoveSpeed: 0
+  melee1Trail1: {fileID: 0}
+  melee1Trail2: {fileID: 0}
+  melee1Trail3: {fileID: 0}
   melee2Cooldown: 0
   melee2Col: {fileID: 0}
-  melee2MoveSpeed: 0
+  numAttacks: 0
+  timeBetweenAttacks: 0
+  melee2Trail1: {fileID: 0}
+  melee2Trail2: {fileID: 0}
+  melee2Trail3: {fileID: 0}
 --- !u!95 &4163737763132784821
 Animator:
   serializedVersion: 7

@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class rangedPickUp : MonoBehaviour
 {
+    //script combined into pickup
     [SerializeField] rangedStats rweapon;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (rweapon != null)
+        /*if (rweapon != null) //harpoon doesnt need ammo >> skip setting ammo
         {
             rweapon.ammoCur = rweapon.ammoMax;
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)

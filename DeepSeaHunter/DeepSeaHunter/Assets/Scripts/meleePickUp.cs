@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class meleePickUp : MonoBehaviour
 {
+    //script combined into pickUp 
     [SerializeField] meleeStats mweapon;
     private void OnTriggerEnter(Collider other)
     {

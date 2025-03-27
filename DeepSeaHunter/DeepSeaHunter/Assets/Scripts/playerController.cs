@@ -3,88 +3,128 @@ using UnityEngine;
 using UnityEngine.InputSystem.HID;
 using System.Collections.Generic;
 
-public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPickup
+public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 {
+    [Header("General")]
     public int HP;
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
-   
+    int HPOrig;
+    float speedOrig;
+    Vector3 moveDir;
+
     [Header("<----- Stats ----->")]
     [SerializeField] public float speed;
-    //[SerializeField] int sprintMod;
+    [Header("Dash Stats")]
     [SerializeField] int pushResolve;
     [SerializeField] public float dashStr;
     [SerializeField] int dashMax;
     [SerializeField] float dashRechargeTimer;
     [SerializeField] float dashDuration;
-    [SerializeField] public float jumpStr;
+    Vector3 pushDir;
+    int dashCount;
+    [Header("Jump Stats")]
+    [SerializeField] float jumpStr;
     [SerializeField] int jumpMax;
     [SerializeField] float grav;
+    Vector3 playerVel;
+    int jumpCount;
 
     [Header("<----- Weapons ----->")]
-    [SerializeField] int knifeDmg;
-    [SerializeField] float knifeRate;
-    [SerializeField] int knifeDist;
+    [Header("Knife")]
+    [SerializeField] GameObject weaponModel;
+    [SerializeField] meleeStats meleeCurr;
+    int knifeDmg;
+    float knifeRate;
+    int knifeDist;
+    float knifeTimer;
+    [Header("Harpoon")]
+    [SerializeField] LineRenderer grappleLine;
+    [SerializeField] Transform linePos;
+    [SerializeField] rangedStats rangedCurr;
+    float grappleDist;
+    float grappleSpeed;
+
+    [Header("<----- Audio ----->")]
+    [SerializeField] AudioSource aud;
+    [Range(0, 1)][SerializeField] float audStepsVol;
+    [SerializeField] AudioClip[] audSteps;
+    [Range(0, 1)][SerializeField] float audDashVol;
+    [Range(0, 1)][SerializeField] float audJumpVol;
+    [SerializeField] AudioClip[] audJump;
+    [Range(0, 1)][SerializeField] float audHurtVol;
+    [SerializeField] AudioClip[] audHurt;
+    bool isPlayingSteps;
+    bool isDashing;
+    bool hasPlayedGrapple;
+    //STATUS
+    bool isTangled;
+
+    //OLD MEMBER VARS
+    /*[SerializeField] int sprintMod;
     [SerializeField] int shootDmg;
     [SerializeField] float shootRate;
     [SerializeField] float shootMin;
-    [SerializeField] float shootMax;
-    [SerializeField] GameObject weaponModel;
-    [SerializeField] List<meleeStats> meleeList = new List<meleeStats>();
+    [SerializeField] float shootMax;                                //UNCOMMENT: THIS IS FOR THE START POS OF LINE RENDERER
+    [SerializeField] List<meleeStats> meleeList = new List<meleeStats>(); //player can only have 1 weap >> list not needed
     [SerializeField] List<rangedStats> rangedList = new List<rangedStats>();
-    
+
     int meleeListPos;
     int rangedListPos;
 
-    int HPOrig;
-    float speedOrig;
 
-    Vector3 moveDir;
-    public Vector3 pushDir;
-    Vector3 playerVel;
-
-    Vector3 harpoonDir;
-    int dashCount;
-    int jumpCount;
-    float knifeTimer;
     float shootTimer;
-    public float shootDist;
-    public bool isTangled;
-    private float harpoonChargeSpeed;
-    private float harpoonPullSpeed;
+    float harpoonChargeSpeed;*/
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         HPOrig = HP;
         speedOrig = speed;
-        shootDist = shootMin;
+        //shootDist = shootMin;
         spawnPlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //increment shoot timer
+        knifeTimer += Time.deltaTime;
         pushDir = Vector3.Lerp(pushDir, Vector3.zero, Time.deltaTime * pushResolve);
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist, Color.red);
+        if (meleeCurr != null)
+            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * meleeCurr.meleeDist, Color.red);
 
-        movement();
+        if (GameManager.instance.isPaused == false)
+        {
+            isGrappling();
+            //movement();
 
-        if (shootRate <= shootTimer && GameManager.instance.isPaused == false)
-            harpoon();
+            //harpoon();
+        }
         //sprint();
         updateReloadUI();
     }
 
+    IEnumerator playSteps()
+    {
+        isPlayingSteps = true;
+        aud.PlayOneShot(audSteps[Random.Range(0, audSteps.Length)], audStepsVol);
+        if (isDashing)
+            yield return new WaitForSeconds(.3f);
+        else
+            yield return new WaitForSeconds(.5f);
+        isPlayingSteps = false;
+    }
+
     void movement()
     {
-        //increment shoot timer
-        knifeTimer += Time.deltaTime;
-        shootTimer += Time.deltaTime;
+        //shootTimer += Time.deltaTime;
 
         //reset jumps
         if (controller.isGrounded)
         {
+            if (moveDir.magnitude > 0.3f && !isPlayingSteps)
+                StartCoroutine(playSteps());
             playerVel.y = 0;
             jumpCount = 0;
         }
@@ -94,21 +134,23 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
                   (Input.GetAxis("Vertical") * transform.forward);
         //move player
         controller.Move((moveDir + pushDir) * speed * Time.deltaTime);
+        if (pushDir.magnitude < .3f)
+            isDashing = false; //turns off fast foot steps
 
         //JUMP/DASH LOGIC
         jump();
         dash();
-        //this needs to reduce x and z to zero 0 overtime
+
         controller.Move(playerVel * Time.deltaTime);
         playerVel.y -= grav * Time.deltaTime;
 
         //SHOOT LOGIC           
-        if (Input.GetButton("Fire1") && knifeRate <= knifeTimer && GameManager.instance.isPaused == false)
+        if (Input.GetButton("Fire1") && meleeCurr != null && knifeRate <= knifeTimer && GameManager.instance.isPaused == false)
         {
             knife();
         }
-        selectMeleeWeapon();
-        selectRangedWeapon();
+        /*selectMeleeWeapon();
+        selectRangedWeapon();*/
 
         //TANGLED TESTING
         /*if (Input.GetButtonDown("Fire3"))
@@ -117,18 +159,18 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         }*/
     }
 
-    void harpoon()
-    {
-        if (Input.GetButton("Fire2") && shootDist < shootMax) //start charging
+    /*void harpoon()
+    {//moved timer check to be called AFTER button check, for performance (mentioned in lec5)
+        if (Input.GetButton("Fire2") && shootRate <= shootTimer && shootDist < shootMax) //start charging
         {
             shootDist += Time.deltaTime * harpoonChargeSpeed;
             updateChargeUI();
         }
-        else if (Input.GetButtonUp("Fire2")) //fire
+        else if (Input.GetButtonUp("Fire2") && shootRate <= shootTimer) //fire
         {
             shoot();
         }
-    }
+    }*/
 
     /*void sprint()
     {
@@ -143,6 +185,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         if (Input.GetButtonDown("Dash") && dashCount < dashMax)
         {
             dashCount++;
+            isDashing = true;
+            aud.PlayOneShot(audJump[Random.Range(0, audJump.Length)], audDashVol);
             //this needs math to get the angle right; look at polar to cart coords
             /*playerVel.x = dashStr * moveDir.x; //x = r cos theta; dashStr = r //z = r sin theta; theta = moveDir
             playerVel.z = dashStr * moveDir.z; //movedir might already has the cart coords*/
@@ -152,7 +196,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
             else
                 pushDir = moveDir * dashStr;
             Debug.Log("Dashed");
-            StartCoroutine(endDash());
+            //StartCoroutine(endDash());
             StartCoroutine(rechargeDash());
         }
     }
@@ -163,6 +207,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         {
             jumpCount++;
             playerVel.y = jumpStr;
+            aud.PlayOneShot(audJump[Random.Range(0, audJump.Length)], audJumpVol);
         }
     }
 
@@ -174,6 +219,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, knifeDist, ~ignoreLayer))
         {
             Debug.Log(hit.collider.name);
+            aud.PlayOneShot(meleeCurr.hitSound[Random.Range(0, meleeCurr.hitSound.Length)], meleeCurr.hitVol); //only play on hit
+            Instantiate(meleeCurr.hitEffect, hit.point, Quaternion.identity);
             IDamage dmg = hit.collider.GetComponent<IDamage>();
 
             if (dmg != null)
@@ -183,7 +230,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         }
     }
 
-    void shoot()
+    /*void shoot()
     {
         shootTimer = 0;
         knifeTimer = 0; //so you cant use your knife while using harpoon gun
@@ -209,18 +256,62 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         }
         shootDist = shootMin;//reset shoot dist
         updateChargeUI();
+    }*/
+
+    bool grapple()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, grappleDist, ~ignoreLayer))
+        {
+            if (hit.collider.CompareTag("GrapplePoint"))
+            {
+                controller.Move((hit.point - transform.position).normalized * grappleSpeed * Time.deltaTime);
+
+                grappleLine.SetPosition(0, linePos.position);
+                grappleLine.SetPosition(1, hit.point);
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void harpoonPull()
+    void isGrappling()
+    {
+        if (Input.GetButton("Fire2") && grapple())
+        {
+            grappleLine.enabled = true;
+            if (!hasPlayedGrapple)
+            {
+                hasPlayedGrapple = true;
+                aud.PlayOneShot(rangedCurr.hitSound[Random.Range(0, rangedCurr.hitSound.Length)], rangedCurr.hitVol);
+            }
+        }
+        else
+        {
+            grappleLine.enabled = false;
+            hasPlayedGrapple = false;
+            movement();
+        }
+    }
+
+    /*public void harpoonPull()
     {//get help
         controller.Move(harpoonDir * harpoonPullSpeed * Time.deltaTime);
-    }
+    }*/
 
     public void takeDamage(int damage)
     {
         HP -= damage;
+        if (HP > HPOrig) //if overhealed
+            HP = HPOrig; //reset
         updatePlayerUI();
-        StartCoroutine(flashDamageScreen());
+        if (damage > 0) //if damaging
+        {
+            StartCoroutine(flashDamageScreen());
+            aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
+        }
+        else if (damage < 0) //if healing; not else bc of small chance dmg = 0, where we do nothing
+            StartCoroutine(flashHealScreen());
         //add feedback here
 
         if (HP <= 0)
@@ -236,18 +327,25 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         GameManager.instance.playerDamageScreen.SetActive(false);
     }
 
+    IEnumerator flashHealScreen()
+    {
+        GameManager.instance.playerHealScreen.SetActive(true);
+        yield return new WaitForSeconds(.1f);
+        GameManager.instance.playerHealScreen.SetActive(false);
+    }
     IEnumerator rechargeDash()
     {
         yield return new WaitForSeconds(dashRechargeTimer);
         dashCount--;
         Debug.Log("Dash Recharged");
     }
-    IEnumerator endDash()
+    /*IEnumerator endDash()
     {
         yield return new WaitForSeconds(dashDuration);
+        isDashing = false;
         playerVel.x = 0;
         playerVel.z = 0;
-    }
+    }*/
 
     public void stateTangled(int tangleMod)
     {
@@ -256,7 +354,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         jumpStr /= tangleMod;
         dashStr /= tangleMod;
         dashDuration /= tangleMod;
-        shootRate *= tangleMod;
+        //shootRate *= tangleMod;
         GameManager.instance.playerSlowScreen.SetActive(isTangled);
     }
 
@@ -266,7 +364,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
         jumpStr *= tangleMod;
         dashStr *= tangleMod;
         dashDuration *= tangleMod;
-        shootRate /= tangleMod;
+        //shootRate /= tangleMod;
         if (speed == speedOrig) //if there are multiple sources of tangled, this (should) ensure that player is fully untangled before being set to false
             isTangled = false;
         GameManager.instance.playerSlowScreen.SetActive(isTangled);
@@ -276,29 +374,31 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
     public void updatePlayerUI()
     {
         GameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
-        updateChargeUI();
+        //updateChargeUI();
         updateReloadUI();
     }
 
-    void updateChargeUI()
+    /*void updateChargeUI(bool canGrapple)
     {
-        float charge = shootDist - shootMin;
-        float maxCharge = shootMax - shootMin;
-        GameManager.instance.harpoonChargeBar.fillAmount = charge / maxCharge;
-    }
+        GameManager.instance.harpoonChargeBar.enabled = canGrapple;
+    }*/
 
     void updateReloadUI()
     {
         GameManager.instance.knifeReloadBar.fillAmount = knifeTimer / knifeRate;
-        GameManager.instance.harpoonReloadBar.fillAmount = shootTimer / shootRate;
+        GameManager.instance.harpoonReloadBar.enabled = !grappleLine.enabled;
     }
     public void getRangedStats(rangedStats rweapon)
     {
-        rangedList.Add(rweapon);
-        rangedListPos = rangedList.Count - 1;
-        changeRangedWeapon();
+        /*rangedList.Add(rweapon);
+        rangedListPos = rangedList.Count - 1;*/
+        if (rangedCurr == null || rangedCurr.rank < rweapon.rank) //if pick up is an upgrade (better then curr)
+        {
+            rangedCurr = rweapon; //this replaces the 2 above lines
+            changeRangedWeapon();
+        }
     }
-    void selectRangedWeapon()
+    /*void selectRangedWeapon()
     {
         if (Input.GetAxis("AltMouse ScrollWheel") > 0 && rangedListPos < rangedList.Count - 1)
         {
@@ -310,24 +410,29 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
             rangedListPos--;
             changeRangedWeapon();
         }
-    }
+    }*/
     void changeRangedWeapon()
     {
-        shootDmg = rangedList[rangedListPos].shootDamage;
-        shootDist = rangedList[rangedListPos].shootDist;
-        shootRate = rangedList[rangedListPos].shootRate;
-
-        weaponModel.GetComponent<MeshFilter>().sharedMesh = rangedList[rangedListPos].model.GetComponent<MeshFilter>().sharedMesh;
-        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = rangedList[rangedListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
+        //shootDmg = rangedCurr.shootDamage;
+        grappleDist = rangedCurr.grappleDist;
+        grappleSpeed = rangedCurr.grappleSpeed;
+        //shootRate = rangedCurr.shootRate;
+        /*
+        weaponModel.GetComponent<MeshFilter>().sharedMesh = rangedCurr.model.GetComponent<MeshFilter>().sharedMesh;
+        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = rangedCurr.model.GetComponent<MeshRenderer>().sharedMaterial;*/
     }
 
     public void getMeleeStats(meleeStats mweapon)
     {
-        meleeList.Add(mweapon);
-        meleeListPos = meleeList.Count - 1;
-        changeMeleeWeapon();
+        /*meleeList.Add(mweapon);
+        meleeListPos = meleeList.Count - 1;*/ //weapon upgrades >> dont keep old weap
+        if (meleeCurr == null || meleeCurr.rank < mweapon.rank) //if no weapon OR pick up is an upgrade (better then curr)
+        {
+            meleeCurr = mweapon; //this replaces the 2 above lines
+            changeMeleeWeapon();
+        }
     }
-    void selectMeleeWeapon()
+    /*void selectMeleeWeapon()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && meleeListPos < meleeList.Count - 1)
         {
@@ -339,15 +444,15 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IHarpoon, IPick
             meleeListPos--;
             changeMeleeWeapon();
         }
-    }
+    }*/
     void changeMeleeWeapon()
     {
-        knifeDmg = meleeList[meleeListPos].meleeDmg;
-        knifeDist = meleeList[meleeListPos].meleeDist;
-        knifeRate = meleeList[meleeListPos].meleeRate;
+        knifeDmg = meleeCurr.meleeDmg;
+        knifeDist = meleeCurr.meleeDist;
+        knifeRate = meleeCurr.meleeRate;
 
-        weaponModel.GetComponent<MeshFilter>().sharedMesh = meleeList[meleeListPos].model.GetComponent<MeshFilter>().sharedMesh;
-        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = meleeList[meleeListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
+        weaponModel.GetComponent<MeshFilter>().sharedMesh = meleeCurr.model.GetComponent<MeshFilter>().sharedMesh;
+        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = meleeCurr.model.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
    /* void ITangle.toggleTangled(int tangleMod)

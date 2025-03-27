@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Spear+
   m_EditorClassIdentifier: 
   model: {fileID: 0}
+  rank: 1
   meleeDmg: 2
   meleeDist: 3
   meleeRate: 0.75
