@@ -308,6 +308,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         if (HP > HPOrig) //if overhealed
             HP = HPOrig; //reset
         updatePlayerUI();
+        StartCoroutine(showDamageNum(damage));
         if (damage > 0) //if damaging
         {
             StartCoroutine(flashDamageScreen());
@@ -316,11 +317,18 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         else if (damage < 0) //if healing; not else bc of small chance dmg = 0, where we do nothing
             StartCoroutine(flashHealScreen());
         //add feedback here
-
         if (HP <= 0)
         {
             GameManager.instance.youLose();
         }
+    }
+
+    IEnumerator showDamageNum(int damage)
+    {
+        damage *= -1; //flip  sign
+        GameManager.instance.damageText.SetText(damage.ToString());
+        yield return new WaitForSeconds(.5f);
+        GameManager.instance.damageText.text = "";
     }
 
     IEnumerator flashDamageScreen()

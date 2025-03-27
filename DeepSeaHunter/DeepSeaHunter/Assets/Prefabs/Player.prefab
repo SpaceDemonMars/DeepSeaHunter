@@ -200,12 +200,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ec0ebde38dc85354cb5d8231ce563c0b, type: 3}
   - {fileID: 8300000, guid: da4d94a55172fe84f8384f1224d79ebb, type: 3}
   audDashVol: 0.1
-  audJumpVol: 0.5
+  audJumpVol: 0.3
   audJump:
   - {fileID: 8300000, guid: b01118cd70f110243aba7fdeff11bc29, type: 3}
   - {fileID: 8300000, guid: e0f357229f790b643835b98768b6248c, type: 3}
   - {fileID: 8300000, guid: b51e271b56569c04cb8d083b8f6998b9, type: 3}
-  audHurtVol: 0.5
+  audHurtVol: 0.3
   audHurt:
   - {fileID: 8300000, guid: 625cff2b1b5eaa543ac9e0f5009d7e03, type: 3}
   - {fileID: 8300000, guid: 6eaa8c4b6e8567845842f2db65c4b81c, type: 3}
@@ -213,8 +213,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 036a1828a46cf6e44a3f6f171eb1e61c, type: 3}
   - {fileID: 8300000, guid: a078a515aa56d69429d0b048e36aa81f, type: 3}
   - {fileID: 8300000, guid: 6a7301ede1c4daa4994080ab8f3f63ed, type: 3}
-  audSpawnVol: 0.5
-  audSpawn: []
 --- !u!120 &5492269644277114618
 LineRenderer:
   serializedVersion: 2

@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerHealScreen;
     public GameObject playerSlowScreen;
     public Image playerHPBar;
+    public TMP_Text damageText;
 
     public GameObject bossHP;
     public TMP_Text bossBarText;
