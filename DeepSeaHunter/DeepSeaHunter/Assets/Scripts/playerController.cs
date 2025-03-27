@@ -264,24 +264,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, grappleDist, ~ignoreLayer))
         {
-            if (hit.collider.CompareTag("Enemy"))
-            {
-                // Lock onto the enemy
-                grappledTarget = hit.collider.gameObject;
-                Debug.Log("Grappled to Enemy: " + grappledTarget.name);
-
-                // Start pulling the player to the enemy
-                StartCoroutine(PullPlayerToTarget());
-
-                // Show the grapple line
-                grappleLine.SetPosition(0, linePos.position);
-                grappleLine.SetPosition(1, grappledTarget.transform.position);
-                grappleLine.enabled = true;
-
-                return true;
-            }
-            // Check if the hit object is a grapple point
-            else if (hit.collider.CompareTag("GrapplePoint"))
+            if (hit.collider.CompareTag("GrapplePoint"))
             {
                 controller.Move((hit.point - transform.position).normalized * grappleSpeed * Time.deltaTime);
 
@@ -304,10 +287,9 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
                 aud.PlayOneShot(rangedCurr.hitSound[Random.Range(0, rangedCurr.hitSound.Length)], rangedCurr.hitVol);
             }
         }
-        else if (Input.GetButtonUp("Fire2") || grappledTarget == null)
+        else
         {
             grappleLine.enabled = false;
-            grappledTarget = null;
             hasPlayedGrapple = false;
             movement();
         }
@@ -337,50 +319,6 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         {
             GameManager.instance.youLose();
         }
-    }
-
-    IEnumerator PullPlayerToTarget()
-    {//to lock on enemy and  pull smoothly
-        while (grappledTarget != null)
-        {
-            if (Input.GetButtonUp("Fire2"))
-            {
-                grappledTarget = null;
-                grappleLine.enabled = false;
-                yield break;
-            }
-            Vector3 direction = (grappledTarget.transform.position - transform.position).normalized;
-            float distance = Vector3.Distance(transform.position, grappledTarget.transform.position);
-
-            if (distance < 1.0f)
-            {
-                grappledTarget = null;
-                grappleLine.enabled = false;
-                yield break;
-            }
-
-            controller.Move(direction * grappleSpeed * Time.deltaTime);
-            grappleLine.SetPosition(0, linePos.position);
-            grappleLine.SetPosition(1, grappledTarget.transform.position);
-
-            yield return null;
-        }
-        grappleLine.enabled = false;
-    }
-
-    IEnumerator PullPlayerToPoint(Vector3 targetPoint)
-    {//to lock onto points and pull smoothly
-        while (Vector3.Distance(transform.position, targetPoint) > 1.0f)
-        {
-            Vector3 direction = (targetPoint - transform.position).normalized;
-            controller.Move(direction * grappleSpeed * Time.deltaTime);
-
-            grappleLine.SetPosition(0, linePos.position);
-            grappleLine.SetPosition(1, targetPoint);
-
-            yield return null;
-        }
-        grappleLine.enabled = false;
     }
 
     IEnumerator flashDamageScreen()
@@ -531,3 +469,49 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         updatePlayerUI();
     }
 }
+
+/*    Leanne's Grapple code if she wants to keep working on it
+ *  IEnumerator PullPlayerToPoint(Vector3 targetPoint)
+    {//to lock onto points and pull smoothly
+        while (Vector3.Distance(transform.position, targetPoint) > 1.0f)
+        {
+            Vector3 direction = (targetPoint - transform.position).normalized;
+            controller.Move(direction * grappleSpeed * Time.deltaTime);
+
+            grappleLine.SetPosition(0, linePos.position);
+            grappleLine.SetPosition(1, targetPoint);
+
+            yield return null;
+        }
+        grappleLine.enabled = false;
+    }
+
+    IEnumerator PullPlayerToTarget()
+    {//to lock on enemy and  pull smoothly
+        while (grappledTarget != null)
+        {
+            if (Input.GetButtonUp("Fire2"))
+            {
+                grappledTarget = null;
+                grappleLine.enabled = false;
+                yield break;
+            }
+            Vector3 direction = (grappledTarget.transform.position - transform.position).normalized;
+            float distance = Vector3.Distance(transform.position, grappledTarget.transform.position);
+
+            if (distance < 1.0f)
+            {
+                grappledTarget = null;
+                grappleLine.enabled = false;
+                yield break;
+            }
+
+            controller.Move(direction * grappleSpeed * Time.deltaTime);
+            grappleLine.SetPosition(0, linePos.position);
+            grappleLine.SetPosition(1, grappledTarget.transform.position);
+
+            yield return null;
+        }
+        grappleLine.enabled = false;
+    }
+*/

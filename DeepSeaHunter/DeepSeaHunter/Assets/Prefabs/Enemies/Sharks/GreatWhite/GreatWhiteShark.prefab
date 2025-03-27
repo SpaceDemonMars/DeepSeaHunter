@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 7700089369541600057}
   m_Layer: 7
   m_Name: GreatWhiteShark
-  m_TagString: Enemy
+  m_TagString: GrapplePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
