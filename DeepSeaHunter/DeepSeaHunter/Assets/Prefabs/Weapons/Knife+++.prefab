@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92c65ae822debc429e43cee089a2bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knife: {fileID: 11400000, guid: 3cb20be85075a34418a07d60c6b101d5, type: 2}
+  knife: {fileID: 11400000, guid: 951554d0ed4a8da4b9e3a0cb5741a10e, type: 2}
   harpoon: {fileID: 0}
 --- !u!33 &1906098954853263325
 MeshFilter:
