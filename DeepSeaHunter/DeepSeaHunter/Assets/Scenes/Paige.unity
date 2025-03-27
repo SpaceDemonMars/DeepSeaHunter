@@ -371,6 +371,7 @@ MonoBehaviour:
   - {fileID: 1929947472}
   - {fileID: 778838600}
   - {fileID: 871535752}
+  bossSpawner: 0
   chestSpawnerLid: {fileID: 0}
   chestHalfOpenPos: {fileID: 0}
   chestOpenPos: {fileID: 0}
@@ -2408,6 +2409,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 008da9dfe5871f94692da98aa4a95421, type: 3}
+--- !u!1001 &6868222155740001522
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3049493533594858046, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
+      propertyPath: m_Name
+      value: Boss Spawner - Vampire Squid
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481010957551216120, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.6434007
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481010957551216120, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.2243094
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481010957551216120, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.4056098
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481010957551216120, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481010957551216120, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481010957551216120, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481010957551216120, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481010957551216120, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481010957551216120, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481010957551216120, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 15017c7aee115c64a9553aa75b67a9f0, type: 3}
 --- !u!1001 &7250348866087783232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2799,3 +2857,4 @@ SceneRoots:
   - {fileID: 5714957366221059575}
   - {fileID: 7553559434491445536}
   - {fileID: 5665752730217436300}
+  - {fileID: 6868222155740001522}

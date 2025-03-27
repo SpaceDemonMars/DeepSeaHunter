@@ -264,7 +264,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, grappleDist, ~ignoreLayer))
         {
-            if (hit.collider.CompareTag("GrapplePoint"))
+            if (hit.collider.CompareTag("GrapplePoint") || hit.collider.CompareTag("Level Boss")) //allows grappling to bosses despite needed special tag
             {
                 controller.Move((hit.point - transform.position).normalized * grappleSpeed * Time.deltaTime);
 
@@ -462,9 +462,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     }*/
     public void spawnPlayer()
     {
-        controller.enabled = false;
         controller.transform.position = GameManager.instance.playerSpawnPos.transform.position;
-        controller.enabled = true;
         HP = HPOrig;
         updatePlayerUI();
     }

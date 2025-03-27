@@ -1293,7 +1293,7 @@ GameObject:
   - component: {fileID: 6598277299971659832}
   m_Layer: 7
   m_Name: Vampire Squid
-  m_TagString: GrapplePoint
+  m_TagString: Level Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

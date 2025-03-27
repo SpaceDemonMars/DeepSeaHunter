@@ -6,7 +6,7 @@ public class checkpoint : MonoBehaviour
     [SerializeField] Renderer model;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) //&& GameManager.instance.playerSpawnPos.transform.position != transform.position)
+        if (other.CompareTag("Player") && GameManager.instance.playerSpawnPos.transform.position != transform.position)
         {
             GameManager.instance.playerSpawnPos.transform.position = transform.position;
             Debug.Log("Checkpoint set at: " + transform.position);

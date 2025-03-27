@@ -9,6 +9,7 @@ TagManager:
   - Tutorial
   - GrapplePoint
   - Enemy
+  - Boss Spawner
   layers:
   - Default
   - TransparentFX

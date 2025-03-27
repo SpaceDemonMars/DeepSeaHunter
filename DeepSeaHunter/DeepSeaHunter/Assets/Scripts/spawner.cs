@@ -8,6 +8,7 @@ public class spawner : MonoBehaviour, IDamage
     [SerializeField] int numToSpawn;
     [SerializeField] int timeBetweenSpawns;
     [SerializeField] Transform[] spawnPos;
+    [SerializeField] bool bossSpawner;
 
     [SerializeField] GameObject chestSpawnerLid;
     [SerializeField] Transform chestHalfOpenPos;
@@ -46,13 +47,15 @@ public class spawner : MonoBehaviour, IDamage
         }
     }
 
-    void spawn()
+    public void spawn()
     {
         int arrayPos = Random.Range(0, spawnPos.Length);
 
         Instantiate(objectToSpawn, spawnPos[arrayPos].position, spawnPos[arrayPos].rotation);
-        spawnCounter++;
-        spawnTimer = 0;
+        if (!bossSpawner) {
+            spawnCounter++;
+            spawnTimer = 0;
+        }
     }
 
     public void takeDamage(int damage)

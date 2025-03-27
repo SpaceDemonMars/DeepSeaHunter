@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public playerController playerScript;
+
+    public GameObject boss;
+    public EnemyBoss bossScript;
+
+    public GameObject bossSpawner;
+    public spawner spawnerScript;
 
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
@@ -40,6 +47,9 @@ public class GameManager : MonoBehaviour
         instance = this;
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+        bossSpawner = GameObject.FindWithTag("Boss Spawner");
+        spawnerScript = bossSpawner.GetComponent<spawner>();
+        resetLevelBoss(); //spawns boss
         playerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
         isTutorialLevel = (GameObject.FindWithTag("Tutorial") != null) ? true : false;
         goalCountLabel.SetActive(!isTutorialLevel);
@@ -101,4 +111,15 @@ public class GameManager : MonoBehaviour
         menuActive.SetActive(true);
     }
     //
+
+    public void resetLevelBoss()
+    {
+        //turn off boss hp UI here
+        if (boss !=  null) 
+            Destroy(boss);
+        spawnerScript.spawn();
+        boss = GameObject.FindWithTag("Level Boss");
+        bossScript = boss.GetComponent<EnemyBoss>();
+        //reassign hp ui
+    }
 }

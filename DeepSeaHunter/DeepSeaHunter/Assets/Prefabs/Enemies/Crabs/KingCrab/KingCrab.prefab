@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 2528752524176414527}
   m_Layer: 7
   m_Name: KingCrab
-  m_TagString: GrapplePoint
+  m_TagString: Level Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
