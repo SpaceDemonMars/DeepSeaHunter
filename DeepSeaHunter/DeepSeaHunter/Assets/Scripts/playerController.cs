@@ -302,6 +302,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
     public void takeDamage(int damage)
     {
+        if (HP == HPOrig && damage < 0)
+            return; //if healing and max health >> return
         HP -= damage;
         if (HP > HPOrig) //if overhealed
             HP = HPOrig; //reset

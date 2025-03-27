@@ -1001,7 +1001,7 @@ MonoBehaviour:
   anim: {fileID: 1416566167301456603}
   agent: {fileID: 1669143317712705176}
   headPos: {fileID: 4880348090271590065}
-  FOV: 100
+  FOV: 75
   roamPauseTime: 3
   roamDist: 6
   faceTargetSpeed: 6

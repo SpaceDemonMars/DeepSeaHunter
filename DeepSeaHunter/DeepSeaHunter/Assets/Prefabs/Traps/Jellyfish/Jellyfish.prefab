@@ -350,7 +350,6 @@ MonoBehaviour:
   trapCollider: {fileID: 3980871478137356865}
   takeDmgCollider: {fileID: 0}
   unPuffRate: 0
-  animTranSpeed: 0
 --- !u!114 &5166577645070913639
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class checkpoint : MonoBehaviour
 {
-    [SerializeField] Renderer model;
+    //[SerializeField] Renderer model;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && GameManager.instance.playerSpawnPos.transform.position != transform.position)
@@ -15,10 +15,10 @@ public class checkpoint : MonoBehaviour
     }
     IEnumerator checkpointFeedback()
     {
-        model.material.color = Color.red;
+        //model.material.color = Color.red;
         GameManager.instance.checkpointPopup.SetActive(true);
         yield return new WaitForSeconds(0.5f);
-        model.material.color = Color.white;
+        //model.material.color = Color.white;
         GameManager.instance.checkpointPopup.SetActive(false);
 
     }

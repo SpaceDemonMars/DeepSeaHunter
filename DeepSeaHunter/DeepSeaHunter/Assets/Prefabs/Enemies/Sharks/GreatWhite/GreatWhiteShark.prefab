@@ -98,7 +98,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 23.05, y: 1.051, z: 2.11}
-  m_LocalScale: {x: 2, y: 2, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1310825480222770560}
@@ -124,7 +124,7 @@ MonoBehaviour:
   headPos: {fileID: 2474910648550174289}
   FOV: 75
   roamPauseTime: 4
-  roamDist: 15
+  roamDist: 5
   faceTargetSpeed: 2
   animTranSpeed: 8
   bullet: {fileID: 5957886602306386315}

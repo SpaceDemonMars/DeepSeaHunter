@@ -635,7 +635,7 @@ MonoBehaviour:
   anim: {fileID: 4235728771137819215}
   agent: {fileID: 3305178411530609273}
   headPos: {fileID: 8100127237945403170}
-  FOV: 120
+  FOV: 80
   roamPauseTime: 4
   roamDist: 6
   faceTargetSpeed: 3
@@ -729,7 +729,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 6
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3660545873095767276
 GameObject:
