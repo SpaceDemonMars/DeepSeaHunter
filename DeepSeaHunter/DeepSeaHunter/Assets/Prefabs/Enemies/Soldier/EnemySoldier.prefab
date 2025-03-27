@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 2844269824981601384}
   m_Layer: 7
   m_Name: EnemySoldier
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -402,11 +402,11 @@ MonoBehaviour:
   FOV: 90
   roamPauseTime: 3
   roamDist: 10
+  faceTargetSpeed: 3
+  animTranSpeed: 8
   bullet: {fileID: 3220944449693001656, guid: 4bb60c7ee1bd44f4e89efd2f9f5e702b, type: 3}
   shootPos: {fileID: 4295304980318666549}
   shootRate: 1
-  faceTargetSpeed: 3
-  animTranSpeed: 8
 --- !u!195 &8847098071526950929
 NavMeshAgent:
   m_ObjectHideFlags: 0

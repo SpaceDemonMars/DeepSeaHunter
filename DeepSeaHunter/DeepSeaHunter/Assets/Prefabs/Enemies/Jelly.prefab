@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4814737519416875371}
   m_Layer: 0
   m_Name: Jelly
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,10 +149,11 @@ MonoBehaviour:
   model: {fileID: 5855527171502591013}
   anim: {fileID: 0}
   agent: {fileID: 5535265222027326911}
+  roamPauseTime: 0
+  roamDist: 0
   trapCollider: {fileID: 4419442762664698031}
   takeDmgCollider: {fileID: 0}
   unPuffRate: 0
-  animTranSpeed: 0
 --- !u!114 &4814737519416875371
 MonoBehaviour:
   m_ObjectHideFlags: 0

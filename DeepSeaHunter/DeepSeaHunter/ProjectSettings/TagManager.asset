@@ -8,6 +8,7 @@ TagManager:
   - Level Boss
   - Tutorial
   - GrapplePoint
+  - Enemy
   layers:
   - Default
   - TransparentFX

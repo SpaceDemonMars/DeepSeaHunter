@@ -26,6 +26,7 @@ public class buttonFunctions : MonoBehaviour
     {
         GameManager.instance.playerScript.spawnPlayer();
         GameManager.instance.stateUnpause();
+        Debug.Log("Respawn button clicked, player moved to: " + GameManager.instance.playerSpawnPos.transform.position);
     }
 
 }

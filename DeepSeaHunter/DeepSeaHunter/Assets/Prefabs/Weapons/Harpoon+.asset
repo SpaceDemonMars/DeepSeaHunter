@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rank: 1
   grappleDist: 30
-  grappleSpeed: 10
+  grappleSpeed: 7
   hitSound:
   - {fileID: 8300000, guid: 6aec3864b9a16904781ca2fde0c2a2dc, type: 3}
   hitVol: 0.05
