@@ -10,6 +10,7 @@ TagManager:
   - GrapplePoint
   - Enemy
   - Boss Spawner
+  - NPC
   layers:
   - Default
   - TransparentFX
