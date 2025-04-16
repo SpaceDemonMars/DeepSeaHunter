@@ -14,6 +14,12 @@ public class buttonFunctions : MonoBehaviour
         GameManager.instance.stateUnpause();
     }
 
+    public void loadLevel(int index)
+    {
+        SceneManager.LoadScene(index);
+        GameManager.instance.stateUnpause();   
+    }
+
     public void quit()
     {
 #if UNITY_EDITOR
