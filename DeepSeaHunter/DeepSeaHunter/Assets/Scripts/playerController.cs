@@ -31,6 +31,9 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     int jumpCount;
 
     [Header("<----- Weapons ----->")]
+    [SerializeField] GameObject flashLight;
+
+    [Header("<----- Weapons ----->")]
     [Header("Knife")]
     [SerializeField] GameObject weaponModel;
     [SerializeField] meleeStats meleeCurr;
@@ -103,7 +106,19 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
             //harpoon();
         }
         //sprint();
+
+        //Light
+        Light();
+
         updateReloadUI();
+    }
+
+    void Light()
+    {
+        if (Input.GetButtonDown("Light"))
+        {
+            flashLight.SetActive(!flashLight.activeSelf);
+        }
     }
 
     IEnumerator playSteps()
