@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     public Transform choiceParent;
     public GameObject choiceButton;
 
-    private DialogueEntry[] entries;
+    [SerializeField]  private DialogueEntry[] entries;
     private int currentIndex = 0;
 
 
@@ -50,14 +50,11 @@ public class DialogueManager : MonoBehaviour
         currentIndex = 0;
 
         DisplayEntry(entries[currentIndex]);
-        lineQueue.Clear();
 
-        foreach (DialogueEntry entry in dialogue.lines)
+        for (int i = 0; i < dialogue.lines.Length; i++)
         {
-            lineQueue.Enqueue(entry.line);
+            Debug.Log(dialogue.lines[i].line);
         }
-
-        DisplayNextEntry();
     }
     public void DisplayNextEntry()
     {
@@ -117,5 +114,13 @@ public class DialogueManager : MonoBehaviour
     }
 
     public bool IsTalking() => isTalking;
+    void Update()
+    {
+        if (isTalking && Input.GetButtonDown("Interact") && choiceParent.childCount == 0)
+        {
+            DisplayNextEntry();
+        }
+    }
+
 
 }

@@ -6,7 +6,7 @@ public class RadioDialogue : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetButtonDown("Radio"))
         {
             if (!DialogueManager.Instance.IsTalking())
             {
