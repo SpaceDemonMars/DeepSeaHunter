@@ -1,0 +1,449 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\Trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\Trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\tangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\tangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\rangedStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\rangedStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\rangedPickUp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\rangedPickUp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\playerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\playerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\pickUp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\pickUp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\moveOverTime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\moveOverTime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\meleeStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\meleeStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\meleePickUp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\meleePickUp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\levelExitTrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\levelExitTrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\ITangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\ITangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IPickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IPickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IHarpoon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IHarpoon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IDamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IDamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyBoss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyBoss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyBasic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyBasic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyArmored.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyArmored.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyAI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyAI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\damage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\damage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\checkpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\checkpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\cameraController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\cameraController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\buttonFunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\buttonFunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\armor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\armor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Trap.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\Trap.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\Trap.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\Trap.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\Trap.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "tangle.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\tangle.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\tangle.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\tangle.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\tangle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "spawner.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\spawner.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\spawner.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\spawner.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\spawner.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "rangedStats.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\rangedStats.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\rangedStats.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\rangedStats.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\rangedStats.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "rangedPickUp.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\rangedPickUp.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\rangedPickUp.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\rangedPickUp.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\rangedPickUp.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "playerController.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\playerController.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\playerController.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\playerController.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\playerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "pickUp.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\pickUp.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\pickUp.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\pickUp.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\pickUp.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "moveOverTime.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\moveOverTime.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\moveOverTime.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\moveOverTime.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\moveOverTime.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "meleeStats.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\meleeStats.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\meleeStats.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\meleeStats.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\meleeStats.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "meleePickUp.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\meleePickUp.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\meleePickUp.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\meleePickUp.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\meleePickUp.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "levelExitTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\levelExitTrigger.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\levelExitTrigger.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\levelExitTrigger.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\levelExitTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ITangle.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\ITangle.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\ITangle.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\ITangle.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\ITangle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IPickup.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IPickup.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IPickup.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IPickup.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IPickup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IHarpoon.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IHarpoon.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IHarpoon.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IHarpoon.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IHarpoon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IDamage.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IDamage.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IDamage.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IDamage.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\IDamage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EnemyBoss.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyBoss.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyBoss.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyBoss.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyBoss.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "EnemyBasic.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyBasic.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyBasic.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyBasic.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyBasic.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "EnemyArmored.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyArmored.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyArmored.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyArmored.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyArmored.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "EnemyAI.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyAI.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyAI.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyAI.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\EnemyAI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "damage.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\damage.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\damage.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\damage.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\damage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "checkpoint.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\checkpoint.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\checkpoint.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\checkpoint.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\checkpoint.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "cameraController.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\cameraController.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\cameraController.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\cameraController.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\cameraController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "buttonFunctions.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\buttonFunctions.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\buttonFunctions.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\buttonFunctions.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\buttonFunctions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:30.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "armor.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\armor.cs",
+              "RelativeDocumentMoniker": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\armor.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\DeepSeaHunter\\DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\armor.cs",
+              "RelativeToolTip": "DeepSeaHunter\\DeepSeaHunter\\Assets\\Scripts\\armor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T19:19:29.44Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
