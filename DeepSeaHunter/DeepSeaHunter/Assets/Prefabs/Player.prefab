@@ -281,6 +281,14 @@ MonoBehaviour:
   jumpMax: 1
   grav: 16
   flashLight: {fileID: 3039237240021880916}
+  audLightClicks:
+  - {fileID: 8300000, guid: fc9e3c7deef68734bb4c9db1897038b9, type: 3}
+  - {fileID: 8300000, guid: 58ff1c7a4f973724ba26dfcd3a565ddb, type: 3}
+  - {fileID: 8300000, guid: 2386a34606a0b0b41932eb28b68b182d, type: 3}
+  audLightClickVol: 0.5
+  audRadioClicks:
+  - {fileID: 8300000, guid: b7de7ec023395684ca8eb7a7830630af, type: 3}
+  audRadioClickVol: 0.2
   weaponModel: {fileID: 439436331794547265}
   meleeCurr: {fileID: 0}
   grappleLine: {fileID: 5492269644277114618}
@@ -762,9 +770,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d45e0ace54a297b418216c8177c18599, type: 3}
   staticPlaylist:
   - {fileID: 8300000, guid: b356be35a931ee94ca5fa0a6c987598f, type: 3}
-  onOffClick:
-  - {fileID: 8300000, guid: b7de7ec023395684ca8eb7a7830630af, type: 3}
-  clickVol: 0.5
   inStatic: 0
 --- !u!82 &2949645483885760927
 AudioSource:

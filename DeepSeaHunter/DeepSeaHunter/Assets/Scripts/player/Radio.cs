@@ -6,8 +6,8 @@ public class Radio : MonoBehaviour
     [Range(0, 1)][SerializeField] float radioVol; //WHEN SETTINGS MADE, REMOVE SERIALIZE FIELD, FINISH SETVOLUME FUNC
     [SerializeField] AudioClip[] radioPlaylist;
     [SerializeField] AudioClip[] staticPlaylist;
-    [SerializeField] AudioClip[] onOffClick;
-    [Range(0, 1)][SerializeField] float clickVol;
+    //[SerializeField] AudioClip[] onOffClick;
+    //[Range(0, 1)][SerializeField] float clickVol;
     AudioClip[][] allRadioClips;
     int[] playlistIndex = { 0, 0 };
 
@@ -19,6 +19,8 @@ public class Radio : MonoBehaviour
         allRadioClips = new AudioClip[2][];
         allRadioClips[0] = radioPlaylist;
         allRadioClips[1] = staticPlaylist;
+        for (int i = 0; i < allRadioClips.Length - 1; i++) 
+            playlistIndex[i] = Random.Range(0, allRadioClips[i].Length);
         SetRadioVol();
     }
 
@@ -57,7 +59,6 @@ public class Radio : MonoBehaviour
         if (Input.GetButtonDown("Radio"))
         {
             radioOn = !radioOn;
-            aud.PlayOneShot(onOffClick[Random.Range(0, onOffClick.Length)], clickVol);
             SetRadioVol();
         }
     }

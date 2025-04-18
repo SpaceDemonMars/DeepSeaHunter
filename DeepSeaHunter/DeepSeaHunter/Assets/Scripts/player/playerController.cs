@@ -30,8 +30,12 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     Vector3 playerVel;
     int jumpCount;
 
-    [Header("<----- Weapons ----->")]
+    [Header("<----- Utility ----->")]
     [SerializeField] GameObject flashLight;
+    [SerializeField] AudioClip[] audLightClicks;
+    [Range(0, 1)][SerializeField] float audLightClickVol;
+    [SerializeField] AudioClip[] audRadioClicks;
+    [Range(0, 1)][SerializeField] float audRadioClickVol;
 
     [Header("<----- Weapons ----->")]
     [Header("Knife")]
@@ -109,6 +113,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
         //Light
         Light();
+        RadioClick();
 
         updateReloadUI();
         HandleCluePickup();
@@ -136,6 +141,15 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         if (Input.GetButtonDown("Light"))
         {
             flashLight.SetActive(!flashLight.activeSelf);
+            aud.PlayOneShot(audLightClicks[Random.Range(0, audLightClicks.Length)], audLightClickVol);
+        }
+    }
+
+    void RadioClick() //just for radio clicks
+    {
+        if (Input.GetButtonDown("Radio"))
+        {
+            aud.PlayOneShot(audRadioClicks[Random.Range(0, audRadioClicks.Length)], audRadioClickVol);
         }
     }
 
