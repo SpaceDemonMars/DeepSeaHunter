@@ -74,8 +74,11 @@ public class Radio : MonoBehaviour
     bool getInStatic() { return inStatic; }
     public void setInStatic(bool value) 
     {
-        inStatic = value;
-        aud.Stop(); //stops current clip so that correct clip will play
-        playRadio(); //starts new clip 
+        if (value != inStatic) 
+        {
+            inStatic = value;
+            aud.Stop(); //stops current clip so that correct clip will play
+            playRadio(); //starts new clip
+        }
     }
 }

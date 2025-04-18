@@ -28,6 +28,8 @@ public class oxygen : MonoBehaviour
     {
         inO2Zone = value;
         if (inO2Zone) maxO2();
+        else trackOxygen();
+        updateO2UI();
     }
 
     void trackOxygen()

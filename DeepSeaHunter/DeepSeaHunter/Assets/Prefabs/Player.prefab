@@ -273,6 +273,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 520
   controller: {fileID: 5603928613518264459}
+  o2Script: {fileID: 5563264154735573055}
+  tempScript: {fileID: 1480138211415246043}
+  radioScript: {fileID: 1951845911028339932}
   speed: 3
   pushResolve: 12
   dashStr: 35
@@ -355,8 +358,8 @@ MonoBehaviour:
   veryColdSlow: 2
   freezeDmg: 1
   freezeRate: 3
-  gearBase: 3
-  zoneMod: 3
+  gearBase: 0
+  zoneMod: 0
 --- !u!120 &5492269644277114618
 LineRenderer:
   serializedVersion: 2

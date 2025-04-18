@@ -9,6 +9,9 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     public int HP;
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
+    public oxygen o2Script;
+    public temperature tempScript;
+    public Radio radioScript;
     int HPOrig;
     float speedOrig;
     Vector3 moveDir;
