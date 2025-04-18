@@ -6,6 +6,7 @@ public class DialogueStarter : MonoBehaviour
     public Dialogue dialogue;              
     public TextMeshProUGUI talkPrompt;      
     public DialogueManager dialogueManager;
+    public Clue clueinDialogue;
 
     private bool isPlayerInRange = false;
     private bool hasTriggered = false;
@@ -24,7 +25,21 @@ public class DialogueStarter : MonoBehaviour
             {
                 hasTriggered = true;
                 talkPrompt.gameObject.SetActive(false);
-                dialogueManager.StartConvo(dialogue);   
+                dialogueManager.currentDialogueStarter = this;
+
+                dialogueManager.StartConvo(dialogue);
+
+                FriendlyNPC npc = GetComponent<FriendlyNPC>();
+                if (npc != null)
+                {
+                    GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+                    if (playerObj != null)
+                    {
+                        npc.StartDialogue(playerObj.transform);
+                    }
+                }
+
+                dialogueManager.StartConvo(dialogue);
             }
         }
     }

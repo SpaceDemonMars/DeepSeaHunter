@@ -17,13 +17,15 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]  private DialogueEntry[] entries;
     private int currentIndex = 0;
 
+    public DialogueStarter currentDialogueStarter;
+
     void Awake()
     {
     }
     void Start()
     {
-        if (dialogueBox == null)
-            dialogueBox = GameObject.Find("DialogueBox"); // Find by name
+     /*   if (dialogueBox == null)
+            dialogueBox = GameObject.Find("DialogueBox");
 
         if (nameTxt == null)
             nameTxt = GameObject.Find("NameText")?.GetComponent<TextMeshProUGUI>();
@@ -34,8 +36,9 @@ public class DialogueManager : MonoBehaviour
         if (choiceParent == null)
             choiceParent = GameObject.Find("ChoiceParent")?.transform;
 
-        dialogueBox.SetActive(false);
+        dialogueBox.SetActive(false);*/
     }
+
     public void StartConvo(Dialogue dialogue)
     {
         isTalking = true;
@@ -124,6 +127,11 @@ public class DialogueManager : MonoBehaviour
             foreach (Transform child in choiceParent)
             {
                 Destroy(child.gameObject);
+            }
+            if (currentDialogueStarter != null && currentDialogueStarter.clueinDialogue != null)
+            {
+                JournalManager.instance.DiscoverClue(currentDialogueStarter.clueinDialogue);
+                currentDialogueStarter = null;
             }
         }
     }

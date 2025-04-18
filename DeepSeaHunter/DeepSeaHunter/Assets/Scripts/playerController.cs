@@ -111,6 +111,24 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         Light();
 
         updateReloadUI();
+        HandleCluePickup();
+    }
+
+    void HandleCluePickup()
+    {
+        if (Input.GetButtonDown("Interact"))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 3f))
+            {
+                Clue clue = hit.collider.GetComponent<Clue>();
+                if (clue != null)
+                {
+                    clue.Pickup(); 
+                }
+            }
+        }
     }
 
     void Light()
