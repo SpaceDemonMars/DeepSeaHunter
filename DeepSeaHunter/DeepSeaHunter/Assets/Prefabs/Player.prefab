@@ -334,8 +334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 9028923487959050655}
-  o2: 30
-  drownDmg: 3
+  o2: 20
+  drownDmg: 1
   o2TickRate: 3
 --- !u!120 &5492269644277114618
 LineRenderer:

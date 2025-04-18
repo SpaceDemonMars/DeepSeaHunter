@@ -14,6 +14,7 @@ public class oxygen : MonoBehaviour
     void Start()
     {
         o2Max = o2;
+        updateO2UI();
     }
 
     // Update is called once per frame
@@ -46,12 +47,25 @@ public class oxygen : MonoBehaviour
             {
                 player.takeDamage(drownDmg);
             }
+            updateO2UI();
         }
     }
 
+    void updateO2UI()
+    {
+        GameManager.instance.playerO2Bar.fillAmount = (float)o2 / o2Max;
+        GameManager.instance.playerO2UI.SetActive(!inO2Zone);
+    }
+
     public void modifyO2(int num) //use this func for o2 consumeables/pickups
-    { o2 += num; }
+    { 
+        o2 += num; 
+        updateO2UI();
+    }
 
     void maxO2() 
-    { o2 = o2Max; }
+    { 
+        o2 = o2Max;
+        updateO2UI();
+    }
 }
