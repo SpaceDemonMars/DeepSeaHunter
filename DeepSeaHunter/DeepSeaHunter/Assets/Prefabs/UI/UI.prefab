@@ -562,6 +562,7 @@ MonoBehaviour:
   goalCountLabel: {fileID: 483199751181130374}
   goalCountText: {fileID: 6282357183433250093}
   tutorialText: {fileID: 1883896746661550502}
+  dialogHiddenUI: {fileID: 6390848690636106689}
   playerSpawnPos: {fileID: 0}
   playerDamageScreen: {fileID: 7895736169961495296}
   playerHealScreen: {fileID: 996472495894904273}

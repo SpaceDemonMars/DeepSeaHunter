@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject goalCountLabel;
     [SerializeField] TMP_Text goalCountText;
     [SerializeField] GameObject tutorialText;
+    [SerializeField] GameObject dialogHiddenUI;
 
     public GameObject playerSpawnPos;
     public GameObject playerDamageScreen;
