@@ -7,55 +7,46 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager Instance;
     public TextMeshProUGUI nameTxt;
     public TextMeshProUGUI dialogueLine;
     public GameObject dialogueBox;
-
-    private Queue<string> lineQueue;
     private bool isTalking = false;
-
     public Transform choiceParent;
     public GameObject choiceButton;
 
     [SerializeField]  private DialogueEntry[] entries;
     private int currentIndex = 0;
 
-
     void Awake()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else 
-        { 
-            Destroy(gameObject);
-        }
     }
     void Start()
     {
-        lineQueue = new Queue<string>();
-        dialogueBox.SetActive(false);
+        if (dialogueBox == null)
+            dialogueBox = GameObject.Find("DialogueBox"); // Find by name
 
+        if (nameTxt == null)
+            nameTxt = GameObject.Find("NameText")?.GetComponent<TextMeshProUGUI>();
+
+        if (dialogueLine == null)
+            dialogueLine = GameObject.Find("DialogueLine")?.GetComponent<TextMeshProUGUI>();
+
+        if (choiceParent == null)
+            choiceParent = GameObject.Find("ChoiceParent")?.transform;
+
+        dialogueBox.SetActive(false);
     }
     public void StartConvo(Dialogue dialogue)
     {
         isTalking = true;
         dialogueBox.SetActive(true);
-        nameTxt.text = dialogue.npcName;
 
         entries = dialogue.lines;
         currentIndex = 0;
 
         DisplayEntry(entries[currentIndex]);
-
-        for (int i = 0; i < dialogue.lines.Length; i++)
-        {
-            Debug.Log(dialogue.lines[i].line);
-        }
     }
+
     public void DisplayNextEntry()
     {
         currentIndex++;
@@ -67,7 +58,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         DisplayEntry(entries[currentIndex]);
-        
     }
 
     void DisplayEntry(DialogueEntry entry)
@@ -76,10 +66,20 @@ public class DialogueManager : MonoBehaviour
         dialogueLine.text = "";
         StartCoroutine(TypeSentence(entry.line));
 
+        if (!string.IsNullOrEmpty(entry.speakerName))
+        {
+            nameTxt.text = entry.speakerName;
+        }
+        else
+        {
+            nameTxt.text = "???"; 
+        }
+
         foreach (Transform child in choiceParent)
         {
             Destroy(child.gameObject);
         }
+
         if (entry.choices != null && entry.choices.Length > 0)
         {
             foreach (DialogueEntry.DialogueChoice choice in entry.choices)
@@ -109,10 +109,25 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        dialogueBox.SetActive(false);
+        if (dialogueBox != null)
+        {
+            dialogueBox.SetActive(false);
+        }
         isTalking = false;
-    }
+        entries = null;
+        currentIndex = 0;
 
+        if (nameTxt != null) nameTxt.text = "";
+        if (dialogueLine != null) dialogueLine.text = "";
+        if (choiceParent != null)
+        {
+            foreach (Transform child in choiceParent)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+    }
+ 
     public bool IsTalking() => isTalking;
     void Update()
     {

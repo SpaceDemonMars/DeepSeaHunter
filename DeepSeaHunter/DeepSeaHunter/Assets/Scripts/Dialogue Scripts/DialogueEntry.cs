@@ -3,7 +3,8 @@ using UnityEngine;
 [System.Serializable]
 public class DialogueEntry
 {
-    [TextArea(2, 5)] public string line;
+    public string speakerName;
+    public string line;
     public DialogueChoice[] choices;
 
     [System.Serializable]

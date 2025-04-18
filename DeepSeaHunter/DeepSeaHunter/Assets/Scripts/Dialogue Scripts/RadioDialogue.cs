@@ -4,7 +4,7 @@ public class RadioDialogue : MonoBehaviour
 {
     public Dialogue radioDialogue;
 
-    void Update()
+   /* void Update()
     {
         if (Input.GetButtonDown("Radio"))
         {
@@ -13,5 +13,5 @@ public class RadioDialogue : MonoBehaviour
                 DialogueManager.Instance.StartConvo(radioDialogue);
             }
         }
-    }
+    }*/
 }

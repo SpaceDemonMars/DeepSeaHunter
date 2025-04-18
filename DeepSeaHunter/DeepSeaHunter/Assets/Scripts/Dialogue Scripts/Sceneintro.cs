@@ -6,6 +6,5 @@ public class SceneIntro : MonoBehaviour
 
     void Start()
     {
-        PlayerThoughts.Instance.ShowThought(introThought);
     }
 }
