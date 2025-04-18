@@ -66,6 +66,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     bool hasPlayedGrapple;
     //STATUS
     bool isTangled;
+    int tangleSources;
     GameObject grappledTarget;
 
     //OLD MEMBER VARS
@@ -405,26 +406,23 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         playerVel.z = 0;
     }*/
 
-    public void stateTangled(int tangleMod)
+    public void stateTangled(float tangleMod)
     {
         isTangled = true;
         speed /= tangleMod; //
         jumpStr /= tangleMod;
         dashStr /= tangleMod;
-        dashDuration /= tangleMod;
-        //shootRate *= tangleMod;
+        tangleSources++;
         GameManager.instance.playerSlowScreen.SetActive(isTangled);
     }
 
-    public void stateUntangled(int tangleMod)
+    public void stateUntangled(float tangleMod)
     {
         speed *= tangleMod; //
         jumpStr *= tangleMod;
         dashStr *= tangleMod;
-        dashDuration *= tangleMod;
-        //shootRate /= tangleMod;
-        if (speed == speedOrig) //if there are multiple sources of tangled, this (should) ensure that player is fully untangled before being set to false
-            isTangled = false;
+        tangleSources--;
+        if (tangleSources == 0) isTangled = false;
         GameManager.instance.playerSlowScreen.SetActive(isTangled);
     }
     //

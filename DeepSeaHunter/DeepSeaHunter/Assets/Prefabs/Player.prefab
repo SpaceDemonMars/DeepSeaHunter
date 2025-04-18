@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 1462915114241806939}
   - component: {fileID: 9028923487959050655}
   - component: {fileID: 5563264154735573055}
+  - component: {fileID: 1480138211415246043}
   - component: {fileID: 5492269644277114618}
   - component: {fileID: 5603928613518264459}
   - component: {fileID: 562599494351091253}
@@ -337,6 +338,25 @@ MonoBehaviour:
   o2: 20
   drownDmg: 1
   o2TickRate: 3
+--- !u!114 &1480138211415246043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4002661349723570564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97872d19429f38d4782edb58e9e8afbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 9028923487959050655}
+  coldSlow: 1.5
+  veryColdSlow: 2
+  freezeDmg: 1
+  freezeRate: 3
+  gearBase: 3
+  zoneMod: 3
 --- !u!120 &5492269644277114618
 LineRenderer:
   serializedVersion: 2

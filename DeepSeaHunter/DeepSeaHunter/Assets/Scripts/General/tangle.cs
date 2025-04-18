@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class tangle : MonoBehaviour
 {
-    [SerializeField] int tangleMod;
+    [SerializeField] float tangleMod;
 
     private void OnTriggerEnter(Collider other)
     {
