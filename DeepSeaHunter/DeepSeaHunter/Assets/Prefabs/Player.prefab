@@ -224,6 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1462915114241806939}
   - component: {fileID: 9028923487959050655}
+  - component: {fileID: 5563264154735573055}
   - component: {fileID: 5492269644277114618}
   - component: {fileID: 5603928613518264459}
   - component: {fileID: 562599494351091253}
@@ -320,6 +321,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 036a1828a46cf6e44a3f6f171eb1e61c, type: 3}
   - {fileID: 8300000, guid: a078a515aa56d69429d0b048e36aa81f, type: 3}
   - {fileID: 8300000, guid: 6a7301ede1c4daa4994080ab8f3f63ed, type: 3}
+--- !u!114 &5563264154735573055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4002661349723570564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cadfac11296129848b9aa0ac85560eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 9028923487959050655}
+  o2: 30
+  drownDmg: 3
+  o2TickRate: 3
 --- !u!120 &5492269644277114618
 LineRenderer:
   serializedVersion: 2
