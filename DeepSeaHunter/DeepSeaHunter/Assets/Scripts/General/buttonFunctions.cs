@@ -30,4 +30,16 @@ public class buttonFunctions : MonoBehaviour
         Debug.Log("Respawn button clicked, player moved to: " + GameManager.instance.playerSpawnPos.transform.position);
     }
 
+    public void settings()
+    {
+        GameManager.instance.openTabSettings(true);
+    }
+    public void inventory()
+    {
+        GameManager.instance.openTabInventory(true);
+    }
+    public void equipment()
+    {
+        GameManager.instance.openTabEquipment(true);
+    }
 }

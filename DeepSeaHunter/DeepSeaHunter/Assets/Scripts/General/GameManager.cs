@@ -7,46 +7,59 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public GameObject player;
-    public playerController playerScript;
-
-    public GameObject boss;
-    public EnemyBoss bossScript;
-
-    public GameObject bossSpawner;
-    public spawner spawnerScript;
-
+    [Header("Menus")]
     [SerializeField] GameObject menuActive;
-    [SerializeField] GameObject menuPause;
+    [SerializeField] GameObject menuTab;
+    [SerializeField] GameObject menuActiveTab;
+    [SerializeField] TMP_Text menuTabText;
+    [SerializeField] GameObject menuTabSettings;
+    [SerializeField] GameObject menuTabInventory;
+    [SerializeField] GameObject menuTabEquipment;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+
+    [Header("UI")]
+    public GameObject checkpointPopup;
     [SerializeField] GameObject goalCountLabel;
     [SerializeField] TMP_Text goalCountText;
     [SerializeField] GameObject tutorialText;
     [SerializeField] GameObject dialogHiddenUI;
 
+    [Header("Player")]
+    public GameObject player;
+    public playerController playerScript;
     public GameObject playerSpawnPos;
+
+    [Header("Player-UI")]
+    //screens
     public GameObject playerDamageScreen;
     public GameObject playerHealScreen;
     public GameObject playerSlowScreen;
+    //bars
     public Image playerHPBar;
     public Image playerO2Bar;
     public GameObject playerO2UI;
     public GameObject[] temperatureIcons;
     public TMP_Text damageText;
+    //weapons
+    public Image harpoonChargeBar;
+    public Image harpoonReloadBar;
+    public Image knifeReloadBar;
+    //popups
+    public GameObject weaponUpgradePopup;
+    public TMP_Text weaponUpgradeText;
 
+    [Header("Boss")]
+    public GameObject boss;
+    public EnemyBoss bossScript;
+    public GameObject bossSpawner;
+    public spawner spawnerScript;
+
+    [Header("Boss-UI")]
     public GameObject bossHP;
     public TMP_Text bossBarText;
     public Image bossHPBar;
     public Image bossArmorBar;
-
-    public Image harpoonChargeBar;
-    public Image harpoonReloadBar;
-    public Image knifeReloadBar;
-
-    public GameObject weaponUpgradePopup;
-    public TMP_Text weaponUpgradeText;
-    public GameObject checkpointPopup;
 
     public bool isPaused;
     bool isTutorialLevel;
@@ -74,17 +87,79 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        openTabSettings();
+        openTabInventory();
+        openTabEquipment();
+    }
+
+    public void openTabSettings(bool buttonClick = false)
+    {
+        if (Input.GetButtonDown("Cancel") || buttonClick == true)
         {
             if (!isPaused)
             {
                 statePause();
-                menuActive = menuPause;
+                menuActive = menuTab;
+                menuActiveTab = menuTabSettings;
+                menuTabText.text = "Settings";
                 menuActive.SetActive(true);
+                menuActiveTab.SetActive(true);
             }
-            else if (isPaused && menuActive == menuPause)
+            else if (isPaused && menuActive == menuTab && 
+                menuActiveTab == menuTabSettings && buttonClick == false)
             {
                 stateUnpause();
+            }
+            else if (isPaused && menuActive == menuTab) //other tab menu
+            {
+                menuActiveTab.SetActive(false);
+                menuActiveTab = menuTabSettings;
+                menuTabText.text = "Settings";
+                menuActiveTab.SetActive(true);
+            }
+        }
+    }
+    public void openTabInventory(bool buttonClick = false)
+    {
+        if (Input.GetButtonDown("Inventory") || buttonClick == true)
+        {
+            if (!isPaused)
+            {
+                statePause();
+                menuActive = menuTab;
+                menuActiveTab = menuTabInventory;
+                menuTabText.text = "Inventory";
+                menuActive.SetActive(true);
+                menuActiveTab.SetActive(true);
+            }
+            else if (isPaused && menuActive == menuTab) //other tab menu
+            {
+                menuActiveTab.SetActive(false);
+                menuActiveTab = menuTabInventory;
+                menuTabText.text = "Inventory";
+                menuActiveTab.SetActive(true);
+            }
+        }
+    }
+    public void openTabEquipment(bool buttonClick = false)
+    {
+        if (Input.GetButtonDown("Equipment") || buttonClick == true)
+        {
+            if (!isPaused) //no menu
+            {
+                statePause();
+                menuActive = menuTab;
+                menuActiveTab = menuTabEquipment;
+                menuTabText.text = "Equipment";
+                menuActive.SetActive(true);
+                menuActiveTab.SetActive(true);
+            }
+            else if (isPaused && menuActive == menuTab) //other tab menu
+            {
+                menuActiveTab.SetActive(false);
+                menuActiveTab = menuTabEquipment;
+                menuTabText.text = "Equipment";
+                menuActiveTab.SetActive(true);
             }
         }
     }
@@ -105,6 +180,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         menuActive.SetActive(false);
         menuActive = null;
+        menuActiveTab.SetActive(false);
+        menuActiveTab = null;
     }
 
     public void updateGameGoal(string bossName, bool slain)
