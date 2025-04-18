@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public Image playerHPBar;
     public Image playerO2Bar;
     public GameObject playerO2UI;
+    public GameObject[] temperatureIcons;
     public TMP_Text damageText;
 
     public GameObject bossHP;

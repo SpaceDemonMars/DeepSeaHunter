@@ -71,8 +71,16 @@ public class temperature : MonoBehaviour
             }
             playerSlowed = false;
         }
+        updateTemperatureUI(false);
         playerTemp = gearBase + zoneMod; //recalc temp
+        updateTemperatureUI(true);
         applyTemperatureEffects(); //reapply effects
+    }
+
+    void updateTemperatureUI(bool state) //bool is so i can also turn it off in here easy
+    {
+        if (playerTemp < 3) //temp is not warm (no warm icon, would cause index out of range)
+            GameManager.instance.temperatureIcons[playerTemp].SetActive(state);
     }
 
     public int getGearBase() { return gearBase; }
