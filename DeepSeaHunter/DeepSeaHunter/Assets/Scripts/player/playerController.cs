@@ -371,7 +371,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         if (HP <= 0)
         {
             Debug.Log(source.ToString());
-            GameManager.instance.youLose();
+            GameManager.instance.youLose(source);
         }
     }
 

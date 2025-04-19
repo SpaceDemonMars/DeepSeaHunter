@@ -25,6 +25,7 @@ public class buttonFunctions : MonoBehaviour
     public void respawn()
     {
         GameManager.instance.playerScript.spawnPlayer();
+        GameManager.instance.dialogHiddenUI.SetActive(true); //show UI
         GameManager.instance.resetLevelBoss();
         GameManager.instance.stateUnpause();
         Debug.Log("Respawn button clicked, player moved to: " + GameManager.instance.playerSpawnPos.transform.position);

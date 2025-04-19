@@ -1787,14 +1787,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9028923487959050655, guid: 52edc1164f13fd646bed6369b8869dec, type: 3}
-      propertyPath: harpoonPullSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028923487959050655, guid: 52edc1164f13fd646bed6369b8869dec, type: 3}
-      propertyPath: harpoonChargeSpeed
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2858,8 +2850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dc0dd006e2a924f94114950e4b1e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goToScene:
-    m_Handle: 0
 --- !u!1001 &1622834455
 PrefabInstance:
   m_ObjectHideFlags: 0

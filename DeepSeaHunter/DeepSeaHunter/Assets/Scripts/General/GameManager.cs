@@ -17,13 +17,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuTabEquipment;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+    public Image loseScreen;
+    [SerializeField] TMP_Text loseYouDied;
+    [SerializeField] TMP_Text loseMessage;
+    [SerializeField] Color loseTextColorDamage;
+    [SerializeField] Color loseTextColorO2;
+    [SerializeField] Color loseTextColorTemp;
+    Color[] loseTextColors;
 
     [Header("UI")]
     public GameObject checkpointPopup;
     [SerializeField] GameObject goalCountLabel;
     [SerializeField] TMP_Text goalCountText;
     [SerializeField] GameObject tutorialText;
-    [SerializeField] GameObject dialogHiddenUI;
+    public GameObject dialogHiddenUI;
 
     [Header("Player")]
     public GameObject player;
@@ -82,6 +89,11 @@ public class GameManager : MonoBehaviour
         isTutorialLevel = (GameObject.FindWithTag("Tutorial") != null) ? true : false;
         goalCountLabel.SetActive(!isTutorialLevel);
         tutorialText.SetActive(isTutorialLevel);
+
+        loseTextColors = new Color[3];
+        loseTextColors[0] = loseTextColorDamage;
+        loseTextColors[1] = loseTextColorO2;
+        loseTextColors[2] = loseTextColorTemp;
     }
 
     // Update is called once per frame
@@ -132,6 +144,11 @@ public class GameManager : MonoBehaviour
                 menuActive.SetActive(true);
                 menuActiveTab.SetActive(true);
             }
+            else if (isPaused && menuActive == menuTab &&
+                menuActiveTab == menuTabInventory && buttonClick == false)
+            {
+                stateUnpause();
+            }
             else if (isPaused && menuActive == menuTab) //other tab menu
             {
                 menuActiveTab.SetActive(false);
@@ -153,6 +170,11 @@ public class GameManager : MonoBehaviour
                 menuTabText.text = "Equipment";
                 menuActive.SetActive(true);
                 menuActiveTab.SetActive(true);
+            }
+            else if (isPaused && menuActive == menuTab &&
+                menuActiveTab == menuTabEquipment && buttonClick == false)
+            {
+                stateUnpause();
             }
             else if (isPaused && menuActive == menuTab) //other tab menu
             {
@@ -180,8 +202,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         menuActive.SetActive(false);
         menuActive = null;
-        menuActiveTab.SetActive(false);
-        menuActiveTab = null;
+        if (menuActiveTab != null) {
+            menuActiveTab.SetActive(false);
+            menuActiveTab = null;
+        }
     }
 
     public void updateGameGoal(string bossName, bool slain)
@@ -196,9 +220,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void youLose()
+    public void youLose(int source)
     {
         statePause();
+        dialogHiddenUI.SetActive(false); //hide UI
+        //set death info
+        loseYouDied.color = loseTextColors[source];
+        loseMessage.color = loseTextColors[source];
+        //once we decide how we're implementing the death messages
+        //make an array for each source
+        //create array of arrays so we can index by [source][message]
+        //call line below vv (or similar line)
+        //loseMessage = loseMessages[source][Random.Range(0, loseMessages[source].Length) - 1];
         menuActive = menuLose;
         menuActive.SetActive(true);
     }
@@ -208,11 +241,15 @@ public class GameManager : MonoBehaviour
     {
         //turn off boss hp UI here
         bossHP.SetActive(false);
-        if (boss !=  null) 
+        if (boss != null)
+        {
             Destroy(boss);
-        spawnerScript.spawn();
-        boss = GameObject.FindWithTag("Level Boss");
-        bossScript = boss.GetComponent<EnemyBoss>();
+            bossScript = boss.GetComponent<EnemyBoss>();
+        }
+        if (bossSpawner != null) {
+            spawnerScript.spawn();
+            boss = GameObject.FindWithTag("Level Boss");
+        }
         //reassign hp ui //jk do it in enemy boss
     }
 }
