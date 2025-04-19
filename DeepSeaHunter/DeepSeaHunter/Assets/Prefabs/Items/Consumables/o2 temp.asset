@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3797783057f75e24c90bfbb7a406eee6, type: 3}
-  m_Name: fish
+  m_Script: {fileID: 11500000, guid: abaa57735469491429dc1bdc8df12e33, type: 3}
+  m_Name: o2 temp
   m_EditorClassIdentifier: 
-  itemId: 0
-  itemName: fish Temp
-  itemDescription: temp fish
+  itemId: 4
+  itemName: o2 temp
+  itemDescription: o2 consumable temp
   itemIcon: {fileID: 0}
-  fishValue: 1
-  scrapValue: 0
+  hp: 0
+  o2: 2
+  sanity: 0

@@ -15,7 +15,6 @@ public class playerInven : MonoBehaviour
     {
         items = new List<Item>();
         quantity = new List<int>();
-        Debug.Log(items.Count);
     }
 
     public void addItem(Item item)
@@ -66,7 +65,7 @@ public class playerInven : MonoBehaviour
     public void addFish(int fish) { currencyFish += fish; setFishText(); }
     public int getScrap() { return currencyScrap; }
     public void setScrap(int scrap) { currencyFish = scrap; setScrapText(); }
-    public void addScrap(int scrap) { currencyFish += scrap; setScrapText(); }
+    public void addScrap(int scrap) { currencyScrap += scrap; setScrapText(); }
     public void setFishText() { GameManager.instance.fishText.text = currencyFish.ToString(); }
     public void setScrapText() { GameManager.instance.scrapText.text = currencyScrap.ToString(); }
 }

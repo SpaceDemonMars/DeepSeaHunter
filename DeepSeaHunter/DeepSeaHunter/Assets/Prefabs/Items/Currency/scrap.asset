@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3797783057f75e24c90bfbb7a406eee6, type: 3}
-  m_Name: fish
+  m_Name: scrap
   m_EditorClassIdentifier: 
-  itemId: 0
-  itemName: fish Temp
-  itemDescription: temp fish
+  itemId: 1
+  itemName: scrap Temp
+  itemDescription: temp scrap
   itemIcon: {fileID: 0}
-  fishValue: 1
-  scrapValue: 0
+  fishValue: 0
+  scrapValue: 1
