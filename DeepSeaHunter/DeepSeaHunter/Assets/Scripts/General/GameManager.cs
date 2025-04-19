@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
     public GameObject dialogHiddenUI;
     public TMP_Text interactPrompt;
 
+    [Header("Menu SFX")]
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] uiSFX;
+    [SerializeField] float uiVol;
+
     [Header("Player")]
     public GameObject player;
     public playerController playerScript;
@@ -294,6 +299,10 @@ public class GameManager : MonoBehaviour
 
     public void setMusicVolume(float volume) { radioScript.SetRadioVol(volume); }
     public void setPlayerVolume(float volume) { playerScript.aud.volume = volume; }
-    public void setFxVolume(float volume) { /*radioScript.aud.volume = volume;*/ } //need to add menu audioSource
+    public void setFxVolume(float volume) { aud.volume = volume; }
 
+    public void playSFX()
+    {
+        aud.PlayOneShot(uiSFX[Random.Range(0, uiSFX.Length)], uiVol);
+    }
 }
