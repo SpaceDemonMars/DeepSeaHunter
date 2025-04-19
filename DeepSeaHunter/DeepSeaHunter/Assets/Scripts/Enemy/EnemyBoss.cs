@@ -146,12 +146,17 @@ public class EnemyBoss : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
+            DropOnDeath dropScript = GetComponent<DropOnDeath>();
+            if (dropScript != null)
+            {
+                dropScript.Drop();
+            }
+
             GameManager.instance.updateGameGoal(bossName, true);
             GameManager.instance.bossHP.SetActive(false);
             Destroy(gameObject);
         }
     }
-
     IEnumerator flashMat()
     {
         Material mat = model.material;

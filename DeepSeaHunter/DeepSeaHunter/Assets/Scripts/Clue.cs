@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections; 
 
-public class Clue : MonoBehaviour
+public class Clue : MonoBehaviour, IInteractable
 {
     public int clueID;
     public string clueName;
@@ -34,6 +34,10 @@ public class Clue : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+    public void Interact()
+    {
+        Pickup();
     }
 
     private IEnumerator HidePopupAfterDelay()

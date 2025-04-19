@@ -152,6 +152,11 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
+            DropOnDeath dropScript = GetComponent<DropOnDeath>();
+            if (dropScript != null)
+            {
+                dropScript.Drop();
+            }
             Destroy(gameObject);
         }
     }

@@ -17,6 +17,11 @@ public class EnemyArmored : EnemyAI
 
         if (HP <= 0)
         {
+            DropOnDeath dropScript = GetComponent<DropOnDeath>();
+            if (dropScript != null)
+            {
+                dropScript.Drop();
+            }
             Destroy(gameObject);
         }
     }
