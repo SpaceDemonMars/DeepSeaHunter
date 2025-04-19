@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
@@ -40,4 +40,4 @@ public class PlayerInventory : MonoBehaviour
             Debug.Log($"Removed {amount} {itemName}(s). Remaining: {items.GetValueOrDefault(itemName, 0)}");
         }
     }
-}
+}*/

@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class PickupItem : MonoBehaviour, IInteractable
 {
-    public string itemName;  
+    public string itemName;
     public int amount = 1;
 
     public void Interact()
     {
-        PlayerInventory.Instance.AddItem(itemName, amount);
+        Item newItem = new Item
+        {
+            itemName = itemName,
+            quantity = amount,
+            itemId = GenerateItemID(itemName)
+        };
+
+        playerInven.Instance.addItem(newItem);
         Destroy(gameObject);
     }
 
@@ -15,8 +22,20 @@ public class PickupItem : MonoBehaviour, IInteractable
     {
         if (other.CompareTag("Player"))
         {
-            PlayerInventory.Instance.AddItem(itemName, amount);
-            Destroy(gameObject); 
+            Item newItem = new Item
+            {
+                itemName = itemName,
+                quantity = amount,
+                itemId = GenerateItemID(itemName)
+            };
+
+            playerInven.Instance.addItem(newItem);
+            Destroy(gameObject);
         }
+    }
+
+    private int GenerateItemID(string itemName)
+    {
+        return itemName.GetHashCode();
     }
 }
