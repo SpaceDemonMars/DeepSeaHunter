@@ -9,57 +9,56 @@ public class playerInven : MonoBehaviour
     public int currencyScrap;
 
     List<Item> items;
-    List<int> quantity; //when adding/inserting ALWAYS start @ 1
 
     private void Start()
     {
         items = new List<Item>();
-        quantity = new List<int>();
     }
 
     public void addItem(Item item)
     {
-        if (item == null) return;
-        if (items.Count > 0) //inventory empty
+        if (item != null)
         {
-            items.Add(item);
-            quantity.Add(1);
-        }
-        else if (items.Contains(item)) //if item is in inventory
-        {
-            quantity[items.IndexOf(item)]++; //increase quantity
-        }
-        else //item not in inventory
-        {
-            //find index to insert
-            int index = 0;
-            for (; index < items.Count; index++)
+            if (items.Count > 0) //inventory empty
             {
-                if (items[index].itemId > item.itemId) break; //insert index found, TEST THIS!!!!
+                items.Add(item);
             }
+            else 
+            {
+                //find index to insert
+                int index = 0;
+                for (; index < items.Count; index++)
+                {
+                    if (items[index].itemId == item.itemId)
+                    {
+                        items[index].quantity += item.quantity; //increase quantity
+                        break;
+                    }
+                    if (items[index].itemId > item.itemId) break; ////item not in inventory, insert @ index found
+                }
 
-            items.Insert(index, item); //insert item
-            quantity.Insert(index, 1); //insert tracker at same index
+                items.Insert(index, item); //insert item
+            }
+            GameManager.instance.loadInventory();
         }
-        GameManager.instance.loadInventory();
     }
 
     public void removeItem(int index) //remove by index
     {
         if (index >= items.Count) return; //if index OOB exit
         items[index].useItem();
-        quantity[index]--;
-        if (quantity[index] <= 0) //out of item
+        items[index].quantity--;
+        if (items[index].quantity <= 0) //out of item
         {
             items.RemoveAt(index);
-            quantity.RemoveAt(index);
+            GameManager.instance.itemInfo.SetActive(false);
         }
         GameManager.instance.loadInventory();
     }
 
-    public int getInvenSize() { return quantity.Count; }
+    public int getInvenSize() { return items.Count; }
     public Item getItem(int index) { return (index < items.Count) ? items[index] : null; }
-    public int getQty(int index) { return (index < quantity.Count) ? quantity[index] : 0; }
+    public int getQty(int index) { return (index < items[index].quantity) ? items[index].quantity : 0; }
 
     public int getFish() { return currencyFish; }
     public void setFish(int fish) { currencyFish = fish; setFishText(); }

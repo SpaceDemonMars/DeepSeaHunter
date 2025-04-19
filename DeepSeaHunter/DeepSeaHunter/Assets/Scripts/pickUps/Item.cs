@@ -6,6 +6,7 @@ public class Item : ScriptableObject
     public int itemId;
     public string itemName;
     public string itemDescription;
+    public int quantity = 1;
     public Image itemIcon;
     public virtual void useItem() {}
 }

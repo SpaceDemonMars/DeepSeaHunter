@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   itemName: scrap Temp
-  itemDescription: temp scrap
+  itemDescription: use to acquire a scrap metal\ncan be traded to metal worker as
+    currency
   itemIcon: {fileID: 0}
   fishValue: 0
   scrapValue: 1

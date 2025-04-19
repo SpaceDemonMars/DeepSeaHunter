@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 4
   itemName: o2 temp
-  itemDescription: o2 consumable temp
+  itemDescription: restores a small amount of o2
   itemIcon: {fileID: 0}
   hp: 0
   o2: 2

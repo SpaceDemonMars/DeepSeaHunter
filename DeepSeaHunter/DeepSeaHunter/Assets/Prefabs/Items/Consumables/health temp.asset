@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   itemName: health temp
-  itemDescription: health consumable temp
+  itemDescription: restores a small amount of health
   itemIcon: {fileID: 0}
   hp: 2
   o2: 0

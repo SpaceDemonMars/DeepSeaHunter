@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 0
   itemName: fish Temp
-  itemDescription: temp fish
+  itemDescription: use to acquire a fish\ncan be traded to jim as currency
   itemIcon: {fileID: 0}
   fishValue: 1
   scrapValue: 0
