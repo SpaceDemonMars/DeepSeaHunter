@@ -43,11 +43,11 @@ public class oxygen : MonoBehaviour
             {
                 int dif = drownDmg - o2;
                 o2 = 0;
-                player.takeDamage(dif);
+                player.takeDamage(dif, (int)IDamage.sourceType.o2);
             }
             else //deal dmg only
             {
-                player.takeDamage(drownDmg);
+                player.takeDamage(drownDmg, (int)IDamage.sourceType.o2);
             }
             updateO2UI();
         }

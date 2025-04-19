@@ -58,7 +58,7 @@ public class spawner : MonoBehaviour, IDamage
         }
     }
 
-    public void takeDamage(int damage)
+    public void takeDamage(int damage, int source)
     {
         StartCoroutine(openChest());
     }

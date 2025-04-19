@@ -2,6 +2,7 @@ using UnityEngine;
 
 public interface IDamage
 {
-    void takeDamage(int damage);
+    enum sourceType { damage, o2, temp };
+    void takeDamage(int damage, int source = (int)sourceType.damage);
 }
 //

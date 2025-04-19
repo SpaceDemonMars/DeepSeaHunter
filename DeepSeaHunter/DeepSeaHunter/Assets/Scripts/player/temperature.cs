@@ -51,7 +51,7 @@ public class temperature : MonoBehaviour
             if (freezeTimer >= freezeRate)
             {
                 freezeTimer = 0;
-                player.takeDamage(freezeDmg);
+                player.takeDamage(freezeDmg, (int)IDamage.sourceType.temp);
             }
         }
     }

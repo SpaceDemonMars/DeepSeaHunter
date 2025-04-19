@@ -57,7 +57,7 @@ public class Trap : MonoBehaviour, IDamage
         NavMesh.SamplePosition(ranPos, out hit, roamDist, 1);
         agent.SetDestination(hit.position);
     }
-    public void takeDamage(int damage)
+    public void takeDamage(int damage, int source)
     {
         StartCoroutine(flashWhite());
         if (type == trapType.puffer)

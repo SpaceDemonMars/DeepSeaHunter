@@ -9,7 +9,7 @@ public class EnemyArmored : EnemyAI
     [SerializeField] int numBullets;
     [SerializeField] float timeBetweenShots;
 
-    override public void takeDamage(int damage)
+    override public void takeDamage(int damage, int source)
     {
         HP -= damage;
         StartCoroutine(flashMat());

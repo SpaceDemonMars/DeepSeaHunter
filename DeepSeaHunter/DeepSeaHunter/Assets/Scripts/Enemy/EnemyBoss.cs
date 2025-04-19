@@ -133,7 +133,7 @@ public class EnemyBoss : MonoBehaviour, IDamage
     {
         GameManager.instance.bossHPBar.fillAmount = (float)HP / HPOrig;
     }
-    public void takeDamage(int damage)
+    public void takeDamage(int damage, int source)
     {
         HP -= damage;
         if (hasUniqueMaterial)

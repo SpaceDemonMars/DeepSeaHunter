@@ -143,7 +143,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 
-    public virtual void takeDamage(int damage)
+    public virtual void takeDamage(int damage, int source)
     {
         HP -= damage;
         roamTimer = 0;
