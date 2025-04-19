@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip[] uiSFX;
     [SerializeField] float uiVol;
+    public GameObject pausePlayer;
+    public PauseMusic pauseMusic;
 
     [Header("Player")]
     public GameObject player;
@@ -99,8 +101,10 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
         radio = GameObject.FindWithTag("Radio");
+        pausePlayer = GameObject.FindWithTag("PauseMusic");
         o2 = player.GetComponent<oxygen>();
         radioScript = radio.GetComponent<Radio>();
+        pauseMusic = pausePlayer.GetComponent<PauseMusic>();
         bossSpawner = GameObject.FindWithTag("Boss Spawner");
         if (bossSpawner != null)
         {
@@ -297,7 +301,7 @@ public class GameManager : MonoBehaviour
         //reassign hp ui //jk do it in enemy boss
     }
 
-    public void setMusicVolume(float volume) { radioScript.SetRadioVol(volume); }
+    public void setMusicVolume(float volume) { radioScript.SetRadioVol(volume); pauseMusic.SetRadioVol(volume); }
     public void setPlayerVolume(float volume) { playerScript.aud.volume = volume; }
     public void setFxVolume(float volume) { aud.volume = volume; }
 

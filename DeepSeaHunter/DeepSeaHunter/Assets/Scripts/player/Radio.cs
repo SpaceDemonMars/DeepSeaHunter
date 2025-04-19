@@ -11,7 +11,6 @@ public class Radio : MonoBehaviour
     AudioClip[][] allRadioClips;
     int[] playlistIndex = { 0, 0 };
 
-    [SerializeField] AudioClip currClip;
     bool radioOn;
     [SerializeField] bool inStatic; //in a zone with static
 
@@ -33,7 +32,6 @@ public class Radio : MonoBehaviour
             toggleRadio();
             playRadio();
         }
-        currClip = aud.clip;
     }
 
     void playRadio()
