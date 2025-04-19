@@ -61,10 +61,10 @@ public class EnemyBasic : EnemyAI
         anim.SetTrigger("Bite");
     }
 
-    override public void takeDamage(int damage)
+    override public void takeDamage(int damage, int source)
     {
         shootTimer += shootRate / 2; //reduces attack cooldown when taking damage
-        base.takeDamage(damage);
+        base.takeDamage(damage, source);
     }
 }
 

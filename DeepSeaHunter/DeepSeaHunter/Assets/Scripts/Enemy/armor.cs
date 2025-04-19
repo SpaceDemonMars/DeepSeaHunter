@@ -30,7 +30,7 @@ public class armor : MonoBehaviour, IDamage
         GameManager.instance.bossArmorBar.fillAmount = (float)HP / HPOrig;
     }
 
-    public void takeDamage(int damage)
+    public void takeDamage(int damage, int source)
     {
         HP -= damage;
         StartCoroutine(flashWhite());

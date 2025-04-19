@@ -351,7 +351,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         controller.Move(harpoonDir * harpoonPullSpeed * Time.deltaTime);
     }*/
 
-    public void takeDamage(int damage)
+    public void takeDamage(int damage, int source)
     {
         if (HP == HPOrig && damage < 0)
             return; //if healing and max health >> return
@@ -370,7 +370,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         //add feedback here
         if (HP <= 0)
         {
-            GameManager.instance.youLose();
+            Debug.Log(source.ToString());
+            GameManager.instance.youLose(source);
         }
     }
 
