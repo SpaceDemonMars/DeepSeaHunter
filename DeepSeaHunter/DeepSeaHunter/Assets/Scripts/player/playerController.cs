@@ -56,7 +56,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     float grappleSpeed;
 
     [Header("<----- Audio ----->")]
-    [SerializeField] AudioSource aud;
+    public AudioSource aud;
     [Range(0, 1)][SerializeField] float audStepsVol;
     [SerializeField] AudioClip[] audSteps;
     [Range(0, 1)][SerializeField] float audDashVol;
@@ -108,16 +108,15 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
         if (GameManager.instance.isPaused == false)
         {
+            //Light
+            Light();
+            RadioClick();
             isGrappling();
             //movement();
 
             //harpoon();
         }
         //sprint();
-
-        //Light
-        Light();
-        RadioClick();
 
         updateReloadUI();
         HandleCluePickup();
@@ -197,7 +196,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         playerVel.y -= grav * Time.deltaTime;
 
         //SHOOT LOGIC           
-        if (Input.GetButton("Fire1") && meleeCurr != null && knifeRate <= knifeTimer && GameManager.instance.isPaused == false)
+        if ((Input.GetButton("Fire1") || Input.GetAxis("Fire1") > 0)  && meleeCurr != null && knifeRate <= knifeTimer && GameManager.instance.isPaused == false)
         {
             knife();
         }
@@ -329,7 +328,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
     void isGrappling()
     {
-        if (Input.GetButton("Fire2") && grapple())
+        if ((Input.GetButton("Fire2") || Input.GetAxis("Fire2") > 0) && grapple())
         {
             grappleLine.enabled = true;
             if (!hasPlayedGrapple)

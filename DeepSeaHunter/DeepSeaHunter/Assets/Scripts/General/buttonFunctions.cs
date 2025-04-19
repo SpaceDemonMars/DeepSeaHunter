@@ -3,10 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class buttonFunctions : MonoBehaviour
 {
-    public void resume()
-    {
-        GameManager.instance.stateUnpause();
-    }
+    public void resume() { GameManager.instance.stateUnpause(); }
 
     public void restart()
     {
@@ -31,16 +28,11 @@ public class buttonFunctions : MonoBehaviour
         Debug.Log("Respawn button clicked, player moved to: " + GameManager.instance.playerSpawnPos.transform.position);
     }
 
-    public void settings()
-    {
-        GameManager.instance.openTabSettings(true);
-    }
-    public void inventory()
-    {
-        GameManager.instance.openTabInventory(true);
-    }
-    public void equipment()
-    {
-        GameManager.instance.openTabEquipment(true);
-    }
+    public void settings() { GameManager.instance.openTabSettings(true); }
+    public void inventory() { GameManager.instance.openTabInventory(true); }
+    public void equipment() { GameManager.instance.openTabEquipment(true); }
+
+    public void sliderMusicVolume(float val) { GameManager.instance.setMusicVolume(val); }
+    public void sliderPlayerVolume(float val) { GameManager.instance.setPlayerVolume(val); }
+    public void sliderFxVolume(float val) { GameManager.instance.setFxVolume(val); }
 }

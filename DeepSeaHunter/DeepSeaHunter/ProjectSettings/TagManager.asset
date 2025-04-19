@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Boss Spawner
   - NPC
+  - Radio
   layers:
   - Default
   - TransparentFX

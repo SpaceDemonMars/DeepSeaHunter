@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using System.Data;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public playerController playerScript;
     public GameObject playerSpawnPos;
+    public GameObject radio;
+    public Radio radioScript;
 
     [Header("Player-UI")]
     //screens
@@ -80,6 +83,8 @@ public class GameManager : MonoBehaviour
         instance = this;
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+        radio = GameObject.FindWithTag("Radio");
+        radioScript = radio.GetComponent<Radio>();
         bossSpawner = GameObject.FindWithTag("Boss Spawner");
         if (bossSpawner != null)
         {
@@ -192,6 +197,7 @@ public class GameManager : MonoBehaviour
         isPaused = !isPaused;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        radioScript.aud.Pause();
         Time.timeScale = 0;
     }
 
@@ -200,6 +206,7 @@ public class GameManager : MonoBehaviour
         isPaused = !isPaused;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        radioScript.aud.UnPause();
         Time.timeScale = 1;
         menuActive.SetActive(false);
         menuActive = null;
@@ -253,4 +260,9 @@ public class GameManager : MonoBehaviour
         }
         //reassign hp ui //jk do it in enemy boss
     }
+
+    public void setMusicVolume(float volume) { radioScript.SetRadioVol(volume); }
+    public void setPlayerVolume(float volume) { playerScript.aud.volume = volume; }
+    public void setFxVolume(float volume) { /*radioScript.aud.volume = volume;*/ } //need to add menu audioSource
+
 }

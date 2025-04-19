@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 2949645483885760927}
   m_Layer: 3
   m_Name: Radio
-  m_TagString: Untagged
+  m_TagString: Radio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -827,6 +827,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d45e0ace54a297b418216c8177c18599, type: 3}
   staticPlaylist:
   - {fileID: 8300000, guid: b356be35a931ee94ca5fa0a6c987598f, type: 3}
+  currClip: {fileID: 0}
   inStatic: 0
 --- !u!82 &2949645483885760927
 AudioSource:

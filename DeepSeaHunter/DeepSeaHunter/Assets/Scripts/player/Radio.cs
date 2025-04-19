@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Radio : MonoBehaviour
 {
-    [SerializeField] AudioSource aud;
+    public AudioSource aud;
     [Range(0, 1)][SerializeField] float radioVol; //WHEN SETTINGS MADE, REMOVE SERIALIZE FIELD, FINISH SETVOLUME FUNC
     [SerializeField] AudioClip[] radioPlaylist;
     [SerializeField] AudioClip[] staticPlaylist;
@@ -11,6 +11,7 @@ public class Radio : MonoBehaviour
     AudioClip[][] allRadioClips;
     int[] playlistIndex = { 0, 0 };
 
+    [SerializeField] AudioClip currClip;
     bool radioOn;
     [SerializeField] bool inStatic; //in a zone with static
 
@@ -21,14 +22,18 @@ public class Radio : MonoBehaviour
         allRadioClips[1] = staticPlaylist;
         for (int i = 0; i < allRadioClips.Length - 1; i++) 
             playlistIndex[i] = Random.Range(0, allRadioClips[i].Length);
-        SetRadioVol();
+        SetRadioVol(radioVol);
     }
 
     // Update is called once per frame
     void Update()
     {
-        toggleRadio();
-        playRadio();
+        if (!GameManager.instance.isPaused) 
+        {  
+            toggleRadio();
+            playRadio();
+        }
+        currClip = aud.clip;
     }
 
     void playRadio()
@@ -59,17 +64,17 @@ public class Radio : MonoBehaviour
         if (Input.GetButtonDown("Radio"))
         {
             radioOn = !radioOn;
-            SetRadioVol();
+            SetRadioVol(radioVol);
         }
     }
 
-    void SetRadioVol()
+    public void SetRadioVol(float volume)
     {
-        //radioVol = radio volume from menu
-        if (radioOn)
-            aud.volume = radioVol; 
+        radioVol = volume;
+        if (radioOn) aud.volume = volume; 
         else aud.volume = 0;
     }
+    public float GetRadioVol() { return radioVol; } 
 
     bool getInStatic() { return inStatic; }
     public void setInStatic(bool value) 
