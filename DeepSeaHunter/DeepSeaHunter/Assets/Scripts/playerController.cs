@@ -61,6 +61,9 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     bool isTangled;
     GameObject grappledTarget;
 
+    MapFog mapFog;
+    [SerializeField] float mapRevealRadius = 20f;
+
     //OLD MEMBER VARS
     /*[SerializeField] int sprintMod;
     [SerializeField] int shootDmg;
@@ -84,6 +87,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         speedOrig = speed;
         //shootDist = shootMin;
         spawnPlayer();
+        mapFog = FindObjectOfType<MapFog>();
     }
 
     // Update is called once per frame
@@ -143,6 +147,11 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         dash();
 
         controller.Move(playerVel * Time.deltaTime);
+        if (mapFog != null)
+        {
+            Vector2 playerMapPosition = WorldToMapPosition(transform.position);
+            mapFog.RevealArea(playerMapPosition, mapRevealRadius);
+        }
         playerVel.y -= grav * Time.deltaTime;
 
         //SHOOT LOGIC           
@@ -478,15 +487,26 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         GameManager.instance.weaponUpgradePopup.SetActive(false);
     }
 
-   /* void ITangle.toggleTangled(int tangleMod)
-    {
-        throw new System.NotImplementedException();
-    }*/
+    /* void ITangle.toggleTangled(int tangleMod)
+     {
+         throw new System.NotImplementedException();
+     }*/
     public void spawnPlayer()
     {
         controller.transform.position = GameManager.instance.playerSpawnPos.transform.position;
         HP = HPOrig;
         updatePlayerUI();
+    }
+
+    Vector2 WorldToMapPosition(Vector3 worldPos)
+    {
+        float mapWidth = 512f;
+        float mapHeight = 512f;
+
+        float normalizedX = Mathf.InverseLerp(-50f, 50f, worldPos.x);
+        float normalizedY = Mathf.InverseLerp(-50f, 50f, worldPos.z);
+
+        return new Vector2(normalizedX * mapWidth, normalizedY * mapHeight);
     }
 }
 
