@@ -571,7 +571,7 @@ PrefabInstance:
     - target: {fileID: 1343363681233154339, guid: 0a3dbaa920628f14ba2aa27b5a42d856, type: 3}
       propertyPath: zone
       value: 
-      objectReference: {fileID: 11400000, guid: fc32ff61fa1090b43aa7c7ad23d5a8ca, type: 2}
+      objectReference: {fileID: 11400000, guid: 825a460f61c200a4aa9351993a7edc74, type: 2}
     - target: {fileID: 5525266340420293458, guid: 0a3dbaa920628f14ba2aa27b5a42d856, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

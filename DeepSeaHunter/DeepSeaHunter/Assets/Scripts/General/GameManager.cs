@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text goalCountText;
     [SerializeField] GameObject tutorialText;
     public GameObject dialogHiddenUI;
+    public TMP_Text interactPrompt;
 
     [Header("Player")]
     public GameObject player;

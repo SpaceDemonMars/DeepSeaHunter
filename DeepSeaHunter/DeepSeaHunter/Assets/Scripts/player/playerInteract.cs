@@ -3,9 +3,10 @@ using TMPro;
 
 public class PlayerInteract : MonoBehaviour
 {
+    //pushing a fix and leaving you notes :3 (delete these after you've read them)
     public float interactRange = 3f;
     public LayerMask interactableLayer;
-    public TMP_Text interactPrompt; 
+    //public TMP_Text interactPrompt; this is a UI element, so this line gets moved to gameManager
 
     private IInteractable currentInteractable;
 
@@ -16,7 +17,7 @@ public class PlayerInteract : MonoBehaviour
         if (currentInteractable != null && Input.GetButtonDown("Interact"))
         {
             currentInteractable.Interact();
-            interactPrompt.gameObject.SetActive(false);
+            GameManager.instance.interactPrompt.gameObject.SetActive(false); //toggle active from gameManager
         }
     }
 
@@ -32,13 +33,13 @@ public class PlayerInteract : MonoBehaviour
             if (interactable != null)
             {
                 currentInteractable = interactable;
-                interactPrompt.text = "Press [E] to Interact";
-                interactPrompt.gameObject.SetActive(true);
+                GameManager.instance.interactPrompt.text = "Press [E] to Interact";
+                GameManager.instance.interactPrompt.gameObject.SetActive(true);
                 return;
             }
         }
 
         currentInteractable = null;
-        interactPrompt.gameObject.SetActive(false);
+        GameManager.instance.interactPrompt.gameObject.SetActive(false);
     }
 }
