@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuLose;
     //inventory
     [SerializeField] GameObject[] invenButtons;
+    public GameObject itemInfo;
+    public TMP_Text itemInfoName;
+    public TMP_Text itemInfoDesc;
+    public TMP_Text itemInfoQty;
     public TMP_Text fishText;
     public TMP_Text scrapText;
     //lose

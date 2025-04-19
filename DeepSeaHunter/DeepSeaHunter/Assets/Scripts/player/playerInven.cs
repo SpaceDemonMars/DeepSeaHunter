@@ -59,6 +59,7 @@ public class playerInven : MonoBehaviour
 
     public int getInvenSize() { return quantity.Count; }
     public Item getItem(int index) { return (index < items.Count) ? items[index] : null; }
+    public int getQty(int index) { return (index < quantity.Count) ? quantity[index] : 0; }
 
     public int getFish() { return currencyFish; }
     public void setFish(int fish) { currencyFish = fish; setFishText(); }
