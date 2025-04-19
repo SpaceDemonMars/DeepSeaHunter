@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuTabEquipment;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+    //inventory
+    [SerializeField] GameObject[] invenButtons;
+    public TMP_Text fishText;
+    public TMP_Text scrapText;
+    //lose
     public Image loseScreen;
     [SerializeField] TMP_Text loseYouDied;
     [SerializeField] TMP_Text loseMessage;
@@ -40,6 +45,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerSpawnPos;
     public GameObject radio;
     public Radio radioScript;
+    public oxygen o2;
 
     [Header("Player-UI")]
     //screens
@@ -84,6 +90,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
         radio = GameObject.FindWithTag("Radio");
+        o2 = player.GetComponent<oxygen>();
         radioScript = radio.GetComponent<Radio>();
         bossSpawner = GameObject.FindWithTag("Boss Spawner");
         if (bossSpawner != null)
@@ -141,6 +148,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Inventory") || buttonClick == true)
         {
+            loadInventory();
             if (!isPaused)
             {
                 statePause();
@@ -189,6 +197,25 @@ public class GameManager : MonoBehaviour
                 menuTabText.text = "Equipment";
                 menuActiveTab.SetActive(true);
             }
+        }
+    }
+
+    public void loadInventory()
+    {
+        for (int i = 0; i < invenButtons.Length; i++)
+        {
+            if(i < playerScript.inven.getInvenSize())
+            {
+                inventoryButtons tempScript = invenButtons[i].GetComponent<inventoryButtons>();
+                if (tempScript != null)
+                {
+                    tempScript.item = playerScript.inven.getItem(i);
+                    tempScript.setText();
+                }
+                invenButtons[i].SetActive(true);
+            }
+            else
+                invenButtons[i].SetActive(false);
         }
     }
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class buttonFunctions : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class buttonFunctions : MonoBehaviour
         GameManager.instance.resetLevelBoss();
         GameManager.instance.stateUnpause();
         Debug.Log("Respawn button clicked, player moved to: " + GameManager.instance.playerSpawnPos.transform.position);
+    }
+
+    public void invenItemClick(Button button)
+    {
+        GameManager.instance.playerScript.inven.removeItem(button.GetComponent<inventoryButtons>().index);
     }
 
     public void settings() { GameManager.instance.openTabSettings(true); }

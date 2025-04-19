@@ -224,6 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1462915114241806939}
   - component: {fileID: 9028923487959050655}
+  - component: {fileID: 1487154134465998985}
   - component: {fileID: 5563264154735573055}
   - component: {fileID: 1480138211415246043}
   - component: {fileID: 5492269644277114618}
@@ -277,6 +278,7 @@ MonoBehaviour:
   o2Script: {fileID: 5563264154735573055}
   tempScript: {fileID: 1480138211415246043}
   radioScript: {fileID: 1951845911028339932}
+  inven: {fileID: 1487154134465998985}
   speed: 3
   pushResolve: 12
   dashStr: 35
@@ -326,6 +328,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 036a1828a46cf6e44a3f6f171eb1e61c, type: 3}
   - {fileID: 8300000, guid: a078a515aa56d69429d0b048e36aa81f, type: 3}
   - {fileID: 8300000, guid: 6a7301ede1c4daa4994080ab8f3f63ed, type: 3}
+--- !u!114 &1487154134465998985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4002661349723570564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d924f5c39501c1447b8b331659cf2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyFish: 0
+  currencyScrap: 0
 --- !u!114 &5563264154735573055
 MonoBehaviour:
   m_ObjectHideFlags: 0

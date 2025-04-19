@@ -16,6 +16,9 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     float speedOrig;
     Vector3 moveDir;
 
+    [Header("Inventory")]
+    public playerInven inven;
+
     [Header("<----- Stats ----->")]
     [SerializeField] public float speed;
     [Header("Dash Stats")]

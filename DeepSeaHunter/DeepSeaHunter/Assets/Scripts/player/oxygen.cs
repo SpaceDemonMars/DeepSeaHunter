@@ -60,8 +60,8 @@ public class oxygen : MonoBehaviour
     }
 
     public void modifyO2(int num) //use this func for o2 consumeables/pickups
-    { 
-        o2 += num; 
+    {
+        o2 = (o2 + num > o2Max) ? o2Max : o2 + num; 
         updateO2UI();
     }
 

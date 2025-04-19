@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class pickUp : MonoBehaviour
 {
+    [SerializeField] Item itemPickup;
     [SerializeField] meleeStats knife;
     [SerializeField] rangedStats harpoon;
 
@@ -29,6 +30,10 @@ public class pickUp : MonoBehaviour
             //ALWAYS
             Destroy(gameObject);
         }
-
+        playerInven inven = other.GetComponent<playerInven>();
+        if (inven != null)
+        {
+            inven.addItem(itemPickup);
+        }
     }
 }
