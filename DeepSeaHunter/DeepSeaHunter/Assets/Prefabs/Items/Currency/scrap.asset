@@ -16,6 +16,7 @@ MonoBehaviour:
   itemName: scrap Temp
   itemDescription: use to acquire a scrap metal\ncan be traded to metal worker as
     currency
+  quantity: 1
   itemIcon: {fileID: 0}
   fishValue: 0
   scrapValue: 1

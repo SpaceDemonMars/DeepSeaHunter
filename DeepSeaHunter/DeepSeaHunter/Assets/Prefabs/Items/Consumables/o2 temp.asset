@@ -15,6 +15,7 @@ MonoBehaviour:
   itemId: 4
   itemName: o2 temp
   itemDescription: restores a small amount of o2
+  quantity: 1
   itemIcon: {fileID: 0}
   hp: 0
   o2: 2
