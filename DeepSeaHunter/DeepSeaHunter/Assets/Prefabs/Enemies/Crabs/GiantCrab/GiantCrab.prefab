@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1875335094503691678}
   - component: {fileID: 7615077068404666468}
   - component: {fileID: 7055358244479699191}
+  - component: {fileID: 4108086243179595061}
   m_Layer: 0
   m_Name: GiantCrab
   m_TagString: GrapplePoint
@@ -156,6 +157,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4108086243179595061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448182942238094671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9ab88ad7bd070428fe6c1b23a112dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPrefab: {fileID: 774143862851430196, guid: eabe746db9075444faa34dfdb24da968, type: 3}
+  dropPoint: {fileID: 0}
+  itemNameOverride: 
 --- !u!1 &1208647927725897413
 GameObject:
   m_ObjectHideFlags: 0

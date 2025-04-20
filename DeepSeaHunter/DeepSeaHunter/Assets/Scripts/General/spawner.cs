@@ -4,8 +4,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class spawner : MonoBehaviour, IDamage
 {
-    [SerializeField] GameObject objectToSpawn;
-    [SerializeField] int numToSpawn;
+    [SerializeField] GameObject[] objectToSpawn;
+    [SerializeField] int numToSpawn; //idea to make this a range (multi item chest)
     [SerializeField] int timeBetweenSpawns;
     [SerializeField] Transform[] spawnPos;
     [SerializeField] bool bossSpawner;
@@ -51,7 +51,7 @@ public class spawner : MonoBehaviour, IDamage
     {
         int arrayPos = Random.Range(0, spawnPos.Length);
 
-        Instantiate(objectToSpawn, spawnPos[arrayPos].position, spawnPos[arrayPos].rotation);
+        Instantiate(objectToSpawn[Random.Range(0, objectToSpawn.Length)], spawnPos[arrayPos].position, spawnPos[arrayPos].rotation);
         if (!bossSpawner) {
             spawnCounter++;
             spawnTimer = 0;
