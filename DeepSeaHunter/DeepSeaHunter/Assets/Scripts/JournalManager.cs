@@ -69,4 +69,10 @@ public class JournalManager : MonoBehaviour
     {
         journalPanel.SetActive(!journalPanel.activeSelf);
     }
+
+    public int GetClueCount()
+    {
+        return foundClues.Count;
+    }
+
 }

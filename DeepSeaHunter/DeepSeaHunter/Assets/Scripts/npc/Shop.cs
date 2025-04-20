@@ -39,10 +39,10 @@ public class Shop : MonoBehaviour
         if (index >= 0 && index < tradeOptions.Count)
         {
             TradeItem trade = tradeOptions[index];
-            if (PlayerInventory.Instance.HasItem(trade.requiredItem, trade.requiredAmount))
+            if (playerInven.Instance.HasItem(trade.requiredItem, trade.requiredAmount))
             {
-                PlayerInventory.Instance.RemoveItem(trade.requiredItem, trade.requiredAmount);
-                PlayerInventory.Instance.AddItem(trade.rewardItem, trade.rewardAmount);
+                playerInven.Instance.RemoveItem(trade.requiredItem, trade.requiredAmount);
+                playerInven.Instance.AddItem(trade.rewardItem, trade.rewardAmount);
                 Debug.Log($"✅ Traded {trade.requiredAmount} {trade.requiredItem} for {trade.rewardAmount} {trade.rewardItem}.");
             }
             else

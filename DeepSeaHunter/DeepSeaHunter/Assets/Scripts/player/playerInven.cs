@@ -5,6 +5,7 @@ using TMPro;
 
 public class playerInven : MonoBehaviour
 {
+    public static playerInven Instance;
     public int currencyFish;
     public int currencyScrap;
 
@@ -41,6 +42,70 @@ public class playerInven : MonoBehaviour
             }
             GameManager.instance.loadInventory();
         }
+    }
+    public int getItemQuantity(string itemName)
+    {
+        foreach (Item item in items)
+        {
+            if (item.itemName == itemName)
+                return item.quantity;
+        }
+        return 0;
+    }
+    public bool HasItem(string itemName, int requiredAmount)
+    {
+        foreach (Item item in items)
+        {
+            if (item.itemName == itemName && item.quantity >= requiredAmount)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void RemoveItem(string itemName, int amount)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].itemName == itemName)
+            {
+                items[i].quantity -= amount;
+                if (items[i].quantity <= 0)
+                {
+                    items.RemoveAt(i);
+                    GameManager.instance.itemInfo.SetActive(false);
+                }
+                GameManager.instance.loadInventory();
+                return;
+            }
+        }
+    }
+    public void AddItem(string itemName, int amount)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].itemName == itemName)
+            {
+                items[i].quantity += amount;
+                GameManager.instance.loadInventory();
+                return;
+            }
+        }
+
+        Item newItem = new Item
+        {
+            itemName = itemName,
+            quantity = amount,
+            itemId = GenerateItemID(itemName)
+        };
+        items.Add(newItem);
+        GameManager.instance.loadInventory();
+    }
+
+    private int GenerateItemID(string itemName)
+    {
+        return itemName.GetHashCode(); 
     }
 
     public void removeItem(int index) //remove by index
