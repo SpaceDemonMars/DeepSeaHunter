@@ -4,7 +4,6 @@ using TMPro;
 public class PlayerInteract : MonoBehaviour
 {
     public float interactRange = 3f;
-    public LayerMask interactableLayer;
 
     private IInteractable currentInteractable;
 
@@ -24,16 +23,19 @@ public class PlayerInteract : MonoBehaviour
         Ray ray = new Ray(transform.position + Vector3.up, transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, interactRange, interactableLayer))
+        if (Physics.Raycast(ray, out hit, interactRange))
         {
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-
-            if (interactable != null)
+            if (hit.collider.CompareTag("Interactable")) 
             {
-                currentInteractable = interactable;
-                GameManager.instance.interactPrompt.text = "Press [E] to Interact";
-                GameManager.instance.interactPrompt.gameObject.SetActive(true);
-                return;
+                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+
+                if (interactable != null)
+                {
+                    currentInteractable = interactable;
+                    GameManager.instance.interactPrompt.text = "Press [E] to Interact";
+                    GameManager.instance.interactPrompt.gameObject.SetActive(true);
+                    return;
+                }
             }
         }
 
