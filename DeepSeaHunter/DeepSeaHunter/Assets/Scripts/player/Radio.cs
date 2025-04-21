@@ -74,6 +74,7 @@ public class Radio : MonoBehaviour
         else aud.volume = 0;
     }
     public float GetRadioVol() { return radioVol; } 
+    public bool IsRadioOn() { return radioOn; }
 
     bool getInStatic() { return inStatic; }
     public void setInStatic(bool value) 

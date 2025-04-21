@@ -248,7 +248,7 @@ public class GameManager : MonoBehaviour
     public void stateUnpause()
     {
         isPaused = !isPaused;
-        pauseMusic.togglePauseMusic(isPaused);
+        pauseMusic.togglePauseMusic(!radioScript.IsRadioOn());
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         radioScript.aud.UnPause();
