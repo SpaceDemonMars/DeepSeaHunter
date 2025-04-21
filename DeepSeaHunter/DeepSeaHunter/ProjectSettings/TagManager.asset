@@ -3,33 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
-  - Player Spawn Pos
-  - Level Boss
-  - Tutorial
-  - GrapplePoint
-  - Enemy
-  - Boss Spawner
-  - NPC
-  - Radio
-<<<<<<< Updated upstream
-=======
-  - PauseMusic
-  - Interactable
->>>>>>> Stashed changes
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Player Bullet
-  - Enemy
-  - Enemy Bullet
-  - Unique Terrain
-  - PickUp
-  - Player Safe Zone
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
