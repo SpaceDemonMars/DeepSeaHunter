@@ -13,6 +13,7 @@ TagManager:
   - NPC
   - Radio
   - PauseMusic
+  - Interactable
   layers:
   - Default
   - TransparentFX
