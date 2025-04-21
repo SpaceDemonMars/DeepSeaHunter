@@ -1,6 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:DeepSeaHunter/DeepSeaHunter/Assets/Materials/journal.mat.meta
 guid: 925a6b91ba2421e43be664db4aa104d1
 NativeFormatImporter:
+========
+guid: 3e92d6050c7e46e44b553617b0b7c597
+PrefabImporter:
+>>>>>>>> Stashed changes:DeepSeaHunter/DeepSeaHunter/Assets/Prefabs/Alan.prefab.meta
+=======
+guid: 70fb8f2389337ec4896146205566ab17
+NativeFormatImporter:
+>>>>>>> Stashed changes
   externalObjects: {}
   mainObjectFileID: 2100000
   userData: 
