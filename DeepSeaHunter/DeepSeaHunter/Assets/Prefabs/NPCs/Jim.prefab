@@ -69,8 +69,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 2226579791399529748}
-  talkPrompt: {fileID: 0}
-  dialogueManager: {fileID: 0}
   clueinDialogue: {fileID: 0}
 --- !u!1 &2851198993336229410
 GameObject:

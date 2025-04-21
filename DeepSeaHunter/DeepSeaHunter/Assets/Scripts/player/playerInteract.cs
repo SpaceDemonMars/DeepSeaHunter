@@ -39,7 +39,10 @@ public class PlayerInteract : MonoBehaviour
             }
         }
 
-        currentInteractable = null;
-        GameManager.instance.interactPrompt.gameObject.SetActive(false);
+        if (currentInteractable != null)
+        {
+            currentInteractable = null;
+            GameManager.instance.interactPrompt.gameObject.SetActive(false);
+        }
     }
 }
