@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using System;
+using System.Reflection;
 
 public class playerInven : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class playerInven : MonoBehaviour
     public int currencyScrap;
 
     List<Item> items;
-
+    List<int> qty;
     private void Start()
     {
         items = new List<Item>();
@@ -20,9 +22,10 @@ public class playerInven : MonoBehaviour
     {
         if (item != null)
         {
-            if (items.Count > 0) //inventory empty
+            if (items.Count < 0) //inventory empty
             {
                 items.Add(item);
+                qty.Add(item.quantity);
             }
             else 
             {
@@ -30,33 +33,37 @@ public class playerInven : MonoBehaviour
                 int index = 0;
                 for (; index < items.Count; index++)
                 {
-                    if (items[index].itemId == item.itemId)
+                    if (items[index].hasSameID(item))
                     {
-                        items[index].quantity += item.quantity; //increase quantity
-                        break;
+                        qty[index] += item.quantity; //increase quantity
+                        GameManager.instance.loadInventory();
+                        if (displayingThisItem(item))
+                            GameManager.instance.itemInfoQty.text = "x" + qty[index].ToString();
+                        return;
                     }
                     if (items[index].itemId > item.itemId) break; ////item not in inventory, insert @ index found
                 }
 
                 items.Insert(index, item); //insert item
+                qty.Insert(index, item.quantity);
             }
             GameManager.instance.loadInventory();
         }
     }
     public int getItemQuantity(string itemName)
     {
-        foreach (Item item in items)
+        for (int i = 0; i < items.Count; i++)
         {
-            if (item.itemName == itemName)
-                return item.quantity;
+            if (items[i].itemName == itemName)
+                return qty[i];
         }
         return 0;
     }
     public bool HasItem(string itemName, int requiredAmount)
     {
-        foreach (Item item in items)
+        for (int i = 0; i < items.Count; i++)
         {
-            if (item.itemName == itemName && item.quantity >= requiredAmount)
+            if (items[i].itemName == itemName && qty[i] >= requiredAmount)
             {
                 return true;
             }
@@ -70,12 +77,15 @@ public class playerInven : MonoBehaviour
         {
             if (items[i].itemName == itemName)
             {
-                items[i].quantity -= amount;
-                if (items[i].quantity <= 0)
+                qty[i] -= amount;
+                if (qty[i] <= 0)
                 {
                     items.RemoveAt(i);
+                    qty.RemoveAt(i);
                     GameManager.instance.itemInfo.SetActive(false);
                 }
+                else if (displayingThisItem(items[i]))
+                    GameManager.instance.itemInfoQty.text = "x" + qty[i].ToString();
                 GameManager.instance.loadInventory();
                 return;
             }
@@ -87,8 +97,10 @@ public class playerInven : MonoBehaviour
         {
             if (items[i].itemName == itemName)
             {
-                items[i].quantity += amount;
+                qty[i] += amount;
                 GameManager.instance.loadInventory();
+                if (displayingThisItem(items[i]))
+                    GameManager.instance.itemInfoQty.text = "x" + qty[i].ToString();
                 return;
             }
         }
@@ -100,6 +112,7 @@ public class playerInven : MonoBehaviour
             itemId = GenerateItemID(itemName)
         };
         items.Add(newItem);
+        qty.Add(amount);
         GameManager.instance.loadInventory();
     }
 
@@ -112,18 +125,26 @@ public class playerInven : MonoBehaviour
     {
         if (index >= items.Count) return; //if index OOB exit
         items[index].useItem();
-        items[index].quantity--;
-        if (items[index].quantity <= 0) //out of item
+        qty[index]--;
+        if (qty[index] <= 0) //out of item
         {
             items.RemoveAt(index);
+            qty.RemoveAt(index);
             GameManager.instance.itemInfo.SetActive(false);
         }
+        else if (displayingThisItem(items[index]))
+            GameManager.instance.itemInfoQty.text = "x" + qty[index].ToString();
         GameManager.instance.loadInventory();
     }
 
     public int getInvenSize() { return items.Count; }
     public Item getItem(int index) { return (index < items.Count) ? items[index] : null; }
-    public int getQty(int index) { return (index < items[index].quantity) ? items[index].quantity : 0; }
+    public int getQty(int index) { return (index < qty.Count) ? qty[index] : 0; }
+
+    bool displayingThisItem(Item currItem)
+    {
+        return GameManager.instance.itemInfoName.text == currItem.itemName;
+    }
 
     public int getFish() { return currencyFish; }
     public void setFish(int fish) { currencyFish = fish; setFishText(); }

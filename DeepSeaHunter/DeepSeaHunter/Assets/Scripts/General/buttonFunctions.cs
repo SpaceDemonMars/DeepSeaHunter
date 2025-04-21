@@ -4,16 +4,18 @@ using UnityEngine.UI;
 
 public class buttonFunctions : MonoBehaviour
 {
-    public void resume() { GameManager.instance.stateUnpause(); }
+    public void resume() { GameManager.instance.stateUnpause(); GameManager.instance.playSFX(); }
 
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.playSFX();
         GameManager.instance.stateUnpause();
     }
 
     public void quit()
     {
+        GameManager.instance.playSFX();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -22,6 +24,7 @@ public class buttonFunctions : MonoBehaviour
     }
     public void respawn()
     {
+        GameManager.instance.playSFX();
         GameManager.instance.playerScript.spawnPlayer();
         GameManager.instance.dialogHiddenUI.SetActive(true); //show UI
         GameManager.instance.resetLevelBoss();
@@ -31,14 +34,15 @@ public class buttonFunctions : MonoBehaviour
 
     public void invenItemClick(Button button)
     {
+        GameManager.instance.playSFX();
         GameManager.instance.playerScript.inven.removeItem(button.GetComponent<inventoryButtons>().index);
     }
 
-    public void settings() { GameManager.instance.openTabSettings(true); }
-    public void inventory() { GameManager.instance.openTabInventory(true); }
-    public void equipment() { GameManager.instance.openTabEquipment(true); }
+    public void settings() { GameManager.instance.openTabSettings(true); GameManager.instance.playSFX(); }
+    public void inventory() { GameManager.instance.openTabInventory(true); GameManager.instance.playSFX(); }
+    public void equipment() { GameManager.instance.openTabEquipment(true); GameManager.instance.playSFX(); }
 
-    public void sliderMusicVolume(float val) { GameManager.instance.setMusicVolume(val); }
-    public void sliderPlayerVolume(float val) { GameManager.instance.setPlayerVolume(val); }
-    public void sliderFxVolume(float val) { GameManager.instance.setFxVolume(val); }
+    public void sliderMusicVolume(float val) { GameManager.instance.setMusicVolume(val); GameManager.instance.playSFX(); }
+    public void sliderPlayerVolume(float val) { GameManager.instance.setPlayerVolume(val); GameManager.instance.playSFX(); }
+    public void sliderFxVolume(float val) { GameManager.instance.setFxVolume(val); GameManager.instance.playSFX(); }
 }

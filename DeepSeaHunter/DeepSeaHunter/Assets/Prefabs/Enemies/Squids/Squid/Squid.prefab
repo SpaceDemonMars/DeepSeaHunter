@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5895396461157913520}
   - component: {fileID: 1963664765734146101}
   - component: {fileID: 554598043478893742}
+  - component: {fileID: 398310360022982341}
   m_Layer: 0
   m_Name: Squid
   m_TagString: GrapplePoint
@@ -151,6 +152,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &398310360022982341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157264552017500517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9ab88ad7bd070428fe6c1b23a112dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPrefab: {fileID: 774143862851430196, guid: eabe746db9075444faa34dfdb24da968, type: 3}
+  dropPoint: {fileID: 0}
+  itemNameOverride: 
 --- !u!1 &528187355669481006
 GameObject:
   m_ObjectHideFlags: 0
