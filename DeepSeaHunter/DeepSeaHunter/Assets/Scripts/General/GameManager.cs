@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuTabSettings;
     [SerializeField] GameObject menuTabInventory;
     [SerializeField] GameObject menuTabEquipment;
+    [SerializeField] GameObject menuTabJournal;
+
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
     //inventory
@@ -96,8 +98,6 @@ public class GameManager : MonoBehaviour
     bool isTutorialLevel;
     //public int goalCount;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         instance = this;
@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
         openTabSettings();
         openTabInventory();
         openTabEquipment();
+        openTabJournal();
     }
 
     public void openTabSettings(bool buttonClick = false)
@@ -216,6 +217,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void openTabJournal(bool buttonClick = false)
+    {
+        if (Input.GetButtonDown("Journal") || buttonClick == true)
+        {
+            if (!isPaused) //no menu
+            {
+                statePause();
+                menuActive = menuTab;
+                menuActiveTab = menuTabJournal;
+                menuTabText.text = "Journal";
+                menuActive.SetActive(true);
+                menuActiveTab.SetActive(true);
+            }
+            else if (isPaused && menuActive == menuTab &&
+                menuActiveTab == menuTabJournal && buttonClick == false)
+            {
+                stateUnpause();
+            }
+            else if (isPaused && menuActive == menuTab) //other tab menu
+            {
+                menuActiveTab.SetActive(false);
+                menuActiveTab = menuTabJournal;
+                menuTabText.text = "Journal";
+                menuActiveTab.SetActive(true);
+            }
+        }
+    }
     public void loadInventory()
     {
         for (int i = 0; i < invenButtons.Length; i++)
