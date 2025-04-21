@@ -4,20 +4,27 @@ using TMPro;
 public class DialogueStarter : MonoBehaviour
 {
     public Dialogue dialogue;              
-    public TextMeshProUGUI talkPrompt;      
-    public DialogueManager dialogueManager;
+    TMP_Text talkPrompt;   //modified for a bug fix - paige   
+    DialogueManager dialogueManager;
     public Clue clueinDialogue;
 
     private bool isPlayerInRange = false;
     private bool hasTriggered = false;
     private bool waitingForInput = false;
 
+    private void Start()
+    {
+        talkPrompt = GameManager.instance.interactPrompt;
+        dialogueManager = GameManager.instance.dialogueManager;
+
+    }
     void Update()
     {
         if (isPlayerInRange && !hasTriggered)
         {
-            if (waitingForInput)
+            if (!talkPrompt.gameObject.activeSelf && waitingForInput)
             {
+                Debug.Log("Entered NPC Trigger");
                 talkPrompt.gameObject.SetActive(true);
             }
 

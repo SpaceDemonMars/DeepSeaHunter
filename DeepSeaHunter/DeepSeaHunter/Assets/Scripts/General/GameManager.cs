@@ -40,8 +40,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject goalCountLabel;
     [SerializeField] TMP_Text goalCountText;
     [SerializeField] GameObject tutorialText;
+
+    [Header("Dialogue")]
     public GameObject dialogHiddenUI;
     public TMP_Text interactPrompt;
+    public DialogueManager dialogueManager;
 
     [Header("Menu SFX")]
     [SerializeField] AudioSource aud;

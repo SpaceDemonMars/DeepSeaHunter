@@ -774,6 +774,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379430398}
   m_Mesh: {fileID: 4300074, guid: eb8566b6e75507e48bd8ec4fff8f4dd9, type: 3}
+--- !u!1 &471503200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4044485521502957581, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+  m_PrefabInstance: {fileID: 762257838}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &512410963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,9 +1748,17 @@ PrefabInstance:
       value: -545.5311
       objectReference: {fileID: 0}
     - target: {fileID: 8894558590270020490, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: talkPrompt
+      value: 
+      objectReference: {fileID: 471503200}
+    - target: {fileID: 8894558590270020490, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
       propertyPath: interactPrompt
       value: 
       objectReference: {fileID: 762257840}
+    - target: {fileID: 8894558590270020490, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 6593229789093829013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1767,7 +1780,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6495360842941856045, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
   m_PrefabInstance: {fileID: 762257838}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 471503200}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -2348,7 +2361,6 @@ Transform:
   - {fileID: 1991321287}
   - {fileID: 1886107038}
   - {fileID: 1914429906}
-  - {fileID: 1596943478}
   - {fileID: 1267103998}
   - {fileID: 1269609704}
   - {fileID: 24983454}
@@ -2988,72 +3000,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346735402}
   m_Mesh: {fileID: 4300086, guid: eb8566b6e75507e48bd8ec4fff8f4dd9, type: 3}
---- !u!1 &1596943477
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1596943478}
-  - component: {fileID: 1596943479}
-  - component: {fileID: 1596943480}
-  m_Layer: 0
-  m_Name: a
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1596943478
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596943477}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 30}
-  m_LocalScale: {x: 200, y: 100, z: 40}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1095354813}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1596943479
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596943477}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1596943480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596943477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8dc0dd006e2a924f94114950e4b1e4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1622834455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6059,8 +6005,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 5909474189718560796}
-  talkPrompt: {fileID: 762257840}
-  dialogueManager: {fileID: 6593229789093829013}
   clueinDialogue: {fileID: 0}
 --- !u!1 &4317655011983106357
 GameObject:
@@ -6845,8 +6789,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 855396720156724546}
-  talkPrompt: {fileID: 762257840}
-  dialogueManager: {fileID: 6593229789093829013}
   clueinDialogue: {fileID: 0}
 --- !u!136 &8512675507072192533
 CapsuleCollider:
@@ -7311,6 +7253,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 968888995675543427, guid: eb5d3c94e1bd04040b0f5a862e1619a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829379704704261419, guid: eb5d3c94e1bd04040b0f5a862e1619a0, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6762832427810969332, guid: eb5d3c94e1bd04040b0f5a862e1619a0, type: 3}
