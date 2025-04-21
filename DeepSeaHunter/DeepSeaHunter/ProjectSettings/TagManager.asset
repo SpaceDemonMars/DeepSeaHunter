@@ -12,11 +12,6 @@ TagManager:
   - Boss Spawner
   - NPC
   - Radio
-<<<<<<< Updated upstream
-=======
-  - PauseMusic
-  - Interactable
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
