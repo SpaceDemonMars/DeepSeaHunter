@@ -47,6 +47,12 @@ public class PauseMusic : MonoBehaviour
         else return null;
     }
 
+    public void togglePauseMusic(bool on)
+    {
+        radioOn = on;
+        SetRadioVol(radioVol);
+    }
+
     public void SetRadioVol(float volume)
     {
         radioVol = volume;
