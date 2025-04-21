@@ -2406,7 +2406,7 @@ MonoBehaviour:
   goalCountText: {fileID: 6282357183433250093}
   tutorialText: {fileID: 1883896746661550502}
   dialogHiddenUI: {fileID: 6390848690636106689}
-  interactPrompt: {fileID: 0}
+  interactPrompt: {fileID: 6495360842941856045}
   aud: {fileID: 1531970498777236690}
   uiSFX:
   - {fileID: 8300000, guid: ab9acacd2bec8374c9c32b84a1b7322a, type: 3}
