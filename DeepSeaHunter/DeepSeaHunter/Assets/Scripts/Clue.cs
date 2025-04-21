@@ -31,7 +31,8 @@ public class Clue : MonoBehaviour, IInteractable
         if (pickedUp) return;
         pickedUp = true;
 
-        JournalManager.instance.DiscoverClue(this);
+        if (JournalManager.instance != null) 
+            JournalManager.instance.DiscoverClue(this);
 
         if (cluePopupText != null)
         {

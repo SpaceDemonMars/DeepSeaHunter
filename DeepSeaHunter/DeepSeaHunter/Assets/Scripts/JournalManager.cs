@@ -15,15 +15,17 @@ public class JournalManager : MonoBehaviour
     public TMP_Text cluePopupText;  
     public float popupDuration = 2f;
 
-    private List<Clue> foundClues = new List<Clue>();
+    private List<Clue> foundClues;
     private Coroutine popupCoroutine;
 
     private void Awake()
     {
-        if (instance == null)
+        /*if (instance == null)
             instance = this;
         else
-            Destroy(gameObject);
+            Destroy(gameObject);*/
+        instance = this;
+        foundClues = new List<Clue>();
     }
 
     public void DiscoverClue(Clue clue)
@@ -32,8 +34,11 @@ public class JournalManager : MonoBehaviour
         {
             foundClues.Add(clue);
 
-            clueEntries[clue.clueID].text = clue.clueName + "\n" + clue.clueDescription;
-            clueEntries[clue.clueID].gameObject.SetActive(true);
+            if (clueEntries.Length > 0) 
+            {
+                clueEntries[clue.clueID].text = clue.clueName + "\n" + clue.clueDescription;
+                clueEntries[clue.clueID].gameObject.SetActive(true);
+            }
 
             ShowCluePopup(clue.clueName);
         }
