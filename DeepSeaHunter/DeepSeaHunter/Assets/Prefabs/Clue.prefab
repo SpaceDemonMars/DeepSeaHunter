@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8182503870644980085}
   - component: {fileID: 8254264523414668979}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: trigger
-  m_TagString: Interactable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,8 +66,8 @@ GameObject:
   - component: {fileID: 6762832427810969332}
   - component: {fileID: 213724263053676504}
   - component: {fileID: 3829379704704261419}
-  m_Layer: 10
-  m_Name: Clue 6
+  m_Layer: 0
+  m_Name: Clue
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,10 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0d418345d571444be5e1955fc41419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clueID: 6
-  clueName: 'Rust-Covered Bell '
-  clueDescription: "A corroded and ancient bell that has an incription around its
-    rim: 'The sea gives where the land cannot. Tribute binds the depths.\u2019"
+  clueID: 0
+  clueName: 
+  clueDescription: 
   cluePopupText: {fileID: 0}
   popupDuration: 2
   interactPromptText: Press [E] to Pick Up
