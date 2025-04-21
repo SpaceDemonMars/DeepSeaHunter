@@ -12,6 +12,8 @@ TagManager:
   - Boss Spawner
   - NPC
   - Radio
+  - PauseMusic
+  - Interactable
   layers:
   - Default
   - TransparentFX
