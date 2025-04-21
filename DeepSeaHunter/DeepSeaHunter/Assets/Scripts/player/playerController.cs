@@ -122,10 +122,10 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         //sprint();
 
         updateReloadUI();
-        HandleCluePickup();
+   //     HandleCluePickup();
     }
 
-    void HandleCluePickup()
+  /*  void HandleCluePickup()
     {
         if (Input.GetButtonDown("Interact"))
         {
@@ -140,7 +140,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
                 }
             }
         }
-    }
+    }*/
 
     void Light()
     {

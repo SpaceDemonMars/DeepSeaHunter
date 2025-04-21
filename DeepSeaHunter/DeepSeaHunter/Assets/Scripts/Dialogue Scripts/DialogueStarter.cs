@@ -39,7 +39,6 @@ public class DialogueStarter : MonoBehaviour
                     }
                 }
 
-                dialogueManager.StartConvo(dialogue);
             }
         }
     }

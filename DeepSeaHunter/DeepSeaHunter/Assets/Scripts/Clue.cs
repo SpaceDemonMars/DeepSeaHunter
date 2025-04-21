@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using System.Collections; 
+using System.Collections;
 
 public class Clue : MonoBehaviour, IInteractable
 {
@@ -12,8 +12,19 @@ public class Clue : MonoBehaviour, IInteractable
     public TMP_Text cluePopupText;
     public float popupDuration = 2f;
 
+    [Header("Interaction Prompt")]
+    public string interactPromptText = "Press [E] to Pick Up";  // <-- NEW!!
+
     private bool pickedUp = false;
-    private Coroutine popupCoroutine; 
+    private Coroutine popupCoroutine;
+
+    private void Start()
+    {
+        if (cluePopupText == null && JournalManager.instance != null)
+        {
+            cluePopupText = JournalManager.instance.cluePopupText;
+        }
+    }
 
     public void Pickup()
     {
@@ -25,7 +36,7 @@ public class Clue : MonoBehaviour, IInteractable
         if (cluePopupText != null)
         {
             if (popupCoroutine != null)
-                StopCoroutine(popupCoroutine); 
+                StopCoroutine(popupCoroutine);
 
             cluePopupText.text = $"Found: {clueName}";
             cluePopupText.gameObject.SetActive(true);
@@ -35,6 +46,7 @@ public class Clue : MonoBehaviour, IInteractable
 
         Destroy(gameObject);
     }
+
     public void Interact()
     {
         Pickup();
