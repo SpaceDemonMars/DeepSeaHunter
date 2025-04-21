@@ -12,18 +12,14 @@ public class PauseMusic : MonoBehaviour
     void Start()
     {
         listIndex = Random.Range(0, menuPlaylist.Length);
+        radioOn = true;
         SetRadioVol(radioVol);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.isPaused) 
-        {
-            if (!radioOn) radioOn = true;
-            playRadio();
-        }
-        else if (radioOn) radioOn = false;
+        playRadio();
     }
 
     void playRadio()

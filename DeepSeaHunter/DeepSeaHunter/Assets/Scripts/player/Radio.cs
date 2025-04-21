@@ -63,6 +63,7 @@ public class Radio : MonoBehaviour
         {
             radioOn = !radioOn;
             SetRadioVol(radioVol);
+            GameManager.instance.pauseMusic.togglePauseMusic(!radioOn);
         }
     }
 
