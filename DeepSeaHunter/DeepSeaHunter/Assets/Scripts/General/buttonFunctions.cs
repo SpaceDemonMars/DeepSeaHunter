@@ -41,6 +41,7 @@ public class buttonFunctions : MonoBehaviour
     public void settings() { GameManager.instance.openTabSettings(true); GameManager.instance.playSFX(); }
     public void inventory() { GameManager.instance.openTabInventory(true); GameManager.instance.playSFX(); }
     public void equipment() { GameManager.instance.openTabEquipment(true); GameManager.instance.playSFX(); }
+    public void journal() { GameManager.instance.openTabJournal(true); GameManager.instance.playSFX(); }
 
     public void sliderMusicVolume(float val) { GameManager.instance.setMusicVolume(val); GameManager.instance.playSFX(); }
     public void sliderPlayerVolume(float val) { GameManager.instance.setPlayerVolume(val); GameManager.instance.playSFX(); }
