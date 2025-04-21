@@ -2313,6 +2313,7 @@ MonoBehaviour:
     Not like before.\u201D (The rest of the note is water-damaged and illegible)"
   cluePopupText: {fileID: 0}
   popupDuration: 2
+  interactPromptText: Press [E] to Pick Up
 --- !u!1 &865607034438088248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,7 +2406,7 @@ MonoBehaviour:
   goalCountText: {fileID: 6282357183433250093}
   tutorialText: {fileID: 1883896746661550502}
   dialogHiddenUI: {fileID: 6390848690636106689}
-  interactPrompt: {fileID: 0}
+  interactPrompt: {fileID: 6495360842941856045}
   aud: {fileID: 1531970498777236690}
   uiSFX:
   - {fileID: 8300000, guid: ab9acacd2bec8374c9c32b84a1b7322a, type: 3}
@@ -4260,6 +4261,7 @@ MonoBehaviour:
     Not like before.\u201D (The rest of the note is water-damaged and illegible)"
   cluePopupText: {fileID: 0}
   popupDuration: 2
+  interactPromptText: Press [E] to Pick Up
 --- !u!1 &1598580548472142745
 GameObject:
   m_ObjectHideFlags: 0
@@ -5893,6 +5895,7 @@ MonoBehaviour:
     Not like before.\u201D (The rest of the note is water-damaged and illegible)"
   cluePopupText: {fileID: 0}
   popupDuration: 2
+  interactPromptText: Press [E] to Pick Up
 --- !u!1 &2507813578684326308
 GameObject:
   m_ObjectHideFlags: 0
@@ -8340,6 +8343,7 @@ MonoBehaviour:
     Not like before.\u201D (The rest of the note is water-damaged and illegible)"
   cluePopupText: {fileID: 0}
   popupDuration: 2
+  interactPromptText: Press [E] to Pick Up
 --- !u!1 &3856865349144503072
 GameObject:
   m_ObjectHideFlags: 0
@@ -9084,6 +9088,7 @@ MonoBehaviour:
     Not like before.\u201D (The rest of the note is water-damaged and illegible)"
   cluePopupText: {fileID: 0}
   popupDuration: 2
+  interactPromptText: Press [E] to Pick Up
 --- !u!1 &4315976039958587927
 GameObject:
   m_ObjectHideFlags: 0
@@ -10354,6 +10359,7 @@ MonoBehaviour:
     Not like before.\u201D (The rest of the note is water-damaged and illegible)"
   cluePopupText: {fileID: 0}
   popupDuration: 2
+  interactPromptText: Press [E] to Pick Up
 --- !u!1 &4687497296415787854
 GameObject:
   m_ObjectHideFlags: 0
@@ -11808,6 +11814,7 @@ MonoBehaviour:
     Not like before.\u201D (The rest of the note is water-damaged and illegible)"
   cluePopupText: {fileID: 0}
   popupDuration: 2
+  interactPromptText: Press [E] to Pick Up
 --- !u!1 &5379542795581293763
 GameObject:
   m_ObjectHideFlags: 0
@@ -12988,6 +12995,7 @@ MonoBehaviour:
     Not like before.\u201D (The rest of the note is water-damaged and illegible)"
   cluePopupText: {fileID: 0}
   popupDuration: 2
+  interactPromptText: Press [E] to Pick Up
 --- !u!1 &6524339039554880983
 GameObject:
   m_ObjectHideFlags: 0
@@ -13818,6 +13826,7 @@ MonoBehaviour:
     Not like before.\u201D (The rest of the note is water-damaged and illegible)"
   cluePopupText: {fileID: 0}
   popupDuration: 2
+  interactPromptText: Press [E] to Pick Up
 --- !u!1 &6836605691026002418
 GameObject:
   m_ObjectHideFlags: 0
@@ -14546,6 +14555,7 @@ MonoBehaviour:
     Not like before.\u201D (The rest of the note is water-damaged and illegible)"
   cluePopupText: {fileID: 0}
   popupDuration: 2
+  interactPromptText: Press [E] to Pick Up
 --- !u!1 &7233044486578822074
 GameObject:
   m_ObjectHideFlags: 0
@@ -16991,6 +17001,7 @@ MonoBehaviour:
     Not like before.\u201D (The rest of the note is water-damaged and illegible)"
   cluePopupText: {fileID: 0}
   popupDuration: 2
+  interactPromptText: Press [E] to Pick Up
 --- !u!1 &8918487702654887498
 GameObject:
   m_ObjectHideFlags: 0
@@ -17707,6 +17718,7 @@ MonoBehaviour:
     Not like before.\u201D (The rest of the note is water-damaged and illegible)"
   cluePopupText: {fileID: 0}
   popupDuration: 2
+  interactPromptText: Press [E] to Pick Up
 --- !u!1001 &2516443198638189077
 PrefabInstance:
   m_ObjectHideFlags: 0

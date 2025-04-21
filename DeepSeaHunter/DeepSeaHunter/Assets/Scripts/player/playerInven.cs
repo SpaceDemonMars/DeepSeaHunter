@@ -16,6 +16,7 @@ public class playerInven : MonoBehaviour
     private void Start()
     {
         items = new List<Item>();
+        qty = new List<int>();
     }
 
     public void addItem(Item item)
