@@ -7,7 +7,6 @@ using System.Reflection;
 
 public class playerInven : MonoBehaviour
 {
-    public static playerInven Instance;
     public int currencyFish;
     public int currencyScrap;
 

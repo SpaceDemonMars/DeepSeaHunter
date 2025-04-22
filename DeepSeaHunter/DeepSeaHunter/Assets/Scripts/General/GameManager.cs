@@ -7,6 +7,7 @@ using System.Data;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    [SerializeField] generalSAVE gameSave;
 
     [Header("Menus")]
     [SerializeField] GameObject menuActive;
@@ -133,6 +134,16 @@ public class GameManager : MonoBehaviour
         openTabEquipment();
         openTabJournal();
     }
+
+    public void Save()
+    {
+
+    }
+
+    public void Load() 
+    { 
+    }
+
 
     public void openTabSettings(bool buttonClick = false)
     {
