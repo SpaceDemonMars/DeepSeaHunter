@@ -11,6 +11,7 @@ public class QuestManager : MonoBehaviour
 
     private void Awake()
     {
+        AutoAssignFirstQuest();
         if (instance == null)
             instance = this;
         else
@@ -63,6 +64,18 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    public void AutoAssignFirstQuest()
+    {
+        foreach (Quest quest in allQuests)
+        {
+            if (!IsQuestCompleted(quest.questID))
+            {
+                StartQuest(quest);
+                break; 
+            }
+        }
+    }
+
     private void CompleteQuest(Quest quest)
     {
         Debug.Log($"Quest Completed: {quest.questName}!");
@@ -70,6 +83,8 @@ public class QuestManager : MonoBehaviour
         activeQuests.Remove(quest);
         completedQuests.Add(quest);
         GiveRewards(quest);
+
+        GameManager.instance.ShowQuestPopup($"Quest Completed: {quest.questName}!");
     }
 
     private void GiveRewards(Quest quest)

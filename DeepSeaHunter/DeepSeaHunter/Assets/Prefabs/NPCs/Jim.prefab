@@ -68,7 +68,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d9f825a8371ea4ebc337b4fce8de35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 2226579791399529748}
+  defaultDialogue: {fileID: 11400000, guid: af81905a7db86d946aa8ff88d078f596, type: 2}
+  dialogueConditions:
+  - requiredQuest: 1
+    dialogueToUse: {fileID: 11400000, guid: 7f0985e1b1b65424d8c06fdc79d572cf, type: 2}
+  - requiredQuest: 2
+    dialogueToUse: {fileID: 11400000, guid: dbddef1072069dd44b82033a04428a27, type: 2}
+  - requiredQuest: 3
+    dialogueToUse: {fileID: 11400000, guid: 198f370ca31fc09448f2011ed752a4a0, type: 2}
+  - requiredQuest: 4
+    dialogueToUse: {fileID: 11400000, guid: b07450afd189772498d96b53cc1c8a6c, type: 2}
   clueinDialogue: {fileID: 0}
 --- !u!1 &2851198993336229410
 GameObject:
@@ -115,7 +124,6 @@ GameObject:
   - component: {fileID: 7520891914011661050}
   - component: {fileID: 4603250229054794985}
   - component: {fileID: 3412151311890002073}
-  - component: {fileID: 2226579791399529748}
   - component: {fileID: 496787831326677851}
   - component: {fileID: 3101035442808555830}
   m_Layer: 0
@@ -254,55 +262,6 @@ MonoBehaviour:
   agent: {fileID: 496787831326677851}
   roamPauseTime: 5
   roamDist: 2
---- !u!114 &2226579791399529748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5712003126864833543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a688ceb77ec1554a9c1805812809e50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcName: Jim
-  lines:
-  - speakerName: '???:'
-    line: "\"You\u2019re not from around here, are ya? Folks don\u2019t come to Blacktide
-      unless they\u2019re runnin\u2019 from somethin\u2019... or lookin\u2019 for
-      somethin\u2019. You seem like the latter. Name\u2019s Jim\u2014what can I do
-      for ya?\" "
-    choices: []
-  - speakerName: 'Jim:'
-    line: "\"You\u2019re not from around here, are ya? Folks don\u2019t come to Blacktide
-      unless they\u2019re runnin\u2019 from somethin\u2019... or lookin\u2019 for
-      somethin\u2019. You seem like the latter. Name\u2019s Jim\u2014what can I do
-      for ya?\" "
-    choices: []
-  - speakerName: 'Player:'
-    line: "Jim looks like he\u2019s spent one too many nights at sea without enough
-      oranges. His legs are bowed, his joints swollen, and his skin is as weathered
-      as driftwood, yet he didn\u2019t look like he\u2019d been out to sea much lately. "
-    choices: []
-  - speakerName: 'Player:'
-    line: "\"I\u2019m looking for a friend. Nathan. He\u2019s a diver\u2014said you
-      could point me in his direction.\" "
-    choices: []
-  - speakerName: 'Jim:'
-    line: "\"Ah, that Nate fella. Yeah, he\u2019s been holed up in that house down
-      yonder. Strange thing though\u2014I haven\u2019t seen him all day. Normally
-      he\u2019s up with the tide, dropping off his catch so I can clean it for \u2018im.\" "
-    choices: []
-  - speakerName: 'Player:'
-    line: "I thanked him with a smile. His weathered grin felt oddly genuine\u2014
-      the first warmth I\u2019d seen since I stepped off the boat. As I turned to
-      head toward the shack he pointed at, he called after me: "
-    choices: []
-  - speakerName: Jim
-    line: "\"Hey\u2014if you catch anythin\u2019 while you\u2019re here, I\u2019ll
-      make sure you get the best deal for it!\""
-    choices: []
 --- !u!195 &496787831326677851
 NavMeshAgent:
   m_ObjectHideFlags: 0

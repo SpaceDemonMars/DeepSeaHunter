@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a688ceb77ec1554a9c1805812809e50, type: 3}
+  m_Name: AlanAfterJewel
+  m_EditorClassIdentifier: 
+  npcName: Alan
+  lines:
+  - speakerName: 'Alan:'
+    line: "\"Then let\u2019s fly. Alan\u2019s Flight of Fancy, at your service. Like
+      a fish in the current\u2014watch how I glide.\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Alan:'
+    line: "\"Then let\u2019s fly. Alan\u2019s Flight of Fancy, at your service. Like
+      a fish in the current\u2014watch how I glide.\""
+    choices: []
+    completeQuest: 1
+    questToComplete: 6
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Player:'
+    line: "\"Alright. Just as long as you're not the dead fish, we\u2019ll be fine.\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0

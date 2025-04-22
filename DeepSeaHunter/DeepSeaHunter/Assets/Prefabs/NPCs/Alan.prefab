@@ -68,9 +68,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d9f825a8371ea4ebc337b4fce8de35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 8001923797750437545}
-  talkPrompt: {fileID: 0}
-  dialogueManager: {fileID: 0}
+  defaultDialogue: {fileID: 11400000, guid: bcaf95df75d90374687cd8942649ae05, type: 2}
+  dialogueConditions:
+  - requiredQuest: 2
+    dialogueToUse: {fileID: 11400000, guid: 80cb605cede45c34d94d32a23ae0842f, type: 2}
+  - requiredQuest: 4
+    dialogueToUse: {fileID: 11400000, guid: 31c1c88e5cee49f4f919017340388383, type: 2}
+  - requiredQuest: 7
+    dialogueToUse: {fileID: 11400000, guid: 2bfe96d8b144fa74db0c9285c72022e9, type: 2}
   clueinDialogue: {fileID: 0}
 --- !u!1 &6645486176492085933
 GameObject:
@@ -85,7 +90,6 @@ GameObject:
   - component: {fileID: 5590683654723965857}
   - component: {fileID: 955949276246925123}
   - component: {fileID: 3809860587267178405}
-  - component: {fileID: 8001923797750437545}
   - component: {fileID: 178376248765223101}
   - component: {fileID: 6618381713578835798}
   m_Layer: 0
@@ -223,70 +227,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &8001923797750437545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6645486176492085933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a688ceb77ec1554a9c1805812809e50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcName: Alan
-  lines:
-  - speakerName: 'Player:'
-    line: "The man looked like your typical whaler\u2014sun-bleached clothes, salt-stained
-      boots, and a smell that could gut a seagull at ten paces. His face held scars
-      that surely had tales to tell. One of them, a jagged cut of skin, split his
-      cheek like a lightning bolt frozen in flesh, and the rest of his face looked
-      carved from wind and grit."
-    choices: []
-  - speakerName: 'Player:'
-    line: "The man looked like your typical whaler\u2014sun-bleached clothes, salt-stained
-      boots, and a smell that could gut a seagull at ten paces. His face held scars
-      that surely had tales to tell. One of them, a jagged cut of skin, split his
-      cheek like a lightning bolt frozen in flesh, and the rest of his face looked
-      carved from wind and grit."
-    choices: []
-  - speakerName: 'Player:'
-    line: "\u201CI\u2019m looking for my friend Nathan, wouldn\u2019t happen to know
-      where he dives, would you?\u201D"
-    choices: []
-  - speakerName: '???:'
-    line: "\u201CAh, Nathan? Yeah, I know him. Bit squirrelly\u2014always jabberin\u2019
-      about old ruins like he was about to discover Atlantis with a pocket compass
-      and a half-eaten sandwich. I seen him go out a few times. Real determined.
-      Real twitchy. Why d\u2019you ask? He finally dig a hole too deep?\u201D "
-    choices: []
-  - speakerName: 'Player:'
-    line: "\u201CHe went out diving and hasn\u2019t come back. I\u2019m trying to
-      track him down.\u201D "
-    choices: []
-  - speakerName: '???:'
-    line: "\u201CFigures. Either he found what he was lookin\u2019 for\u2026 or it
-      found him. My bet? Sea serpent. Or a cursed statue. Or one of those angry barnacles
-      that whisper your worst fears. Y\u2019know, island stuff. You need a ride out
-      to his dive spots? I could take you. For a price, of course\u2014I run a fine
-      service, Alan\u2019s Flight of Fancy \u2014 adventure included, premium snacks
-      not.\u201D "
-    choices: []
-  - speakerName: 'Player:'
-    line: "\u201CI\u2019m a bit short on funds right now.\u201D"
-    choices: []
-  - speakerName: 'Alan:'
-    line: "\u201CTell you what\u2014grab some of them fat crabs off the north beach,
-      give \u2018em to Jim on my behalf. He\u2019ll trade his soul for shellfish.
-      Just don\u2019t name them. Makes eating 'em weird. Three oughta be enough for
-      me to take you to the closest place I\u2019ve seen him go. Do that, and we
-      got a deal.\u201D"
-    choices: []
-  - speakerName: 'Player:'
-    line: '"Got it, three crabs to Jim on your behalf and you''ll take me out. Sounds
-      Good, I''ll be back later."'
-    choices: []
 --- !u!195 &178376248765223101
 NavMeshAgent:
   m_ObjectHideFlags: 0
