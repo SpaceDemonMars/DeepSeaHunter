@@ -250,6 +250,22 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void SaveClueFound(int clueID)
+    {
+        if (!savedClueIDs.Contains(clueID))
+            savedClueIDs.Add(clueID);
+    }
+
+    public bool IsClueFound(int clueID)
+    {
+        return savedClueIDs.Contains(clueID);
+    }
+
+    public List<int> GetFoundClueIDs()
+    {
+        return savedClueIDs;
+    }
     public void loadInventory()
     {
         for (int i = 0; i < invenButtons.Length; i++)

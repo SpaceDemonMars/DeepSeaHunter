@@ -24,7 +24,11 @@ public class Clue : MonoBehaviour, IInteractable
         {
             cluePopupText = JournalManager.instance.cluePopupText;
         }
-    }
+        if (GameManager.instance.IsClueFound(clueID))
+        {
+            Destroy(gameObject);
+        }
+            }
 
     public void Pickup()
     {
