@@ -4,16 +4,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class generalSAVE : ScriptableObject
 {
-    public Transform playerPosition;
-
-    //from playerController
-    public int playerHP;
-    public float playerSpeed;
-    public float playerDashStr;
-    public float playerJumpStr;
-    public bool playerLightOn;
-    public meleeStats playerMelee;
-    public rangedStats playerRanged;
+    public playerSAVE pSAVE;
 
     //from playerInven
     public int fish;

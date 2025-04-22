@@ -141,7 +141,8 @@ public class GameManager : MonoBehaviour
 
     public void Save()
     {
-
+        //save player
+        gameSave.pSAVE = playerScript.pSAVE;
     }
 
     public void Load() 
