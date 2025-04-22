@@ -2,12 +2,20 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 
+[System.Serializable]
+public class DialogueCondition
+{
+    public QuestID requiredQuest;
+    public Dialogue dialogueToUse;
+}
+
 public class DialogueStarter : MonoBehaviour
 {
     public Dialogue defaultDialogue;
     public List<DialogueCondition> dialogueConditions = new List<DialogueCondition>();
-    TMP_Text talkPrompt;
-    DialogueManager dialogueManager;
+
+    private TMP_Text talkPrompt;
+    private DialogueManager dialogueManager;
     public Clue clueinDialogue;
 
     private bool isPlayerInRange = false;
@@ -20,7 +28,7 @@ public class DialogueStarter : MonoBehaviour
         dialogueManager = GameManager.instance.dialogueManager;
     }
 
-    void Update()
+    private void Update()
     {
         if (isPlayerInRange && !hasTriggered)
         {
@@ -35,18 +43,8 @@ public class DialogueStarter : MonoBehaviour
                 talkPrompt.gameObject.SetActive(false);
                 dialogueManager.currentDialogueStarter = this;
 
-                Dialogue selectedDialogue = defaultDialogue;
-
-                for (int i = dialogueConditions.Count - 1; i >= 0; i--)
-                {
-                    if (QuestManager.instance.IsQuestCompleted(dialogueConditions[i].requiredQuest))
-                    {
-                        selectedDialogue = dialogueConditions[i].dialogueToUse;
-                        break;
-                    }
-                }
-
-                dialogueManager.StartConvo(selectedDialogue);
+                Dialogue dialogueToStart = GetAppropriateDialogue();
+                dialogueManager.StartConvo(dialogueToStart);
 
                 FriendlyNPC npc = GetComponent<FriendlyNPC>();
                 if (npc != null)
@@ -61,7 +59,19 @@ public class DialogueStarter : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    private Dialogue GetAppropriateDialogue()
+    {
+        foreach (var condition in dialogueConditions)
+        {
+            if (QuestManager.instance.IsQuestCompleted(condition.requiredQuest))
+            {
+                return condition.dialogueToUse;
+            }
+        }
+        return defaultDialogue;
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -70,7 +80,7 @@ public class DialogueStarter : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {

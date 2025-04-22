@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a688ceb77ec1554a9c1805812809e50, type: 3}
+  m_Name: AlanAfterJim
+  m_EditorClassIdentifier: 
+  npcName: Alan
+  lines:
+  - speakerName: 'Player:'
+    line: "\u201CI\u2019m looking for my friend Nathan, wouldn\u2019t happen to know
+      where he dives, would you?\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Player:'
+    line: "\u201CI\u2019m looking for my friend Nathan, wouldn\u2019t happen to know
+      where he dives, would you?\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Alan:'
+    line: "\"He finally dig a hole too deep?\u201D "
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Player:'
+    line: "\u201CHe went out diving and hasn\u2019t come back. I\u2019m trying to
+      track him down.\u201D "
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Alan:'
+    line: "\u201CFigures. Either he found what he was lookin\u2019 for\u2026 or it
+      found him. My bet? Sea serpent. Or a cursed statue. Or one of those angry barnacles
+      that whisper your worst fears. Y\u2019know, island stuff. You need a ride out
+      to his dive spots? I could take you. For a price, of course\u2014I run a fine
+      service, Alan\u2019s Flight of Fancy \u2014 adventure included, premium snacks
+      not.\u201D "
+    choices: []
+    completeQuest: 1
+    questToComplete: 3
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Player:'
+    line: "\u201CI\u2019m a bit short on funds right now.\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Alan:'
+    line: "\u201CTell you what\u2014grab some of them fat crabs off the north beach,
+      give \u2018em to Jim on my behalf. He\u2019ll trade his soul for shellfish.
+      Just don\u2019t name them. Makes eating 'em weird. Three oughta be enough for
+      me to take you to the closest place I\u2019ve seen him go. Do that, and we
+      got a deal.\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Player:'
+    line: '"Got it, three crabs to Jim on your behalf and you''ll take me out. Sounds
+      Good, I''ll be back later."'
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 1
+    questToStart: 4

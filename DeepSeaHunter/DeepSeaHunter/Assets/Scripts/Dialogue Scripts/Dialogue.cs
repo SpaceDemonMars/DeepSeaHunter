@@ -1,9 +1,8 @@
 using UnityEngine;
-using System;
 
-public class Dialogue : MonoBehaviour
+[CreateAssetMenu(fileName = "NewDialogue", menuName = "Dialogue/Dialogue")]
+public class Dialogue : ScriptableObject
 {
-    [SerializeField] public string npcName;
-    [SerializeField] public DialogueEntry[] lines;
-
+    public string npcName;
+    public DialogueEntry[] lines;
 }

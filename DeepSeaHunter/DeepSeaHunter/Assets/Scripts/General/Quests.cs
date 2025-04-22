@@ -6,9 +6,13 @@ using UnityEngine;
 public enum QuestID
 {
     None,
-    FindNathan,
-    CrabDelivery,
-    OpenJimShop
+    AskAboutNathan,
+    CheckOutNathansHut,
+    AskAboutNathansDiveSpots,
+    DeliverCrabsToJim,
+    OpenJimShop,
+    HeadOutTo1stDiveSpot,
+    GetGearFromJewel
 }
 
 // Quest Status

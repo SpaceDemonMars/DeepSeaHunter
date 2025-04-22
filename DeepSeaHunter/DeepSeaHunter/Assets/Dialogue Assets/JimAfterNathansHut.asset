@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a688ceb77ec1554a9c1805812809e50, type: 3}
+  m_Name: JimAfterNathansHut
+  m_EditorClassIdentifier: 
+  npcName: Jim
+  lines:
+  - speakerName: 'Player:'
+    line: "\u201CHey, Jim\u2014do you happen to know where Nathan\u2019s been diving
+      lately?\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Player:'
+    line: "\u201CHey, Jim\u2014do you happen to know where Nathan\u2019s been diving
+      lately?\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Jim:'
+    line: "\u201CWish I did. Last time he brought in a catch, he was mutterin\u2019
+      about \u2018findin\u2019 the mouth of the deep.\u2019 Gave me the chills, to
+      be honest. But no\u2014he never said where he was headed. Just smiled that
+      smile of his and wandered off, lookin\u2019 like a man with a secret.\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Player:'
+    line: '"Alright, see you later Jim."'
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0

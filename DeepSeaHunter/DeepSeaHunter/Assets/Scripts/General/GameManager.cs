@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 using System.Data;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -96,6 +97,9 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused;
     bool isTutorialLevel;
+    public TMP_Text questPopupText;
+    public GameObject questPopupObject;
+
     //public int goalCount;
 
     void Awake()
@@ -332,6 +336,19 @@ public class GameManager : MonoBehaviour
             boss = GameObject.FindWithTag("Level Boss");
         }
         //reassign hp ui //jk do it in enemy boss
+    }
+
+    public void ShowQuestPopup(string message)
+    {
+        questPopupText.text = message;
+        questPopupObject.SetActive(true);
+        StartCoroutine(HideQuestPopup());
+    }
+
+    private IEnumerator HideQuestPopup()
+    {
+        yield return new WaitForSeconds(3f); // Show for 3 seconds
+        questPopupObject.SetActive(false);
     }
 
     public void setMusicVolume(float volume) { radioScript.SetRadioVol(volume); pauseMusic.SetRadioVol(volume); }

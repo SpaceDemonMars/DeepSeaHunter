@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a688ceb77ec1554a9c1805812809e50, type: 3}
+  m_Name: AlanAfterCrabs
+  m_EditorClassIdentifier: 
+  npcName: Alan
+  lines:
+  - speakerName: 'Alan:'
+    line: "\"Spotted you scuttlin\u2019 around the beach. You wrangle up enough of
+      them fat little suckers for Jim?\""
+    choices: []
+    completeQuest: 1
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 7
+  - speakerName: 'Alan:'
+    line: "\"Spotted you scuttlin\u2019 around the beach. You wrangle up enough of
+      them fat little suckers for Jim?\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Player:'
+    line: "\"I\u2019ve delivered the crabs to Jim, so can you take me out now?\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+  - speakerName: 'Alan:'
+    line: "\"I could... but unless you\u2019re plannin\u2019 to dive blind and hold
+      your breath the whole way, you\u2019re not ready. Best swing by Jewel\u2019s\u2014see
+      if she\u2019s got some gear to get you under.\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 1
+    questToStart: 7
+  - speakerName: 'Player:'
+    line: "\"Right... guess I\u2019ll be back.\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
