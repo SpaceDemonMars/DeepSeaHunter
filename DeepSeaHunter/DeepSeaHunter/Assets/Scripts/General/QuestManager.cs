@@ -7,6 +7,7 @@ public class QuestManager : MonoBehaviour
 
     public List<Quest> activeQuests = new List<Quest>();
     public List<Quest> completedQuests = new List<Quest>();
+    [SerializeField] public List<Quest> allQuests;
 
     private void Awake()
     {

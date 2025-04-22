@@ -1,10 +1,12 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class DialogueStarter : MonoBehaviour
 {
-    public Dialogue dialogue;              
-    TMP_Text talkPrompt;   //modified for a bug fix - paige   
+    public Dialogue defaultDialogue;
+    public List<DialogueCondition> dialogueConditions = new List<DialogueCondition>();
+    TMP_Text talkPrompt;
     DialogueManager dialogueManager;
     public Clue clueinDialogue;
 
@@ -16,15 +18,14 @@ public class DialogueStarter : MonoBehaviour
     {
         talkPrompt = GameManager.instance.interactPrompt;
         dialogueManager = GameManager.instance.dialogueManager;
-
     }
+
     void Update()
     {
         if (isPlayerInRange && !hasTriggered)
         {
             if (!talkPrompt.gameObject.activeSelf && waitingForInput)
             {
-                Debug.Log("Entered NPC Trigger");
                 talkPrompt.gameObject.SetActive(true);
             }
 
@@ -34,7 +35,18 @@ public class DialogueStarter : MonoBehaviour
                 talkPrompt.gameObject.SetActive(false);
                 dialogueManager.currentDialogueStarter = this;
 
-                dialogueManager.StartConvo(dialogue);
+                Dialogue selectedDialogue = defaultDialogue;
+
+                for (int i = dialogueConditions.Count - 1; i >= 0; i--)
+                {
+                    if (QuestManager.instance.IsQuestCompleted(dialogueConditions[i].requiredQuest))
+                    {
+                        selectedDialogue = dialogueConditions[i].dialogueToUse;
+                        break;
+                    }
+                }
+
+                dialogueManager.StartConvo(selectedDialogue);
 
                 FriendlyNPC npc = GetComponent<FriendlyNPC>();
                 if (npc != null)
@@ -45,7 +57,6 @@ public class DialogueStarter : MonoBehaviour
                         npc.StartDialogue(playerObj.transform);
                     }
                 }
-
             }
         }
     }

@@ -75,12 +75,37 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            nameTxt.text = "???"; 
+            nameTxt.text = "???";
         }
 
         foreach (Transform child in choiceParent)
         {
             Destroy(child.gameObject);
+        }
+
+        if (entry.completeQuest)
+        {
+            Quest questToComplete = QuestManager.instance.activeQuests.Find(q => q.questID == entry.questToComplete);
+            if (questToComplete != null)
+            {
+                for (int i = 0; i < questToComplete.objectives.Count; i++)
+                {
+                    if (questToComplete.objectives[i].status == ObjectiveStatus.Active)
+                    {
+                        QuestManager.instance.CompleteObjective(entry.questToComplete, i);
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (entry.startQuest)
+        {
+            Quest questToStart = QuestManager.instance.allQuests.Find(q => q.questID == entry.questToStart);
+            if (questToStart != null)
+            {
+                QuestManager.instance.StartQuest(questToStart);
+            }
         }
 
         if (entry.choices != null && entry.choices.Length > 0)

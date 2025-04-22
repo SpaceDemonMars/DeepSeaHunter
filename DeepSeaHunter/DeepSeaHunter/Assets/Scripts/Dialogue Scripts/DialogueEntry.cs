@@ -7,6 +7,12 @@ public class DialogueEntry
     public string line;
     public DialogueChoice[] choices;
 
+    public bool completeQuest;
+    public QuestID questToComplete;
+
+    public bool startQuest;
+    public QuestID questToStart;
+
     [System.Serializable]
     public class DialogueChoice
     {
