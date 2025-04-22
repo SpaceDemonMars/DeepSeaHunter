@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using System.Data;
 using System.Collections;
+using System.Numerics;
 
 public class GameManager : MonoBehaviour
 {
@@ -141,8 +142,10 @@ public class GameManager : MonoBehaviour
 
     public void Save()
     {
+        if (gameSave == null) gameSave = ScriptableObject.CreateInstance<generalSAVE>();
+        if (gameSave.pSAVE == null) gameSave.pSAVE = ScriptableObject.CreateInstance<playerSAVE>();
         //save player
-        gameSave.pSAVE = playerScript.pSAVE;
+        gameSave.pSAVE = playerScript.savePlayer();
     }
 
     public void Load() 

@@ -129,7 +129,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     public playerSAVE savePlayer()
     {
         if (pSAVE == null) pSAVE = ScriptableObject.CreateInstance<playerSAVE>();
-        pSAVE.playerPosition = controller.transform;
+        pSAVE.playerPosition = controller.transform.position;
         pSAVE.playerHP = HP;
         pSAVE.playerSpeed = speed;
         pSAVE.playerDashStr = dashStr;
@@ -138,6 +138,11 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         pSAVE.playerMelee = meleeCurr;
         pSAVE.playerRanged = rangedCurr;
         return pSAVE;
+    }
+
+    public void loadPlayer(playerSAVE newSave)
+    {
+        if (pSAVE == null) pSAVE = newSave;
     }
 
   /*  void HandleCluePickup()

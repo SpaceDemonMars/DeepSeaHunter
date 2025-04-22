@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class playerSAVE : ScriptableObject
 {
-    public Transform playerPosition;
+    public Vector3 playerPosition;
 
     //from playerController
     public int playerHP;
