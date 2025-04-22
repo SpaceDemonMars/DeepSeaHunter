@@ -41032,9 +41032,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueID: 2
   clueName: Waterlogged Journal
-  clueDescription: "\u201CDown in the deep where the long things creep,\r\nGive them
-    a name and pray they sleep.\r\nOne by one, we send them down\u2014\r\nA soul
-    for fish, to feed the town.\u201D\r\n"
+  clueDescription: "\u201CDown in the deep where the long things creep,  Give them
+    a name and pray they sleep. One by one, we send them down\u2014 A soul for fish,
+    to feed the town.\u201D"
   cluePopupText: {fileID: 0}
   popupDuration: 2
   interactPromptText: Press [E] to Pick Up
