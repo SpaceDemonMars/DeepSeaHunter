@@ -259,6 +259,18 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void SaveClueFound(int clueID)
+    {
+        PlayerPrefs.SetInt($"ClueFound_{clueID}", 1);
+        PlayerPrefs.Save();
+    }
+
+    public bool IsClueFound(int clueID)
+    {
+        return PlayerPrefs.GetInt($"ClueFound_{clueID}", 0) == 1;
+    }
+
     public void loadInventory()
     {
         for (int i = 0; i < invenButtons.Length; i++)
