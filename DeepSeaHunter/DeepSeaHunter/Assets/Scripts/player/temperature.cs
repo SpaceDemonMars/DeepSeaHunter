@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class temperature : MonoBehaviour
 {
-    [SerializeField] playerController player;
     [SerializeField] float coldSlow;
     [SerializeField] float veryColdSlow;
     [SerializeField] int freezeDmg;
@@ -31,12 +30,12 @@ public class temperature : MonoBehaviour
             if (playerTemp == 2) //cold
             {
                 playerSlowed = true;
-                player.stateTangled(coldSlow);
+                GameManager.instance.playerScript.stateTangled(coldSlow);
             }
             else if (playerTemp < 2) //very cold
             {
                 playerSlowed = true;
-                player.stateTangled(veryColdSlow);
+                GameManager.instance.playerScript.stateTangled(veryColdSlow);
                 //add oxygen slowed breath here
             }
         }
@@ -51,7 +50,7 @@ public class temperature : MonoBehaviour
             if (freezeTimer >= freezeRate)
             {
                 freezeTimer = 0;
-                player.takeDamage(freezeDmg, (int)IDamage.sourceType.temp);
+                GameManager.instance.playerScript.takeDamage(freezeDmg, (int)IDamage.sourceType.temp);
             }
         }
     }
@@ -62,11 +61,11 @@ public class temperature : MonoBehaviour
         {
             if (playerTemp == 2) //cold
             {
-                player.stateUntangled(coldSlow);
+                GameManager.instance.playerScript.stateUntangled(coldSlow);
             }
             else if (playerTemp < 2) //very cold
             {
-                player.stateUntangled(veryColdSlow);
+                GameManager.instance.playerScript.stateUntangled(veryColdSlow);
                 //add oxygen slowed breath here
             }
             playerSlowed = false;

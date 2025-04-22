@@ -14,7 +14,7 @@ public class PickupItem : MonoBehaviour, IInteractable
             itemId = GenerateItemID(itemName)
         };
 
-        playerInven.Instance.addItem(newItem);
+        GameManager.instance.playerScript.inven.addItem(newItem);
         Destroy(gameObject);
     }
 
@@ -29,7 +29,7 @@ public class PickupItem : MonoBehaviour, IInteractable
                 itemId = GenerateItemID(itemName)
             };
 
-            playerInven.Instance.addItem(newItem);
+            GameManager.instance.playerScript.inven.addItem(newItem);
             Destroy(gameObject);
         }
     }
