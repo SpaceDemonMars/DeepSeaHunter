@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using System.Data;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviour
     bool isTutorialLevel;
     public TMP_Text questPopupText;
     public GameObject questPopupObject;
+    private List<int> savedClueIDs = new List<int>();
 
     //public int goalCount;
 

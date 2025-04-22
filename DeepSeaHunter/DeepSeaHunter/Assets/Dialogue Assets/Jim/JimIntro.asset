@@ -24,16 +24,6 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
-  - speakerName: ???
-    line: "\"You\u2019re not from around here, are ya? Folks don\u2019t come to Blacktide
-      unless they\u2019re runnin\u2019 from somethin\u2019... or lookin\u2019 for
-      somethin\u2019. You seem like the latter. Name\u2019s Jim\u2014what can I do
-      for ya?\" "
-    choices: []
-    completeQuest: 0
-    questToComplete: 0
-    startQuest: 0
-    questToStart: 0
   - speakerName: 'Player:'
     line: "Jim looks like he\u2019s spent one too many nights at sea without enough
       oranges. His legs are bowed, his joints swollen, and his skin is as weathered

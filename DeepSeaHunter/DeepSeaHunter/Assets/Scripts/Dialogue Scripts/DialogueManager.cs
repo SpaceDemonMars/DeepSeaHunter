@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
 
 public class DialogueManager : MonoBehaviour
 {
@@ -14,46 +12,32 @@ public class DialogueManager : MonoBehaviour
     public Transform choiceParent;
     public GameObject choiceButton;
 
-    [SerializeField]  private DialogueEntry[] entries;
+    [SerializeField] private DialogueEntry[] entries;
     private int currentIndex = 0;
 
     public DialogueStarter currentDialogueStarter;
-
-    void Awake()
-    {
-    }
-    void Start()
-    {
-     /*   if (dialogueBox == null)
-            dialogueBox = GameObject.Find("DialogueBox");
-
-        if (nameTxt == null)
-            nameTxt = GameObject.Find("NameText")?.GetComponent<TextMeshProUGUI>();
-
-        if (dialogueLine == null)
-            dialogueLine = GameObject.Find("DialogueLine")?.GetComponent<TextMeshProUGUI>();
-
-        if (choiceParent == null)
-            choiceParent = GameObject.Find("ChoiceParent")?.transform;
-
-        dialogueBox.SetActive(false);*/
-    }
+    public static DialogueManager instance;
 
     public void StartConvo(Dialogue dialogue)
     {
         isTalking = true;
         dialogueBox.SetActive(true);
-
         entries = dialogue.lines;
         currentIndex = 0;
-
         DisplayEntry(entries[currentIndex]);
+        GameManager.instance.playerScript.enabled = false;
+
+        if (currentDialogueStarter != null)
+        {
+            npcAI npc = currentDialogueStarter.GetComponent<npcAI>();
+            if (npc != null)
+                npc.StartDialogue(GameManager.instance.player.transform);
+        }
     }
 
     public void DisplayNextEntry()
     {
         currentIndex++;
-
         if (currentIndex >= entries.Length)
         {
             EndDialogue();
@@ -67,16 +51,36 @@ public class DialogueManager : MonoBehaviour
     {
         StopAllCoroutines();
         dialogueLine.text = "";
+
+        if (entry.requiresQuest)
+        {
+            bool questCompleted = QuestManager.instance.IsQuestCompleted(entry.requiredQuestID);
+            bool questActive = QuestManager.instance.activeQuests.Exists(q => q.questID == entry.requiredQuestID);
+
+            if (entry.questMustBeCompleted && !questCompleted)
+            {
+                DisplayNextEntry();
+                return;
+            }
+            if (!entry.questMustBeCompleted && !questActive)
+            {
+                DisplayNextEntry();
+                return;
+            }
+        }
+
+        if (entry.requiresItem)
+        {
+            if (!playerInven.Instance.HasItem(entry.requiredItemName, entry.requiredItemAmount))
+            {
+                DisplayNextEntry();
+                return;
+            }
+        }
+
         StartCoroutine(TypeSentence(entry.line));
 
-        if (!string.IsNullOrEmpty(entry.speakerName))
-        {
-            nameTxt.text = entry.speakerName;
-        }
-        else
-        {
-            nameTxt.text = "???";
-        }
+        nameTxt.text = !string.IsNullOrEmpty(entry.speakerName) ? entry.speakerName : "???";
 
         foreach (Transform child in choiceParent)
         {
@@ -137,31 +141,40 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        if (dialogueBox != null)
-        {
-            dialogueBox.SetActive(false);
-        }
+        dialogueBox.SetActive(false);
         isTalking = false;
         entries = null;
         currentIndex = 0;
 
-        if (nameTxt != null) nameTxt.text = "";
-        if (dialogueLine != null) dialogueLine.text = "";
-        if (choiceParent != null)
+        nameTxt.text = "";
+        dialogueLine.text = "";
+
+        foreach (Transform child in choiceParent)
         {
-            foreach (Transform child in choiceParent)
-            {
-                Destroy(child.gameObject);
-            }
-            if (currentDialogueStarter != null && currentDialogueStarter.clueinDialogue != null)
+            Destroy(child.gameObject);
+        }
+
+        if (currentDialogueStarter != null)
+        {
+            if (currentDialogueStarter.clueinDialogue != null)
             {
                 JournalManager.instance.DiscoverClue(currentDialogueStarter.clueinDialogue);
-                currentDialogueStarter = null;
             }
+
+            npcAI npc = currentDialogueStarter.GetComponent<npcAI>();
+            if (npc != null)
+            {
+                npc.EndDialogue();
+            }
+
+            currentDialogueStarter = null;
         }
+
+        GameManager.instance.playerScript.enabled = true;
     }
- 
+
     public bool IsTalking() => isTalking;
+
     void Update()
     {
         if (isTalking && Input.GetButtonDown("Interact") && choiceParent.childCount == 0)
@@ -169,6 +182,4 @@ public class DialogueManager : MonoBehaviour
             DisplayNextEntry();
         }
     }
-
-
 }

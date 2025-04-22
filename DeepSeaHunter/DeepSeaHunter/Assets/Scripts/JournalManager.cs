@@ -15,32 +15,54 @@ public class JournalManager : MonoBehaviour
     public TMP_Text cluePopupText;  
     public float popupDuration = 2f;
 
-    private List<Clue> foundClues;
+    private List<int> foundClueIDs;
     private Coroutine popupCoroutine;
 
     private void Awake()
     {
-        /*if (instance == null)
-            instance = this;
-        else
-            Destroy(gameObject);*/
         instance = this;
-        foundClues = new List<Clue>();
+        foundClueIDs = new List<int>();
     }
+
+    private void Start()
+    {
+        foundClueIDs = new List<int>();
+
+        if (GameManager.instance != null)
+        {
+            List<int> savedClueIDs = GameManager.instance.GetFoundClueIDs();
+            foreach (int id in savedClueIDs)
+            {
+                AddClueEntry(id);
+            }
+        }
+    }
+
 
     public void DiscoverClue(Clue clue)
     {
-        if (!foundClues.Contains(clue))
+        if (!foundClueIDs.Contains(clue.clueID))
         {
-            foundClues.Add(clue);
-
-            if (clueEntries.Length > 0) 
-            {
-                clueEntries[clue.clueID].text = clue.clueName + "\n" + clue.clueDescription;
-                clueEntries[clue.clueID].gameObject.SetActive(true);
-            }
-
+            foundClueIDs.Add(clue.clueID);
+            AddClueEntry(clue.clueID, clue.clueName, clue.clueDescription);
             ShowCluePopup(clue.clueName);
+        }
+    }
+
+    public bool HasFoundClue(int clueID)
+    {
+        return foundClueIDs.Contains(clueID);
+    }
+
+    private void AddClueEntry(int clueID, string clueName = "", string clueDescription = "")
+    {
+        if (clueEntries.Length > clueID)
+        {
+            if (string.IsNullOrEmpty(clueName)) clueName = $"Clue {clueID}";
+            if (string.IsNullOrEmpty(clueDescription)) clueDescription = "(Description not loaded)";
+
+            clueEntries[clueID].text = clueName + "\n" + clueDescription;
+            clueEntries[clueID].gameObject.SetActive(true);
         }
     }
 
@@ -77,7 +99,7 @@ public class JournalManager : MonoBehaviour
 
     public int GetClueCount()
     {
-        return foundClues.Count;
+        return foundClueIDs.Count;
     }
 
 }

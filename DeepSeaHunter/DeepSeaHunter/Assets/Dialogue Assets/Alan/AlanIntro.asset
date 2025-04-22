@@ -26,17 +26,6 @@ MonoBehaviour:
     startQuest: 0
     questToStart: 0
   - speakerName: 'Player:'
-    line: "The man looked like your typical whaler\u2014sun-bleached clothes, salt-stained
-      boots, and a smell that could gut a seagull at ten paces. His face held scars
-      that surely had tales to tell. One of them, a jagged cut of skin, split his
-      cheek like a lightning bolt frozen in flesh, and the rest of his face looked
-      carved from wind and grit."
-    choices: []
-    completeQuest: 0
-    questToComplete: 0
-    startQuest: 0
-    questToStart: 0
-  - speakerName: 'Player:'
     line: "\u201CI\u2019m looking for my friend Nathan, wouldn\u2019t happen to know
       where he is, do you?\""
     choices: []

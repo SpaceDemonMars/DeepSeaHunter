@@ -19,7 +19,6 @@ public class DialogueStarter : MonoBehaviour
     public Clue clueinDialogue;
 
     private bool isPlayerInRange = false;
-    private bool hasTriggered = false;
     private bool waitingForInput = false;
 
     private void Start()
@@ -30,7 +29,7 @@ public class DialogueStarter : MonoBehaviour
 
     private void Update()
     {
-        if (isPlayerInRange && !hasTriggered)
+        if (isPlayerInRange && !DialogueManager.instance.IsTalking())
         {
             if (!talkPrompt.gameObject.activeSelf && waitingForInput)
             {
@@ -39,17 +38,16 @@ public class DialogueStarter : MonoBehaviour
 
             if (Input.GetButtonDown("Interact"))
             {
-                hasTriggered = true;
                 talkPrompt.gameObject.SetActive(false);
                 dialogueManager.currentDialogueStarter = this;
 
                 Dialogue dialogueToStart = GetAppropriateDialogue();
                 dialogueManager.StartConvo(dialogueToStart);
 
-                FriendlyNPC npc = GetComponent<FriendlyNPC>();
+                npcAI npc = GetComponent<npcAI>();
                 if (npc != null)
                 {
-                    GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+                    GameObject playerObj = GameObject.FindWithTag("Player");
                     if (playerObj != null)
                     {
                         npc.StartDialogue(playerObj.transform);

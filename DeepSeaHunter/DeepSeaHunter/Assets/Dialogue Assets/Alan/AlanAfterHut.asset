@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a688ceb77ec1554a9c1805812809e50, type: 3}
-  m_Name: AlanAfterJim
+  m_Name: AlanAfterHut
   m_EditorClassIdentifier: 
   npcName: Alan
   lines:
@@ -22,14 +22,12 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
-  - speakerName: 'Player:'
-    line: "\u201CI\u2019m looking for my friend Nathan, wouldn\u2019t happen to know
-      where he dives, would you?\u201D"
-    choices: []
-    completeQuest: 0
-    questToComplete: 0
-    startQuest: 0
-    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 1
+    requiredQuestID: 2
+    questMustBeCompleted: 1
   - speakerName: 'Alan:'
     line: "\"He finally dig a hole too deep?\u201D "
     choices: []
@@ -37,6 +35,12 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
   - speakerName: 'Player:'
     line: "\u201CHe went out diving and hasn\u2019t come back. I\u2019m trying to
       track him down.\u201D "
@@ -45,6 +49,12 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
   - speakerName: 'Alan:'
     line: "\u201CFigures. Either he found what he was lookin\u2019 for\u2026 or it
       found him. My bet? Sea serpent. Or a cursed statue. Or one of those angry barnacles
@@ -57,6 +67,12 @@ MonoBehaviour:
     questToComplete: 3
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
   - speakerName: 'Player:'
     line: "\u201CI\u2019m a bit short on funds right now.\u201D"
     choices: []
@@ -64,6 +80,12 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
   - speakerName: 'Alan:'
     line: "\u201CTell you what\u2014grab some of them fat crabs off the north beach,
       give \u2018em to Jim on my behalf. He\u2019ll trade his soul for shellfish.
@@ -75,6 +97,12 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
   - speakerName: 'Player:'
     line: '"Got it, three crabs to Jim on your behalf and you''ll take me out. Sounds
       Good, I''ll be back later."'
@@ -83,3 +111,9 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 1
     questToStart: 4
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0

@@ -13,7 +13,7 @@ public class Clue : MonoBehaviour, IInteractable
     public float popupDuration = 2f;
 
     [Header("Interaction Prompt")]
-    public string interactPromptText = "Press [E] to Pick Up";  // <-- NEW!!
+    public string interactPromptText = "Press [E] to Pick Up"; 
 
     private bool pickedUp = false;
     private Coroutine popupCoroutine;

@@ -2,18 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FriendlyNPC : MonoBehaviour
+public class npcAI : MonoBehaviour
 {
-    [Header("<----- General ----->")]
     public Renderer model;
     public Animator anim;
     private Color modelColor;
 
-    [Header("<----- NavMesh ----->")]
     public NavMeshAgent agent;
     private Vector3 startingPos;
 
-    [Header("<----- Roaming ----->")]
     public int roamPauseTime = 3;
     public float roamDist = 2f;
 
@@ -24,11 +21,14 @@ public class FriendlyNPC : MonoBehaviour
     private bool isPlayerInteracting;
 
     private Transform player;
+    public bool shopUnlocked = false;
+    public Shop shop;
 
     void Start()
     {
         modelColor = model.material.color;
         startingPos = transform.position;
+        Roam();
     }
 
     void Update()
@@ -45,7 +45,7 @@ public class FriendlyNPC : MonoBehaviour
 
     void HandleRoaming()
     {
-        if (!isPlayerInteracting)
+        if (!isPlayerInteracting && !isTalking)
         {
             if (agent.remainingDistance <= 0.1f)
                 roamTimer += Time.deltaTime;
@@ -99,15 +99,22 @@ public class FriendlyNPC : MonoBehaviour
     {
         isTalking = true;
         talkingTarget = playerTransform;
-        agent.ResetPath(); 
-        anim.SetFloat("Speed", 0f); 
+        agent.ResetPath();
+        agent.isStopped = true;
+        anim.SetFloat("Speed", 0f);
     }
 
     public void EndDialogue()
     {
         isTalking = false;
         talkingTarget = null;
-        roamTimer = 0f; 
+        agent.isStopped = false;
+        roamTimer = 0f;
+
+        if (shop != null && shopUnlocked)
+        {
+            shop.OpenShop();
+        }
     }
 
     public void StopInteraction()

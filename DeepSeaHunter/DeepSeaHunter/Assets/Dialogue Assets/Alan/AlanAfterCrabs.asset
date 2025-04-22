@@ -18,18 +18,16 @@ MonoBehaviour:
     line: "\"Spotted you scuttlin\u2019 around the beach. You wrangle up enough of
       them fat little suckers for Jim?\""
     choices: []
-    completeQuest: 1
-    questToComplete: 0
-    startQuest: 0
-    questToStart: 7
-  - speakerName: 'Alan:'
-    line: "\"Spotted you scuttlin\u2019 around the beach. You wrangle up enough of
-      them fat little suckers for Jim?\""
-    choices: []
     completeQuest: 0
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 1
+    requiredQuestID: 4
+    questMustBeCompleted: 1
   - speakerName: 'Player:'
     line: "\"I\u2019ve delivered the crabs to Jim, so can you take me out now?\""
     choices: []
@@ -37,6 +35,12 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
   - speakerName: 'Alan:'
     line: "\"I could... but unless you\u2019re plannin\u2019 to dive blind and hold
       your breath the whole way, you\u2019re not ready. Best swing by Jewel\u2019s\u2014see
@@ -46,6 +50,12 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 1
     questToStart: 7
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
   - speakerName: 'Player:'
     line: "\"Right... guess I\u2019ll be back.\""
     choices: []
@@ -53,3 +63,9 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
