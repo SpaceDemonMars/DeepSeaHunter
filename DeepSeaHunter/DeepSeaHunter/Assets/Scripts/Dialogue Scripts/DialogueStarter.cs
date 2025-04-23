@@ -19,37 +19,47 @@ public class DialogueStarter : MonoBehaviour
     public Clue clueinDialogue;
 
     private bool isPlayerInRange = false;
-    private bool hasTriggered = false;
     private bool waitingForInput = false;
+
+    private float dialogueCooldown = 0.7f;
+    private float lastDialogueTime = -10f;
+
 
     private void Start()
     {
-        talkPrompt = GameManager.instance.interactPrompt;
         dialogueManager = GameManager.instance.dialogueManager;
+
+        if (GameManager.instance.interactPrompt != null)
+        {
+            talkPrompt = GameManager.instance.interactPrompt;
+        }
     }
 
     private void Update()
     {
-        if (isPlayerInRange && !hasTriggered)
+        if (isPlayerInRange && !DialogueManager.instance.IsTalking() && Time.time - lastDialogueTime > dialogueCooldown)
         {
-            if (!talkPrompt.gameObject.activeSelf && waitingForInput)
+            if (talkPrompt != null && !talkPrompt.gameObject.activeSelf && waitingForInput)
             {
                 talkPrompt.gameObject.SetActive(true);
             }
 
             if (Input.GetButtonDown("Interact"))
             {
-                hasTriggered = true;
-                talkPrompt.gameObject.SetActive(false);
+                lastDialogueTime = Time.time;
+
+                if (talkPrompt != null)
+                    talkPrompt.gameObject.SetActive(false);
+
                 dialogueManager.currentDialogueStarter = this;
 
                 Dialogue dialogueToStart = GetAppropriateDialogue();
                 dialogueManager.StartConvo(dialogueToStart);
 
-                FriendlyNPC npc = GetComponent<FriendlyNPC>();
+                npcAI npc = GetComponent<npcAI>();
                 if (npc != null)
                 {
-                    GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+                    GameObject playerObj = GameObject.FindWithTag("Player");
                     if (playerObj != null)
                     {
                         npc.StartDialogue(playerObj.transform);
@@ -57,6 +67,11 @@ public class DialogueStarter : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SetDialogueCooldownTime()
+    {
+        lastDialogueTime = Time.time;
     }
 
     private Dialogue GetAppropriateDialogue()
@@ -85,8 +100,9 @@ public class DialogueStarter : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            talkPrompt.gameObject.SetActive(false);
             waitingForInput = false;
+            if (talkPrompt != null)
+                talkPrompt.gameObject.SetActive(false);
         }
     }
 }

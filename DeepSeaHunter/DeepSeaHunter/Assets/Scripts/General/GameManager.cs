@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using System.Data;
 using System.Collections;
+using System.Collections.Generic;
 using System.Numerics;
 
 public class GameManager : MonoBehaviour
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour
     bool isTutorialLevel;
     public TMP_Text questPopupText;
     public GameObject questPopupObject;
+    private List<int> savedClueIDs = new List<int>();
 
     //public int goalCount;
 
@@ -266,15 +268,19 @@ public class GameManager : MonoBehaviour
 
     public void SaveClueFound(int clueID)
     {
-        PlayerPrefs.SetInt($"ClueFound_{clueID}", 1);
-        PlayerPrefs.Save();
+        if (!savedClueIDs.Contains(clueID))
+            savedClueIDs.Add(clueID);
     }
 
     public bool IsClueFound(int clueID)
     {
-        return PlayerPrefs.GetInt($"ClueFound_{clueID}", 0) == 1;
+        return savedClueIDs.Contains(clueID);
     }
 
+    public List<int> GetFoundClueIDs()
+    {
+        return savedClueIDs;
+    }
     public void loadInventory()
     {
         for (int i = 0; i < invenButtons.Length; i++)

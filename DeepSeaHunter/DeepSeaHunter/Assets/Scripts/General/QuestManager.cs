@@ -25,12 +25,13 @@ public class QuestManager : MonoBehaviour
             Debug.Log($"Cannot start {newQuest.questName} yet. Complete {newQuest.requiredQuest} first.");
             return;
         }
-
+        GameManager.instance.ShowQuestPopup($"New Quest: {newQuest.questName}!");
         if (!activeQuests.Contains(newQuest))
         {
             Debug.Log($"Quest started: {newQuest.questName}");
             activeQuests.Add(newQuest);
             ActivateFirstObjective(newQuest);
+            GameManager.instance.ShowQuestPopup($"New Quest: {newQuest.questName}!");
         }
     }
 
