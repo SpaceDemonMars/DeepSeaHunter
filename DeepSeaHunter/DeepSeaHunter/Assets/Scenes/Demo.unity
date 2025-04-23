@@ -40712,7 +40712,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6203426518234882635, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+    - {fileID: 7372525255921657197, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
@@ -47982,6 +47984,10 @@ PrefabInstance:
       propertyPath: shopText
       value: 
       objectReference: {fileID: 850963393}
+    - target: {fileID: 1857998788997457787, guid: 56d3d955b20150d4e9e25a068bdb19bd, type: 3}
+      propertyPath: requiredQuestToUnlock
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3235026007650235286, guid: 56d3d955b20150d4e9e25a068bdb19bd, type: 3}
       propertyPath: m_Name
       value: Jim
