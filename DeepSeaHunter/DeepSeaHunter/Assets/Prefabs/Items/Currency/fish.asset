@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: fish
   m_EditorClassIdentifier: 
   itemId: 0
-  itemName: fish Temp
+  itemName: fish
   itemDescription: use to acquire a fish\ncan be traded to jim as currency
   quantity: 1
   itemIcon: {fileID: 0}

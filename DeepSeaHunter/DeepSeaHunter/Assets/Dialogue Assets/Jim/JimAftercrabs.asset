@@ -28,6 +28,20 @@ MonoBehaviour:
     requiresQuest: 1
     requiredQuestID: 3
     questMustBeCompleted: 1
+  - speakerName: 'Jim:'
+    line: "\"Eh, I can smell a fresh catch from ten paces off. Got somethin\u2019
+      for ol\u2019 Jim?\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 1
+    requiredItemName: fish
+    requiredItemAmount: 3
+    requiresQuest: 1
+    requiredQuestID: 3
+    questMustBeCompleted: 1
   - speakerName: 'Player:'
     line: '"Yeah, Alan said to bring these to you."'
     choices: []

@@ -28,6 +28,20 @@ MonoBehaviour:
     requiresQuest: 1
     requiredQuestID: 4
     questMustBeCompleted: 1
+  - speakerName: 'Alan:'
+    line: "\"Spotted you scuttlin\u2019 around the beach. You wrangle up enough of
+      them fat little suckers for Jim?\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 1
+    requiredQuestID: 4
+    questMustBeCompleted: 1
   - speakerName: 'Player:'
     line: "\"I\u2019ve delivered the crabs to Jim, so can you take me out now?\""
     choices: []

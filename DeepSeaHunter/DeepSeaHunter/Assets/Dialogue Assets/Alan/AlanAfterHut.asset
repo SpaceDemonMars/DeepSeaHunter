@@ -15,8 +15,20 @@ MonoBehaviour:
   npcName: Alan
   lines:
   - speakerName: 'Player:'
-    line: "\u201CI\u2019m looking for my friend Nathan, wouldn\u2019t happen to know
-      where he dives, would you?\u201D"
+    line: "\u201CYou wouldn\u2019t happen to know where Nathan dives, would you?\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 1
+    requiredQuestID: 2
+    questMustBeCompleted: 1
+  - speakerName: 'Player:'
+    line: "\u201CYou wouldn\u2019t happen to know where Nathan dives, would you?\u201D"
     choices: []
     completeQuest: 0
     questToComplete: 0

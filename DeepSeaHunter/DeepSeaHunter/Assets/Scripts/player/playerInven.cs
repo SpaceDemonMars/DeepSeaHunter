@@ -20,12 +20,19 @@ public class playerInven : MonoBehaviour
         items = new List<Item>();
         qty = new List<int>();
     }
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     public void addItem(Item item)
     {
         if (item != null)
         {
-            if (items.Count < 0) //inventory empty
+            if (items.Count == 0) //inventory empty
             {
                 items.Add(item);
                 qty.Add(item.quantity);
