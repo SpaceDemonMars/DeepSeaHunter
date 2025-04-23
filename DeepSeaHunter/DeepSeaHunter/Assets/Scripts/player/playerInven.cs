@@ -7,6 +7,8 @@ using System.Reflection;
 
 public class playerInven : MonoBehaviour
 {
+    public invenSAVE inventory;
+
     public int currencyFish;
     public int currencyScrap;
 

@@ -145,13 +145,11 @@ public class GameManager : MonoBehaviour
     public void Save()
     {
         if (gameSave == null) gameSave = ScriptableObject.CreateInstance<generalSAVE>();
-        if (gameSave.pSAVE == null) gameSave.pSAVE = ScriptableObject.CreateInstance<playerSAVE>();
-        //save player
-        gameSave.pSAVE = playerScript.savePlayer();
     }
 
     public void Load() 
-    { 
+    {
+        if (gameSave == null) return;
     }
 
 

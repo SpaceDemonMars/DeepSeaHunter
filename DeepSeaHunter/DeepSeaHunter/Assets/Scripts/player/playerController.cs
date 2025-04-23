@@ -98,7 +98,11 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         HPOrig = HP;
         speedOrig = speed;
         //shootDist = shootMin;
-        spawnPlayer();
+        if (pSAVE == null)
+            spawnPlayer();
+        else
+            loadPlayer();
+        updatePlayerUI();
     }
 
     // Update is called once per frame
@@ -131,9 +135,6 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         if (pSAVE == null) pSAVE = ScriptableObject.CreateInstance<playerSAVE>();
         pSAVE.playerPosition = controller.transform.position;
         pSAVE.playerHP = HP;
-        pSAVE.playerSpeed = speed;
-        pSAVE.playerDashStr = dashStr;
-        pSAVE.playerJumpStr = jumpStr;
         pSAVE.playerLightOn = flashLight.activeSelf;
         pSAVE.playerMelee = meleeCurr;
         pSAVE.playerRanged = rangedCurr;
@@ -142,7 +143,19 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
     public void loadPlayer(playerSAVE newSave)
     {
-        if (pSAVE == null) pSAVE = newSave;
+        pSAVE = newSave;
+        loadPlayer();
+    }
+
+    public void loadPlayer()
+    {
+        controller.transform.position = pSAVE.playerPosition;
+        HP = pSAVE.playerHP;
+        flashLight.SetActive(pSAVE.playerLightOn);
+        meleeCurr = pSAVE.playerMelee;
+        changeMeleeWeapon();
+        rangedCurr = pSAVE.playerRanged;
+        changeRangedWeapon();
     }
 
   /*  void HandleCluePickup()
