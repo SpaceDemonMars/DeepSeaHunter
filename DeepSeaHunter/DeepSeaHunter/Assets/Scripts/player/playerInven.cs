@@ -181,4 +181,23 @@ public class playerInven : MonoBehaviour
     public void addScrap(int scrap) { currencyScrap += scrap; setScrapText(); }
     public void setFishText() { GameManager.instance.fishText.text = currencyFish.ToString(); }
     public void setScrapText() { GameManager.instance.scrapText.text = currencyScrap.ToString(); }
+
+    public bool attemptFishTrade(int reqFish)
+    {
+        if (currencyFish >= reqFish)
+        {
+            setFish(currencyFish - reqFish);
+            return true;
+        }
+        return false;
+    }
+    public bool attemptScrapTrade(int reqScrap)
+    {
+        if (currencyScrap >= reqScrap)
+        {
+            setScrap(currencyScrap - reqScrap);
+            return true;
+        }
+        return false;
+    }
 }
