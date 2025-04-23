@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcfa0a533154114ca302e7e826e86a9, type: 3}
   m_Name: Player Save
   m_EditorClassIdentifier: 
-  playerPosition: {fileID: 0}
-  playerHP: 0
-  playerSpeed: 0
-  playerDashStr: 0
-  playerJumpStr: 0
+  playerPosition: {x: 28.237883, y: 17.377089, z: -20.934904}
+  playerHP: 10
   playerLightOn: 0
-  playerMelee: {fileID: 0}
-  playerRanged: {fileID: 0}
+  playerMelee: {fileID: 11400000, guid: 6c242348c5cc6104f83ea56474d013da, type: 2}
+  playerRanged: {fileID: 11400000, guid: e63e139f1d534924f90c40ed1cfc777a, type: 2}

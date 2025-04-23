@@ -7,6 +7,8 @@ using System.Reflection;
 
 public class playerInven : MonoBehaviour
 {
+    public invenSAVE inventory;
+
     public int currencyFish;
     public int currencyScrap;
 
@@ -17,8 +19,18 @@ public class playerInven : MonoBehaviour
 
     private void Start()
     {
-        items = new List<Item>();
-        qty = new List<int>();
+        if (inventory == null)
+        {
+            items = new List<Item>();
+            qty = new List<int>();
+        }
+        else
+        {
+            items = inventory.items;
+            qty = inventory.qty;
+            currencyFish = inventory.fish;
+            currencyScrap = inventory.scrap;
+        }
     }
     private void Awake()
     {
@@ -27,6 +39,11 @@ public class playerInven : MonoBehaviour
         else
             Destroy(gameObject);
     }
+
+    /*public invenSAVE saveInven()
+    {
+
+    }*/
 
     public void addItem(Item item)
     {
@@ -164,4 +181,23 @@ public class playerInven : MonoBehaviour
     public void addScrap(int scrap) { currencyScrap += scrap; setScrapText(); }
     public void setFishText() { GameManager.instance.fishText.text = currencyFish.ToString(); }
     public void setScrapText() { GameManager.instance.scrapText.text = currencyScrap.ToString(); }
+
+    public bool attemptFishTrade(int reqFish)
+    {
+        if (currencyFish >= reqFish)
+        {
+            setFish(currencyFish - reqFish);
+            return true;
+        }
+        return false;
+    }
+    public bool attemptScrapTrade(int reqScrap)
+    {
+        if (currencyScrap >= reqScrap)
+        {
+            setScrap(currencyScrap - reqScrap);
+            return true;
+        }
+        return false;
+    }
 }

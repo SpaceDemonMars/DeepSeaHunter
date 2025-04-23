@@ -1,16 +1,16 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 [CreateAssetMenu]
 public class generalSAVE : ScriptableObject
 {
-    public playerSAVE pSAVE;
+    public playerSAVE pSave;
 
-    //from playerInven
-    public int fish;
-    public int scrap;
-    public List<Item> items;
-    public List<int> qty;
+    public invenSAVE iSave;
+
+    public buttonSettingsSAVE bSave;
 
     //from oxygen
     public int o2;
