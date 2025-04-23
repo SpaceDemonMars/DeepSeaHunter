@@ -25,7 +25,20 @@ MonoBehaviour:
     requiredItemName: 
     requiredItemAmount: 0
     requiresQuest: 1
-    requiredQuestID: 1
+    requiredQuestID: 7
+    questMustBeCompleted: 1
+  - speakerName: 'Jim:'
+    line: '"Oh Hey. Do ya need somethin''?"'
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 1
+    requiredQuestID: 7
     questMustBeCompleted: 1
   - speakerName: 'Player:'
     line: '"No, just saying hi. See ya around Jim."'

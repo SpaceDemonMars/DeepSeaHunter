@@ -52,7 +52,10 @@ public class DialogueManager : MonoBehaviour
         entries = dialogue.lines;
         currentIndex = 0;
 
-        CleanupChoices();  
+        CleanupChoices();
+
+        StartCoroutine(DelayedFirstEntry());
+
         DisplayEntry(entries[currentIndex]);
 
         GameManager.instance.playerScript.enabled = false;
@@ -198,4 +201,10 @@ public class DialogueManager : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
+    IEnumerator DelayedFirstEntry()
+    {
+        yield return null; 
+        DisplayEntry(entries[currentIndex]);
+    }
+
 }

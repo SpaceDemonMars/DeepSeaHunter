@@ -30,6 +30,21 @@ MonoBehaviour:
     requiredQuestID: 1
     questMustBeCompleted: 1
   - speakerName: 'Player:'
+    line: 'The house is just as disheveled as the rest of the island. Charts line
+      the walls, pinned in every direction, and books are stacked in precarious piles
+      without rhyme or reason. '
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 1
+    requiredQuestID: 1
+    questMustBeCompleted: 1
+  - speakerName: 'Player:'
     line: "Nathan isn\u2019t here. But something on the table catches my eye\u2014a
       note, stabbed through the center of a map with a rusted dive knife. "
     choices: []

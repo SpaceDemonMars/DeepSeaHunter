@@ -25,6 +25,29 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Player:'
+    line: "The man looked like your typical whaler\u2014sun-bleached clothes, salt-stained
+      boots, and a smell that could gut a seagull at ten paces. His face held scars
+      that surely had tales to tell. One of them, a jagged cut of skin, split his
+      cheek like a lightning bolt frozen in flesh, and the rest of his face looked
+      carved from wind and grit."
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
   - speakerName: 'Player:'
     line: "\u201CI\u2019m looking for my friend Nathan, wouldn\u2019t happen to know
       where he is, do you?\""
@@ -33,6 +56,12 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
   - speakerName: 'Alan:'
     line: "\u201CAh, Nathan? Yeah, I know him. Bit squirrelly\u2014always jabberin\u2019
       about old ruins like he was about to discover Atlantis with a pocket compass
@@ -43,6 +72,12 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
   - speakerName: 'Player:'
     line: '"Alright, I''ll see you around then."'
     choices: []
@@ -50,3 +85,9 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0

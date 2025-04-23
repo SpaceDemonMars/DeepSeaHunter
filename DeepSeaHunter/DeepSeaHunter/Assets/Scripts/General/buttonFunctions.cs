@@ -16,6 +16,11 @@ public class buttonFunctions : MonoBehaviour
     }
 
 
+    public void save()
+    {
+        GameManager.instance.Save();
+    }
+
     public void resume() { GameManager.instance.stateUnpause(); GameManager.instance.playSFX(); }
 
     public void restart()

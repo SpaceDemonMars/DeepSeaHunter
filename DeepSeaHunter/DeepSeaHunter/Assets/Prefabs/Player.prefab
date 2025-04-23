@@ -133,7 +133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2046765371751359897
 Transform:
   m_ObjectHideFlags: 0
@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1550a75e61bd91b4787bbbd9a0a08583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pSAVE: {fileID: 11400000, guid: 7dddec97a31d3dc419d72cc7fba4c61b, type: 2}
   HP: 10
   ignoreLayer:
     serializedVersion: 2
@@ -355,7 +356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadfac11296129848b9aa0ac85560eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 9028923487959050655}
   o2: 10
   drownDmg: 1
   o2TickRate: 3
@@ -371,7 +371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97872d19429f38d4782edb58e9e8afbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 9028923487959050655}
   coldSlow: 1.5
   veryColdSlow: 2
   freezeDmg: 1
@@ -673,9 +672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &5144909167199626873
 GameObject:
   m_ObjectHideFlags: 0

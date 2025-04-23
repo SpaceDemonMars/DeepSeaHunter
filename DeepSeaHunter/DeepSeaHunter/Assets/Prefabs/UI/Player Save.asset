@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3797783057f75e24c90bfbb7a406eee6, type: 3}
-  m_Name: fish
+  m_Script: {fileID: 11500000, guid: 8bcfa0a533154114ca302e7e826e86a9, type: 3}
+  m_Name: Player Save
   m_EditorClassIdentifier: 
-  itemId: 0
-  itemName: fish
-  itemDescription: use to acquire a fish\ncan be traded to jim as currency
-  quantity: 1
-  itemIcon: {fileID: 0}
-  fishValue: 1
-  scrapValue: 0
+  playerPosition: {fileID: 0}
+  playerHP: 0
+  playerSpeed: 0
+  playerDashStr: 0
+  playerJumpStr: 0
+  playerLightOn: 0
+  playerMelee: {fileID: 0}
+  playerRanged: {fileID: 0}

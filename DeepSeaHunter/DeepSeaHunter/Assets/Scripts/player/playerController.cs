@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 {
+    public playerSAVE pSAVE;
     [Header("General")]
     public int HP;
     [SerializeField] LayerMask ignoreLayer;
@@ -123,6 +124,25 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
         updateReloadUI();
    //     HandleCluePickup();
+    }
+
+    public playerSAVE savePlayer()
+    {
+        if (pSAVE == null) pSAVE = ScriptableObject.CreateInstance<playerSAVE>();
+        pSAVE.playerPosition = controller.transform.position;
+        pSAVE.playerHP = HP;
+        pSAVE.playerSpeed = speed;
+        pSAVE.playerDashStr = dashStr;
+        pSAVE.playerJumpStr = jumpStr;
+        pSAVE.playerLightOn = flashLight.activeSelf;
+        pSAVE.playerMelee = meleeCurr;
+        pSAVE.playerRanged = rangedCurr;
+        return pSAVE;
+    }
+
+    public void loadPlayer(playerSAVE newSave)
+    {
+        if (pSAVE == null) pSAVE = newSave;
     }
 
   /*  void HandleCluePickup()

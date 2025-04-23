@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class oxygen : MonoBehaviour
 {
-    [SerializeField] playerController player;
     [SerializeField] int o2;
     int o2Max;
     [SerializeField] int drownDmg;
@@ -43,11 +42,11 @@ public class oxygen : MonoBehaviour
             {
                 int dif = drownDmg - o2;
                 o2 = 0;
-                player.takeDamage(dif, (int)IDamage.sourceType.o2);
+                GameManager.instance.playerScript.takeDamage(dif, (int)IDamage.sourceType.o2);
             }
             else //deal dmg only
             {
-                player.takeDamage(drownDmg, (int)IDamage.sourceType.o2);
+                GameManager.instance.playerScript.takeDamage(drownDmg, (int)IDamage.sourceType.o2);
             }
             updateO2UI();
         }

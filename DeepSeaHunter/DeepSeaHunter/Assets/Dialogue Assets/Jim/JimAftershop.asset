@@ -26,6 +26,30 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Jim:'
+    line: "\"Is that just the sea air on the breeze, or do you have somethin\u2019
+      for ol\u2019 Jim?\""
+    choices:
+    - choiceText: '"Sure, have a look at my catch."'
+      nextLineIndex: 2
+    - choiceText: '"Not right now, just checking in."'
+      nextLineIndex: 1
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
   - speakerName: 'Player:'
     line: '"See you around, Jim."'
     choices: []
@@ -33,6 +57,12 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
   - speakerName: 'Jim:'
     line: "\"Sounds good\u2014I\u2019ll give you a fair trade, something tasty for
       you.\""
@@ -41,3 +71,9 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0

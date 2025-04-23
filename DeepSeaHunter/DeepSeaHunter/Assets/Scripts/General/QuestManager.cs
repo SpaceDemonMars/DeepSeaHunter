@@ -11,11 +11,14 @@ public class QuestManager : MonoBehaviour
 
     private void Awake()
     {
-        AutoAssignFirstQuest();
         if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
+    }
+    private void Start()
+    {
+        AutoAssignFirstQuest();
     }
 
     public void StartQuest(Quest newQuest)

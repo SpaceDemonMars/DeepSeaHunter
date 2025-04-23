@@ -38,6 +38,9 @@ public class Clue : MonoBehaviour, IInteractable
         if (JournalManager.instance != null) 
             JournalManager.instance.DiscoverClue(this);
 
+        if (GameManager.instance != null)
+            GameManager.instance.SaveClueFound(clueID);
+
         if (cluePopupText != null)
         {
             if (popupCoroutine != null)

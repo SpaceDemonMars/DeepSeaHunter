@@ -5,10 +5,12 @@ using Unity.VisualScripting;
 using System.Data;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    [SerializeField] generalSAVE gameSave;
 
     [Header("Menus")]
     [SerializeField] GameObject menuActive;
@@ -139,6 +141,19 @@ public class GameManager : MonoBehaviour
         openTabEquipment();
         openTabJournal();
     }
+
+    public void Save()
+    {
+        if (gameSave == null) gameSave = ScriptableObject.CreateInstance<generalSAVE>();
+        if (gameSave.pSAVE == null) gameSave.pSAVE = ScriptableObject.CreateInstance<playerSAVE>();
+        //save player
+        gameSave.pSAVE = playerScript.savePlayer();
+    }
+
+    public void Load() 
+    { 
+    }
+
 
     public void openTabSettings(bool buttonClick = false)
     {

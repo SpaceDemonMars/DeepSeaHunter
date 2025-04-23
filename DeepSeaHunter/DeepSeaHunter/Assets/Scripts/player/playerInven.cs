@@ -7,25 +7,32 @@ using System.Reflection;
 
 public class playerInven : MonoBehaviour
 {
-    public static playerInven Instance;
     public int currencyFish;
     public int currencyScrap;
 
     List<Item> items;
     List<int> qty;
-  public static playerInven Instance;
+
+    public static playerInven Instance;
 
     private void Start()
     {
         items = new List<Item>();
         qty = new List<int>();
     }
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     public void addItem(Item item)
     {
         if (item != null)
         {
-            if (items.Count < 0) //inventory empty
+            if (items.Count == 0) //inventory empty
             {
                 items.Add(item);
                 qty.Add(item.quantity);
