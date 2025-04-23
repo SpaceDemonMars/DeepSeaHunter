@@ -8,23 +8,53 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameTxt;
     public TextMeshProUGUI dialogueLine;
     public GameObject dialogueBox;
-    private bool isTalking = false;
     public Transform choiceParent;
     public GameObject choiceButton;
 
     [SerializeField] private DialogueEntry[] entries;
     private int currentIndex = 0;
 
+    private bool isTalking = false;
+    private bool isReadyToClose = false;
+
     public DialogueStarter currentDialogueStarter;
     public static DialogueManager instance;
+    public bool IsTalking() => isTalking;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    void Update()
+    {
+        if (!isTalking) return;
+
+        if (Input.GetButtonDown("Interact") && choiceParent.childCount == 0)
+        {
+            if (isReadyToClose)
+            {
+                EndDialogue();
+            }
+            else
+            {
+                DisplayNextEntry();
+            }
+        }
+    }
 
     public void StartConvo(Dialogue dialogue)
     {
         isTalking = true;
+        isReadyToClose = false;
+
         dialogueBox.SetActive(true);
         entries = dialogue.lines;
         currentIndex = 0;
+
+        CleanupChoices();  
         DisplayEntry(entries[currentIndex]);
+
         GameManager.instance.playerScript.enabled = false;
 
         if (currentDialogueStarter != null)
@@ -40,7 +70,7 @@ public class DialogueManager : MonoBehaviour
         currentIndex++;
         if (currentIndex >= entries.Length)
         {
-            EndDialogue();
+            isReadyToClose = true;
             return;
         }
 
@@ -69,23 +99,16 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        if (entry.requiresItem)
+        if (entry.requiresItem && !playerInven.Instance.HasItem(entry.requiredItemName, entry.requiredItemAmount))
         {
-            if (!playerInven.Instance.HasItem(entry.requiredItemName, entry.requiredItemAmount))
-            {
-                DisplayNextEntry();
-                return;
-            }
+            DisplayNextEntry();
+            return;
         }
 
         StartCoroutine(TypeSentence(entry.line));
+        nameTxt.text = string.IsNullOrEmpty(entry.speakerName) ? "???" : entry.speakerName;
 
-        nameTxt.text = !string.IsNullOrEmpty(entry.speakerName) ? entry.speakerName : "???";
-
-        foreach (Transform child in choiceParent)
-        {
-            Destroy(child.gameObject);
-        }
+        CleanupChoices();
 
         if (entry.completeQuest)
         {
@@ -141,45 +164,38 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        dialogueBox.SetActive(false);
         isTalking = false;
-        entries = null;
-        currentIndex = 0;
+        isReadyToClose = false;
+        dialogueBox.SetActive(false);
+
+        CleanupChoices();
 
         nameTxt.text = "";
         dialogueLine.text = "";
-
-        foreach (Transform child in choiceParent)
-        {
-            Destroy(child.gameObject);
-        }
+        entries = null;
+        currentIndex = 0;
 
         if (currentDialogueStarter != null)
         {
             if (currentDialogueStarter.clueinDialogue != null)
-            {
                 JournalManager.instance.DiscoverClue(currentDialogueStarter.clueinDialogue);
-            }
 
             npcAI npc = currentDialogueStarter.GetComponent<npcAI>();
             if (npc != null)
-            {
                 npc.EndDialogue();
-            }
 
+            currentDialogueStarter.SetDialogueCooldownTime();
             currentDialogueStarter = null;
         }
 
         GameManager.instance.playerScript.enabled = true;
     }
 
-    public bool IsTalking() => isTalking;
-
-    void Update()
+    void CleanupChoices()
     {
-        if (isTalking && Input.GetButtonDown("Interact") && choiceParent.childCount == 0)
+        foreach (Transform child in choiceParent)
         {
-            DisplayNextEntry();
+            Destroy(child.gameObject);
         }
     }
 }

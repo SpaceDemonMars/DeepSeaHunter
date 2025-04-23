@@ -23,7 +23,7 @@ MonoBehaviour:
     startQuest: 0
     questToStart: 0
     requiresItem: 1
-    requiredItemName: babycrab
+    requiredItemName: fish
     requiredItemAmount: 3
     requiresQuest: 1
     requiredQuestID: 3

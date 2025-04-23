@@ -28,7 +28,7 @@ public class npcAI : MonoBehaviour
     {
         modelColor = model.material.color;
         startingPos = transform.position;
-        Roam();
+        roamTimer = roamPauseTime; // Delay initial roam
     }
 
     void Update()
@@ -99,6 +99,7 @@ public class npcAI : MonoBehaviour
     {
         isTalking = true;
         talkingTarget = playerTransform;
+        player = playerTransform;
         agent.ResetPath();
         agent.isStopped = true;
         anim.SetFloat("Speed", 0f);
@@ -108,6 +109,7 @@ public class npcAI : MonoBehaviour
     {
         isTalking = false;
         talkingTarget = null;
+        player = null;
         agent.isStopped = false;
         roamTimer = 0f;
 
