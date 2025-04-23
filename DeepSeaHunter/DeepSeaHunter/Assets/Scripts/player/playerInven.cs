@@ -19,8 +19,18 @@ public class playerInven : MonoBehaviour
 
     private void Start()
     {
-        items = new List<Item>();
-        qty = new List<int>();
+        if (inventory == null)
+        {
+            items = new List<Item>();
+            qty = new List<int>();
+        }
+        else
+        {
+            items = inventory.items;
+            qty = inventory.qty;
+            currencyFish = inventory.fish;
+            currencyScrap = inventory.scrap;
+        }
     }
     private void Awake()
     {
@@ -29,6 +39,11 @@ public class playerInven : MonoBehaviour
         else
             Destroy(gameObject);
     }
+
+    /*public invenSAVE saveInven()
+    {
+
+    }*/
 
     public void addItem(Item item)
     {
