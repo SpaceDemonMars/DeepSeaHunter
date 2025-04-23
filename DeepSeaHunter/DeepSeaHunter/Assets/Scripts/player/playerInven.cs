@@ -12,6 +12,9 @@ public class playerInven : MonoBehaviour
 
     List<Item> items;
     List<int> qty;
+
+    public static playerInven Instance;
+
     private void Start()
     {
         items = new List<Item>();
