@@ -520,6 +520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4867027562523233660}
+  - component: {fileID: -5603978381053907772}
   - component: {fileID: 3529336494510609939}
   - component: {fileID: 3030732028339514088}
   - component: {fileID: 237084315235570841}
@@ -550,6 +551,21 @@ Transform:
   - {fileID: 3791323128340824498}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5603978381053907772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3517881384172468905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9ab88ad7bd070428fe6c1b23a112dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPrefab: {fileID: 774143862851430196, guid: eabe746db9075444faa34dfdb24da968, type: 3}
+  dropPoint: {fileID: 0}
+  itemNameOverride: 
 --- !u!114 &3529336494510609939
 MonoBehaviour:
   m_ObjectHideFlags: 0

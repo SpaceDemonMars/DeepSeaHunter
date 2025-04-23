@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 3305178411530609273}
   - component: {fileID: 758090861450329258}
   - component: {fileID: 7450129943394257545}
+  - component: {fileID: 7318348403997576686}
   m_Layer: 0
   m_Name: GiantSquid
   m_TagString: GrapplePoint
@@ -731,6 +732,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7318348403997576686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3564171174197936835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9ab88ad7bd070428fe6c1b23a112dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPrefab: {fileID: 774143862851430196, guid: eabe746db9075444faa34dfdb24da968, type: 3}
+  dropPoint: {fileID: 0}
+  itemNameOverride: 
 --- !u!1 &3660545873095767276
 GameObject:
   m_ObjectHideFlags: 0

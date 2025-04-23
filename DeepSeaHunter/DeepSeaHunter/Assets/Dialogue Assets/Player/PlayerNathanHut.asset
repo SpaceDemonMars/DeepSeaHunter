@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a688ceb77ec1554a9c1805812809e50, type: 3}
+  m_Name: PlayerNathanHut
+  m_EditorClassIdentifier: 
+  npcName: Player
+  lines:
+  - speakerName: 'Player:'
+    line: 'The house is just as disheveled as the rest of the island. Charts line
+      the walls, pinned in every direction, and books are stacked in precarious piles
+      without rhyme or reason. '
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 1
+    requiredQuestID: 1
+    questMustBeCompleted: 1
+  - speakerName: 'Player:'
+    line: 'The house is just as disheveled as the rest of the island. Charts line
+      the walls, pinned in every direction, and books are stacked in precarious piles
+      without rhyme or reason. '
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 1
+    requiredQuestID: 1
+    questMustBeCompleted: 1
+  - speakerName: 'Player:'
+    line: "Nathan isn\u2019t here. But something on the table catches my eye\u2014a
+      note, stabbed through the center of a map with a rusted dive knife. "
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Note:'
+    line: "\u201CI found it. The entrance to the lower caves. I\u2019m heading there
+      early tomorrow. If you find this and I\u2019m not back... ...well, maybe I
+      should\u2019ve waited."
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Player:'
+    line: "Of course. Impulsive as ever. He never could wait long enough to do things
+      the right way. Maybe that\u2019s why we drifted apart all those years ago. "
+    choices: []
+    completeQuest: 1
+    questToComplete: 2
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Player:'
+    line: "Still... he reached out. That means something. I should ask around\u2014see
+      if anyone knows where he was diving lately."
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 1
+    questToStart: 3
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0

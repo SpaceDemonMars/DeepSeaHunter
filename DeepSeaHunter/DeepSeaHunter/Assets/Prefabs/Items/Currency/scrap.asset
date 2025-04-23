@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3797783057f75e24c90bfbb7a406eee6, type: 3}
+  m_Name: scrap
+  m_EditorClassIdentifier: 
+  itemId: 1
+  itemName: scrap Temp
+  itemDescription: use to acquire a scrap metal\ncan be traded to metal worker as
+    currency
+  quantity: 1
+  itemIcon: {fileID: 0}
+  fishValue: 0
+  scrapValue: 1
