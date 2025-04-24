@@ -1,9 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Collections;
 
-public class LogoFadeController : MonoBehaviour
+public class LogoFade : MonoBehaviour
 {
     public RawImage logoImage;
     public float fadeDuration = 2f;
@@ -19,7 +19,8 @@ public class LogoFadeController : MonoBehaviour
         yield return Fade(0, 1); // Fade in
         yield return new WaitForSeconds(displayDuration);
         yield return Fade(1, 0); // Fade out
-        SceneManager.LoadScene("LoadingScreen");
+
+        SceneManager.LoadScene("MainMenu"); 
     }
 
     IEnumerator Fade(float from, float to)

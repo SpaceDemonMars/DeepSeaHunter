@@ -9,15 +9,15 @@ public class LoadingManager : MonoBehaviour
     public GameObject loadingScreen;
     public TMP_Text loadingText;
     public TMP_Text continuePrompt;
+    public static string nextSceneToLoad = "Demo";
 
     private bool isSceneReady = false;
-    private bool canProceed = false;
 
     void Start()
     {
         loadingScreen.SetActive(true);
         continuePrompt.gameObject.SetActive(false);
-        StartCoroutine(LoadSceneAsync("Demo")); 
+        StartCoroutine(LoadSceneAsync(nextSceneToLoad));
     }
 
     IEnumerator LoadSceneAsync(string sceneName)
@@ -34,20 +34,8 @@ public class LoadingManager : MonoBehaviour
         loadingText.text = "Loading Complete";
         continuePrompt.gameObject.SetActive(true);
         isSceneReady = true;
-    }
 
-    void Update()
-    {
-        if (isSceneReady && !canProceed && Input.anyKeyDown)
-        {
-            canProceed = true;
-            StartCoroutine(ActivateScene());
-        }
-    }
-
-    IEnumerator ActivateScene()
-    {
-        yield return new WaitForSeconds(0.3f);
-        SceneManager.LoadScene("Demo");
+        yield return new WaitUntil(() => Input.anyKeyDown);
+        loadOperation.allowSceneActivation = true;
     }
 }
