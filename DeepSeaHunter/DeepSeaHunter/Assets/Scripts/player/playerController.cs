@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 {
-    public playerSAVE pSAVE;
     [Header("General")]
     public int HP;
     [SerializeField] LayerMask ignoreLayer;
@@ -99,6 +98,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         speedOrig = speed;
         //shootDist = shootMin;
         spawnPlayer();
+        updatePlayerUI();
     }
 
     // Update is called once per frame
@@ -128,21 +128,31 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
     public playerSAVE savePlayer()
     {
-        if (pSAVE == null) pSAVE = ScriptableObject.CreateInstance<playerSAVE>();
-        pSAVE.playerPosition = controller.transform.position;
-        pSAVE.playerHP = HP;
-        pSAVE.playerSpeed = speed;
-        pSAVE.playerDashStr = dashStr;
-        pSAVE.playerJumpStr = jumpStr;
-        pSAVE.playerLightOn = flashLight.activeSelf;
-        pSAVE.playerMelee = meleeCurr;
-        pSAVE.playerRanged = rangedCurr;
+        playerSAVE pSAVE = new()
+        {
+            playerPositionX = controller.transform.position.x,
+            playerPositionY = controller.transform.position.y,
+            playerPositionZ = controller.transform.position.z,
+            playerHP = HP,
+            playerLightOn = flashLight.activeSelf,
+            //playerMelee = meleeCurr,
+            //playerRanged = rangedCurr
+        };
+        Debug.Log("Success: Save (Player)");
         return pSAVE;
     }
 
-    public void loadPlayer(playerSAVE newSave)
+    public void loadPlayer(playerSAVE pSAVE)
     {
-        if (pSAVE == null) pSAVE = newSave;
+        controller.transform.position = 
+            new Vector3(pSAVE.playerPositionX, pSAVE.playerPositionY, pSAVE.playerPositionZ);
+        HP = pSAVE.playerHP;
+        flashLight.SetActive(pSAVE.playerLightOn);
+        //meleeCurr = pSAVE.playerMelee;
+        //changeMeleeWeapon();
+        //rangedCurr = pSAVE.playerRanged;
+        //changeRangedWeapon();
+        Debug.Log("Success: Load (Player)");
     }
 
   /*  void HandleCluePickup()

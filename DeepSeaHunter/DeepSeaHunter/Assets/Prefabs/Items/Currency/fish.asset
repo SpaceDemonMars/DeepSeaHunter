@@ -9,13 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3797783057f75e24c90bfbb7a406eee6, type: 3}
+  m_Script: {fileID: 11500000, guid: 51515c0b943fc7d40998eb97dd845cf9, type: 3}
   m_Name: fish
   m_EditorClassIdentifier: 
   itemId: 0
-  itemName: fish
-  itemDescription: use to acquire a fish\ncan be traded to jim as currency
+  itemName: Fish
+  itemDescription: A fish, a villager might be willing to trade you something for
+    it.\nUse to obtain Fish currency.
   quantity: 1
   itemIcon: {fileID: 0}
   fishValue: 1
   scrapValue: 0
+  hp: 0
+  o2: 0
+  sanity: 0

@@ -22,6 +22,8 @@ public class oxygen : MonoBehaviour
         if (!inO2Zone) trackOxygen();
     }
 
+    public int getO2() { return o2; }
+    public void setO2(int val) { o2 = val; if (o2 > o2Max) o2 = o2Max;  updateO2UI(); }
     public bool getOxygen() { return inO2Zone; }
     public void setOxygen(bool value) 
     {

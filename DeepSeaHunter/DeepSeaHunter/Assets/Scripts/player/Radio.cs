@@ -57,7 +57,7 @@ public class Radio : MonoBehaviour
         else return null;
     }
 
-    void toggleRadio()
+    public void toggleRadio()
     {
         if (Input.GetButtonDown("Radio"))
         {
@@ -74,9 +74,15 @@ public class Radio : MonoBehaviour
         else aud.volume = 0;
     }
     public float GetRadioVol() { return radioVol; } 
-    public bool IsRadioOn() { return radioOn; }
+    public bool getRadioOn() { return radioOn; }
+    public void setRadioOn(bool on)
+    {
+        radioOn = on;
+        SetRadioVol(radioVol);
+        GameManager.instance.pauseMusic.togglePauseMusic(!radioOn);
+    }
 
-    bool getInStatic() { return inStatic; }
+    public bool getInStatic() { return inStatic; }
     public void setInStatic(bool value) 
     {
         if (value != inStatic) 

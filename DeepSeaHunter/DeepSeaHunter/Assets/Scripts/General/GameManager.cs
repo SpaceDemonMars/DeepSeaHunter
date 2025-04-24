@@ -10,7 +10,6 @@ using System.Numerics;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    [SerializeField] generalSAVE gameSave;
 
     [Header("Menus")]
     [SerializeField] GameObject menuActive;
@@ -144,14 +143,36 @@ public class GameManager : MonoBehaviour
 
     public void Save()
     {
-        if (gameSave == null) gameSave = ScriptableObject.CreateInstance<generalSAVE>();
-        if (gameSave.pSAVE == null) gameSave.pSAVE = ScriptableObject.CreateInstance<playerSAVE>();
-        //save player
-        gameSave.pSAVE = playerScript.savePlayer();
+        generalSAVE gameSave = new()
+        {
+            //update save data
+            pSave = playerScript.savePlayer(),
+            iSave = playerScript.inven.saveInven(),
+            o2 = o2.getO2(),
+            inO2Zone = o2.getOxygen(),
+            inStatic = radioScript.getInStatic(),
+            radioOn = radioScript.getRadioOn()
+        };
+        Debug.Log("Success: Save (General)");
+
+        //create save file
+        SaveManager.instance.Save(gameSave);
     }
 
     public void Load() 
-    { 
+    {
+        //retrieve save file
+        generalSAVE gameSave = SaveManager.instance.Load();
+        if (gameSave == null) return; //no save dat; do nothing
+
+        //update data
+        playerScript.loadPlayer(gameSave.pSave);
+        playerScript.inven.loadInven(gameSave.iSave);
+        o2.setO2(gameSave.o2);
+        o2.setOxygen(gameSave.inO2Zone);
+        radioScript.setInStatic(gameSave.inStatic);
+        radioScript.setRadioOn(gameSave.radioOn);
+        Debug.Log("Success: Load (General)");
     }
 
 
@@ -281,22 +302,21 @@ public class GameManager : MonoBehaviour
     {
         return savedClueIDs;
     }
-    public void loadInventory()
+    public void loadInventory() //updates inventory display
     {
         for (int i = 0; i < invenButtons.Length; i++)
         {
-            if(i < playerScript.inven.getInvenSize())
+            invenButtons[i].SetActive(false);
+            if (i < playerScript.inven.getInvenSize())
             {
                 inventoryButtons tempScript = invenButtons[i].GetComponent<inventoryButtons>();
                 if (tempScript != null)
                 {
                     tempScript.item = playerScript.inven.getItem(i);
-                    tempScript.setText();
+                    tempScript.itemName.text = playerScript.inven.getItem(i).itemName;
                 }
                 invenButtons[i].SetActive(true);
             }
-            else
-                invenButtons[i].SetActive(false);
         }
     }
 
@@ -313,7 +333,7 @@ public class GameManager : MonoBehaviour
     public void stateUnpause()
     {
         isPaused = !isPaused;
-        pauseMusic.togglePauseMusic(!radioScript.IsRadioOn());
+        pauseMusic.togglePauseMusic(!radioScript.getRadioOn());
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         radioScript.aud.UnPause();

@@ -1761,6 +1761,11 @@ Transform:
   - {fileID: 1501716991}
   m_Father: {fileID: 522662027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &84973272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1239480813281865687, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+  m_PrefabInstance: {fileID: 1900480357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &85438231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2797,6 +2802,10 @@ PrefabInstance:
     - target: {fileID: 3257107100605549542, guid: 1d4fad582ccce5f45bbcd6b863193a8d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011156667974898780, guid: 1d4fad582ccce5f45bbcd6b863193a8d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -15.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39980,6 +39989,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad5508eddcd02e7499171e4db7bf12df, type: 3}
+--- !u!114 &1875953669 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1496211643367430394, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+  m_PrefabInstance: {fileID: 1900480357}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1877499566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40072,7 +40092,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1553908185}
-  - {fileID: 2019129137}
   - {fileID: 943485059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -40685,66 +40704,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].questID
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[5].questName
-      value: Go see the Dive spots
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].questName
-      value: Talk to Jewel about dive gear
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[1].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[2].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[3].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[4].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[5].requiredQuest
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].requiredQuest
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[5].questDescription
-      value: talk to Alan and go out to the dive spots.
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].questDescription
-      value: Get gear to go underwater
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].rewards.Array.data[0].amount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].rewards.Array.data[0].itemName
-      value: Old dive gear
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[5].objectives.Array.data[0].description
-      value: talk to Alan
-      objectReference: {fileID: 0}
     - target: {fileID: 7106277478165863060, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -40825,8 +40784,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8894558590270020490, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: questPopupText
+      value: 
+      objectReference: {fileID: 1875953669}
+    - target: {fileID: 8894558590270020490, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: questPopupObject
+      value: 
+      objectReference: {fileID: 84973272}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6203426518234882635, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+    - {fileID: 7372525255921657197, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
@@ -43444,73 +43413,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4332866142573768768, guid: 97f8e0b33183c9148b23b7680cfbbb03, type: 3}
   m_PrefabInstance: {fileID: 1749681997}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2019129136
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2019129137}
-  - component: {fileID: 2019129138}
-  - component: {fileID: 2019129139}
-  m_Layer: 0
-  m_Name: Zone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2019129137
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019129136}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.2346746, z: -0, w: 0.972074}
-  m_LocalPosition: {x: -14.947325, y: 12.733194, z: -38.847004}
-  m_LocalScale: {x: 2, y: 4, z: 2}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1881483164}
-  m_LocalEulerAnglesHint: {x: 0, y: 27.145, z: 0}
---- !u!65 &2019129138
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019129136}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2019129139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019129136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc2a63e89d673ba4d8c1dce11638ac94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zone: {fileID: 11400000, guid: fc32ff61fa1090b43aa7c7ad23d5a8ca, type: 2}
 --- !u!1 &2021083343
 GameObject:
   m_ObjectHideFlags: 0
@@ -47921,6 +47823,103 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300214, guid: eb8566b6e75507e48bd8ec4fff8f4dd9, type: 3}
+--- !u!1001 &5181590732379612352
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2199630685615888185, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_Name
+      value: SaveManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
 --- !u!1001 &5430039841852996902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48153,6 +48152,10 @@ PrefabInstance:
       propertyPath: shopText
       value: 
       objectReference: {fileID: 850963393}
+    - target: {fileID: 1857998788997457787, guid: 56d3d955b20150d4e9e25a068bdb19bd, type: 3}
+      propertyPath: requiredQuestToUnlock
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3235026007650235286, guid: 56d3d955b20150d4e9e25a068bdb19bd, type: 3}
       propertyPath: m_Name
       value: Jim
@@ -48291,6 +48294,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1521649460}
   - {fileID: 1053582259}
+  - {fileID: 5181590732379612352}
   - {fileID: 1900480357}
   - {fileID: 123263711}
   - {fileID: 770347819}
