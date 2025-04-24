@@ -1761,6 +1761,11 @@ Transform:
   - {fileID: 1501716991}
   m_Father: {fileID: 522662027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &84973272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1239480813281865687, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+  m_PrefabInstance: {fileID: 1900480357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &85438231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39984,6 +39989,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad5508eddcd02e7499171e4db7bf12df, type: 3}
+--- !u!114 &1875953669 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1496211643367430394, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+  m_PrefabInstance: {fileID: 1900480357}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1877499566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40768,6 +40784,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8894558590270020490, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: questPopupText
+      value: 
+      objectReference: {fileID: 1875953669}
+    - target: {fileID: 8894558590270020490, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: questPopupObject
+      value: 
+      objectReference: {fileID: 84973272}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6203426518234882635, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
