@@ -6,7 +6,7 @@ public class inventoryButtons : MonoBehaviour, IPointerEnterHandler, IPointerExi
 {
     public int index;
     public Item item;
-    [SerializeField] TMP_Text itemName;
+    public TMP_Text itemName;
 
     public void setText() { itemName.text = item.name; }
 

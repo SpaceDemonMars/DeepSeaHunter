@@ -2,14 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu]
-public class Item : ScriptableObject
+[Serializable]
+public class ItemSAVE
 {
     public int itemId;
     public string itemName;
     public string itemDescription;
     public int quantity = 1; //this is the quantity being added to the player inventory
-    public Image itemIcon;
+    //public Image itemIcon;
     [Header("Currency")]
     public int fishValue = 0;
     public int scrapValue = 0;

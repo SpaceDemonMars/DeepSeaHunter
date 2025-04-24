@@ -1,12 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class invenSAVE : ScriptableObject
+[Serializable]
+public class invenSAVE
 {
     public int fish;
     public int scrap;
-    public List<Item> items;
-    public List<int> qty;
+    public List<ItemSAVE> items;
 }

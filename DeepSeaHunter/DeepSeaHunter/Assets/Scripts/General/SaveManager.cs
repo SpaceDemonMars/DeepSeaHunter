@@ -19,12 +19,15 @@ public class SaveManager : MonoBehaviour
 
     public void Save(generalSAVE saveDat) //save by reading/writing file
     {
+        if (File.Exists(Application.persistentDataPath + "/save.dat")) //clears existing saveDat
+            File.Delete(Application.persistentDataPath + "/save.dat");
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/save.dat");
         
         bf.Serialize(file, saveDat);
 
         file.Close();
+        Debug.Log("Success: Save");
     }
 
     public generalSAVE Load()
@@ -36,6 +39,7 @@ public class SaveManager : MonoBehaviour
         generalSAVE saveDat = (generalSAVE)bf.Deserialize(file);
         file.Close();
 
+        Debug.Log("Success: Load");
         return saveDat;
     }
 }

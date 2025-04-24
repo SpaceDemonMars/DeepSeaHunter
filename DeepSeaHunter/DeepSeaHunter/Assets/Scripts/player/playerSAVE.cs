@@ -1,14 +1,18 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class playerSAVE : ScriptableObject
+[Serializable]
+public class playerSAVE
 {
-    public Vector3 playerPosition;
+    //playerPosition
+    public float playerPositionX;
+    public float playerPositionY;
+    public float playerPositionZ;
 
     //from playerController
     public int playerHP;
     public bool playerLightOn;
-    public meleeStats playerMelee;
-    public rangedStats playerRanged;
+    //public meleeStats playerMelee;
+    //public rangedStats playerRanged;
 }

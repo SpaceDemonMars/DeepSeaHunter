@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu]
-public class generalSAVE : ScriptableObject
+public class generalSAVE
 {
     public playerSAVE pSave;
 
     public invenSAVE iSave;
-
-    public buttonSettingsSAVE bSave;
 
     //from oxygen
     public int o2;

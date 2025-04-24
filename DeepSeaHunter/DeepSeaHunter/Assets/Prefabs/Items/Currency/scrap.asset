@@ -9,14 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3797783057f75e24c90bfbb7a406eee6, type: 3}
+  m_Script: {fileID: 11500000, guid: 51515c0b943fc7d40998eb97dd845cf9, type: 3}
   m_Name: scrap
   m_EditorClassIdentifier: 
   itemId: 1
-  itemName: scrap Temp
-  itemDescription: use to acquire a scrap metal\ncan be traded to metal worker as
-    currency
+  itemName: Scrap
+  itemDescription: A piece of scap metal found in the ocean. A metal working villager
+    might tade you something good for it. \nUse to obtain scrap currency.
   quantity: 1
   itemIcon: {fileID: 0}
   fishValue: 0
   scrapValue: 1
+  hp: 0
+  o2: 0
+  sanity: 0

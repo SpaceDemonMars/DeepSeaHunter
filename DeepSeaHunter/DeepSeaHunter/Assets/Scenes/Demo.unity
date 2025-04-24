@@ -40688,66 +40688,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].questID
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[5].questName
-      value: Go see the Dive spots
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].questName
-      value: Talk to Jewel about dive gear
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[1].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[2].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[3].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[4].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[5].requiredQuest
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].requiredQuest
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[5].questDescription
-      value: talk to Alan and go out to the dive spots.
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].questDescription
-      value: Get gear to go underwater
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].rewards.Array.data[0].amount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[6].rewards.Array.data[0].itemName
-      value: Old dive gear
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
-      propertyPath: allQuests.Array.data[5].objectives.Array.data[0].description
-      value: talk to Alan
-      objectReference: {fileID: 0}
     - target: {fileID: 7106277478165863060, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -47857,6 +47797,103 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300214, guid: eb8566b6e75507e48bd8ec4fff8f4dd9, type: 3}
+--- !u!1001 &5181590732379612352
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2199630685615888185, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_Name
+      value: SaveManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391983714388905, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: df407b25dca830c40a0f62bb98d571bb, type: 3}
 --- !u!1001 &5430039841852996902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48227,6 +48264,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1521649460}
   - {fileID: 1053582259}
+  - {fileID: 5181590732379612352}
   - {fileID: 1900480357}
   - {fileID: 123263711}
   - {fileID: 770347819}
