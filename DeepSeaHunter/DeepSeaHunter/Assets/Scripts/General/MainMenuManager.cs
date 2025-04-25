@@ -10,6 +10,21 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("LoadingScreen");
     }
 
+    public void LoadGame()
+    {
+        generalSAVE loaded = SaveManager.instance.Load();
+        if (loaded != null)
+        {
+            GameManager.instance.Load();
+            LoadSceneData.nextSceneToLoad = "Demo";
+            SceneManager.LoadScene("LoadingScreen"); 
+        }
+        else
+        {
+            Debug.Log("No save data found.");
+        }
+    }
+
     public void OpenSettings()
     {
         settingsPanel.SetActive(true);
@@ -23,6 +38,11 @@ public class MainMenuManager : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("Quitting game...");
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 }
