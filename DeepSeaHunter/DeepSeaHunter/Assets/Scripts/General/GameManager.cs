@@ -175,6 +175,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Success: Load (General)");
     }
 
+
     public void openTabSettings(bool buttonClick = false)
     {
         if (Input.GetButtonDown("Cancel") || buttonClick == true)
