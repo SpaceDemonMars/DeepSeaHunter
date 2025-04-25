@@ -15,7 +15,6 @@ public class buttonFunctions : MonoBehaviour
         applySavedSettings();
     }
 
-
     public void save()
     {
         GameManager.instance.Save();

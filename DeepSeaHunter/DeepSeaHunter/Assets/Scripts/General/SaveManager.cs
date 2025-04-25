@@ -25,17 +25,26 @@ public class SaveManager : MonoBehaviour
         bf.Serialize(file, saveDat);
 
         file.Close();
+        Debug.Log("Game Saved.");
     }
 
     public generalSAVE Load()
     {
-        if (!File.Exists(Application.persistentDataPath + "/save.dat")) return null; //no file to load
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
 
-        generalSAVE saveDat = (generalSAVE)bf.Deserialize(file);
-        file.Close();
+        string path = Application.persistentDataPath + "/save.dat";
+        if (File.Exists(path))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
 
-        return saveDat;
+            generalSAVE saveDat = (generalSAVE)bf.Deserialize(file);
+            file.Close();
+            Debug.Log("Game Loaded.");
+
+            return saveDat;
+        }
+        Debug.LogWarning("No save file found.");
+        return null;
     }
-}
+
+    }

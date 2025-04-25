@@ -144,14 +144,46 @@ public class GameManager : MonoBehaviour
 
     public void Save()
     {
-        if (gameSave == null) gameSave = ScriptableObject.CreateInstance<generalSAVE>();
-    }
+        if (gameSave == null)
+            gameSave = ScriptableObject.CreateInstance<generalSAVE>();
 
-    public void Load() 
+        gameSave.pSave = playerScript.savePlayer();
+
+        gameSave.iSave = playerScript.inven.inventory;
+
+        gameSave.bSave.musicVol = pauseMusic.GetRadioVol();
+        gameSave.bSave.playerVol = playerScript.aud.volume;
+        gameSave.bSave.fxVol = aud.volume;
+
+        gameSave.inO2Zone = playerScript.o2Script.getOxygen();
+
+        gameSave.radioOn = playerScript.radioScript.IsRadioOn();
+
+        gameSave.gearBase = playerScript.tempScript.getGearBase();
+        gameSave.zoneMod = playerScript.tempScript.getZoneMod();
+
+        SaveManager.instance.Save(gameSave);
+    }
+    public void Load()
     {
-        if (gameSave == null) return;
-    }
+        generalSAVE loaded = SaveManager.instance.Load();
+        if (loaded == null) return;
 
+        gameSave = loaded;
+
+        playerScript.loadPlayer(gameSave.pSave);
+
+        playerScript.inven.inventory = gameSave.iSave;
+
+        playerScript.o2Script.setOxygen(gameSave.inO2Zone);
+        playerScript.o2Script.modifyO2(gameSave.o2);
+
+        playerScript.radioScript.SetRadioVol(gameSave.radioOn ? 1f : 0f);
+        playerScript.radioScript.setInStatic(gameSave.inStatic);
+
+        playerScript.tempScript.setGearBase(gameSave.gearBase);
+        playerScript.tempScript.setZoneMod(gameSave.zoneMod);
+    }
 
     public void openTabSettings(bool buttonClick = false)
     {
