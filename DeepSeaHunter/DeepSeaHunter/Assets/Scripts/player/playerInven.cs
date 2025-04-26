@@ -26,11 +26,6 @@ public class playerInven : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
-        //added null checks for items list so that it doesn't throw nullexception
-        if (items == null)
-            items = new List<Item>();
-        if (qty == null)
-            qty = new List<int>();
     }
 
     //Save/Load
@@ -57,11 +52,9 @@ public class playerInven : MonoBehaviour
         setScrapText();
         //load saved items
         clearInventory();
-        if (iSave != null)//added nullcheck
-        {
-            foreach (ItemSAVE save in iSave.items)
-                addItem(convertFromSave(save));
-        }
+        foreach (ItemSAVE save in iSave.items)
+            addItem(convertFromSave(save));
+
         GameManager.instance.loadInventory();
         Debug.Log("Success: Load (Inven)");
     }
@@ -204,10 +197,11 @@ public class playerInven : MonoBehaviour
         GameManager.instance.o2.modifyO2(item.o2);
         //update sanity
     }
-    public void clearInventory()
-    { 
+    void clearInventory()
+    {
         items.Clear();
         qty.Clear();
+        GameManager.instance.loadInventory();
     }
 
     //getters/setters

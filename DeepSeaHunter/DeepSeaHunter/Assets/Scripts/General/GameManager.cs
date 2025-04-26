@@ -104,7 +104,6 @@ public class GameManager : MonoBehaviour
     private List<int> savedClueIDs = new List<int>();
 
     //public int goalCount;
-    public static bool loadFromSave = false;
 
     void Awake()
     {
@@ -131,16 +130,6 @@ public class GameManager : MonoBehaviour
         loseTextColors[0] = loseTextColorDamage;
         loseTextColors[1] = loseTextColorO2;
         loseTextColors[2] = loseTextColorTemp;
-//load save or spawn new charaacter
-        if (loadFromSave && SaveManager.instance.SaveExists())
-        {
-            Load();
-        }
-        else
-        {
-            spawnPlayerFresh();
-        }
-
     }
 
     // Update is called once per frame
@@ -150,11 +139,6 @@ public class GameManager : MonoBehaviour
         openTabInventory();
         openTabEquipment();
         openTabJournal();
-    }
-    private void spawnPlayerFresh()
-    {
-        playerScript.spawnPlayer();
-        Debug.Log("New player (no save data)");
     }
 
     public void Save()
@@ -179,11 +163,8 @@ public class GameManager : MonoBehaviour
     {
         //retrieve save file
         generalSAVE gameSave = SaveManager.instance.Load();
-        if (gameSave == null)//no save dat; do nothing
-        {
-            Debug.LogWarning("No save data found to load.");
-            return;
-        }
+        if (gameSave == null) return; //no save dat; do nothing
+
         //update data
         playerScript.loadPlayer(gameSave.pSave);
         playerScript.inven.loadInven(gameSave.iSave);

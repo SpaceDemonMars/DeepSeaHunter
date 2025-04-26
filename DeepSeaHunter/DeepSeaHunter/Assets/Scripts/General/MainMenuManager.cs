@@ -1,46 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
     public GameObject settingsPanel;
-    public Button loadButton;
-
-    private void Start()
-    {
-        CheckForSaveFile(); 
-    }
-
     public void StartGame()
     {
-        GameManager.loadFromSave = false;
         LoadSceneData.nextSceneToLoad = "Demo";
         SceneManager.LoadScene("LoadingScreen");
-    }
-
-    public void LoadGame()
-    {
-        if (!SaveManager.instance.SaveExists())
-            return;
-
-        GameManager.loadFromSave = true;
-        LoadSceneData.nextSceneToLoad = "Demo";
-        SceneManager.LoadScene("LoadingScreen");
-    }
-
-    public void EraseSave()
-    {
-        SaveManager.instance.DeleteSave();
-        CheckForSaveFile(); 
-    }
-
-    private void CheckForSaveFile()
-    {
-        if (SaveManager.instance.SaveExists())
-            loadButton.interactable = true;
-        else
-            loadButton.interactable = false;
     }
 
     public void OpenSettings()

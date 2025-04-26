@@ -6,7 +6,6 @@ using UnityEngine;
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -43,23 +42,4 @@ public class SaveManager : MonoBehaviour
         Debug.Log("Success: Load");
         return saveDat;
     }
-    public bool SaveExists()//make sure there is a save
-    {
-        return File.Exists(Application.persistentDataPath + "/save.dat");
-    }
-    public void DeleteSave()
-    {
-        string savePath = Application.persistentDataPath + "/save.dat";
-
-        if (File.Exists(savePath))
-        {
-            File.Delete(savePath);
-            Debug.Log("Save file deleted.");
-        }
-        else
-        {
-            Debug.LogWarning("No save file to delete.");
-        }
-    }
-
 }
