@@ -435,15 +435,15 @@ public class GameManager : MonoBehaviour
 
             if (clueCount >= 8) // adjust these numbers depending on how far we get
             {
-                LoadingManager.LoadSceneWithTracking("GoodEndingScene");
+                LoadingManager.LoadSceneWithTracking("Good Ending");
             }
             else if (clueCount >= 4)
             {
-                LoadingManager.LoadSceneWithTracking("NeutralEndingScene");
+                LoadingManager.LoadSceneWithTracking("Neutral Ending");
             }
             else
             {
-                LoadingManager.LoadSceneWithTracking("BadEndingScene");
+                LoadingManager.LoadSceneWithTracking("Bad Ending");
             }
         }
     }
