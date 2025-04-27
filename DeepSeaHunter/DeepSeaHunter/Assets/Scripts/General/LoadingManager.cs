@@ -6,19 +6,43 @@ using UnityEngine.UI;
 
 public class LoadingManager : MonoBehaviour
 {
-    public GameObject loadingScreen;
+    public GameObject loadingScene;
     public TMP_Text loadingText;
     public TMP_Text continuePrompt;
     public static string nextSceneToLoad = "Demo";
     public static string previousScene = "";
 
-    private bool isSceneReady = false;
+    private bool isSceneReady = false; 
 
     void Start()
     {
-        loadingScreen.SetActive(true);
+        loadingScene.SetActive(true);
         continuePrompt.gameObject.SetActive(false);
-        StartCoroutine(LoadSceneAsync(nextSceneToLoad));
+
+        if (SceneManager.GetActiveScene().name == "IntroScene")
+        {
+            loadingText.text = "Press Any Key to Continue";
+            isSceneReady = true; 
+        }
+        else
+        {
+            StartCoroutine(LoadSceneAsync(nextSceneToLoad));
+        }
+    }
+
+    void Update()
+    {
+        if (isSceneReady && Input.anyKeyDown)
+        {
+            if (SceneManager.GetActiveScene().name == "IntroScene")
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+            else
+            {
+                SceneManager.LoadScene(nextSceneToLoad);
+            }
+        }
     }
 
     IEnumerator LoadSceneAsync(string sceneName)
@@ -34,15 +58,18 @@ public class LoadingManager : MonoBehaviour
 
         loadingText.text = "Loading Complete";
         continuePrompt.gameObject.SetActive(true);
-        isSceneReady = true;
+
+        isSceneReady = true; 
 
         yield return new WaitUntil(() => Input.anyKeyDown);
+
         loadOperation.allowSceneActivation = true;
     }
+
     public static void LoadSceneWithTracking(string newSceneName)
     {
         previousScene = SceneManager.GetActiveScene().name;
         nextSceneToLoad = newSceneName;
-        SceneManager.LoadScene("LoadingScreen");
+        SceneManager.LoadScene("LoadingScene");
     }
 }

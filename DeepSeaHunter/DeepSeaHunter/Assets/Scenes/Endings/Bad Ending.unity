@@ -1003,7 +1003,7 @@ GameObject:
   - component: {fileID: 1784662735}
   - component: {fileID: 1784662734}
   m_Layer: 0
-  m_Name: Neutral Ending
+  m_Name: Bad Ending
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

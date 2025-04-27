@@ -1003,7 +1003,7 @@ GameObject:
   - component: {fileID: 1784662735}
   - component: {fileID: 1784662734}
   m_Layer: 0
-  m_Name: Bad Ending
+  m_Name: Neutral Ending
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1131,7 +1131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -99, y: -34}
+  m_AnchoredPosition: {x: -99, y: -104}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1811109855
@@ -1180,7 +1180,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1095774647}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: ReturnToMenu
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

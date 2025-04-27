@@ -9,20 +9,26 @@ EditorBuildSettings:
     path: Assets/Scenes/UI scenes/Startup.unity
     guid: e481c4fed4dd13b468f5e40b6c0f6bf2
   - enabled: 1
-    path: Assets/Scenes/UI scenes/IntroScreen.unity
+    path: Assets/Scenes/UI scenes/IntroScene.unity
     guid: 9e4c5dd97b635314c9122391439b8127
   - enabled: 1
     path: Assets/Scenes/UI scenes/MainMenu.unity
     guid: d8a4541e333f2874897707817992abe9
   - enabled: 1
+    path: Assets/Scenes/UI scenes/LoadingScene.unity
+    guid: fef708c8be415e441b5338d4deb8317c
+  - enabled: 1
     path: Assets/Scenes/Demo.unity
     guid: 8e7a61d1d5b46874d81eefddb4479a90
   - enabled: 1
-    path: Assets/Scenes/Endings/Good Ending.unity
-    guid: 279cd91ec7ac4804aa569a6bb21e5efa
-  - enabled: 1
     path: Assets/Scenes/Endings/Bad Ending.unity
     guid: 1633a8c857ac23b4095ffb54da28cbd1
+  - enabled: 1
+    path: Assets/Scenes/Endings/Neutral Ending.unity
+    guid: 8888fe8e4d6a7ea4dbfe00634503caf5
+  - enabled: 1
+    path: Assets/Scenes/Endings/Good Ending.unity
+    guid: 279cd91ec7ac4804aa569a6bb21e5efa
   - enabled: 1
     path: Assets/Scenes/UI scenes/Credits.unity
     guid: 48bda21343b4343438de7b39a14154aa

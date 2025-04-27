@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     public GameObject settingsPanel;
+
     private void Start()
     {
         if (string.IsNullOrEmpty(LoadingManager.previousScene))
@@ -11,34 +12,37 @@ public class MainMenuManager : MonoBehaviour
             LoadingManager.previousScene = "MainMenu";
         }
     }
+
     public void NewGame()
     {
         SaveManager.instance.DeleteSave();
-        LoadSceneData.nextSceneToLoad = "Demo";
-        SceneManager.LoadScene("LoadingScreen");
+        LoadingManager.LoadSceneWithTracking("Demo");
     }
+
     public void LoadGame()
     {
         if (SaveManager.instance.Load() != null)
         {
-            LoadSceneData.nextSceneToLoad = "Demo"; 
-            SceneManager.LoadScene("LoadingScreen");
+            LoadingManager.LoadSceneWithTracking("Demo");
         }
         else
         {
-            Debug.Log("No save data found.Starting a new game instead.");
-            NewGame(); 
+            Debug.Log("No save data. Starting new game.");
+            NewGame();
         }
     }
 
     public void ReturnToPreviousScene()
     {
-        SceneManager.LoadScene(LoadingManager.previousScene);
+        if (!string.IsNullOrEmpty(LoadingManager.previousScene))
+            SceneManager.LoadScene(LoadingManager.previousScene);
+        else
+            SceneManager.LoadScene("MainMenu");
     }
 
     public void Credits()
     {
-        LoadSceneData.previousScene = SceneManager.GetActiveScene().name;
+        LoadingManager.previousScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene("Credits");
     }
 
@@ -47,7 +51,7 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-public void OpenSettings()
+    public void OpenSettings()
     {
         settingsPanel.SetActive(true);
     }

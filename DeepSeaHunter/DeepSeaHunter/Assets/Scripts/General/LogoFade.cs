@@ -20,7 +20,7 @@ public class LogoFade : MonoBehaviour
         yield return new WaitForSeconds(displayDuration);
         yield return Fade(1, 0); // Fade out
 
-        SceneManager.LoadScene("MainMenu"); 
+        SceneManager.LoadScene("IntroScene"); 
     }
 
     IEnumerator Fade(float from, float to)
