@@ -42,4 +42,13 @@ public class SaveManager : MonoBehaviour
         Debug.Log("Success: Load");
         return saveDat;
     }
+    public void DeleteSave()
+    {
+        if (File.Exists(Application.persistentDataPath + "/save.dat"))
+        {
+            File.Delete(Application.persistentDataPath + "/save.dat");
+            Debug.Log("Success: Save Deleted");
+        }
+    }
+
 }

@@ -11,10 +11,24 @@ public class MainMenuManager : MonoBehaviour
             LoadingManager.previousScene = "MainMenu";
         }
     }
-    public void StartGame()
+    public void NewGame()
     {
+        SaveManager.instance.DeleteSave();
         LoadSceneData.nextSceneToLoad = "Demo";
         SceneManager.LoadScene("LoadingScreen");
+    }
+    public void LoadGame()
+    {
+        if (SaveManager.instance.Load() != null)
+        {
+            LoadSceneData.nextSceneToLoad = "Demo"; 
+            SceneManager.LoadScene("LoadingScreen");
+        }
+        else
+        {
+            Debug.Log("No save data found.Starting a new game instead.");
+            NewGame(); 
+        }
     }
 
     public void ReturnToPreviousScene()
