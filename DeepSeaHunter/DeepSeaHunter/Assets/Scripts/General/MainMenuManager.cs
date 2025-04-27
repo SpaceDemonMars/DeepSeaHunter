@@ -1,4 +1,3 @@
-using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,18 +28,6 @@ public class MainMenuManager : MonoBehaviour
         {
             Debug.Log("No save data found.Starting a new game instead.");
             NewGame(); 
-        }
-    }
-    public void ReloadBeforeBoss()
-    {
-        if (File.Exists(Application.persistentDataPath + "/preBossSave.dat"))
-        {
-            LoadSceneData.nextSceneToLoad = "Demo"; 
-            SceneManager.LoadScene("LoadingScreen");
-        }
-        else
-        {
-            Debug.Log("No pre-boss save found.");
         }
     }
 

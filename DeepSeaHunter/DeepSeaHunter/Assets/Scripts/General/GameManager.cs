@@ -6,8 +6,6 @@ using System.Data;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameManager : MonoBehaviour
 {
@@ -347,25 +345,6 @@ public class GameManager : MonoBehaviour
             menuActiveTab = null;
         }
     }
-    public void SavePreBoss()
-    {
-        generalSAVE preBossSave = new()
-        {
-            pSave = playerScript.savePlayer(),
-            iSave = playerScript.inven.saveInven(),
-            o2 = o2.getO2(),
-            inO2Zone = o2.getOxygen(),
-            inStatic = radioScript.getInStatic(),
-            radioOn = radioScript.getRadioOn()
-        };
-
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/preBossSave.dat");
-        bf.Serialize(file, preBossSave);
-        file.Close();
-        Debug.Log("Pre-Boss Save Created!");
-    }
-
     public void resetLevelBoss()
     {
         //turn off boss hp UI here
@@ -380,7 +359,6 @@ public class GameManager : MonoBehaviour
             spawnerScript.spawn();
             boss = GameObject.FindWithTag("Level Boss");
         }
-        SavePreBoss(); // so player isn't locked out of game if they get bad ending
         //reassign hp ui //jk do it in enemy boss
     }
 
