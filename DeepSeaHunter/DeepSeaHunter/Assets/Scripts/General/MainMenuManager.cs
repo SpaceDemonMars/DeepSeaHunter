@@ -4,13 +4,36 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     public GameObject settingsPanel;
+    private void Start()
+    {
+        if (string.IsNullOrEmpty(LoadingManager.previousScene))
+        {
+            LoadingManager.previousScene = "MainMenu";
+        }
+    }
     public void StartGame()
     {
         LoadSceneData.nextSceneToLoad = "Demo";
         SceneManager.LoadScene("LoadingScreen");
     }
 
-    public void OpenSettings()
+    public void ReturnToPreviousScene()
+    {
+        SceneManager.LoadScene(LoadingManager.previousScene);
+    }
+
+    public void Credits()
+    {
+        LoadSceneData.previousScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+public void OpenSettings()
     {
         settingsPanel.SetActive(true);
     }

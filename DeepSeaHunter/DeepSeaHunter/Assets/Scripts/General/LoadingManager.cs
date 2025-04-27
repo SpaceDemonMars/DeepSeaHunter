@@ -10,6 +10,7 @@ public class LoadingManager : MonoBehaviour
     public TMP_Text loadingText;
     public TMP_Text continuePrompt;
     public static string nextSceneToLoad = "Demo";
+    public static string previousScene = "";
 
     private bool isSceneReady = false;
 
@@ -37,5 +38,11 @@ public class LoadingManager : MonoBehaviour
 
         yield return new WaitUntil(() => Input.anyKeyDown);
         loadOperation.allowSceneActivation = true;
+    }
+    public static void LoadSceneWithTracking(string newSceneName)
+    {
+        previousScene = SceneManager.GetActiveScene().name;
+        nextSceneToLoad = newSceneName;
+        SceneManager.LoadScene("LoadingScreen");
     }
 }

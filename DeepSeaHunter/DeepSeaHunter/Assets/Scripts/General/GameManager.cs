@@ -345,36 +345,6 @@ public class GameManager : MonoBehaviour
             menuActiveTab = null;
         }
     }
-
-    public void updateGameGoal(string bossName, bool slain)
-    {
-        goalCountText.text = bossName;
-
-        if (slain)
-        {
-            statePause();
-            menuActive = menuWin;
-            menuActive.SetActive(true);
-        }
-    }
-
-    public void youLose(int source)
-    {
-        statePause();
-        dialogHiddenUI.SetActive(false); //hide UI
-        //set death info
-        loseYouDied.color = loseTextColors[source];
-        loseMessage.color = loseTextColors[source];
-        //once we decide how we're implementing the death messages
-        //make an array for each source
-        //create array of arrays so we can index by [source][message]
-        //call line below vv (or similar line)
-        //loseMessage = loseMessages[source][Random.Range(0, loseMessages[source].Length) - 1];
-        menuActive = menuLose;
-        menuActive.SetActive(true);
-    }
-    //
-
     public void resetLevelBoss()
     {
         //turn off boss hp UI here
@@ -384,7 +354,8 @@ public class GameManager : MonoBehaviour
             Destroy(boss);
             bossScript = boss.GetComponent<EnemyBoss>();
         }
-        if (bossSpawner != null) {
+        if (bossSpawner != null)
+        {
             spawnerScript.spawn();
             boss = GameObject.FindWithTag("Level Boss");
         }
@@ -412,4 +383,181 @@ public class GameManager : MonoBehaviour
     {
         aud.PlayOneShot(uiSFX[Random.Range(0, uiSFX.Length)], uiVol);
     }
+    //previous win menu
+    /* public void updateGameGoal(string bossName, bool slain)
+     {
+         goalCountText.text = bossName;
+
+         if (slain)
+         {
+             statePause();
+             menuActive = menuWin;
+             menuActive.SetActive(true);
+         }
+     }*/
+
+    public void updateGameGoal(string bossName, bool slain)
+    {
+        goalCountText.text = bossName;
+
+        if (slain)
+        {
+            int clueCount = JournalManager.instance.GetClueCount();
+
+            if (clueCount >= 8) // adjust these numbers depending on how far we get
+            {
+                LoadingManager.LoadSceneWithTracking("GoodEndingScene");
+            }
+            else if (clueCount >= 4)
+            {
+                LoadingManager.LoadSceneWithTracking("NeutralEndingScene");
+            }
+            else
+            {
+                LoadingManager.LoadSceneWithTracking("BadEndingScene");
+            }
+        }
+    }
+
+    public void youLose(int source)
+    {
+        statePause();
+        dialogHiddenUI.SetActive(false); // hide UI
+
+        // color based on source
+        loseYouDied.color = loseTextColors[source];
+        loseMessage.color = loseTextColors[source];
+        // flavor text and last words
+        loseMessage.text = GetRandomDeathMessage(source);
+        loseYouDied.text = GetRandomLastWords(source);
+        // Show the lose menu
+        menuActive = menuLose;
+        menuActive.SetActive(true);
+    }
+    private readonly string[][] loseMessages = new string[][]
+{
+    // 0: Frostbite
+    new string[] {
+        "The cold reached deeper than your lungs—your story ends in silence.",
+        "The warmth fled first. Then thought. Then breath."
+    },
+    // 1: Oxygen Deletion
+    new string[] {
+        "No air left to scream. The deep welcomed you quietly.",
+        "The last breath was not yours to keep."
+    },
+    // 2: Basic Creature
+    new string[] {
+        "Not all deaths are grand. Some come clawing, biting, forgotten.",
+        "The sea feeds its own. You were simply next."
+    },
+    // 3: Trap
+    new string[] {
+        "Curiosity cracked the seal. The trap sprung true.",
+        "The past protects itself—blood for secrets."
+    },
+    // 4: Low Sanity
+    new string[] {
+        "The mind slipped beneath the waves long before the body did.",
+        "You drowned in thoughts that were not your own."
+    },
+    // 5: Leviathan
+    new string[] {
+        "The abyss opened. It remembered your name.",
+        "You looked into the deep... and it looked back.",
+        "The abyss whispered sweet lies, and you followed."
+    },
+    // 6: Self-sacrifice
+    new string[] {
+        "Some endings cannot be fought. Only chosen.",
+        "The story closes where it began—beneath the surface."
+    }
+};
+
+    private readonly string[][] lastWords = new string[][]
+    {
+    // 0: Frostbite
+    new string[] {
+        "C-can’t… feel my hands…",
+        "So cold… deeper than bone…",
+        "Need fire… just a little more…",
+        "Jewel… your suit… it wasn’t enough…"
+    },
+    // 1: Oxygen Deletion
+    new string[] {
+        "I… can’t… breathe…",
+        "Too far… too deep…",
+        "Nathan… I’m sorry…"
+    },
+    // 2: Basic Creature
+    new string[] {
+        "It’s just a crab…?",
+        "Not like this…",
+        "Damn it… should’ve run…"
+    },
+    // 3: Trap
+    new string[] {
+        "Wait—no, no—",
+        "I should’ve known…",
+        "What did I step into…?"
+    },
+    // 4: Low Sanity
+    new string[] {
+        "That’s not real… right?",
+        "Stop whispering… please…",
+        "I’m still me. I’m still me…",
+        "Nathan… I saw you… you were smiling…",
+        "Where’s the surface? It was right here…"
+    },
+    // 5: Leviathan
+    new string[] {
+        "It’s real…",
+        "I see it… the eye…",
+        "No one will believe this…",
+        "Tell them… tell them it’s still down here…"
+    },
+    // 6: Self-sacrifice
+    new string[] {
+        "This is the only way…",
+        "Tell them. Make them remember.",
+        "If it keeps him safe… so be it."
+    }
+    };
+
+    private string GetRandomDeathMessage(int source)
+    {
+        if (source >= 0 && source < loseMessages.Length)
+        {
+            return loseMessages[source][Random.Range(0, loseMessages[source].Length)];
+        }
+        return "The deep claimed you.";
+    }
+
+    private string GetRandomLastWords(int source)
+    {
+        if (source >= 0 && source < lastWords.Length)
+        {
+            return "\"" + lastWords[source][Random.Range(0, lastWords[source].Length)] + "\"";
+        }
+        return "\"...\""; // fallback if something goes wrong
+    }
+
+    /* public void youLose(int source)
+    {
+        statePause();
+        dialogHiddenUI.SetActive(false); //hide UI
+        //set death info
+        loseYouDied.color = loseTextColors[source];
+        loseMessage.color = loseTextColors[source];
+        //once we decide how we're implementing the death messages
+        //make an array for each source
+        //create array of arrays so we can index by [source][message]
+        //call line below vv (or similar line)
+        //loseMessage = loseMessages[source][Random.Range(0, loseMessages[source].Length) - 1];
+        menuActive = menuLose;
+        menuActive.SetActive(true);
+    }
+    */
+
+
 }
