@@ -902,7 +902,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hunt Target :'
+  m_text: 'Current Quest :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6829,7 +6829,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13679,10 +13679,10 @@ MonoBehaviour:
     requiredQuest: 4
     isCompleted: 0
   - questID: 6
-    questName: Go see hte Dive spots
-    questDescription: talk to alan and go out to the dive spots.
+    questName: Go see the Dive spots
+    questDescription: Talk to Alan and go out to the dive spots.
     objectives:
-    - description: talk to alan
+    - description: Talk to Alan
       status: 0
     rewards:
     - itemName: 
@@ -13693,10 +13693,10 @@ MonoBehaviour:
     questName: '"Ask About Nathan''s Dive Spots'
     questDescription: '"Talk to the locals to find out where Nathan has been diving."'
     objectives:
-    - description: talk to Jewel
+    - description: Talk to Jewel
       status: 0
     rewards:
-    - itemName: 
+    - itemName: Old Diving Gear
       amount: 0
     requiredQuest: 0
     isCompleted: 0
@@ -14137,7 +14137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -50, y: 186.9}
+  m_AnchoredPosition: {x: -50, y: 486}
   m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6006788435105537664

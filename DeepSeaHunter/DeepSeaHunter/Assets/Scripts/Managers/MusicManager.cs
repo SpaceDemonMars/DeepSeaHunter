@@ -62,7 +62,15 @@ public class MusicManager : MonoBehaviour
                 PlayMusic(badEndingMusic);
                 break;
             default:
+                StopMusic();
                 break;
+        }
+    }
+    public void StopMusic()
+    {
+        if (musicSource != null && musicSource.isPlaying)
+        {
+            musicSource.Stop();
         }
     }
 

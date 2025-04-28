@@ -142,8 +142,6 @@ public class GameManager : MonoBehaviour
         loseTextColors[1] = loseTextColorO2;
         loseTextColors[2] = loseTextColorTemp;
     }
-
-    // Update is called once per frame
     void Update()
     {
         openTabSettings();
@@ -185,8 +183,6 @@ public class GameManager : MonoBehaviour
         radioScript.setRadioOn(gameSave.radioOn);
         Debug.Log("Success: Load (General)");
     }
-
-
     public void openTabSettings(bool buttonClick = false)
     {
         if (Input.GetButtonDown("Cancel") || buttonClick == true)
@@ -269,7 +265,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
     public void openTabJournal(bool buttonClick = false)
     {
         if (Input.GetButtonDown("Journal") || buttonClick == true)
@@ -297,18 +292,15 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
     public void SaveClueFound(int clueID)
     {
         if (!savedClueIDs.Contains(clueID))
             savedClueIDs.Add(clueID);
     }
-
     public bool IsClueFound(int clueID)
     {
         return savedClueIDs.Contains(clueID);
     }
-
     public List<int> GetFoundClueIDs()
     {
         return savedClueIDs;
@@ -330,7 +322,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
     public void statePause()
     {
         isPaused = !isPaused;
@@ -340,7 +331,6 @@ public class GameManager : MonoBehaviour
         radioScript.aud.Pause();
         Time.timeScale = 0;
     }
-
     public void stateUnpause()
     {
         isPaused = !isPaused;
@@ -396,32 +386,34 @@ public class GameManager : MonoBehaviour
             boss = GameObject.FindWithTag("Level Boss");
         }
 //        SavePreBoss();
-
         //reassign hp ui //jk do it in enemy boss
     }
-
     public void ShowQuestPopup(string message)
     {
         questPopupText.text = message;
         questPopupObject.SetActive(true);
         StartCoroutine(HideQuestPopup());
     }
-
     private IEnumerator HideQuestPopup()
     {
         yield return new WaitForSeconds(3f); // Show for 3 seconds
         questPopupObject.SetActive(false);
     }
-
-    public void setMusicVolume(float volume) { radioScript.SetRadioVol(volume); pauseMusic.SetRadioVol(volume); 
-        if (MusicManager.Instance != null)
-        {
-            MusicManager.Instance.SetMusicVolume(volume);
-        }
+    public void setMusicVolume(float volume)
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.SetMusicVolume(volume);
     }
-    public void setPlayerVolume(float volume) { playerScript.aud.volume = volume; }
-    public void setFxVolume(float volume) { aud.volume = volume; }
-
+    public void setPlayerVolume(float volume)
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.SetPlayerVolume(volume);
+    }
+    public void setFxVolume(float volume)
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.SetFxVolume(volume);
+    }
     public void playSFX()
     {
         aud.PlayOneShot(uiSFX[Random.Range(0, uiSFX.Length)], uiVol);
@@ -438,7 +430,6 @@ public class GameManager : MonoBehaviour
              menuActive.SetActive(true);
          }
      }*/
-
     public void updateGameGoal(string bossName, bool slain)
     {
         goalCountText.text = bossName;
@@ -461,12 +452,10 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
     public void youLose(int source)
     {
         statePause();
         dialogHiddenUI.SetActive(false); // hide UI
-
         // color based on source
         loseYouDied.color = loseTextColors[source];
         loseMessage.color = loseTextColors[source];
@@ -479,12 +468,12 @@ public class GameManager : MonoBehaviour
     }
     private readonly string[][] loseMessages = new string[][]
 {
-    // 0: Frostbite
+    // 0: Cold
     new string[] {
         "The cold reached deeper than your lungs—your story ends in silence.",
         "The warmth fled first. Then thought. Then breath."
     },
-    // 1: Oxygen Deletion
+    // 1: Oxygen
     new string[] {
         "No air left to scream. The deep welcomed you quietly.",
         "The last breath was not yours to keep."
@@ -499,12 +488,12 @@ public class GameManager : MonoBehaviour
         "Curiosity cracked the seal. The trap sprung true.",
         "The past protects itself—blood for secrets."
     },
-    // 4: Low Sanity
+    // 4: Sanity
     new string[] {
         "The mind slipped beneath the waves long before the body did.",
         "You drowned in thoughts that were not your own."
     },
-    // 5: Leviathan
+    // 5: Boss
     new string[] {
         "The abyss opened. It remembered your name.",
         "You looked into the deep... and it looked back.",
@@ -516,17 +505,16 @@ public class GameManager : MonoBehaviour
         "The story closes where it began—beneath the surface."
     }
 };
-
     private readonly string[][] lastWords = new string[][]
     {
-    // 0: Frostbite
+    // 0: Cold
     new string[] {
         "C-can’t… feel my hands…",
         "So cold… deeper than bone…",
         "Need fire… just a little more…",
         "Jewel… your suit… it wasn’t enough…"
     },
-    // 1: Oxygen Deletion
+    // 1: Oxygen
     new string[] {
         "I… can’t… breathe…",
         "Too far… too deep…",
@@ -544,7 +532,7 @@ public class GameManager : MonoBehaviour
         "I should’ve known…",
         "What did I step into…?"
     },
-    // 4: Low Sanity
+    // 4: Sanity
     new string[] {
         "That’s not real… right?",
         "Stop whispering… please…",
@@ -552,7 +540,7 @@ public class GameManager : MonoBehaviour
         "Nathan… I saw you… you were smiling…",
         "Where’s the surface? It was right here…"
     },
-    // 5: Leviathan
+    // 5: Boss
     new string[] {
         "It’s real…",
         "I see it… the eye…",
@@ -566,8 +554,7 @@ public class GameManager : MonoBehaviour
         "If it keeps him safe… so be it."
     }
     };
-
-    private string GetRandomDeathMessage(int source)
+        private string GetRandomDeathMessage(int source)
     {
         if (source >= 0 && source < loseMessages.Length)
         {
@@ -575,8 +562,7 @@ public class GameManager : MonoBehaviour
         }
         return "The deep claimed you.";
     }
-
-    private string GetRandomLastWords(int source)
+        private string GetRandomLastWords(int source)
     {
         if (source >= 0 && source < lastWords.Length)
         {
@@ -584,8 +570,7 @@ public class GameManager : MonoBehaviour
         }
         return "\"...\""; // fallback if something goes wrong
     }
-
-    /* public void youLose(int source)
+        /* public void youLose(int source)
     {
         statePause();
         dialogHiddenUI.SetActive(false); //hide UI
@@ -601,6 +586,4 @@ public class GameManager : MonoBehaviour
         menuActive.SetActive(true);
     }
     */
-
-
 }
