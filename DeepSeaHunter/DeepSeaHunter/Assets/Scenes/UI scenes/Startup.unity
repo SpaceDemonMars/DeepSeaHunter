@@ -248,7 +248,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 373787120}
   introMusic: {fileID: 8300000, guid: fb9bb60cb652d2141b0323d761b7f438, type: 3}
-  demoSceneMusic: {fileID: 8300000, guid: 8278c22637785a5479649a228afd6670, type: 3}
   creditsMusic: {fileID: 8300000, guid: fb9bb60cb652d2141b0323d761b7f438, type: 3}
   goodEndingMusic: {fileID: 8300000, guid: 0565ff1fbc966444d87780b713f7abb5, type: 3}
   neutralEndingMusic: {fileID: 8300000, guid: 0565ff1fbc966444d87780b713f7abb5, type: 3}

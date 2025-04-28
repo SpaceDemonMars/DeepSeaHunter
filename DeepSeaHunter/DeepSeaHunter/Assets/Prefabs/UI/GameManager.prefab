@@ -1,0 +1,233 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3545157965114165695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1215863345315756435}
+  - component: {fileID: 5070629360352207885}
+  - component: {fileID: 2914682649903299413}
+  m_Layer: 5
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1215863345315756435
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3545157965114165695}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5070629360352207885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3545157965114165695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540e34ee97cb86342a8aeccced3a4a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuActive: {fileID: 0}
+  menuTab: {fileID: 0}
+  menuActiveTab: {fileID: 0}
+  menuTabText: {fileID: 0}
+  menuTabSettings: {fileID: 0}
+  menuTabInventory: {fileID: 0}
+  menuTabEquipment: {fileID: 0}
+  menuTabJournal: {fileID: 0}
+  menuWin: {fileID: 0}
+  menuLose: {fileID: 0}
+  invenButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemInfo: {fileID: 0}
+  itemInfoName: {fileID: 0}
+  itemInfoDesc: {fileID: 0}
+  itemInfoQty: {fileID: 0}
+  fishText: {fileID: 0}
+  scrapText: {fileID: 0}
+  loseScreen: {fileID: 0}
+  loseYouDied: {fileID: 0}
+  loseMessage: {fileID: 0}
+  loseTextColorDamage: {r: 1, g: 0, b: 0, a: 1}
+  loseTextColorO2: {r: 1, g: 1, b: 1, a: 1}
+  loseTextColorTemp: {r: 0, g: 0.34343433, b: 1, a: 1}
+  checkpointPopup: {fileID: 0}
+  goalCountLabel: {fileID: 0}
+  goalCountText: {fileID: 0}
+  tutorialText: {fileID: 0}
+  dialogHiddenUI: {fileID: 0}
+  interactPrompt: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  aud: {fileID: 2914682649903299413}
+  uiSFX:
+  - {fileID: 8300000, guid: ab9acacd2bec8374c9c32b84a1b7322a, type: 3}
+  - {fileID: 8300000, guid: ab0efb9255f16154ca0717f26df7e0d7, type: 3}
+  uiVol: 0.5
+  pausePlayer: {fileID: 0}
+  pauseMusic: {fileID: 0}
+  player: {fileID: 0}
+  playerScript: {fileID: 0}
+  playerSpawnPos: {fileID: 0}
+  radio: {fileID: 0}
+  radioScript: {fileID: 0}
+  o2: {fileID: 0}
+  playerDamageScreen: {fileID: 0}
+  playerHealScreen: {fileID: 0}
+  playerSlowScreen: {fileID: 0}
+  playerHPBar: {fileID: 0}
+  playerO2Bar: {fileID: 0}
+  playerO2UI: {fileID: 0}
+  temperatureIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  damageText: {fileID: 0}
+  harpoonChargeBar: {fileID: 0}
+  harpoonReloadBar: {fileID: 0}
+  knifeReloadBar: {fileID: 0}
+  weaponUpgradePopup: {fileID: 0}
+  weaponUpgradeText: {fileID: 0}
+  boss: {fileID: 0}
+  bossScript: {fileID: 0}
+  bossSpawner: {fileID: 0}
+  spawnerScript: {fileID: 0}
+  bossHP: {fileID: 0}
+  bossBarText: {fileID: 0}
+  bossHPBar: {fileID: 0}
+  bossArmorBar: {fileID: 0}
+  isPaused: 0
+  questPopupText: {fileID: 0}
+  questPopupObject: {fileID: 0}
+--- !u!82 &2914682649903299413
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3545157965114165695}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

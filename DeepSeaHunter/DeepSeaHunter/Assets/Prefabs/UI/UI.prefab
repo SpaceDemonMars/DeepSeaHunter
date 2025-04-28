@@ -1783,237 +1783,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &865607034438088248
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3309637912495293972}
-  - component: {fileID: 8894558590270020490}
-  - component: {fileID: 1531970498777236690}
-  m_Layer: 5
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3309637912495293972
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865607034438088248}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7106277478165863060}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8894558590270020490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865607034438088248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 540e34ee97cb86342a8aeccced3a4a2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuActive: {fileID: 0}
-  menuTab: {fileID: 7589182080979532246}
-  menuActiveTab: {fileID: 0}
-  menuTabText: {fileID: 2048142574116769712}
-  menuTabSettings: {fileID: 6229664156412552549}
-  menuTabInventory: {fileID: 7506080129726856196}
-  menuTabEquipment: {fileID: 5630753768038577589}
-  menuTabJournal: {fileID: 9127271795547256124}
-  menuWin: {fileID: 1088407419957150434}
-  menuLose: {fileID: 3001303370969863786}
-  invenButtons:
-  - {fileID: 3475076242546840476}
-  - {fileID: 7956064949726308115}
-  - {fileID: 4315976039958587927}
-  - {fileID: 5533560070099401930}
-  - {fileID: 2511979503598278529}
-  - {fileID: 1070815418287747488}
-  - {fileID: 6762629419498189594}
-  - {fileID: 2020401803901066556}
-  - {fileID: 8019580853566147583}
-  - {fileID: 3174174110974080678}
-  - {fileID: 310456708543097842}
-  - {fileID: 3445186731551787547}
-  - {fileID: 563312654859336440}
-  - {fileID: 7857794328805741689}
-  - {fileID: 4529200073993657298}
-  itemInfo: {fileID: 7340775984194195928}
-  itemInfoName: {fileID: 269138631849589940}
-  itemInfoDesc: {fileID: 6365662364720968966}
-  itemInfoQty: {fileID: 5857844223690364337}
-  fishText: {fileID: 1280155852898171289}
-  scrapText: {fileID: 1086704765105951768}
-  loseScreen: {fileID: 6852735095704371120}
-  loseYouDied: {fileID: 906229522467196471}
-  loseMessage: {fileID: 3942900178579547954}
-  loseTextColorDamage: {r: 1, g: 0, b: 0, a: 1}
-  loseTextColorO2: {r: 1, g: 1, b: 1, a: 1}
-  loseTextColorTemp: {r: 0, g: 0.34343433, b: 1, a: 1}
-  checkpointPopup: {fileID: 7557355272389803142}
-  goalCountLabel: {fileID: 483199751181130374}
-  goalCountText: {fileID: 6282357183433250093}
-  tutorialText: {fileID: 1883896746661550502}
-  dialogHiddenUI: {fileID: 6390848690636106689}
-  interactPrompt: {fileID: 6495360842941856045}
-  dialogueManager: {fileID: 8006069979421585421}
-  aud: {fileID: 1531970498777236690}
-  uiSFX:
-  - {fileID: 8300000, guid: ab9acacd2bec8374c9c32b84a1b7322a, type: 3}
-  - {fileID: 8300000, guid: ab0efb9255f16154ca0717f26df7e0d7, type: 3}
-  uiVol: 0.5
-  pausePlayer: {fileID: 0}
-  pauseMusic: {fileID: 0}
-  player: {fileID: 0}
-  playerScript: {fileID: 0}
-  playerSpawnPos: {fileID: 0}
-  radio: {fileID: 0}
-  radioScript: {fileID: 0}
-  o2: {fileID: 0}
-  playerDamageScreen: {fileID: 7895736169961495296}
-  playerHealScreen: {fileID: 996472495894904273}
-  playerSlowScreen: {fileID: 7766256221873181827}
-  playerHPBar: {fileID: 1250451700273753388}
-  playerO2Bar: {fileID: 8158152526709204303}
-  playerO2UI: {fileID: 6969558043434293194}
-  temperatureIcons:
-  - {fileID: 8855049830490524701}
-  - {fileID: 5317030197252392552}
-  - {fileID: 7074652970996287188}
-  damageText: {fileID: 6572492246378919092}
-  harpoonChargeBar: {fileID: 2103900495667966119}
-  harpoonReloadBar: {fileID: 553166912893663190}
-  knifeReloadBar: {fileID: 2674173725392276705}
-  weaponUpgradePopup: {fileID: 2546496204343715200}
-  weaponUpgradeText: {fileID: 5380093604668211155}
-  boss: {fileID: 0}
-  bossScript: {fileID: 0}
-  bossSpawner: {fileID: 0}
-  spawnerScript: {fileID: 0}
-  bossHP: {fileID: 9163765347618650589}
-  bossBarText: {fileID: 8733111862901491823}
-  bossHPBar: {fileID: 4962356288942846635}
-  bossArmorBar: {fileID: 5780285040880990473}
-  isPaused: 0
-  questPopupText: {fileID: 1496211643367430394}
-  questPopupObject: {fileID: 7372525255921657197}
---- !u!82 &1531970498777236690
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865607034438088248}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.5
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &957583452129406378
 GameObject:
   m_ObjectHideFlags: 0
@@ -19880,3 +19649,345 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &4409498337653571463
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7106277478165863060}
+    m_Modifications:
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545157965114165695, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: bossHP
+      value: 
+      objectReference: {fileID: 9163765347618650589}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: menuTab
+      value: 
+      objectReference: {fileID: 7589182080979532246}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: menuWin
+      value: 
+      objectReference: {fileID: 1088407419957150434}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: fishText
+      value: 
+      objectReference: {fileID: 1280155852898171289}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: itemInfo
+      value: 
+      objectReference: {fileID: 7340775984194195928}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: menuLose
+      value: 
+      objectReference: {fileID: 3001303370969863786}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: bossHPBar
+      value: 
+      objectReference: {fileID: 4962356288942846635}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: scrapText
+      value: 
+      objectReference: {fileID: 1086704765105951768}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: damageText
+      value: 
+      objectReference: {fileID: 6572492246378919092}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: loseScreen
+      value: 
+      objectReference: {fileID: 6852735095704371120}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: playerO2UI
+      value: 
+      objectReference: {fileID: 6969558043434293194}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: bossBarText
+      value: 
+      objectReference: {fileID: 8733111862901491823}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: itemInfoQty
+      value: 
+      objectReference: {fileID: 5857844223690364337}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: loseMessage
+      value: 
+      objectReference: {fileID: 3942900178579547954}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: loseYouDied
+      value: 
+      objectReference: {fileID: 906229522467196471}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: menuTabText
+      value: 
+      objectReference: {fileID: 2048142574116769712}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: playerHPBar
+      value: 
+      objectReference: {fileID: 1250451700273753388}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: playerO2Bar
+      value: 
+      objectReference: {fileID: 8158152526709204303}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: bossArmorBar
+      value: 
+      objectReference: {fileID: 5780285040880990473}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: itemInfoDesc
+      value: 
+      objectReference: {fileID: 6365662364720968966}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: itemInfoName
+      value: 
+      objectReference: {fileID: 269138631849589940}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: tutorialText
+      value: 
+      objectReference: {fileID: 1883896746661550502}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: goalCountText
+      value: 
+      objectReference: {fileID: 6282357183433250093}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: dialogHiddenUI
+      value: 
+      objectReference: {fileID: 6390848690636106689}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: goalCountLabel
+      value: 
+      objectReference: {fileID: 483199751181130374}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 6495360842941856045}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: knifeReloadBar
+      value: 
+      objectReference: {fileID: 2674173725392276705}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: menuTabJournal
+      value: 
+      objectReference: {fileID: 9127271795547256124}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: questPopupText
+      value: 
+      objectReference: {fileID: 1496211643367430394}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: checkpointPopup
+      value: 
+      objectReference: {fileID: 7557355272389803142}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 8006069979421585421}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: menuTabSettings
+      value: 
+      objectReference: {fileID: 6229664156412552549}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: harpoonChargeBar
+      value: 
+      objectReference: {fileID: 2103900495667966119}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: harpoonReloadBar
+      value: 
+      objectReference: {fileID: 553166912893663190}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: menuTabEquipment
+      value: 
+      objectReference: {fileID: 5630753768038577589}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: menuTabInventory
+      value: 
+      objectReference: {fileID: 7506080129726856196}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: playerHealScreen
+      value: 
+      objectReference: {fileID: 996472495894904273}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: playerSlowScreen
+      value: 
+      objectReference: {fileID: 7766256221873181827}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: questPopupObject
+      value: 
+      objectReference: {fileID: 7372525255921657197}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: weaponUpgradeText
+      value: 
+      objectReference: {fileID: 5380093604668211155}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: playerDamageScreen
+      value: 
+      objectReference: {fileID: 7895736169961495296}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: weaponUpgradePopup
+      value: 
+      objectReference: {fileID: 2546496204343715200}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3475076242546840476}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7956064949726308115}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4315976039958587927}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[3]'
+      value: 
+      objectReference: {fileID: 5533560070099401930}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2511979503598278529}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1070815418287747488}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[6]'
+      value: 
+      objectReference: {fileID: 6762629419498189594}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[7]'
+      value: 
+      objectReference: {fileID: 2020401803901066556}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[8]'
+      value: 
+      objectReference: {fileID: 8019580853566147583}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[9]'
+      value: 
+      objectReference: {fileID: 3174174110974080678}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[10]'
+      value: 
+      objectReference: {fileID: 310456708543097842}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[11]'
+      value: 
+      objectReference: {fileID: 3445186731551787547}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[12]'
+      value: 
+      objectReference: {fileID: 563312654859336440}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[13]'
+      value: 
+      objectReference: {fileID: 7857794328805741689}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'invenButtons.Array.data[14]'
+      value: 
+      objectReference: {fileID: 4529200073993657298}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'temperatureIcons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8855049830490524701}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'temperatureIcons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5317030197252392552}
+    - target: {fileID: 5070629360352207885, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+      propertyPath: 'temperatureIcons.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7074652970996287188}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+--- !u!224 &3309637912495293972 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1215863345315756435, guid: 4f17777ed3e9c7947bd821628f828b82, type: 3}
+  m_PrefabInstance: {fileID: 4409498337653571463}
+  m_PrefabAsset: {fileID: 0}

@@ -63,7 +63,9 @@ public class Radio : MonoBehaviour
         {
             radioOn = !radioOn;
             SetRadioVol(radioVol);
-            GameManager.instance.pauseMusic.togglePauseMusic(!radioOn);
+
+            if (MusicManager.Instance != null)
+                MusicManager.Instance.ToggleBackgroundMusic(!radioOn);
         }
     }
 
@@ -79,7 +81,9 @@ public class Radio : MonoBehaviour
     {
         radioOn = on;
         SetRadioVol(radioVol);
-        GameManager.instance.pauseMusic.togglePauseMusic(!radioOn);
+
+        if (MusicManager.Instance != null)
+            MusicManager.Instance.ToggleBackgroundMusic(!radioOn);
     }
 
     public bool getInStatic() { return inStatic; }

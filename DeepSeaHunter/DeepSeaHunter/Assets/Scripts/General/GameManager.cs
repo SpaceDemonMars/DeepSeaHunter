@@ -109,7 +109,16 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
         radio = GameObject.FindWithTag("Radio");
@@ -404,7 +413,12 @@ public class GameManager : MonoBehaviour
         questPopupObject.SetActive(false);
     }
 
-    public void setMusicVolume(float volume) { radioScript.SetRadioVol(volume); pauseMusic.SetRadioVol(volume); }
+    public void setMusicVolume(float volume) { radioScript.SetRadioVol(volume); pauseMusic.SetRadioVol(volume); 
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.SetMusicVolume(volume);
+        }
+    }
     public void setPlayerVolume(float volume) { playerScript.aud.volume = volume; }
     public void setFxVolume(float volume) { aud.volume = volume; }
 

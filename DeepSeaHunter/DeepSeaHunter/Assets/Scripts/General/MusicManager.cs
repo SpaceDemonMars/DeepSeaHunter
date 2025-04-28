@@ -7,11 +7,13 @@ public class MusicManager : MonoBehaviour
 
     public AudioSource musicSource;
     public AudioClip introMusic;
-    public AudioClip demoSceneMusic;
+//    public AudioClip demoSceneMusic;
     public AudioClip creditsMusic;
     public AudioClip goodEndingMusic;
     public AudioClip neutralEndingMusic;
     public AudioClip badEndingMusic;
+
+    [Range(0f, 1f)] public float musicVolume = 1.0f;
 
     private void Awake()
     {
@@ -20,11 +22,18 @@ public class MusicManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
+
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            musicVolume = PlayerPrefs.GetFloat("MusicVolume");
         }
+
+        ApplyVolume();
+    }
         else
         {
             Destroy(gameObject);
-        }
+}
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -37,9 +46,9 @@ public class MusicManager : MonoBehaviour
             case "LoadingScene":
                 PlayMusic(introMusic);
                 break;
-            case "Demo":
-                PlayMusic(demoSceneMusic);
-                break;
+ //           case "Demo":
+   //             PlayMusic(demoSceneMusic);
+     //           break;
             case "Credits":
                 PlayMusic(creditsMusic);
                 break;
@@ -65,6 +74,35 @@ public class MusicManager : MonoBehaviour
         {
             musicSource.clip = clip;
             musicSource.Play();
+        }
+    }
+    public void SetMusicVolume(float volume)
+    {
+        musicVolume = Mathf.Clamp01(volume);
+        ApplyVolume();
+
+        PlayerPrefs.SetFloat("MusicVolume", musicVolume);
+        PlayerPrefs.Save();
+    }
+
+    private void ApplyVolume()
+    {
+        if (musicSource != null)
+            musicSource.volume = musicVolume;
+    }
+    public void ToggleBackgroundMusic(bool play)
+    {
+        if (musicSource == null) return;
+
+        if (play)
+        {
+            if (!musicSource.isPlaying)
+                musicSource.Play();
+        }
+        else
+        {
+            if (musicSource.isPlaying)
+                musicSource.Pause();
         }
     }
 }
