@@ -10,8 +10,19 @@ public class zoneTrigger : MonoBehaviour
         if (player != null)
         {
             GameManager.instance.playerScript.o2Script.setOxygen(zone.hasOxygen);
-            GameManager.instance.playerScript.tempScript.setZoneMod(zone.zoneTempMod);
-            GameManager.instance.playerScript.radioScript.setInStatic(zone.hasStatic);
+            if (!zone.isBubbles)
+            {
+                GameManager.instance.playerScript.tempScript.setZoneMod(zone.zoneTempMod);
+                GameManager.instance.playerScript.radioScript.setInStatic(zone.hasStatic);
+            }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        playerController player = other.GetComponent<playerController>();
+        if (player != null && zone.isBubbles)
+        {
+            GameManager.instance.playerScript.o2Script.setOxygen(!zone.hasOxygen);
         }
     }
 }

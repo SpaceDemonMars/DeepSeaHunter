@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b6f13774bf24514da9e2188dc5efa2f, type: 3}
-  m_Name: water-0 bubble
+  m_Name: Bubbles
   m_EditorClassIdentifier: 
   hasOxygen: 1
+  isBubbles: 1
   hasStatic: 0
   zoneTempMod: 0
