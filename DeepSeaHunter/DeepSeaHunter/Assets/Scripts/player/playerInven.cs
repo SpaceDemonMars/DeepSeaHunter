@@ -240,7 +240,7 @@ public class playerInven : MonoBehaviour
     public void setFish(int fish) { currencyFish = fish; setFishText(); }
     public void addFish(int fish) { currencyFish += fish; setFishText(); }
     public int getScrap() { return currencyScrap; }
-    public void setScrap(int scrap) { currencyFish = scrap; setScrapText(); }
+    public void setScrap(int scrap) { currencyScrap = scrap; setScrapText(); }
     public void addScrap(int scrap) { currencyScrap += scrap; setScrapText(); }
     public void setFishText() { GameManager.instance.fishText.text = currencyFish.ToString(); }
     public void setScrapText() { GameManager.instance.scrapText.text = currencyScrap.ToString(); }

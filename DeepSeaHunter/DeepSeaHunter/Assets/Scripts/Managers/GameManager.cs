@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
         loseTextColors[1] = loseTextColorO2;
         loseTextColors[2] = loseTextColorTemp;
     }
-    void Update()
+        void Update()
     {
         openTabSettings();
         openTabInventory();
@@ -150,6 +150,36 @@ public class GameManager : MonoBehaviour
         openTabJournal();
     }
 
+    void ensureAudioManagersExist()
+    {
+        if (AudioManager.Instance == null)
+        {
+            GameObject audioManagerPrefab = Resources.Load<GameObject>("AudioManager");
+            if (audioManagerPrefab != null)
+            {
+                GameObject audioManager = Instantiate(audioManagerPrefab);
+                DontDestroyOnLoad(audioManager);
+            }
+            else
+            {
+                Debug.LogError("AudioManager prefab not found in Resources/AudioManager!");
+            }
+        }
+
+        if (MusicManager.Instance == null)
+        {
+            GameObject musicManagerPrefab = Resources.Load<GameObject>("MusicManager");
+            if (musicManagerPrefab != null)
+            {
+                GameObject musicManager = Instantiate(musicManagerPrefab);
+                DontDestroyOnLoad(musicManager);
+            }
+            else
+            {
+                Debug.LogError("MusicManager prefab not found in Resources/MusicManager!");
+            }
+        }
+    }
     public void Save()
     {
         generalSAVE gameSave = new()

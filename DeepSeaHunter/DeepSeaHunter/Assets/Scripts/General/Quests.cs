@@ -11,8 +11,13 @@ public enum QuestID
     AskAboutNathansDiveSpots,
     DeliverCrabsToJim,
     OpenJimShop,
+    GetGearFromJewel,
+    FindClues,
     HeadOutTo1stDiveSpot,
-    GetGearFromJewel
+    HeadTo2ndDiveSpot,
+    FindNathan,
+    DefeatTheBoss
+   
 }
 
 // Quest Status

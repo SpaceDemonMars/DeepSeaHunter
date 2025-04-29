@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,23 +14,29 @@ public class npcAI : MonoBehaviour
     public float roamDist = 2f;
 
     private bool isTalking = false;
-    private Transform talkingTarget;
-
-    private float roamTimer;
     private bool isPlayerInteracting;
-
     private Transform player;
+    private Transform talkingTarget;
+    private float roamTimer;
+
+    [Header("Shop Settings")]
     public bool shopUnlocked = false;
     public Shop shop;
+    public bool autoOpenShopAfterTurnIn = true;
 
-    void Start()
+    [Header("Quest Unlock Settings")]
+    public QuestID requiredQuestToUnlock;
+    public string requiredItemName;
+    public int requiredItemAmount;
+
+    private void Start()
     {
         modelColor = model.material.color;
         startingPos = transform.position;
-        roamTimer = roamPauseTime; // Delay initial roam
+        roamTimer = roamPauseTime;
     }
 
-    void Update()
+    private void Update()
     {
         if (isTalking && talkingTarget != null)
         {
@@ -56,8 +61,7 @@ public class npcAI : MonoBehaviour
             }
 
             float agentSpeed = agent.velocity.normalized.magnitude;
-            float animSpeed = anim.GetFloat("Speed");
-            anim.SetFloat("Speed", Mathf.Lerp(animSpeed, agentSpeed, Time.deltaTime * 5f));
+            anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agentSpeed, Time.deltaTime * 5f));
         }
     }
 
@@ -66,8 +70,8 @@ public class npcAI : MonoBehaviour
         roamTimer = 0;
         Vector3 randomDirection = Random.insideUnitSphere * roamDist;
         randomDirection += startingPos;
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomDirection, out hit, roamDist, NavMesh.AllAreas))
+
+        if (NavMesh.SamplePosition(randomDirection, out NavMeshHit hit, roamDist, NavMesh.AllAreas))
         {
             agent.SetDestination(hit.position);
         }
@@ -75,8 +79,7 @@ public class npcAI : MonoBehaviour
 
     void FacePlayer()
     {
-        if (player == null)
-            return;
+        if (player == null) return;
 
         Vector3 lookDirection = player.position - transform.position;
         lookDirection.y = 0;
@@ -113,7 +116,9 @@ public class npcAI : MonoBehaviour
         agent.isStopped = false;
         roamTimer = 0f;
 
-        if (shop != null && shopUnlocked)
+        HandleQuestCompletion();
+
+        if (shopUnlocked && autoOpenShopAfterTurnIn && shop != null)
         {
             shop.OpenShop();
         }
@@ -124,5 +129,28 @@ public class npcAI : MonoBehaviour
         isPlayerInteracting = false;
         player = null;
         roamTimer = 0;
+    }
+
+    void HandleQuestCompletion()
+    {
+        if (shopUnlocked) return; 
+
+        if (requiredQuestToUnlock != QuestID.None && QuestManager.instance.IsQuestCompleted(requiredQuestToUnlock))
+        {
+            if (!string.IsNullOrEmpty(requiredItemName) && requiredItemAmount > 0)
+            {
+                if (playerInven.Instance.HasItem(requiredItemName, requiredItemAmount))
+                {
+                    playerInven.Instance.RemoveItem(requiredItemName, requiredItemAmount);
+                    shopUnlocked = true;
+                    Debug.Log("Shop unlocked by item turn-in!");
+                }
+            }
+            else
+            {
+                shopUnlocked = true;
+                Debug.Log("Shop unlocked by quest completion!");
+            }
+        }
     }
 }

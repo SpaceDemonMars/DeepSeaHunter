@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6485438975190452140}
-  - component: {fileID: 2318458408017106}
   - component: {fileID: 8379125719760115056}
   - component: {fileID: 6307526817597186199}
   - component: {fileID: 9208471540259259663}
+  - component: {fileID: 5479200672461105007}
   m_Layer: 0
   m_Name: Fish Drop (Temp)
   m_TagString: Untagged
@@ -29,27 +29,12 @@ Transform:
   m_GameObject: {fileID: 774143862851430196}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.82, y: 1.05, z: -0.96}
+  m_LocalPosition: {x: 43.761986, y: 16.81, z: -14.067162}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2318458408017106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774143862851430196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b92c65ae822debc429e43cee089a2bcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPickup: {fileID: 11400000, guid: 70f16d90eb17ed042ada2f061d12fd67, type: 2}
-  knife: {fileID: 0}
-  harpoon: {fileID: 0}
 --- !u!33 &8379125719760115056
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -124,3 +109,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5479200672461105007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774143862851430196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9982306494c7ff4f804ac05f5a9b809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Fish
+  amount: 1
+  itemPickup: {fileID: 11400000, guid: 70f16d90eb17ed042ada2f061d12fd67, type: 2}
+  knife: {fileID: 0}
+  harpoon: {fileID: 0}

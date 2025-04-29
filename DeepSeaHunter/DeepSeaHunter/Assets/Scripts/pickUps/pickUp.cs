@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class pickUp : MonoBehaviour
 {
@@ -37,3 +37,4 @@ public class pickUp : MonoBehaviour
         }
     }
 }
+*/

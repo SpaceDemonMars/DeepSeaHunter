@@ -107,11 +107,11 @@ MonoBehaviour:
     choices: []
     completeQuest: 0
     questToComplete: 0
-    startQuest: 0
-    questToStart: 0
-    requiresItem: 0
-    requiredItemName: 
-    requiredItemAmount: 0
+    startQuest: 1
+    questToStart: 4
+    requiresItem: 1
+    requiredItemName: fish
+    requiredItemAmount: 3
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
@@ -121,8 +121,8 @@ MonoBehaviour:
     choices: []
     completeQuest: 0
     questToComplete: 0
-    startQuest: 1
-    questToStart: 4
+    startQuest: 0
+    questToStart: 0
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
