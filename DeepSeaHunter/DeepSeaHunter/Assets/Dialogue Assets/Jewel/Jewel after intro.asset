@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a688ceb77ec1554a9c1805812809e50, type: 3}
+  m_Name: Jewel after intro
+  m_EditorClassIdentifier: 
+  npcName: Jewel
+  lines:
+  - speakerName: 'Player:'
+    line: "\u201CYou\u2019ve worked on Nathan\u2019s gear, right? Know where he might\u2019ve
+      gone diving?\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Jewel:'
+    line: "\"Yeah, I patched up his tanks and pressure gauge just last week. Kept
+      askin\u2019 me if I could \u2018seal something for deep pressure\u2019\u2014deeper
+      than I\u2019d recommend for a solo dive. Didn\u2019t say where he was goin\u2019.
+      Just said, \u2018If it holds, I\u2019ll owe you a story.\u2019 I never liked
+      that kind of talk.\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Player:'
+    line: '"Thanks, see ya around."'
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0

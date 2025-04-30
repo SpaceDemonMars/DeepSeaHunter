@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a688ceb77ec1554a9c1805812809e50, type: 3}
+  m_Name: Jewel after crabs
+  m_EditorClassIdentifier: 
+  npcName: Jewel
+  lines:
+  - speakerName: 'Player:'
+    line: " \"Hey, Jewel\u2014you wouldn\u2019t happen to have any spare dive gear
+      lying around, would you?\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Jewel:'
+    line: ": \"Got an old set collectin\u2019 rust back there\u2014nothing fancy.
+      Seals ain\u2019t great, gauges are twitchy, and she smells like brine and regret.
+      But she should be good for a short dive or two...\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Player:'
+    line: "\"I\u2019ll take it. How much?\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Jewel:'
+    line: "\"Got an old set collectin\u2019 rust back there\u2014nothing fancy. Seals
+      ain\u2019t great, gauges are twitchy, and she smells like brine and regret.
+      But she should be good for a short dive or two... just don\u2019t go stayin\u2019
+      down too long, and definitely don\u2019t go deep.\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Jewel:'
+    line: "\"Don\u2019t wanna be left wonderin\u2019 if I sent you off to drown.
+      Tell you what\u2014if you find any scrap while you\u2019re down there, bring
+      it back my way. I might be able to patch it up a bit better. Won\u2019t be
+      free, though! A girl\u2019s still gotta eat.\""
+    choices: []
+    completeQuest: 1
+    questToComplete: 6
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Player:'
+    line: "\"Thanks, Jewel. I\u2019ll be careful.\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
+  - speakerName: 'Jewel:'
+    line: "\"Don\u2019t wanna be left wonderin\u2019 if I sent you off to drown.
+      Tell you what\u2014if you find any scrap while you\u2019re down there, bring
+      it back my way. I might be able to patch it up a bit better. Won\u2019t be
+      free, though! A girl\u2019s still gotta eat.\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    requiresQuest: 0
+    requiredQuestID: 0
+    questMustBeCompleted: 0
