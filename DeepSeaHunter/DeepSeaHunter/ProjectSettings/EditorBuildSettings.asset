@@ -18,7 +18,13 @@ EditorBuildSettings:
     path: Assets/Scenes/UI scenes/LoadingScene.unity
     guid: fef708c8be415e441b5338d4deb8317c
   - enabled: 1
-    path: Assets/Scenes/Demo.unity
+    path: Assets/Scenes/Levels/Tutorial.unity
+    guid: 38ec323a701dae8499e01d298f571102
+  - enabled: 1
+    path: Assets/Scenes/Levels/lv1 - reef.unity
+    guid: f255d7971041c18439c0771d9ba21b83
+  - enabled: 1
+    path: Assets/Scenes/Levels/Demo.unity
     guid: 8e7a61d1d5b46874d81eefddb4479a90
   - enabled: 1
     path: Assets/Scenes/Endings/Bad Ending.unity
