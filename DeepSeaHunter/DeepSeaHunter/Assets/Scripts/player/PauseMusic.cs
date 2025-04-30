@@ -3,6 +3,9 @@ using UnityEngine;
 public class PauseMusic : MonoBehaviour
 {
     public AudioSource aud;
+    float radioVol = .5f;   //sorry for the lack of clarity, the previous comment
+                            //meant LITERALLY to only remove the [SerializeField]
+                            //not to remove this entirely
     [SerializeField] AudioClip[] menuPlaylist;
     int listIndex;
     bool radioOn;
@@ -10,7 +13,7 @@ public class PauseMusic : MonoBehaviour
     {
         listIndex = Random.Range(0, menuPlaylist.Length);
         radioOn = true;
-        //SetRadioVol(AudioManager.Instance != null ? AudioManager.Instance.musicVolume : 1f);
+        SetRadioVol(radioVol);
     }
     void Update()
     {
@@ -37,16 +40,16 @@ public class PauseMusic : MonoBehaviour
     public void togglePauseMusic(bool on)
     {
         radioOn = on;
-        //SetRadioVol(AudioManager.Instance != null ? AudioManager.Instance.musicVolume : 1f);
+        SetRadioVol(radioVol);
     }
     public void SetRadioVol(float volume)
     {
-        if (aud == null) return;
+        radioVol = volume;
         if (radioOn) aud.volume = volume;
         else aud.volume = 0;
     }
     public float GetRadioVol()
     {
-        return aud != null ? aud.volume : 0f;
+        return radioVol;
     }
 }

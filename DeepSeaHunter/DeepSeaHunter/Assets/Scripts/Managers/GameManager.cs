@@ -54,9 +54,6 @@ public class GameManager : MonoBehaviour
     public DialogueManager dialogueManager;
 
     [Header("Menu SFX")]
-    [SerializeField] AudioSource aud;
-    [SerializeField] AudioClip[] uiSFX;
-    [SerializeField] float uiVol;
     public GameObject pausePlayer;
     public PauseMusic pauseMusic;
 
@@ -142,7 +139,7 @@ public class GameManager : MonoBehaviour
         loseTextColors[1] = loseTextColorO2;
         loseTextColors[2] = loseTextColorTemp;
     }
-        void Update()
+    void Update()
     {
         openTabSettings();
         openTabInventory();
@@ -429,25 +426,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f); // Show for 3 seconds
         questPopupObject.SetActive(false);
     }
-    public void setMusicVolume(float volume)
-    {
-        if (AudioManager.Instance != null)
-            AudioManager.Instance.SetMusicVolume(volume);
-    }
-    public void setPlayerVolume(float volume)
-    {
-        if (AudioManager.Instance != null)
-            AudioManager.Instance.SetPlayerVolume(volume);
-    }
-    public void setFxVolume(float volume)
-    {
-        if (AudioManager.Instance != null)
-            AudioManager.Instance.SetFxVolume(volume);
-    }
-    public void playSFX()
-    {
-        aud.PlayOneShot(uiSFX[Random.Range(0, uiSFX.Length)], uiVol);
-    }
+    
     //previous win menu
     /* public void updateGameGoal(string bossName, bool slain)
      {
@@ -584,7 +563,7 @@ public class GameManager : MonoBehaviour
         "If it keeps him safe… so be it."
     }
     };
-        private string GetRandomDeathMessage(int source)
+    private string GetRandomDeathMessage(int source)
     {
         if (source >= 0 && source < loseMessages.Length)
         {
@@ -592,7 +571,7 @@ public class GameManager : MonoBehaviour
         }
         return "The deep claimed you.";
     }
-        private string GetRandomLastWords(int source)
+    private string GetRandomLastWords(int source)
     {
         if (source >= 0 && source < lastWords.Length)
         {

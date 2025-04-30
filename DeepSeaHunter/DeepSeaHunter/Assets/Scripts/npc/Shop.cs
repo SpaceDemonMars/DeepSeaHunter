@@ -51,7 +51,7 @@ public class Shop : MonoBehaviour
                     playerInven.Instance.AddItem(trade.rewardItem, trade.rewardAmount);
 
                     Debug.Log($"Traded {trade.requiredAmount} fish for {trade.rewardAmount} {trade.rewardItem}");
-                    GameManager.instance.playSFX();
+                    AudioManager.Instance.PlaySFX();
                 }
                 else
                 {
@@ -66,7 +66,7 @@ public class Shop : MonoBehaviour
                     playerInven.Instance.AddItem(trade.rewardItem, trade.rewardAmount);
 
                     Debug.Log($"Traded {trade.requiredAmount} scrap for {trade.rewardAmount} {trade.rewardItem}");
-                    GameManager.instance.playSFX();
+                    AudioManager.Instance.PlaySFX();
                 }
                 else
                 {
@@ -81,7 +81,7 @@ public class Shop : MonoBehaviour
                     playerInven.Instance.AddItem(trade.rewardItem, trade.rewardAmount);
 
                     Debug.Log($"Traded {trade.requiredAmount} {trade.requiredItem} for {trade.rewardAmount} {trade.rewardItem}");
-                    GameManager.instance.playSFX();
+                    AudioManager.Instance.PlaySFX();
                 }
                 else
                 {
