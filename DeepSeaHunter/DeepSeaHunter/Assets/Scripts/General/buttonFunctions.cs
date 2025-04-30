@@ -4,6 +4,10 @@ using UnityEngine.UI;
 
 public class buttonFunctions : MonoBehaviour
 {
+    string prefsMusic = "MusicVolume";
+    string prefsPlayer = "PlayerVolume";
+    string prefsFx = "fxVolume";
+    string prefsDefault = "isDefault";
     [SerializeField] buttonSettingsSAVE saveSettings;
     [SerializeField] Slider music;
     [SerializeField] Slider player;
@@ -19,18 +23,18 @@ public class buttonFunctions : MonoBehaviour
     public void save() { GameManager.instance.Save(); }
     public void load() { GameManager.instance.Load(); }
 
-    public void resume() { GameManager.instance.stateUnpause(); GameManager.instance.playSFX(); }
+    public void resume() { GameManager.instance.stateUnpause(); AudioManager.Instance.PlaySFX(); }
 
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        GameManager.instance.playSFX();
+        AudioManager.Instance.PlaySFX();
         GameManager.instance.stateUnpause();
     }
 
     public void quit()
     {
-        GameManager.instance.playSFX();
+        AudioManager.Instance.PlaySFX();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -39,7 +43,7 @@ public class buttonFunctions : MonoBehaviour
     }
     public void respawn()
     {
-        GameManager.instance.playSFX();
+        AudioManager.Instance.PlaySFX();
         GameManager.instance.playerScript.spawnPlayer();
         GameManager.instance.dialogHiddenUI.SetActive(true); //show UI
         GameManager.instance.resetLevelBoss();
@@ -49,50 +53,54 @@ public class buttonFunctions : MonoBehaviour
 
     public void invenItemClick(Button button)
     {
-        GameManager.instance.playSFX();
+        AudioManager.Instance.PlaySFX();
         GameManager.instance.playerScript.inven.removeItem(button.GetComponent<inventoryButtons>().index);
     }
 
-    public void settings() { GameManager.instance.openTabSettings(true); GameManager.instance.playSFX(); }
-    public void inventory() { GameManager.instance.openTabInventory(true); GameManager.instance.playSFX(); }
-    public void equipment() { GameManager.instance.openTabEquipment(true); GameManager.instance.playSFX(); }
-    public void journal() { GameManager.instance.openTabJournal(true); GameManager.instance.playSFX(); }
+    public void settings() { GameManager.instance.openTabSettings(true); AudioManager.Instance.PlaySFX(); }
+    public void inventory() { GameManager.instance.openTabInventory(true); AudioManager.Instance.PlaySFX(); }
+    public void equipment() { GameManager.instance.openTabEquipment(true); AudioManager.Instance.PlaySFX(); }
+    public void journal() { GameManager.instance.openTabJournal(true); AudioManager.Instance.PlaySFX(); }
 
     public void sliderMusicVolume(float val)
     {
-        saveSettings.musicVol = val;
-        GameManager.instance.setMusicVolume(val);
-        defaultsButton.SetActive(!saveSettings.checkDefaults());
-        GameManager.instance.playSFX();
+        AudioManager.Instance.SetMusicVolume(val);
+        defaultsButton.SetActive(PlayerPrefs.GetInt(prefsDefault) == 0);
+        AudioManager.Instance.PlaySFX();
     }
     public void sliderPlayerVolume(float val)
     {
-        saveSettings.playerVol = val;
-        GameManager.instance.setPlayerVolume(val);
-        defaultsButton.SetActive(!saveSettings.checkDefaults());
-        GameManager.instance.playSFX();
+        AudioManager.Instance.SetPlayerVolume(val);
+        defaultsButton.SetActive(PlayerPrefs.GetInt(prefsDefault) == 0);
+        AudioManager.Instance.PlaySFX();
     }
     public void sliderFxVolume(float val)
     {
-        saveSettings.fxVol = val;
-        GameManager.instance.setFxVolume(val);
-        defaultsButton.SetActive(!saveSettings.checkDefaults());
-        GameManager.instance.playSFX();
+        AudioManager.Instance.SetFxVolume(val);
+        defaultsButton.SetActive(PlayerPrefs.GetInt(prefsDefault) == 0);
+        AudioManager.Instance.PlaySFX();
     }
     public void restoreDefaults()
     {
-        saveSettings.restoreDefaults();
+        PlayerPrefs.DeleteAll(); //clear existing
+        PlayerPrefs.SetFloat(prefsMusic, .5f);
+        PlayerPrefs.SetFloat(prefsPlayer, .5f);
+        PlayerPrefs.SetFloat(prefsFx, .5f);
+        PlayerPrefs.SetInt(prefsDefault, 1);
+
         applySavedSettings();
     }
 
     void applySavedSettings()
     {
-        music.value = saveSettings.musicVol;
-        GameManager.instance.setMusicVolume(saveSettings.musicVol);
-        player.value = saveSettings.playerVol;
-        GameManager.instance.setPlayerVolume(saveSettings.playerVol);
-        fx.value = saveSettings.fxVol;
-        GameManager.instance.setFxVolume(saveSettings.fxVol);
-        defaultsButton.SetActive(!saveSettings.checkDefaults());
+        music.value = PlayerPrefs.GetFloat(prefsMusic);
+        AudioManager.Instance.SetMusicVolume(saveSettings.musicVol);
+        player.value = PlayerPrefs.GetFloat(prefsMusic);
+        AudioManager.Instance.SetPlayerVolume(saveSettings.playerVol);
+        fx.value = PlayerPrefs.GetFloat(prefsMusic);
+        AudioManager.Instance.SetFxVolume(saveSettings.fxVol);
+        //prefsDefault == 0 -> settings are NOT Default -> button is ACTIVE (true)
+        //prefsDefault == 1 -> settings are Default -> button is NOT Active (false)
+        defaultsButton.SetActive(PlayerPrefs.GetInt(prefsDefault) == 0);
     }
 }

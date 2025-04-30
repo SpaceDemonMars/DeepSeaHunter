@@ -16,7 +16,7 @@ public class Radio : MonoBehaviour
         allRadioClips[1] = staticPlaylist;
         for (int i = 0; i < allRadioClips.Length - 1; i++)
             playlistIndex[i] = Random.Range(0, allRadioClips[i].Length);
-        SetRadioVol(AudioManager.Instance != null ? AudioManager.Instance.musicVolume : 1f);
+        //SetRadioVol(AudioManager.Instance != null ? AudioManager.Instance.musicVolume : 1f);
     }
         void Update()
     {
@@ -50,7 +50,7 @@ public class Radio : MonoBehaviour
         if (Input.GetButtonDown("Radio"))
         {
             radioOn = !radioOn;
-            SetRadioVol(AudioManager.Instance != null ? AudioManager.Instance.musicVolume : 1f);
+            //SetRadioVol(AudioManager.Instance != null ? AudioManager.Instance.musicVolume : 1f);
 
             if (MusicManager.Instance != null)
                 MusicManager.Instance.ToggleBackgroundMusic(!radioOn);
@@ -73,7 +73,7 @@ public class Radio : MonoBehaviour
         public void setRadioOn(bool on)
     {
         radioOn = on;
-        SetRadioVol(AudioManager.Instance != null ? AudioManager.Instance.musicVolume : 1f);
+        //SetRadioVol(AudioManager.Instance != null ? AudioManager.Instance.musicVolume : 1f);
 
         if (MusicManager.Instance != null)
             MusicManager.Instance.ToggleBackgroundMusic(!radioOn);

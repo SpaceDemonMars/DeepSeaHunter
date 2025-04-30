@@ -10,7 +10,7 @@ public class PauseMusic : MonoBehaviour
     {
         listIndex = Random.Range(0, menuPlaylist.Length);
         radioOn = true;
-        SetRadioVol(AudioManager.Instance != null ? AudioManager.Instance.musicVolume : 1f);
+        //SetRadioVol(AudioManager.Instance != null ? AudioManager.Instance.musicVolume : 1f);
     }
     void Update()
     {
@@ -37,7 +37,7 @@ public class PauseMusic : MonoBehaviour
     public void togglePauseMusic(bool on)
     {
         radioOn = on;
-        SetRadioVol(AudioManager.Instance != null ? AudioManager.Instance.musicVolume : 1f);
+        //SetRadioVol(AudioManager.Instance != null ? AudioManager.Instance.musicVolume : 1f);
     }
     public void SetRadioVol(float volume)
     {
