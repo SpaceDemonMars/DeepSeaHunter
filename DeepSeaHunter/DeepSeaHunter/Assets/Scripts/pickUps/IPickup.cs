@@ -6,4 +6,5 @@ public interface IPickup
     public void getMeleeStats(meleeStats mweapon);
     public void getRangedStats(rangedStats rweapon);
 
+    public void getEquipStats(equipStats gear);
 }
