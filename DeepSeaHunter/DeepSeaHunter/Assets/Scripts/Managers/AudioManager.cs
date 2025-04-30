@@ -2,45 +2,18 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    //reworked for bugfixes
     public static AudioManager Instance;
 
-    [Header("Volumes")]
-    [Range(0f, 1f)] public float masterVolume = 1f;
-    [Range(0f, 1f)] public float musicVolume = 1f;
-    [Range(0f, 1f)] public float playerVolume = 1f;
-    [Range(0f, 1f)] public float fxVolume = 1f;
-
-    [Header("Sources")]
-    public AudioSource musicSource;
-    public AudioSource sfxSource;
-    public AudioSource voiceSource;
+    [Header("FX Audio")]
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] uiSFX;
+    [SerializeField] float uiVol;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-
-            if (PlayerPrefs.HasKey("MusicVolume"))
-                musicVolume = PlayerPrefs.GetFloat("MusicVolume");
-            if (PlayerPrefs.HasKey("PlayerVolume"))
-                playerVolume = PlayerPrefs.GetFloat("PlayerVolume");
-            if (PlayerPrefs.HasKey("FxVolume"))
-                fxVolume = PlayerPrefs.GetFloat("FxVolume");
-
-            ApplyVolumes();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void SetMasterVolume(float volume)
-    {
-        masterVolume = Mathf.Clamp01(volume);
-        ApplyVolumes();
+        if (Instance == null) Instance = this;
+        else if (Instance !=  this) Destroy(gameObject);
     }
 
     public void SetMusicVolume(float volume)
@@ -67,6 +40,36 @@ public class AudioManager : MonoBehaviour
         ApplyVolumes();
     }
 
+    
+
+    public void PlaySFX(AudioClip clip)
+    {
+        if (clip != null && sfxSource != null)
+            sfxSource.PlayOneShot(clip, fxVolume * masterVolume);
+    }
+}
+
+/* Notes for Leanne
+
+    [Header("Sources")]
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
+    public AudioSource voiceSource;
+        We cant do this, because it requires dragging audio sources from OTHER game objects onto this one
+        Think of it as kidnapping their components. 
+        Kidnapping components is BAD because as we move between scenes we lose access to those components
+        this creates null reference errors.
+
+
+    Mathf.Clamp01()
+        We don't need to call this, the Sliders are normalized by default
+    
+
+    public void SetMasterVolume(float volume)
+    {
+        masterVolume = Mathf.Clamp01(volume);
+        ApplyVolumes();
+    }
     private void ApplyVolumes()
     {
         if (musicSource != null)
@@ -76,10 +79,5 @@ public class AudioManager : MonoBehaviour
         if (voiceSource != null)
             voiceSource.volume = masterVolume * playerVolume;
     }
-
-    public void PlaySFX(AudioClip clip)
-    {
-        if (clip != null && sfxSource != null)
-            sfxSource.PlayOneShot(clip, fxVolume * masterVolume);
-    }
-}
+        We can add this back in later, but it was giving me trouble when testing so its out for now.
+*/

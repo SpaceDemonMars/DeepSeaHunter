@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 public class buttonFunctions : MonoBehaviour
 {
     [SerializeField] buttonSettingsSAVE saveSettings;
@@ -8,38 +9,28 @@ public class buttonFunctions : MonoBehaviour
     [SerializeField] Slider player;
     [SerializeField] Slider fx;
     [SerializeField] GameObject defaultsButton;
-    [SerializeField] AudioClip testFxClip;
-    [SerializeField] AudioClip testplayerClip;
 
     private void Start()
     {
         applySavedSettings();
-        loadPlayerPrefsVolumes();
     }
-    private void loadPlayerPrefsVolumes()
-    {
-        if (PlayerPrefs.HasKey("MusicVolume"))
-            AudioManager.Instance.SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
-        if (PlayerPrefs.HasKey("PlayerVolume"))
-            AudioManager.Instance.SetPlayerVolume(PlayerPrefs.GetFloat("PlayerVolume"));
-        if (PlayerPrefs.HasKey("FxVolume"))
-            AudioManager.Instance.SetFxVolume(PlayerPrefs.GetFloat("FxVolume"));
-    }
-    public void save() { if (GameManager.instance != null) GameManager.instance.Save(); }
-    public void load() { if (GameManager.instance != null) GameManager.instance.Load(); }
-    public void resume() { if (GameManager.instance != null) { GameManager.instance.stateUnpause(); AudioManager.Instance.PlaySFX(null); } }
+
+
+    public void save() { GameManager.instance.Save(); }
+    public void load() { GameManager.instance.Load(); }
+
+    public void resume() { GameManager.instance.stateUnpause(); GameManager.instance.playSFX(); }
+
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        if (GameManager.instance != null)
-        {
-            AudioManager.Instance.PlaySFX(null);
-            GameManager.instance.stateUnpause();
-        }
+        GameManager.instance.playSFX();
+        GameManager.instance.stateUnpause();
     }
+
     public void quit()
     {
-        if (GameManager.instance != null) AudioManager.Instance.PlaySFX(null);
+        GameManager.instance.playSFX();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -48,76 +39,60 @@ public class buttonFunctions : MonoBehaviour
     }
     public void respawn()
     {
-        if (GameManager.instance != null)
-        {
-            AudioManager.Instance.PlaySFX(null);
-            GameManager.instance.playerScript.spawnPlayer();
-            GameManager.instance.dialogHiddenUI.SetActive(true);
-            GameManager.instance.resetLevelBoss();
-            GameManager.instance.stateUnpause();
-        }
+        GameManager.instance.playSFX();
+        GameManager.instance.playerScript.spawnPlayer();
+        GameManager.instance.dialogHiddenUI.SetActive(true); //show UI
+        GameManager.instance.resetLevelBoss();
+        GameManager.instance.stateUnpause();
+        Debug.Log("Respawn button clicked, player moved to: " + GameManager.instance.playerSpawnPos.transform.position);
     }
+
     public void invenItemClick(Button button)
     {
-        if (GameManager.instance != null)
-        {
-            AudioManager.Instance.PlaySFX(null);
-            GameManager.instance.playerScript.inven.removeItem(button.GetComponent<inventoryButtons>().index);
-        }
+        GameManager.instance.playSFX();
+        GameManager.instance.playerScript.inven.removeItem(button.GetComponent<inventoryButtons>().index);
     }
-    public void settings() { if (GameManager.instance != null) { GameManager.instance.openTabSettings(true); AudioManager.Instance.PlaySFX(null); } }
-    public void inventory() { if (GameManager.instance != null) { GameManager.instance.openTabInventory(true); AudioManager.Instance.PlaySFX(null); } }
-    public void equipment() { if (GameManager.instance != null) { GameManager.instance.openTabEquipment(true); AudioManager.Instance.PlaySFX(null); } }
-    public void journal() { if (GameManager.instance != null) { GameManager.instance.openTabJournal(true); AudioManager.Instance.PlaySFX(null); } }
+
+    public void settings() { GameManager.instance.openTabSettings(true); GameManager.instance.playSFX(); }
+    public void inventory() { GameManager.instance.openTabInventory(true); GameManager.instance.playSFX(); }
+    public void equipment() { GameManager.instance.openTabEquipment(true); GameManager.instance.playSFX(); }
+    public void journal() { GameManager.instance.openTabJournal(true); GameManager.instance.playSFX(); }
+
     public void sliderMusicVolume(float val)
     {
-        if (saveSettings != null) saveSettings.musicVol = val;
-        AudioManager.Instance.SetMusicVolume(val);
-        if (defaultsButton != null) defaultsButton.SetActive(!saveSettings.checkDefaults());
-        if (testFxClip != null)
-            AudioManager.Instance.PlaySFX(testFxClip);
+        saveSettings.musicVol = val;
+        GameManager.instance.setMusicVolume(val);
+        defaultsButton.SetActive(!saveSettings.checkDefaults());
+        GameManager.instance.playSFX();
     }
     public void sliderPlayerVolume(float val)
     {
-        if (saveSettings != null) saveSettings.playerVol = val;
-        AudioManager.Instance.SetPlayerVolume(val);
-        if (defaultsButton != null) defaultsButton.SetActive(!saveSettings.checkDefaults());
-        if (testplayerClip != null)
-            AudioManager.Instance.PlaySFX(testplayerClip);
+        saveSettings.playerVol = val;
+        GameManager.instance.setPlayerVolume(val);
+        defaultsButton.SetActive(!saveSettings.checkDefaults());
+        GameManager.instance.playSFX();
     }
     public void sliderFxVolume(float val)
     {
-        if (saveSettings != null) saveSettings.fxVol = val;
-        AudioManager.Instance.SetFxVolume(val);
-        if (defaultsButton != null) defaultsButton.SetActive(!saveSettings.checkDefaults());
-        if (testFxClip != null)
-        AudioManager.Instance.PlaySFX(testFxClip);
+        saveSettings.fxVol = val;
+        GameManager.instance.setFxVolume(val);
+        defaultsButton.SetActive(!saveSettings.checkDefaults());
+        GameManager.instance.playSFX();
     }
     public void restoreDefaults()
     {
-        if (saveSettings != null)
-        {
-            saveSettings.restoreDefaults();
-            applySavedSettings();
-        }
+        saveSettings.restoreDefaults();
+        applySavedSettings();
     }
+
     void applySavedSettings()
     {
-        if (saveSettings == null) return;
-
-        if (music != null)
-            music.value = saveSettings.musicVol;
-        AudioManager.Instance.SetMusicVolume(saveSettings.musicVol);
-
-        if (player != null)
-            player.value = saveSettings.playerVol;
-        AudioManager.Instance.SetPlayerVolume(saveSettings.playerVol);
-
-        if (fx != null)
-            fx.value = saveSettings.fxVol;
-        AudioManager.Instance.SetFxVolume(saveSettings.fxVol);
-
-        if (defaultsButton != null)
-            defaultsButton.SetActive(!saveSettings.checkDefaults());
+        music.value = saveSettings.musicVol;
+        GameManager.instance.setMusicVolume(saveSettings.musicVol);
+        player.value = saveSettings.playerVol;
+        GameManager.instance.setPlayerVolume(saveSettings.playerVol);
+        fx.value = saveSettings.fxVol;
+        GameManager.instance.setFxVolume(saveSettings.fxVol);
+        defaultsButton.SetActive(!saveSettings.checkDefaults());
     }
 }
