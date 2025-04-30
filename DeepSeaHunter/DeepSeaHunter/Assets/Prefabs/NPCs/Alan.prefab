@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80d8480b3e39a341aed812fa21601ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 0}
+  model: {fileID: 8165500122393784509}
   anim: {fileID: 4904005471189798139}
   agent: {fileID: 3167623761623767126}
   roamPauseTime: 3
@@ -1626,7 +1626,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6595415285974689766}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: c207202fdaf327549a88f878a897e0ab, type: 3}
+  m_Avatar: {fileID: 9000000, guid: b482f38205fa8d843baf4e6930ba5faa, type: 3}
   m_Controller: {fileID: 9100000, guid: 6094655f0e5af9b47bc6a19158f5b486, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
