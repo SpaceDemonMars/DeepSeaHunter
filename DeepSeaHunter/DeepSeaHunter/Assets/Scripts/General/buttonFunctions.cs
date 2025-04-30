@@ -8,7 +8,6 @@ public class buttonFunctions : MonoBehaviour
     string prefsPlayer = "PlayerVolume";
     string prefsFx = "fxVolume";
     string prefsDefault = "isDefault";
-    [SerializeField] buttonSettingsSAVE saveSettings;
     [SerializeField] Slider music;
     [SerializeField] Slider player;
     [SerializeField] Slider fx;
@@ -94,11 +93,11 @@ public class buttonFunctions : MonoBehaviour
     void applySavedSettings()
     {
         music.value = PlayerPrefs.GetFloat(prefsMusic);
-        AudioManager.Instance.SetMusicVolume(saveSettings.musicVol);
+        AudioManager.Instance.SetMusicVolume(PlayerPrefs.GetFloat(prefsMusic));
         player.value = PlayerPrefs.GetFloat(prefsMusic);
-        AudioManager.Instance.SetPlayerVolume(saveSettings.playerVol);
+        AudioManager.Instance.SetPlayerVolume(PlayerPrefs.GetFloat(prefsPlayer));
         fx.value = PlayerPrefs.GetFloat(prefsMusic);
-        AudioManager.Instance.SetFxVolume(saveSettings.fxVol);
+        AudioManager.Instance.SetFxVolume(PlayerPrefs.GetFloat(prefsFx));
         //prefsDefault == 0 -> settings are NOT Default -> button is ACTIVE (true)
         //prefsDefault == 1 -> settings are Default -> button is NOT Active (false)
         defaultsButton.SetActive(PlayerPrefs.GetInt(prefsDefault) == 0);
