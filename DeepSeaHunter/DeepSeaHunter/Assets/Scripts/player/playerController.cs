@@ -57,6 +57,8 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     [SerializeField] rangedStats rangedCurr;
     float grappleDist;
     float grappleSpeed;
+    [Header("Gear")]
+    [SerializeField] equipStats gearCurr;
 
     [Header("<----- Audio ----->")]
     public AudioSource aud;
@@ -546,6 +548,23 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         knifeDmg = meleeCurr.meleeDmg;
         knifeDist = meleeCurr.meleeDist;
         knifeRate = meleeCurr.meleeRate;
+
+        weaponModel.GetComponent<MeshFilter>().sharedMesh = meleeCurr.model.GetComponent<MeshFilter>().sharedMesh;
+        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = meleeCurr.model.GetComponent<MeshRenderer>().sharedMaterial;
+    }
+    public void getEquipStats(equipStats gear)
+    {
+        if (gearCurr == null || gearCurr.rank < gear.rank) //if no weapon OR pick up is an upgrade (better then curr)
+        {
+            if (gear.rank > 0) //not starting weapon
+                StartCoroutine(weaponUpgradePopup(gear.name));
+            gearCurr = gear; //this replaces the 2 above lines
+            changeEquippedGear();
+        }
+    }
+    void changeEquippedGear()
+    {
+        tempScript.setGearBase(gearCurr.gearMod);
 
         weaponModel.GetComponent<MeshFilter>().sharedMesh = meleeCurr.model.GetComponent<MeshFilter>().sharedMesh;
         weaponModel.GetComponent<MeshRenderer>().sharedMaterial = meleeCurr.model.GetComponent<MeshRenderer>().sharedMaterial;

@@ -5,6 +5,7 @@ public class pickUp : MonoBehaviour
     [SerializeField] Item itemPickup;
     [SerializeField] meleeStats knife;
     [SerializeField] rangedStats harpoon;
+    [SerializeField] equipStats gear;
 
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +27,10 @@ public class pickUp : MonoBehaviour
             {
                 pickupable.getRangedStats(harpoon);
             }
+
+            //gear
+            if (gear != null)
+                pickupable.getEquipStats(gear);
 
             //ALWAYS
             Destroy(gameObject);
