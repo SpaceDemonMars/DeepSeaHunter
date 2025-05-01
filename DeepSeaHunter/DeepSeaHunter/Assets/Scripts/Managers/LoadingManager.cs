@@ -9,7 +9,7 @@ public class LoadingManager : MonoBehaviour
     public GameObject loadingScene;
     public TMP_Text loadingText;
     public TMP_Text continuePrompt;
-    public static string nextSceneToLoad = "Demo";
+    public static string nextSceneToLoad = "Tutorial";
     public static string previousScene = "";
 
     private bool isSceneReady = false; 

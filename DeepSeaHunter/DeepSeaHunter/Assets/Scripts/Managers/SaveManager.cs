@@ -27,7 +27,7 @@ public class SaveManager : MonoBehaviour
         bf.Serialize(file, saveDat);
 
         file.Close();
-        Debug.Log("Success: Save");
+   //     Debug.Log("Success: Save");
     }
 
     public generalSAVE Load()
@@ -39,7 +39,7 @@ public class SaveManager : MonoBehaviour
         generalSAVE saveDat = (generalSAVE)bf.Deserialize(file);
         file.Close();
 
-        Debug.Log("Success: Load");
+      //  Debug.Log("Success: Load");
         return saveDat;
     }
     public void DeleteSave()
@@ -47,7 +47,7 @@ public class SaveManager : MonoBehaviour
         if (File.Exists(Application.persistentDataPath + "/save.dat"))
         {
             File.Delete(Application.persistentDataPath + "/save.dat");
-            Debug.Log("Success: Save Deleted");
+     //       Debug.Log("Success: Save Deleted");
         }
     }
 

@@ -544,12 +544,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Things Paige Did: Paige
+  m_text: 'Level design, audio sourcing, enemy animations,graphic interfaces, menu
+    design, items, chests: Paige
 
-    Things Leanne Did: Leanne
+    clues, story, dialogues, shops, npcs, credits,
+    mainmenu, startup,: Leanne
 
-    Diver Photo:
-    Pixabay from Pexels: https://www.pexels.com/photo/silhouette-of-person-holding-camera-in-body-of-water-73759/
+    Diver Photo: Pixabay from Pexels: https://www.pexels.com/photo/silhouette-of-person-holding-camera-in-body-of-water-73759/
 
     Diver
     gear photo: ClickerHappy: https://www.pexels.com/photo/vintage-historical-old-diver-718/
@@ -558,7 +559,43 @@ MonoBehaviour:
     paper background: Photo by Pixabay from Pexels: https://www.pexels.com/photo/empty-brown-canvas-235985/
 
     Photo
-    by Dav H from Pexels: https://www.pexels.com/photo/close-up-of-a-white-piece-of-paper-7953157/'
+    by Dav H from Pexels: https://www.pexels.com/photo/close-up-of-a-white-piece-of-paper-7953157/
+
+    Assets:
+
+    https://assetstore.unity.com/packages/vfx/particles/environment/jiggly-bubble-free-61236
+
+    https://assetstore.unity.com/packages/3d/environments/little-low-poly-world-lite-srp-urp-119111
+
+    https://assetstore.unity.com/packages/vfx/particles/hit-effects-free-284613
+
+    https://assetstore.unity.com/packages/3d/characters/3d-jellyfish-107267
+
+    https://assetstore.unity.com/packages/3d/vehicles/sea/polygrunt-low-poly-boat-177873
+
+    https://assetstore.unity.com/packages/3d/characters/animals/fish/low-poly-animated-sea-animals-vol-3-223022
+
+    https://assetstore.unity.com/packages/3d/characters/animals/fish/low-poly-animated-sea-animals-vol-2-220200
+
+    https://assetstore.unity.com/packages/3d/characters/animals/fish/low-poly-animated-sea-animals-vol-1-221166
+
+    https://www.fab.com/listings/1a0076f2-de5a-4ec5-9f6e-e0bf77a068a8
+
+    https://assetstore.unity.com/packages/3d/props/weapons/combat-knife-free-143766
+
+    https://assetstore.unity.com/packages/3d/characters/humanoids/lowpoly-survival-character-rio-273074
+
+    https://assetstore.unity.com/packages/3d/characters/humanoids/humans/lowpoly-bountyhunter-rio-2-287264
+
+    https://assetstore.unity.com/packages/3d/environments/wooden-house-free-low-poly-270889
+
+    https://assetstore.unity.com/packages/3d/props/low-poly-casual-magic-book-289381
+
+    https://assetstore.unity.com/packages/3d/props/grimoire-style-book-3996
+
+    "Celtic
+    stone circle (low-poly)" (https://skfb.ly/6UyZK) by MilaHigher is licensed under
+    Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -585,8 +622,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

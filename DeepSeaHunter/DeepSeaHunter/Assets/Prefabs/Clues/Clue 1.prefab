@@ -110,9 +110,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueID: 1
-  clueName: 'Scrimshawed Crab Shell '
-  clueDescription: "A carved crab shell with ancient symbols\u2026 or are they just
-    deep gouges from time? I"
+  clueName: Carved Stone Block
+  clueDescription: "A carved stone blockl with ancient symbols\u2026 or are they
+    just deep gouges from time? I"
   cluePopupText: {fileID: 0}
   popupDuration: 2
   interactPromptText: Press [E] to Pick Up

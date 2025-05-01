@@ -12,31 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a688ceb77ec1554a9c1805812809e50, type: 3}
   m_Name: Doc
   m_EditorClassIdentifier: 
-  npcName: Jewel
+  npcName: Doc Maher
   lines:
   - speakerName: 'Player:'
-    line: "The mechanic\u2019s coveralls were deep blue, pocked with grease, coolant,
-      and wear.  A patch stitched over her chest read Jewel, and her wild red hair
-      escaped in fiery wisps from beneath a smudged cap. If it weren\u2019t for the
-      oil smears mixing with her freckles, she might\u2019ve looked like a poster
-      girl for island charm\u2014but she wore grit like a second skin."
-    choices: []
-    completeQuest: 0
-    questToComplete: 0
-    startQuest: 0
-    questToStart: 0
-    requiresItem: 0
-    requiredItemName: 
-    requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
-  - speakerName: 'Player:'
-    line: "The mechanic\u2019s coveralls were deep blue, pocked with grease, coolant,
-      and wear.  A patch stitched over her chest read Jewel, and her wild red hair
-      escaped in fiery wisps from beneath a smudged cap. If it weren\u2019t for the
-      oil smears mixing with her freckles, she might\u2019ve looked like a poster
-      girl for island charm\u2014but she wore grit like a second skin."
+    line: "The sign above the door reads Maher\u2019s Clinic, its paint peeling like
+      old skin. A bell gave a tired chime as I stepped inside. The man behind the
+      counter stood tall and still\u2014long white hair, thin spectacles balanced
+      on a hawkish nose, and eyes like storm clouds caught in glass. The sharp tang
+      of antiseptic clung to the air like a warning."
     choices: []
     completeQuest: 0
     questToComplete: 0
@@ -62,12 +45,12 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
-  - speakerName: 'Jewel:'
-    line: "\u201CHeh, Nate? Yeah, I patched up his tanks and pressure gauge just
-      last week. Kept askin\u2019 me if I could \u2018seal something for deep pressure\u2019\u2014deeper
-      than I\u2019d recommend for a solo dive. Didn\u2019t say where he was goin\u2019.
-      Just said, \u2018If it holds, I\u2019ll owe you a story.\u2019 I never liked
-      that kind of talk.\u201D"
+  - speakerName: 'Doc Maher:'
+    line: "\u201COnly that he was exhausted. Came in twice last month with burst
+      vessels in his eyes and mild nitrogen narcosis symptoms. Told me, \u2018I\u2019m
+      so close, doc.\u2019 I tried to warn him to stop. He just laughed, said, \"The
+      sea won\u2019t keep her secrets forever.\" That\u2019s all I know. Though I
+      don\u2019t like it.\u201D"
     choices: []
     completeQuest: 0
     questToComplete: 0
@@ -80,7 +63,7 @@ MonoBehaviour:
     requiredQuestID: 0
     questMustBeCompleted: 0
   - speakerName: 'Player:'
-    line: '"Thanks anyway."'
+    line: '"Be seeing you Doc."'
     choices: []
     completeQuest: 0
     questToComplete: 0

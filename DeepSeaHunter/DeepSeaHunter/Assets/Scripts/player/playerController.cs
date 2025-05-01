@@ -110,7 +110,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         knifeTimer += Time.deltaTime;
         pushDir = Vector3.Lerp(pushDir, Vector3.zero, Time.deltaTime * pushResolve);
         if (meleeCurr != null)
-            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * meleeCurr.meleeDist, Color.red);
+          //  Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * meleeCurr.meleeDist, Color.red);
 
         if (GameManager.instance.isPaused == false)
         {
@@ -140,7 +140,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
             //playerMelee = meleeCurr,
             //playerRanged = rangedCurr
         };
-        Debug.Log("Success: Save (Player)");
+    //    Debug.Log("Success: Save (Player)");
         return pSAVE;
     }
 
@@ -154,7 +154,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         //changeMeleeWeapon();
         //rangedCurr = pSAVE.playerRanged;
         //changeRangedWeapon();
-        Debug.Log("Success: Load (Player)");
+  //      Debug.Log("Success: Load (Player)");
     }
 
   /*  void HandleCluePickup()
@@ -281,7 +281,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
                 pushDir = transform.forward * dashStr;
             else
                 pushDir = moveDir * dashStr;
-            Debug.Log("Dashed");
+     //       Debug.Log("Dashed");
             //StartCoroutine(endDash());
             StartCoroutine(rechargeDash());
         }
@@ -304,7 +304,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, knifeDist, ~ignoreLayer))
         {
-            Debug.Log(hit.collider.name);
+       //     Debug.Log(hit.collider.name);
             aud.PlayOneShot(meleeCurr.hitSound[Random.Range(0, meleeCurr.hitSound.Length)], meleeCurr.hitVol); //only play on hit
             Instantiate(meleeCurr.hitEffect, hit.point, Quaternion.identity);
             IDamage dmg = hit.collider.GetComponent<IDamage>();
@@ -404,7 +404,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
         //add feedback here
         if (HP <= 0)
         {
-            Debug.Log(source.ToString());
+          //  Debug.Log(source.ToString());
             GameManager.instance.youLose(source);
         }
     }
@@ -434,7 +434,7 @@ public class playerController : MonoBehaviour, IDamage, ITangle, IPickup
     {
         yield return new WaitForSeconds(dashRechargeTimer);
         dashCount--;
-        Debug.Log("Dash Recharged");
+       // Debug.Log("Dash Recharged");
     }
     /*IEnumerator endDash()
     {

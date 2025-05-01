@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.LogError("AudioManager prefab not found in Resources/AudioManager!");
+     //           Debug.LogError("AudioManager prefab not found in Resources/AudioManager!");
             }
         }
 
@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.LogError("MusicManager prefab not found in Resources/MusicManager!");
+         //       Debug.LogError("MusicManager prefab not found in Resources/MusicManager!");
             }
         }
     }
@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
             inStatic = radioScript.getInStatic(),
             radioOn = radioScript.getRadioOn()
         };
-        Debug.Log("Success: Save (General)");
+   //     Debug.Log("Success: Save (General)");
 
         //create save file
         SaveManager.instance.Save(gameSave);
@@ -208,7 +208,7 @@ public class GameManager : MonoBehaviour
         o2.setOxygen(gameSave.inO2Zone);
         radioScript.setInStatic(gameSave.inStatic);
         radioScript.setRadioOn(gameSave.radioOn);
-        Debug.Log("Success: Load (General)");
+ //       Debug.Log("Success: Load (General)");
     }
     public void openTabSettings(bool buttonClick = false)
     {

@@ -50,12 +50,12 @@ public class Shop : MonoBehaviour
                     playerInven.Instance.setFish(playerInven.Instance.getFish() - trade.requiredAmount);
                     playerInven.Instance.AddItem(trade.rewardItem, trade.rewardAmount);
 
-                    Debug.Log($"Traded {trade.requiredAmount} fish for {trade.rewardAmount} {trade.rewardItem}");
+            //        Debug.Log($"Traded {trade.requiredAmount} fish for {trade.rewardAmount} {trade.rewardItem}");
                     AudioManager.Instance.PlaySFX();
                 }
                 else
                 {
-                    Debug.Log("Not enough fish to trade.");
+             //       Debug.Log("Not enough fish to trade.");
                 }
             }
             else if (requiredItemLower == "scrap")
@@ -65,12 +65,12 @@ public class Shop : MonoBehaviour
                     playerInven.Instance.setScrap(playerInven.Instance.getScrap() - trade.requiredAmount);
                     playerInven.Instance.AddItem(trade.rewardItem, trade.rewardAmount);
 
-                    Debug.Log($"Traded {trade.requiredAmount} scrap for {trade.rewardAmount} {trade.rewardItem}");
+            //        Debug.Log($"Traded {trade.requiredAmount} scrap for {trade.rewardAmount} {trade.rewardItem}");
                     AudioManager.Instance.PlaySFX();
                 }
                 else
                 {
-                    Debug.Log("Not enough scrap to trade.");
+          //          Debug.Log("Not enough scrap to trade.");
                 }
             }
             else
@@ -80,12 +80,12 @@ public class Shop : MonoBehaviour
                     playerInven.Instance.RemoveItem(trade.requiredItem, trade.requiredAmount);
                     playerInven.Instance.AddItem(trade.rewardItem, trade.rewardAmount);
 
-                    Debug.Log($"Traded {trade.requiredAmount} {trade.requiredItem} for {trade.rewardAmount} {trade.rewardItem}");
+          //          Debug.Log($"Traded {trade.requiredAmount} {trade.requiredItem} for {trade.rewardAmount} {trade.rewardItem}");
                     AudioManager.Instance.PlaySFX();
                 }
                 else
                 {
-                    Debug.Log("Not enough items to trade.");
+           //         Debug.Log("Not enough items to trade.");
                 }
             }
         }

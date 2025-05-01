@@ -47,7 +47,7 @@ public class buttonFunctions : MonoBehaviour
         GameManager.instance.dialogHiddenUI.SetActive(true); //show UI
         GameManager.instance.resetLevelBoss();
         GameManager.instance.stateUnpause();
-        Debug.Log("Respawn button clicked, player moved to: " + GameManager.instance.playerSpawnPos.transform.position);
+     //   Debug.Log("Respawn button clicked, player moved to: " + GameManager.instance.playerSpawnPos.transform.position);
     }
 
     public void invenItemClick(Button button)

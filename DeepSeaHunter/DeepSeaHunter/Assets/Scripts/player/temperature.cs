@@ -57,18 +57,18 @@ public class temperature : MonoBehaviour
 
     void calculatePlayerTemp() 
     {
-        Debug.Log("Entered Func");
+     //   Debug.Log("Entered Func");
         if (playerSlowed) //clear current effects
         {
-            Debug.Log("Attempting to clear slow");
+     //       Debug.Log("Attempting to clear slow");
             if (playerTemp == 2) //cold
             {
-                Debug.Log("Cleared COLD slow");
+      //          Debug.Log("Cleared COLD slow");
                 GameManager.instance.playerScript.stateUntangled(coldSlow);
             }
             else if (playerTemp < 2) //very cold
             {
-                Debug.Log("Cleared VERY COLD slow");
+     //           Debug.Log("Cleared VERY COLD slow");
                 GameManager.instance.playerScript.stateUntangled(veryColdSlow);
                 //add oxygen slowed breath here
             }

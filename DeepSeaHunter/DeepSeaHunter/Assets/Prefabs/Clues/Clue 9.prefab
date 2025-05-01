@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8182503870644980085}
-  - component: {fileID: 8254264523414668979}
+  - component: {fileID: 2634140489988052855}
   m_Layer: 10
   m_Name: trigger
   m_TagString: Interactable
@@ -32,8 +32,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 968888995675543427}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8254264523414668979
-BoxCollider:
+--- !u!135 &2634140489988052855
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -51,7 +51,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 4, z: 4}
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9182946361401059609
 GameObject:
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 180981079619864189}
   - component: {fileID: 6762832427810969332}
   - component: {fileID: 213724263053676504}
-  - component: {fileID: 3829379704704261419}
+  - component: {fileID: 7524436032279266581}
   m_Layer: 10
   m_Name: Clue 9
   m_TagString: Interactable
@@ -81,14 +81,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9182946361401059609}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -2, y: 5.69, z: -57.68}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8182503870644980085}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &180981079619864189
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9182946361401059609}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 3239344329921508902, guid: 337bb1d1d6ce59b4097f7f5816e28c9c, type: 3}
 --- !u!114 &6762832427810969332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 925a6b91ba2421e43be664db4aa104d1, type: 2}
+  - {fileID: 2100000, guid: bc61ba45ebf2d604a84ae18952a145ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -162,8 +162,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3829379704704261419
-BoxCollider:
+--- !u!136 &7524436032279266581
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -180,6 +180,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4, y: 4, z: 4}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.3799192
+  m_Height: 0.7598384
+  m_Direction: 1
+  m_Center: {x: 0.0642488, y: -0.00000011920932, z: 0.00006408991}

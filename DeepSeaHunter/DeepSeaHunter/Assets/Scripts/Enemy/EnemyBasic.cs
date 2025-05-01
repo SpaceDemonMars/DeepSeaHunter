@@ -24,7 +24,7 @@ public class EnemyBasic : EnemyAI
     //anim events
     public void onBiteStart()
     {
-        Debug.Log("Shark Bite");
+  //      Debug.Log("Shark Bite");
         isSharkAttacking = true;
         body1Trail.enabled = isSharkAttacking;
         body2Trail.enabled = isSharkAttacking;
@@ -41,7 +41,7 @@ public class EnemyBasic : EnemyAI
 
     public void onBiteEnd()
     {
-        Debug.Log("Shark End");
+//        Debug.Log("Shark End");
         isSharkAttacking = false;
         body1Trail.enabled = isSharkAttacking;
         body2Trail.enabled = isSharkAttacking;

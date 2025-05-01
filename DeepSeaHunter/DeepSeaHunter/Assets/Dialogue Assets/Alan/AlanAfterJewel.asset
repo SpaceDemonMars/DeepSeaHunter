@@ -28,6 +28,8 @@ MonoBehaviour:
     requiresQuest: 1
     requiredQuestID: 7
     questMustBeCompleted: 1
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Alan:'
     line: "\"Then let\u2019s fly. Alan\u2019s Flight of Fancy, at your service. Like
       a fish in the current\u2014watch how I glide.\""
@@ -42,6 +44,8 @@ MonoBehaviour:
     requiresQuest: 1
     requiredQuestID: 7
     questMustBeCompleted: 1
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
     line: "\"Alright. Just as long as you're not the dead fish, we\u2019ll be fine.\""
     choices: []
@@ -55,3 +59,5 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 1
+    sceneToLoad: Demo

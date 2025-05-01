@@ -41,7 +41,7 @@ public class playerInven : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
             iSave.items.Add(convertToSave(items[i], qty[i]));
         
-        Debug.Log("Success: Save (Inven)");
+  //      Debug.Log("Success: Save (Inven)");
         return iSave;
     }
     public void loadInven(invenSAVE iSave)
@@ -56,7 +56,7 @@ public class playerInven : MonoBehaviour
             addItem(convertFromSave(save));
 
         GameManager.instance.loadInventory();
-        Debug.Log("Success: Load (Inven)");
+  //      Debug.Log("Success: Load (Inven)");
     }
     
     ItemSAVE convertToSave(Item item, int qty)

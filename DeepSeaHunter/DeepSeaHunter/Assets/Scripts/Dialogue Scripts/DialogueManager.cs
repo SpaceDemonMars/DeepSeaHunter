@@ -173,11 +173,6 @@ public class DialogueManager : MonoBehaviour
 
         CleanupChoices();
 
-        nameTxt.text = "";
-        dialogueLine.text = "";
-        entries = null;
-        currentIndex = 0;
-
         if (currentDialogueStarter != null)
         {
             if (currentDialogueStarter.clueinDialogue != null)
@@ -191,10 +186,24 @@ public class DialogueManager : MonoBehaviour
             currentDialogueStarter = null;
         }
 
+        if (entries != null && currentIndex < entries.Length)
+        {
+            DialogueEntry finalEntry = entries[currentIndex];
+            if (finalEntry.changeSceneAfter && !string.IsNullOrEmpty(finalEntry.sceneToLoad))
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(finalEntry.sceneToLoad);
+                return;
+            }
+        }
+
+        nameTxt.text = "";
+        dialogueLine.text = "";
+        entries = null;
+        currentIndex = 0;
+
         GameManager.instance.playerScript.enabled = true;
     }
-
-    void CleanupChoices()
+void CleanupChoices()
     {
         foreach (Transform child in choiceParent)
         {

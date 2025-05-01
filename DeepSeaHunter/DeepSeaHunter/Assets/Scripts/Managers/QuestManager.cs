@@ -25,13 +25,13 @@ public class QuestManager : MonoBehaviour
     {
         if (newQuest.requiredQuest != QuestID.None && !IsQuestCompleted(newQuest.requiredQuest))
         {
-            Debug.Log($"Cannot start {newQuest.questName} yet. Complete {newQuest.requiredQuest} first.");
+     //       Debug.Log($"Cannot start {newQuest.questName} yet. Complete {newQuest.requiredQuest} first.");
             return;
         }
         GameManager.instance.ShowQuestPopup($"New Quest: {newQuest.questName}!");
         if (!activeQuests.Contains(newQuest))
         {
-            Debug.Log($"Quest started: {newQuest.questName}");
+   //         Debug.Log($"Quest started: {newQuest.questName}");
             activeQuests.Add(newQuest);
             ActivateFirstObjective(newQuest);
             GameManager.instance.ShowQuestPopup($"New Quest: {newQuest.questName}!");
@@ -55,7 +55,7 @@ public class QuestManager : MonoBehaviour
         if (quest != null && objectiveIndex < quest.objectives.Count)
         {
             quest.objectives[objectiveIndex].status = ObjectiveStatus.Completed;
-            Debug.Log($"Objective {objectiveIndex} completed: {quest.objectives[objectiveIndex].description}");
+    //        Debug.Log($"Objective {objectiveIndex} completed: {quest.objectives[objectiveIndex].description}");
 
             if (objectiveIndex + 1 < quest.objectives.Count)
             {
@@ -82,7 +82,7 @@ public class QuestManager : MonoBehaviour
 
     private void CompleteQuest(Quest quest)
     {
-        Debug.Log($"Quest Completed: {quest.questName}!");
+//        Debug.Log($"Quest Completed: {quest.questName}!");
         quest.isCompleted = true;
         activeQuests.Remove(quest);
         completedQuests.Add(quest);
@@ -102,7 +102,7 @@ public class QuestManager : MonoBehaviour
                 itemId = GenerateItemID(reward.itemName) // Simple placeholder
             };
             GameManager.instance.playerScript.inven.addItem(rewardItem);
-            Debug.Log($"Reward: {reward.amount}x {reward.itemName}");
+  //          Debug.Log($"Reward: {reward.amount}x {reward.itemName}");
         }
     }
 

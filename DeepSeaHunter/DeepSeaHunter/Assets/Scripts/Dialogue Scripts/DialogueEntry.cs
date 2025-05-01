@@ -19,8 +19,10 @@ public class DialogueEntry
 
     public bool requiresQuest;        
     public QuestID requiredQuestID;   
-    public bool questMustBeCompleted; 
+    public bool questMustBeCompleted;
 
+    public bool changeSceneAfter;
+    public string sceneToLoad;
 
     [System.Serializable]
     public class DialogueChoice

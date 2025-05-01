@@ -16,18 +16,18 @@ public class MainMenuManager : MonoBehaviour
     public void NewGame()
     {
         SaveManager.instance.DeleteSave();
-        LoadingManager.LoadSceneWithTracking("Demo");
+        LoadingManager.LoadSceneWithTracking("Tutorial");
     }
 
     public void LoadGame()
     {
         if (SaveManager.instance.Load() != null)
         {
-            LoadingManager.LoadSceneWithTracking("Demo");
+            LoadingManager.LoadSceneWithTracking("Tutorial");
         }
         else
         {
-            Debug.Log("No save data. Starting new game.");
+ //           Debug.Log("No save data. Starting new game.");
             NewGame();
         }
     }
@@ -63,7 +63,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("Quitting game...");
+ //       Debug.Log("Quitting game...");
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

@@ -9,7 +9,7 @@ public class checkpoint : MonoBehaviour
         if (other.CompareTag("Player") && GameManager.instance.playerSpawnPos.transform.position != transform.position)
         {
             GameManager.instance.playerSpawnPos.transform.position = transform.position;
-            Debug.Log("Checkpoint set at: " + transform.position);
+   //         Debug.Log("Checkpoint set at: " + transform.position);
             StartCoroutine(checkpointFeedback());
         }
     }

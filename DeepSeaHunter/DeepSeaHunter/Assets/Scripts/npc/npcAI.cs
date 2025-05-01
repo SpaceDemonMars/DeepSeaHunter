@@ -143,13 +143,13 @@ public class npcAI : MonoBehaviour
                 {
                     playerInven.Instance.RemoveItem(requiredItemName, requiredItemAmount);
                     shopUnlocked = true;
-                    Debug.Log("Shop unlocked by item turn-in!");
+        //            Debug.Log("Shop unlocked by item turn-in!");
                 }
             }
             else
             {
                 shopUnlocked = true;
-                Debug.Log("Shop unlocked by quest completion!");
+   //             Debug.Log("Shop unlocked by quest completion!");
             }
         }
     }

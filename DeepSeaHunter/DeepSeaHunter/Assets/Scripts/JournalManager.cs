@@ -70,7 +70,7 @@ public class JournalManager : MonoBehaviour
     {
         if (cluePopupText == null)
         {
-            Debug.LogWarning("Clue Popup Text is not assigned!");
+    //        Debug.LogWarning("Clue Popup Text is not assigned!");
             return;
         }
 
