@@ -28,6 +28,8 @@ MonoBehaviour:
     requiresQuest: 1
     requiredQuestID: 2
     questMustBeCompleted: 1
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
     line: "\u201CHey, Jim\u2014do you happen to know where Nathan\u2019s been diving
       lately?\u201D"
@@ -42,6 +44,8 @@ MonoBehaviour:
     requiresQuest: 1
     requiredQuestID: 2
     questMustBeCompleted: 1
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Jim:'
     line: "\u201CWish I did. Last time he brought in a catch, he was mutterin\u2019
       about \u2018findin\u2019 the mouth of the deep.\u2019 Gave me the chills, to
@@ -58,6 +62,8 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
     line: '"Alright, see you later Jim."'
     choices: []
@@ -71,3 +77,5 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 

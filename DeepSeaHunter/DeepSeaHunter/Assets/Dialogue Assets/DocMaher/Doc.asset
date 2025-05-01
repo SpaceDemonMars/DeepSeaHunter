@@ -31,9 +31,11 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
-    line: "\u201CYou\u2019ve worked on Nathan\u2019s gear, right? Know where he might\u2019ve
-      gone diving?\u201D"
+    line: "\u201CDoc, you ever hear Nathan mention where he dives? I can\u2019t find
+      him.\u201D"
     choices: []
     completeQuest: 0
     questToComplete: 0
@@ -45,6 +47,8 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Doc Maher:'
     line: "\u201COnly that he was exhausted. Came in twice last month with burst
       vessels in his eyes and mild nitrogen narcosis symptoms. Told me, \u2018I\u2019m
@@ -62,6 +66,8 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
     line: '"Be seeing you Doc."'
     choices: []
@@ -75,3 +81,5 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 

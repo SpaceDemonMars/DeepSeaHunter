@@ -7423,6 +7423,122 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -500
       objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[6].questID
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[7].questID
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[8].questID
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[6].questName
+      value: Leave to look for Nathan
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[7].questName
+      value: Go to the next spot that Alan suggests
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[8].questName
+      value: '"Ask About Nathan''s Dive Spots'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[1].isCompleted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[2].isCompleted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[3].isCompleted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[4].isCompleted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[5].isCompleted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[6].isCompleted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[7].isCompleted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[8].isCompleted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[5].requiredQuest
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[6].requiredQuest
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[7].requiredQuest
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[8].requiredQuest
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[6].questDescription
+      value: Talk to Alan to leave to go to the first dive spot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[7].questDescription
+      value: go look for Nathan at the next spot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[8].questDescription
+      value: '"Talk to the locals to find out where Nathan has been diving."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[7].rewards.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[7].objectives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[8].objectives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[7].rewards.Array.data[0].itemName
+      value: Old Diving Gear
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[6].objectives.Array.data[0].description
+      value: Talk to Alan
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[7].objectives.Array.data[0].description
+      value: explore the underwater
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137743875026251469, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
+      propertyPath: allQuests.Array.data[8].objectives.Array.data[0].description
+      value: Fight
+      objectReference: {fileID: 0}
     - target: {fileID: 7106277478165863060, guid: fcc1d7072ac71914d86e8d753af44e2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7555,6 +7671,34 @@ PrefabInstance:
       propertyPath: tradeButtonParent
       value: 
       objectReference: {fileID: 1746225942}
+    - target: {fileID: 3407769168254851061, guid: 56d3d955b20150d4e9e25a068bdb19bd, type: 3}
+      propertyPath: dialogueConditions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407769168254851061, guid: 56d3d955b20150d4e9e25a068bdb19bd, type: 3}
+      propertyPath: dialogueConditions.Array.data[0].dialogueToUse
+      value: 
+      objectReference: {fileID: 11400000, guid: dbddef1072069dd44b82033a04428a27, type: 2}
+    - target: {fileID: 3407769168254851061, guid: 56d3d955b20150d4e9e25a068bdb19bd, type: 3}
+      propertyPath: dialogueConditions.Array.data[0].requiredQuest
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407769168254851061, guid: 56d3d955b20150d4e9e25a068bdb19bd, type: 3}
+      propertyPath: dialogueConditions.Array.data[1].dialogueToUse
+      value: 
+      objectReference: {fileID: 11400000, guid: 198f370ca31fc09448f2011ed752a4a0, type: 2}
+    - target: {fileID: 3407769168254851061, guid: 56d3d955b20150d4e9e25a068bdb19bd, type: 3}
+      propertyPath: dialogueConditions.Array.data[1].requiredQuest
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407769168254851061, guid: 56d3d955b20150d4e9e25a068bdb19bd, type: 3}
+      propertyPath: dialogueConditions.Array.data[2].dialogueToUse
+      value: 
+      objectReference: {fileID: 11400000, guid: b07450afd189772498d96b53cc1c8a6c, type: 2}
+    - target: {fileID: 3407769168254851061, guid: 56d3d955b20150d4e9e25a068bdb19bd, type: 3}
+      propertyPath: dialogueConditions.Array.data[2].requiredQuest
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5712003126864833543, guid: 56d3d955b20150d4e9e25a068bdb19bd, type: 3}
       propertyPath: m_Name
       value: Jim
@@ -7976,6 +8120,42 @@ PrefabInstance:
       propertyPath: tradeButtonPrefab
       value: 
       objectReference: {fileID: 1422645411}
+    - target: {fileID: 1683348730224338336, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: tradeOptions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683348730224338336, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: tradeOptions.Array.data[1].rewardItem
+      value: Knife++
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683348730224338336, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: tradeOptions.Array.data[2].rewardItem
+      value: Knife+++
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683348730224338336, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: tradeOptions.Array.data[1].requiredItem
+      value: Scrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683348730224338336, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: tradeOptions.Array.data[1].rewardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683348730224338336, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: tradeOptions.Array.data[2].requiredItem
+      value: Scrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683348730224338336, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: tradeOptions.Array.data[2].rewardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683348730224338336, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: tradeOptions.Array.data[1].requiredAmount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683348730224338336, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: tradeOptions.Array.data[2].requiredAmount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4564326110997091280, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -8027,6 +8207,34 @@ PrefabInstance:
     - target: {fileID: 4564326110997091280, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532600388939481866, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: dialogueConditions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532600388939481866, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: dialogueConditions.Array.data[0].dialogueToUse
+      value: 
+      objectReference: {fileID: 11400000, guid: ec8433f9e1302124ab8b813dc172c310, type: 2}
+    - target: {fileID: 7532600388939481866, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: dialogueConditions.Array.data[0].requiredQuest
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532600388939481866, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: dialogueConditions.Array.data[1].dialogueToUse
+      value: 
+      objectReference: {fileID: 11400000, guid: db7685012a6003c4393354c6d0b7c7f0, type: 2}
+    - target: {fileID: 7532600388939481866, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: dialogueConditions.Array.data[1].requiredQuest
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532600388939481866, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: dialogueConditions.Array.data[2].dialogueToUse
+      value: 
+      objectReference: {fileID: 11400000, guid: 501ea289e4ab78347ad6c52673025e9a, type: 2}
+    - target: {fileID: 7532600388939481866, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: dialogueConditions.Array.data[2].requiredQuest
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8713711557003209385, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
       propertyPath: roamDist
@@ -8106,6 +8314,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4962416245318957868, guid: 6b892263602c35c47afc9f74e28f3c60, type: 3}
+      propertyPath: dialogueConditions.Array.data[2].requiredQuest
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5845628799553503784, guid: 6b892263602c35c47afc9f74e28f3c60, type: 3}
       propertyPath: m_Name
       value: Alan
@@ -8479,6 +8691,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial Flag
       objectReference: {fileID: 0}
+    - target: {fileID: 3140098249912333962, guid: e2814940c6fc5834a80280843d8d5f68, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9108516943216173710, guid: e2814940c6fc5834a80280843d8d5f68, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.414103
@@ -8654,6 +8870,18 @@ PrefabInstance:
     - target: {fileID: 3171158768926430016, guid: 63f17fb69ac21bb4daa3821bb4a7e136, type: 3}
       propertyPath: m_Name
       value: Doc Maher
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980292178479512983, guid: 63f17fb69ac21bb4daa3821bb4a7e136, type: 3}
+      propertyPath: dialogueConditions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980292178479512983, guid: 63f17fb69ac21bb4daa3821bb4a7e136, type: 3}
+      propertyPath: dialogueConditions.Array.data[0].dialogueToUse
+      value: 
+      objectReference: {fileID: 11400000, guid: 007a772937a981e4799292a1a3c3b78e, type: 2}
+    - target: {fileID: 3980292178479512983, guid: 63f17fb69ac21bb4daa3821bb4a7e136, type: 3}
+      propertyPath: dialogueConditions.Array.data[0].requiredQuest
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4621267981205001051, guid: 63f17fb69ac21bb4daa3821bb4a7e136, type: 3}
       propertyPath: m_LocalPosition.x

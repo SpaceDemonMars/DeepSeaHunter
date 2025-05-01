@@ -426,7 +426,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f); // Show for 3 seconds
         questPopupObject.SetActive(false);
     }
-    
+
     //previous win menu
     /* public void updateGameGoal(string bossName, bool slain)
      {
@@ -439,7 +439,43 @@ public class GameManager : MonoBehaviour
              menuActive.SetActive(true);
          }
      }*/
-    public void updateGameGoal(string bossName, bool slain)
+
+    public void UpdateGameGoalFromQuest(string questname)
+    {
+        Quest currentQuest = QuestManager.instance?.activeQuests.Count > 0
+            ? QuestManager.instance.activeQuests[0]
+            : null;
+
+        if (currentQuest != null && goalCountText != null)
+        {
+            goalCountText.text = currentQuest.questName;
+        }
+        else if (goalCountText != null)
+        {
+            goalCountText.text = "No current objective.";
+        }
+    }
+
+    public void EvaluateGameEnding()
+    {
+        int clueCount = JournalManager.instance.GetClueCount();
+
+        if (clueCount >= 8)
+        {
+            LoadingManager.LoadSceneWithTracking("Good Ending");
+        }
+        else if (clueCount >= 4)
+        {
+            LoadingManager.LoadSceneWithTracking("Neutral Ending");
+        }
+        else
+        {
+            LoadingManager.LoadSceneWithTracking("Bad Ending");
+        }
+    }
+
+
+   /* public void updateGameGoal(string bossName, bool slain)
     {
         goalCountText.text = bossName;
 
@@ -460,7 +496,7 @@ public class GameManager : MonoBehaviour
                 LoadingManager.LoadSceneWithTracking("Bad Ending");
             }
         }
-    }
+    }*/
     public void youLose(int source)
     {
         statePause();

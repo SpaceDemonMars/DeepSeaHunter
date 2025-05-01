@@ -88,6 +88,12 @@ public class QuestManager : MonoBehaviour
         completedQuests.Add(quest);
         GiveRewards(quest);
 
+        if (quest.questID == QuestID.DefeatTheBoss)
+        {
+            GameManager.instance.EvaluateGameEnding();
+        }
+
+
         GameManager.instance.ShowQuestPopup($"Quest Completed: {quest.questName}!");
     }
 

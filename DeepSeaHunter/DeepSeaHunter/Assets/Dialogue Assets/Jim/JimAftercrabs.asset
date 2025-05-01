@@ -22,26 +22,14 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
-    requiresItem: 1
-    requiredItemName: Fish
-    requiredItemAmount: 3
-    requiresQuest: 1
-    requiredQuestID: 4
-    questMustBeCompleted: 0
-  - speakerName: 'Jim:'
-    line: "\"Eh, I can smell a fresh catch from ten paces off. Got somethin\u2019
-      for ol\u2019 Jim?\""
-    choices: []
-    completeQuest: 0
-    questToComplete: 0
-    startQuest: 0
-    questToStart: 0
-    requiresItem: 1
-    requiredItemName: fish
-    requiredItemAmount: 3
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
     requiresQuest: 1
     requiredQuestID: 3
-    questMustBeCompleted: 1
+    questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
     line: '"Yeah, Alan said to bring these to you."'
     choices: []
@@ -55,6 +43,8 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Jim:'
     line: '"Good o''le Alan always pays his debts, let him know he''s all good in
       my book."'
@@ -69,6 +59,8 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
     line: '"Sure thing, I''ll let him know. See you later Jim."'
     choices: []
@@ -82,6 +74,8 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Jim:'
     line: '"Well if ya ever have any other tasty treats to offload, bring ''em here,
       and I''ll give you something tasty that will tide you over on those long trips
@@ -97,3 +91,5 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 

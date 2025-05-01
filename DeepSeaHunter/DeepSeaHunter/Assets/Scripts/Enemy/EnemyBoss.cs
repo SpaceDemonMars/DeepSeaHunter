@@ -73,7 +73,7 @@ public class EnemyBoss : MonoBehaviour, IDamage
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameManager.instance.updateGameGoal(bossName, false);
+       // GameManager.instance.UpdateGameGoalFromQuest();
         HPOrig = HP;
         modelColor = model.material.color;
         baseMoveSpeed = agent.speed;
@@ -152,7 +152,7 @@ public class EnemyBoss : MonoBehaviour, IDamage
                 dropScript.Drop();
             }
 
-            GameManager.instance.updateGameGoal(bossName, true);
+           // GameManager.instance.updateGameGoal(bossName, true);
             GameManager.instance.bossHP.SetActive(false);
             Destroy(gameObject);
         }

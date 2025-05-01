@@ -28,9 +28,11 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Jewel:'
-    line: ": \"Got an old set collectin\u2019 rust back there\u2014nothing fancy.
-      Seals ain\u2019t great, gauges are twitchy, and she smells like brine and regret.
+    line: "\"Got an old set collectin\u2019 rust back there\u2014nothing fancy. Seals
+      ain\u2019t great, gauges are twitchy, and she smells like brine and regret.
       But she should be good for a short dive or two...\u201D"
     choices: []
     completeQuest: 0
@@ -43,6 +45,8 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
     line: "\"I\u2019ll take it. How much?\""
     choices: []
@@ -56,11 +60,13 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Jewel:'
-    line: "\"Got an old set collectin\u2019 rust back there\u2014nothing fancy. Seals
-      ain\u2019t great, gauges are twitchy, and she smells like brine and regret.
-      But she should be good for a short dive or two... just don\u2019t go stayin\u2019
-      down too long, and definitely don\u2019t go deep.\u201D"
+    line: "\"Oh, that old thing? She\u2019s a bit cranky and leaky, but she\u2019ll
+      get you down and back if you\u2019re sweet to her. Ain\u2019t right to charge
+      for somethin\u2019 half held together with hope. Just don\u2019t stay under
+      too long, okay?\""
     choices: []
     completeQuest: 0
     questToComplete: 0
@@ -72,6 +78,8 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Jewel:'
     line: "\"Don\u2019t wanna be left wonderin\u2019 if I sent you off to drown.
       Tell you what\u2014if you find any scrap while you\u2019re down there, bring
@@ -88,6 +96,8 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
     line: "\"Thanks, Jewel. I\u2019ll be careful.\""
     choices: []
@@ -101,19 +111,20 @@ MonoBehaviour:
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Jewel:'
-    line: "\"Don\u2019t wanna be left wonderin\u2019 if I sent you off to drown.
-      Tell you what\u2014if you find any scrap while you\u2019re down there, bring
-      it back my way. I might be able to patch it up a bit better. Won\u2019t be
-      free, though! A girl\u2019s still gotta eat.\""
+    line: "\"Just don\u2019t come floatin\u2019 back, alright? Good luck out there!\""
     choices: []
     completeQuest: 0
     questToComplete: 0
-    startQuest: 0
-    questToStart: 0
+    startQuest: 1
+    questToStart: 8
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
