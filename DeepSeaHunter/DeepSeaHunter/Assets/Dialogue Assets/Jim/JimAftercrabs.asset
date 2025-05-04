@@ -18,8 +18,8 @@ MonoBehaviour:
     line: "\"Eh, I can smell a fresh catch from ten paces off. Got somethin\u2019
       for ol\u2019 Jim?\""
     choices: []
-    completeQuest: 0
-    questToComplete: 0
+    completeQuest: 1
+    questToComplete: 4
     startQuest: 0
     questToStart: 0
     requiresItem: 1
@@ -32,8 +32,8 @@ MonoBehaviour:
     line: "\"Eh, I can smell a fresh catch from ten paces off. Got somethin\u2019
       for ol\u2019 Jim?\""
     choices: []
-    completeQuest: 0
-    questToComplete: 0
+    completeQuest: 1
+    questToComplete: 4
     startQuest: 0
     questToStart: 0
     requiresItem: 1
@@ -59,8 +59,8 @@ MonoBehaviour:
     line: '"Good o''le Alan always pays his debts, let him know he''s all good in
       my book."'
     choices: []
-    completeQuest: 1
-    questToComplete: 4
+    completeQuest: 0
+    questToComplete: 0
     startQuest: 0
     questToStart: 0
     requiresItem: 0

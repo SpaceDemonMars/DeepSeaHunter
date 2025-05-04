@@ -598,7 +598,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: -782, y: 439}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 225, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5467114832828302702
 CanvasRenderer:
@@ -6236,8 +6236,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 247, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 417, y: 0}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8997080434570238813
 CanvasRenderer:
@@ -6384,6 +6384,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8361196073859106978}
+  - component: {fileID: 5289529684351453212}
+  - component: {fileID: 184248080460233106}
   m_Layer: 5
   m_Name: ChoiceParent
   m_TagString: Untagged
@@ -6391,14 +6393,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8361196073859106978
-Transform:
+--- !u!224 &8361196073859106978
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2999268711218671330}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -6406,6 +6407,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8044978844210231805}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5289529684351453212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2999268711218671330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &184248080460233106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2999268711218671330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &3001303370969863786
 GameObject:
   m_ObjectHideFlags: 0
@@ -7308,7 +7354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 319}
+  m_AnchoredPosition: {x: 0, y: 314}
   m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1100909583041917540
@@ -13194,7 +13240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -380}
+  m_AnchoredPosition: {x: 0, y: -415}
   m_SizeDelta: {x: 526, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7924694629716369048
@@ -14269,7 +14315,7 @@ MonoBehaviour:
     questName: '"Ask About Nathan"'
     questDescription: '"Talk to Jim to find out where Nathan is."'
     objectives:
-    - description: '"Talk to Jim."'
+    - description: Find Nathan
       status: 0
     rewards:
     - itemName: Fish
@@ -14280,7 +14326,7 @@ MonoBehaviour:
     questName: '"Check out Nathans Hut"'
     questDescription: '"Go to Nathan''s hut to see if there is anything useful."'
     objectives:
-    - description: '"Go to Nathan''s Hut."'
+    - description: Defeat the Boss
       status: 0
     rewards:
     - itemName: Scrap
@@ -14293,50 +14339,63 @@ MonoBehaviour:
     objectives:
     - description: '"Talk to the villagers."'
       status: 0
-    rewards: []
+    rewards:
+    - itemName: Crabs
+      amount: 3
     requiredQuest: 2
     isCompleted: 1
   - questID: 4
     questName: '"Deliver Crabs to Jim."'
     questDescription: '"Hunt three crabs, to give to Jim on Alans behalf."'
     objectives:
-    - description: '"Hunt three baby crabs and then deliver them to Jim."'
+    - description: '"Hunt three baby crabs"'
+      status: 0
+    - description: '"Give crabs to Jim"'
       status: 0
     rewards:
-    - itemName: Fish
+    - itemName: Crab Skewer
       amount: 1
     requiredQuest: 3
     isCompleted: 1
   - questID: 5
-    questName: Open Jims shop
-    questDescription: Get Jim to trade with you
-    objectives:
-    - description: Open the shop
-      status: 0
-    rewards:
-    - itemName: Fish
-      amount: 1
-    requiredQuest: 4
-    isCompleted: 1
-  - questID: 6
-    questName: Go see the Dive spots
+    questName: Ask Alan For That Ride
     questDescription: Talk to Alan and go out to the dive spots.
     objectives:
     - description: Talk to Alan
       status: 0
     rewards:
-    - itemName: Old Diving Gear
+    - itemName: 
       amount: 0
-    requiredQuest: 3
+    requiredQuest: 4
     isCompleted: 1
-  - questID: 8
-    questName: Leave to look for Nathan
-    questDescription: Talk to Alan to leave to go to the first dive spot
+  - questID: 6
+    questName: Get Gear From Jewel
+    questDescription: Get some basic gear from Jewel
+    objectives:
+    - description: Talk to Jewel
+      status: 0
+    rewards:
+    - itemName: Old Diving Gear
+      amount: 1
+    requiredQuest: 5
+    isCompleted: 1
+  - questID: 7
+    questName: Leave with Alan
+    questDescription: Leave with Alan
     objectives:
     - description: Talk to Alan
       status: 0
     rewards: []
     requiredQuest: 6
+    isCompleted: 1
+  - questID: 8
+    questName: Find clues about Nathans Location
+    questDescription: Explore the underwater areas
+    objectives:
+    - description: Search the areas.
+      status: 0
+    rewards: []
+    requiredQuest: 7
     isCompleted: 1
   - questID: 9
     questName: Go to the next spot that Alan suggests
@@ -14345,16 +14404,25 @@ MonoBehaviour:
     - description: explore the underwater
       status: 0
     rewards: []
-    requiredQuest: 8
+    requiredQuest: 7
     isCompleted: 1
-  - questID: 8
-    questName: '"Ask About Nathan''s Dive Spots'
-    questDescription: '"Talk to the locals to find out where Nathan has been diving."'
+  - questID: 10
+    questName: Find Nathan
+    questDescription: Find Nathan
     objectives:
     - description: Fight
       status: 0
     rewards: []
-    requiredQuest: 6
+    requiredQuest: 9
+    isCompleted: 1
+  - questID: 11
+    questName: Defeat the Boss
+    questDescription: Defeat the Boss
+    objectives:
+    - description: Fight
+      status: 0
+    rewards: []
+    requiredQuest: 10
     isCompleted: 1
 --- !u!1 &6225726251632225504
 GameObject:
@@ -15359,7 +15427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -426}
+  m_AnchoredPosition: {x: 0, y: -461}
   m_SizeDelta: {x: 526, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8264782552013659690
@@ -15751,7 +15819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 169}
+  m_AnchoredPosition: {x: 0, y: 217}
   m_SizeDelta: {x: 800, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8813974720495783214
@@ -16073,7 +16141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 319}
+  m_AnchoredPosition: {x: 0, y: 390}
   m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9198152402224583028
@@ -19912,6 +19980,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jewel's Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 5863637533565780591, guid: 04755c42760b8b142895d9ec24d009eb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863637533565780591, guid: 04755c42760b8b142895d9ec24d009eb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863637533565780591, guid: 04755c42760b8b142895d9ec24d009eb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2147.4783
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863637533565780591, guid: 04755c42760b8b142895d9ec24d009eb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1073.7391
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863637533565780591, guid: 04755c42760b8b142895d9ec24d009eb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7517087022931330247, guid: 04755c42760b8b142895d9ec24d009eb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -19992,6 +20080,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7706572071881625391, guid: 04755c42760b8b142895d9ec24d009eb, type: 3}
+      propertyPath: m_Name
+      value: Current Scrap
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20012,23 +20104,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1978959073497334723, guid: fe78e58d34750834ba3fa871b05e000a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1978959073497334723, guid: fe78e58d34750834ba3fa871b05e000a, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1978959073497334723, guid: fe78e58d34750834ba3fa871b05e000a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 2147.4783
       objectReference: {fileID: 0}
     - target: {fileID: 1978959073497334723, guid: fe78e58d34750834ba3fa871b05e000a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 960
+      value: 1073.7391
       objectReference: {fileID: 0}
     - target: {fileID: 1978959073497334723, guid: fe78e58d34750834ba3fa871b05e000a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3110807702168566729, guid: fe78e58d34750834ba3fa871b05e000a, type: 3}
       propertyPath: m_Name
