@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
 
     private bool loadInStart = false;
     private bool needsReload = false;
+    private bool skipInven = false;
 
     void Awake()
     {
@@ -140,14 +141,14 @@ public class GameManager : MonoBehaviour
         loseTextColors[0] = loseTextColorDamage;
         loseTextColors[1] = loseTextColorO2;
         loseTextColors[2] = loseTextColorTemp;
+        if (SaveManager.instance == null) loadInStart = true;
         if (SaveManager.instance != null && LoadOnSceneChange()) //if temp save data loaded successfully
         {
             SaveManager.instance.DeleteOnSceneChangeSave(); //delete temp save
             Save(); //make permanent save
-            needsReload = true;
+            Load();
         }
         if (SaveManager.instance != null && needsReload) Load();
-        else loadInStart = true;
     }
 
     private void Start()
@@ -223,7 +224,7 @@ public class GameManager : MonoBehaviour
         SaveManager.instance.SaveOnSceneChange(iSave);
     }
 
-    public bool Load() 
+    public bool Load()
     {
         //retrieve save file
         generalSAVE gameSave = SaveManager.instance.Load();
@@ -232,7 +233,7 @@ public class GameManager : MonoBehaviour
         //update data
         if (SceneManager.GetActiveScene().name != gameSave.sceneName) needsReload = true; SceneManager.LoadScene(gameSave.sceneName);
         playerScript.loadPlayer(gameSave.pSave);
-        playerScript.inven.loadInven(gameSave.iSave);
+        if (!skipInven) { playerScript.inven.loadInven(gameSave.iSave); skipInven = false; playerScript.inven.DebugPrintInven(); }
         o2.setO2(gameSave.o2);
         o2.setOxygen(gameSave.inO2Zone);
         radioScript.setInStatic(gameSave.inStatic);
@@ -249,6 +250,7 @@ public class GameManager : MonoBehaviour
         if (iSave == null) return false;
 
         playerScript.inven.loadInven(iSave);
+        skipInven = true;
         stateUnpause();
         Debug.Log("Success: Load (On Scene Change)");
         return true;

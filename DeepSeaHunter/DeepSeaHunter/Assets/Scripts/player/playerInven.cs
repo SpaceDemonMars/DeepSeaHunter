@@ -252,4 +252,15 @@ public class playerInven : MonoBehaviour
     {
         return itemName.GetHashCode();
     }
+
+    public void DebugPrintInven()
+    {
+        if (items.Count > 0)
+        {
+            foreach (Item i in items)
+            {
+                Debug.Log(i.name);
+            }
+        }
+    }
 }
