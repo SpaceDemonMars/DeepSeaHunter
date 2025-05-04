@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
     public GameObject questPopupObject;
     private List<int> savedClueIDs = new List<int>();
 
-    //public int goalCount;
+    private bool loadInStart = false;
 
     void Awake()
     {
@@ -139,14 +139,22 @@ public class GameManager : MonoBehaviour
         loseTextColors[0] = loseTextColorDamage;
         loseTextColors[1] = loseTextColorO2;
         loseTextColors[2] = loseTextColorTemp;
-        if (LoadOnSceneChange()) //if temp save data loaded successfully
+        if (SaveManager.instance != null && LoadOnSceneChange()) //if temp save data loaded successfully
         {
             SaveManager.instance.DeleteOnSceneChangeSave(); //delete temp save
             Save(); //make permanent save
+            Load();
         }
-        else //no temp data
+        else loadInStart = true;
+    }
+
+    private void Start()
+    {
+        if (loadInStart && LoadOnSceneChange())
         {
-            //Load();
+            SaveManager.instance.DeleteOnSceneChangeSave(); //delete temp save
+            Save(); //make permanent save
+            Load();
         }
     }
 
@@ -238,6 +246,7 @@ public class GameManager : MonoBehaviour
 
         playerScript.inven.loadInven(iSave);
         stateUnpause();
+        Debug.Log("Success: Load (On Scene Change)");
         return true;
     }
     public void openTabSettings(bool buttonClick = false)
@@ -396,14 +405,16 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         radioScript.aud.UnPause();
         Time.timeScale = 1;
-        if (menuActive) {
+        if (menuActive != null) {
+            if (menuActiveTab != null)
+            {
+                menuActiveTab.SetActive(false);
+                menuActiveTab = null;
+            }
             menuActive.SetActive(false);
             menuActive = null;
         }
-        if (menuActiveTab != null) {
-            menuActiveTab.SetActive(false);
-            menuActiveTab = null;
-        }
+        Debug.Log("Success : StateUnpause()");
     }
 /*    public void SavePreBoss()
     {
