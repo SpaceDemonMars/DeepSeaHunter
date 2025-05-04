@@ -231,7 +231,7 @@ public class GameManager : MonoBehaviour
         if (gameSave == null) return false; //no save dat; do nothing
 
         //update data
-        if (SceneManager.GetActiveScene().name != gameSave.sceneName) needsReload = true; SceneManager.LoadScene(gameSave.sceneName);
+        if (SceneManager.GetActiveScene().name != gameSave.sceneName) { needsReload = true; SceneManager.LoadScene(gameSave.sceneName); }
         playerScript.loadPlayer(gameSave.pSave);
         if (!skipInven) { playerScript.inven.loadInven(gameSave.iSave); skipInven = false; playerScript.inven.DebugPrintInven(); }
         o2.setO2(gameSave.o2);
