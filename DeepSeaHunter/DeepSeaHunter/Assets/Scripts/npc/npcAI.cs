@@ -61,7 +61,7 @@ public class npcAI : MonoBehaviour
             }
 
             float agentSpeed = agent.velocity.normalized.magnitude;
-            anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agentSpeed, Time.deltaTime * 5f));
+            //anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agentSpeed, Time.deltaTime * 5f));
         }
     }
 
