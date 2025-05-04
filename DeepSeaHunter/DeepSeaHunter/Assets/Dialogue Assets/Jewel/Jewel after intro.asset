@@ -25,9 +25,23 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
+  - speakerName: 'Player:'
+    line: "\u201CYou\u2019ve worked on Nathan\u2019s gear, right? Know where he might\u2019ve
+      gone diving?\u201D"
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    attemptTurnIn: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Jewel:'
     line: "\"Yeah, I patched up his tanks and pressure gauge just last week. Kept
       askin\u2019 me if I could \u2018seal something for deep pressure\u2019\u2014deeper
@@ -42,9 +56,9 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
     line: '"Thanks, see ya around."'
     choices: []
@@ -55,6 +69,6 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
+    changeSceneAfter: 0
+    sceneToLoad: 

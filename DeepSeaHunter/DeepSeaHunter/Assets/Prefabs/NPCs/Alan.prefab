@@ -361,12 +361,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultDialogue: {fileID: 11400000, guid: bcaf95df75d90374687cd8942649ae05, type: 2}
   dialogueConditions:
+  - requiredQuest: 1
+    dialogueToUse: {fileID: 11400000, guid: bcaf95df75d90374687cd8942649ae05, type: 2}
+    questMustBeCompleted: 0
   - requiredQuest: 2
     dialogueToUse: {fileID: 11400000, guid: 80cb605cede45c34d94d32a23ae0842f, type: 2}
+    questMustBeCompleted: 0
   - requiredQuest: 4
     dialogueToUse: {fileID: 11400000, guid: 31c1c88e5cee49f4f919017340388383, type: 2}
-  - requiredQuest: 7
+    questMustBeCompleted: 0
+  - requiredQuest: 6
     dialogueToUse: {fileID: 11400000, guid: 2bfe96d8b144fa74db0c9285c72022e9, type: 2}
+    questMustBeCompleted: 0
   clueinDialogue: {fileID: 0}
 --- !u!1 &1542246936391015809
 GameObject:
@@ -1354,7 +1360,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 0
   m_Height: 1
-  m_BaseOffset: -0.1
+  m_BaseOffset: -0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &5886273786082186292

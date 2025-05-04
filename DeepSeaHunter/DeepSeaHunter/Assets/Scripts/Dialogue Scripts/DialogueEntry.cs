@@ -13,13 +13,10 @@ public class DialogueEntry
     public bool startQuest;
     public QuestID questToStart;
 
-    public bool requiresItem;         
-    public string requiredItemName;   
-    public int requiredItemAmount;    
-
-    public bool requiresQuest;        
-    public QuestID requiredQuestID;   
-    public bool questMustBeCompleted;
+    public bool requiresItem; 
+    public string requiredItemName;
+    public int requiredItemAmount;
+    public bool attemptTurnIn;
 
     public bool changeSceneAfter;
     public string sceneToLoad;

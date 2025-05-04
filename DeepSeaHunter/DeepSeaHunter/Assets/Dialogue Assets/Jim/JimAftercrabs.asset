@@ -22,12 +22,24 @@ MonoBehaviour:
     questToComplete: 0
     startQuest: 0
     questToStart: 0
-    requiresItem: 0
-    requiredItemName: 
-    requiredItemAmount: 0
-    requiresQuest: 1
-    requiredQuestID: 3
-    questMustBeCompleted: 0
+    requiresItem: 1
+    requiredItemName: Crabs
+    requiredItemAmount: 3
+    attemptTurnIn: 1
+    changeSceneAfter: 0
+    sceneToLoad: 
+  - speakerName: 'Jim:'
+    line: "\"Eh, I can smell a fresh catch from ten paces off. Got somethin\u2019
+      for ol\u2019 Jim?\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 1
+    requiredItemName: Crabs
+    requiredItemAmount: 3
+    attemptTurnIn: 1
     changeSceneAfter: 0
     sceneToLoad: 
   - speakerName: 'Player:'
@@ -40,9 +52,7 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
     changeSceneAfter: 0
     sceneToLoad: 
   - speakerName: 'Jim:'
@@ -56,9 +66,7 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
     changeSceneAfter: 0
     sceneToLoad: 
   - speakerName: 'Player:'
@@ -67,29 +75,10 @@ MonoBehaviour:
     completeQuest: 0
     questToComplete: 0
     startQuest: 1
-    questToStart: 6
+    questToStart: 5
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
-    changeSceneAfter: 0
-    sceneToLoad: 
-  - speakerName: 'Jim:'
-    line: '"Well if ya ever have any other tasty treats to offload, bring ''em here,
-      and I''ll give you something tasty that will tide you over on those long trips
-      ta sea."'
-    choices: []
-    completeQuest: 1
-    questToComplete: 5
-    startQuest: 0
-    questToStart: 0
-    requiresItem: 0
-    requiredItemName: 
-    requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
     changeSceneAfter: 0
     sceneToLoad: 

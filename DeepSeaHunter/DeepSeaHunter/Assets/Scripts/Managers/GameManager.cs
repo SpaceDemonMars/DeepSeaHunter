@@ -415,6 +415,22 @@ public class GameManager : MonoBehaviour
 //        SavePreBoss();
         //reassign hp ui //jk do it in enemy boss
     }
+    public GameObject itemPopupObject;
+    public TMP_Text itemPopupText;
+
+    public void ShowItemPopup(string message)
+    {
+        itemPopupText.text = message;
+        itemPopupObject.SetActive(true);
+        StartCoroutine(HideItemPopup());
+    }
+
+    private IEnumerator HideItemPopup()
+    {
+        yield return new WaitForSeconds(2f);
+        itemPopupObject.SetActive(false);
+    }
+
     public void ShowQuestPopup(string message)
     {
         questPopupText.text = message;

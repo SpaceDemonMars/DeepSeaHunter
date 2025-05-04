@@ -10,10 +10,10 @@ public enum QuestID
     CheckOutNathansHut,
     AskAboutNathansDiveSpots,
     DeliverCrabsToJim,
-    OpenJimShop,
+    AskAlanToTakeYouTo1stDiveSpot,
     GetGearFromJewel,
+    LeaveWithAlan,
     FindClues,
-    HeadOutTo1stDiveSpot,
     HeadTo2ndDiveSpot,
     FindNathan,
     DefeatTheBoss

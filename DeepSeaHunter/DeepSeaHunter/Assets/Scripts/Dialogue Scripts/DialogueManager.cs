@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject choiceButton;
 
     [SerializeField] private DialogueEntry[] entries;
+    private DialogueEntry lastSpokenEntry;
     private int currentIndex = 0;
 
     private bool isTalking = false;
@@ -21,10 +22,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance;
     public bool IsTalking() => isTalking;
 
-    private void Awake()
-    {
-        instance = this;
-    }
+    private void Awake() => instance = this;
 
     void Update()
     {
@@ -33,18 +31,17 @@ public class DialogueManager : MonoBehaviour
         if (Input.GetButtonDown("Interact") && choiceParent.childCount == 0)
         {
             if (isReadyToClose)
-            {
                 EndDialogue();
-            }
             else
-            {
                 DisplayNextEntry();
-            }
         }
     }
 
     public void StartConvo(Dialogue dialogue)
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         isTalking = true;
         isReadyToClose = false;
 
@@ -54,9 +51,10 @@ public class DialogueManager : MonoBehaviour
 
         CleanupChoices();
 
-        StartCoroutine(DelayedFirstEntry());
+        var npcTurnIn = currentDialogueStarter?.GetComponent<QuestItemTurnIn>();
+        npcTurnIn?.TryTurnIn();
 
-        DisplayEntry(entries[currentIndex]);
+        StartCoroutine(DelayedFirstEntry());
 
         GameManager.instance.playerScript.enabled = false;
 
@@ -82,37 +80,22 @@ public class DialogueManager : MonoBehaviour
 
     void DisplayEntry(DialogueEntry entry)
     {
+        lastSpokenEntry = entry;
         StopAllCoroutines();
         dialogueLine.text = "";
-
-        if (entry.requiresQuest)
-        {
-            bool questCompleted = QuestManager.instance.IsQuestCompleted(entry.requiredQuestID);
-            bool questActive = QuestManager.instance.activeQuests.Exists(q => q.questID == entry.requiredQuestID);
-
-            if (entry.questMustBeCompleted && !questCompleted)
-            {
-                DisplayNextEntry();
-                return;
-            }
-            if (!entry.questMustBeCompleted && !questActive)
-            {
-                DisplayNextEntry();
-                return;
-            }
-        }
-
-        if (entry.requiresItem && !playerInven.Instance.HasItem(entry.requiredItemName, entry.requiredItemAmount))
-        {
-            DisplayNextEntry();
-            return;
-        }
-
-        StartCoroutine(TypeSentence(entry.line));
         nameTxt.text = string.IsNullOrEmpty(entry.speakerName) ? "???" : entry.speakerName;
+        StartCoroutine(TypeSentence(entry.line));
 
         CleanupChoices();
 
+        // Item turn-in
+        if (entry.attemptTurnIn)
+        {
+            var npc = currentDialogueStarter?.GetComponent<QuestItemTurnIn>();
+            npc?.TryTurnIn();
+        }
+
+        // Complete quest
         if (entry.completeQuest)
         {
             Quest questToComplete = QuestManager.instance.activeQuests.Find(q => q.questID == entry.questToComplete);
@@ -129,6 +112,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
+        // Start quest
         if (entry.startQuest)
         {
             Quest questToStart = QuestManager.instance.allQuests.Find(q => q.questID == entry.questToStart);
@@ -138,6 +122,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
+        // Dialogue choices
         if (entry.choices != null && entry.choices.Length > 0)
         {
             foreach (DialogueEntry.DialogueChoice choice in entry.choices)
@@ -167,6 +152,9 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         isTalking = false;
         isReadyToClose = false;
         dialogueBox.SetActive(false);
@@ -179,22 +167,19 @@ public class DialogueManager : MonoBehaviour
                 JournalManager.instance.DiscoverClue(currentDialogueStarter.clueinDialogue);
 
             npcAI npc = currentDialogueStarter.GetComponent<npcAI>();
-            if (npc != null)
-                npc.EndDialogue();
+            npc?.EndDialogue();
 
             currentDialogueStarter.SetDialogueCooldownTime();
             currentDialogueStarter = null;
         }
 
-        if (entries != null && currentIndex < entries.Length)
+        // Handle scene change
+        if (lastSpokenEntry != null && lastSpokenEntry.changeSceneAfter && !string.IsNullOrEmpty(lastSpokenEntry.sceneToLoad))
         {
-            DialogueEntry finalEntry = entries[currentIndex];
-            if (finalEntry.changeSceneAfter && !string.IsNullOrEmpty(finalEntry.sceneToLoad))
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene(finalEntry.sceneToLoad);
-                return;
-            }
+            UnityEngine.SceneManagement.SceneManager.LoadScene(lastSpokenEntry.sceneToLoad);
+            return;
         }
+
 
         nameTxt.text = "";
         dialogueLine.text = "";
@@ -203,17 +188,16 @@ public class DialogueManager : MonoBehaviour
 
         GameManager.instance.playerScript.enabled = true;
     }
-void CleanupChoices()
+
+    void CleanupChoices()
     {
         foreach (Transform child in choiceParent)
-        {
             Destroy(child.gameObject);
-        }
-    }
-    IEnumerator DelayedFirstEntry()
-    {
-        yield return null; 
-        DisplayEntry(entries[currentIndex]);
     }
 
+    IEnumerator DelayedFirstEntry()
+    {
+        yield return null;
+        DisplayEntry(entries[currentIndex]);
+    }
 }

@@ -116,6 +116,12 @@ public class npcAI : MonoBehaviour
         agent.isStopped = false;
         roamTimer = 0f;
 
+        QuestItemTurnIn turnIn = GetComponent<QuestItemTurnIn>();
+        if (turnIn != null)
+        {
+            turnIn.TryTurnIn();
+        }
+
         HandleQuestCompletion();
 
         if (shopUnlocked && autoOpenShopAfterTurnIn && shop != null)

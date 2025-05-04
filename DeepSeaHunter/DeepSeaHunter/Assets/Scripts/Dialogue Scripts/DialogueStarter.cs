@@ -7,6 +7,7 @@ public class DialogueCondition
 {
     public QuestID requiredQuest;
     public Dialogue dialogueToUse;
+    public bool questMustBeCompleted = false;
 }
 
 public class DialogueStarter : MonoBehaviour
@@ -24,65 +25,53 @@ public class DialogueStarter : MonoBehaviour
     private float dialogueCooldown = 0.7f;
     private float lastDialogueTime = -10f;
 
-
     private void Start()
     {
         dialogueManager = GameManager.instance.dialogueManager;
-
-        if (GameManager.instance.interactPrompt != null)
-        {
-            talkPrompt = GameManager.instance.interactPrompt;
-        }
+        talkPrompt = GameManager.instance.interactPrompt;
     }
 
     private void Update()
     {
-        if (isPlayerInRange && !DialogueManager.instance.IsTalking() && Time.time - lastDialogueTime > dialogueCooldown)
+        if (!isPlayerInRange || DialogueManager.instance.IsTalking() || Time.time - lastDialogueTime <= dialogueCooldown)
+            return;
+
+        if (talkPrompt != null && !talkPrompt.gameObject.activeSelf && waitingForInput)
+            talkPrompt.gameObject.SetActive(true);
+
+        if (Input.GetButtonDown("Interact"))
         {
-            if (talkPrompt != null && !talkPrompt.gameObject.activeSelf && waitingForInput)
+            lastDialogueTime = Time.time;
+            if (talkPrompt != null) talkPrompt.gameObject.SetActive(false);
+
+            dialogueManager.currentDialogueStarter = this;
+            Dialogue dialogueToStart = GetAppropriateDialogue();
+            dialogueManager.StartConvo(dialogueToStart);
+
+            npcAI npc = GetComponent<npcAI>();
+            if (npc != null)
             {
-                talkPrompt.gameObject.SetActive(true);
-            }
-
-            if (Input.GetButtonDown("Interact"))
-            {
-                lastDialogueTime = Time.time;
-
-                if (talkPrompt != null)
-                    talkPrompt.gameObject.SetActive(false);
-
-                dialogueManager.currentDialogueStarter = this;
-
-                Dialogue dialogueToStart = GetAppropriateDialogue();
-                dialogueManager.StartConvo(dialogueToStart);
-
-                npcAI npc = GetComponent<npcAI>();
-                if (npc != null)
-                {
-                    GameObject playerObj = GameObject.FindWithTag("Player");
-                    if (playerObj != null)
-                    {
-                        npc.StartDialogue(playerObj.transform);
-                    }
-                }
+                GameObject playerObj = GameObject.FindWithTag("Player");
+                if (playerObj != null)
+                    npc.StartDialogue(playerObj.transform);
             }
         }
-    }
-
-    public void SetDialogueCooldownTime()
-    {
-        lastDialogueTime = Time.time;
     }
 
     private Dialogue GetAppropriateDialogue()
     {
         foreach (var condition in dialogueConditions)
         {
-            if (QuestManager.instance.IsQuestCompleted(condition.requiredQuest))
-            {
+            bool isCompleted = QuestManager.instance.IsQuestCompleted(condition.requiredQuest);
+            bool isActive = QuestManager.instance.activeQuests.Exists(q => q.questID == condition.requiredQuest);
+
+            if (!condition.questMustBeCompleted && isActive)
                 return condition.dialogueToUse;
-            }
+
+            if (condition.questMustBeCompleted && isCompleted)
+                return condition.dialogueToUse;
         }
+
         return defaultDialogue;
     }
 
@@ -104,5 +93,10 @@ public class DialogueStarter : MonoBehaviour
             if (talkPrompt != null)
                 talkPrompt.gameObject.SetActive(false);
         }
+    }
+
+    public void SetDialogueCooldownTime()
+    {
+        lastDialogueTime = Time.time;
     }
 }

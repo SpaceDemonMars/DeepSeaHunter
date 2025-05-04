@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51515c0b943fc7d40998eb97dd845cf9, type: 3}
-  m_Name: Fish
+  m_Name: Crab Skewer
   m_EditorClassIdentifier: 
   itemId: 0
-  itemName: Fish
-  itemDescription: A fish, a villager might be willing to trade you something for
-    it.\nUse to obtain Fish currency.
+  itemName: Crab Skewer
+  itemDescription: '"Fresh cooked and grilled to perfection"'
   quantity: 1
   itemIcon: {fileID: 0}
-  fishValue: 1
+  fishValue: 0
   scrapValue: 0
-  hp: 0
+  hp: 5
   o2: 0
   sanity: 0

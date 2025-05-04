@@ -25,9 +25,21 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
+  - speakerName: 'Player:'
+    line: " \"Hey, Jewel\u2014you wouldn\u2019t happen to have any spare dive gear
+      lying around, would you?\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    attemptTurnIn: 0
     changeSceneAfter: 0
     sceneToLoad: 
   - speakerName: 'Jewel:'
@@ -42,9 +54,7 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
     changeSceneAfter: 0
     sceneToLoad: 
   - speakerName: 'Player:'
@@ -57,9 +67,7 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
     changeSceneAfter: 0
     sceneToLoad: 
   - speakerName: 'Jewel:'
@@ -75,9 +83,7 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
     changeSceneAfter: 0
     sceneToLoad: 
   - speakerName: 'Jewel:'
@@ -93,13 +99,24 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
     changeSceneAfter: 0
     sceneToLoad: 
   - speakerName: 'Player:'
     line: "\"Thanks, Jewel. I\u2019ll be careful.\""
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 1
+    questToStart: 7
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    attemptTurnIn: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
+  - speakerName: 'Jewel:'
+    line: "\"Just don\u2019t come floatin\u2019 back, alright? Good luck out there!\""
     choices: []
     completeQuest: 0
     questToComplete: 0
@@ -108,23 +125,6 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
-    changeSceneAfter: 0
-    sceneToLoad: 
-  - speakerName: 'Jewel:'
-    line: "\"Just don\u2019t come floatin\u2019 back, alright? Good luck out there!\""
-    choices: []
-    completeQuest: 0
-    questToComplete: 0
-    startQuest: 1
-    questToStart: 8
-    requiresItem: 0
-    requiredItemName: 
-    requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
     changeSceneAfter: 0
     sceneToLoad: 

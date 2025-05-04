@@ -298,8 +298,6 @@ GameObject:
   - component: {fileID: 1029402488506313667}
   - component: {fileID: 5224950624565349124}
   - component: {fileID: 4414241968753205686}
-  - component: {fileID: 791787297313976426}
-  - component: {fileID: 4302631438856448238}
   m_Layer: 0
   m_Name: Jim
   m_TagString: NPC
@@ -342,10 +340,10 @@ MonoBehaviour:
   roamPauseTime: 3
   roamDist: 1
   shopUnlocked: 0
-  shop: {fileID: 791787297313976426}
+  shop: {fileID: 5115846627962131780}
   autoOpenShopAfterTurnIn: 1
-  requiredQuestToUnlock: 3
-  requiredItemName: fish
+  requiredQuestToUnlock: 4
+  requiredItemName: Crab
   requiredItemAmount: 3
 --- !u!95 &1029402488506313667
 Animator:
@@ -411,54 +409,9 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 0
   m_Height: 1
-  m_BaseOffset: -0.1
+  m_BaseOffset: -0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &791787297313976426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918138422766737065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cd65f02717b13b40b84932ac5fcdfaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tradeOptions:
-  - requiredItem: fish
-    requiredAmount: 2
-    rewardItem: Grilled Fish
-    rewardAmount: 1
-  - requiredItem: fish
-    requiredAmount: 3
-    rewardItem: Dried Fish
-    rewardAmount: 1
-  - requiredItem: fish
-    requiredAmount: 4
-    rewardItem: Fish Kabobs
-    rewardAmount: 1
-  - requiredItem: fish
-    requiredAmount: 5
-    rewardItem: Fish Tacos
-    rewardAmount: 1
-  shopUI: {fileID: 0}
-  tradeButtonPrefab: {fileID: 7746839127293452355, guid: 518be61c4562d0b4089cf60af60adef3, type: 3}
-  tradeButtonParent: {fileID: 0}
---- !u!114 &4302631438856448238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918138422766737065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6268e3872ae197448b877b2b6d531d90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requiredQuestToUnlock: 3
 --- !u!1 &2270795166313011845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +999,9 @@ GameObject:
   - component: {fileID: 2561433821267834618}
   - component: {fileID: 6325549248202339349}
   - component: {fileID: 3407769168254851061}
+  - component: {fileID: 7371441598379516394}
+  - component: {fileID: 5115846627962131780}
+  - component: {fileID: 447873545632396509}
   m_Layer: 0
   m_Name: Talktrigger
   m_TagString: NPC
@@ -1087,9 +1043,9 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Height: 2.5
-  m_Direction: 2
+  m_Radius: 1.5
+  m_Height: 2
+  m_Direction: 0
   m_Center: {x: 1, y: 1, z: 1}
 --- !u!114 &3407769168254851061
 MonoBehaviour:
@@ -1103,17 +1059,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d9f825a8371ea4ebc337b4fce8de35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDialogue: {fileID: 11400000, guid: af81905a7db86d946aa8ff88d078f596, type: 2}
+  defaultDialogue: {fileID: 11400000, guid: 7f0985e1b1b65424d8c06fdc79d572cf, type: 2}
   dialogueConditions:
   - requiredQuest: 1
-    dialogueToUse: {fileID: 11400000, guid: 7f0985e1b1b65424d8c06fdc79d572cf, type: 2}
+    dialogueToUse: {fileID: 11400000, guid: af81905a7db86d946aa8ff88d078f596, type: 2}
+    questMustBeCompleted: 0
   - requiredQuest: 2
     dialogueToUse: {fileID: 11400000, guid: dbddef1072069dd44b82033a04428a27, type: 2}
-  - requiredQuest: 3
-    dialogueToUse: {fileID: 11400000, guid: 198f370ca31fc09448f2011ed752a4a0, type: 2}
+    questMustBeCompleted: 0
   - requiredQuest: 4
+    dialogueToUse: {fileID: 11400000, guid: 198f370ca31fc09448f2011ed752a4a0, type: 2}
+    questMustBeCompleted: 0
+  - requiredQuest: 5
     dialogueToUse: {fileID: 11400000, guid: b07450afd189772498d96b53cc1c8a6c, type: 2}
+    questMustBeCompleted: 0
   clueinDialogue: {fileID: 0}
+--- !u!114 &7371441598379516394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4401215942090192636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2014c80c283894da8ad9c7c7e269a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questToCheck: 4
+  objectiveIndex: 0
+  requiredItem: {fileID: 11400000, guid: 1f75b7b825b7d26409941894cf5308b1, type: 2}
+  requiredAmount: 3
+--- !u!114 &5115846627962131780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4401215942090192636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd65f02717b13b40b84932ac5fcdfaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tradeOptions:
+  - requiredItem: {fileID: 11400000, guid: 1f75b7b825b7d26409941894cf5308b1, type: 2}
+    requiredAmount: 2
+    rewardItem: {fileID: 11400000, guid: fafc598dfaddb414c8f04473a6ccfe0e, type: 2}
+    rewardAmount: 1
+  - requiredItem: {fileID: 11400000, guid: 70f16d90eb17ed042ada2f061d12fd67, type: 2}
+    requiredAmount: 3
+    rewardItem: {fileID: 11400000, guid: 802106cbd3fb4724baf432d0b47e3f91, type: 2}
+    rewardAmount: 1
+  - requiredItem: {fileID: 11400000, guid: 1f75b7b825b7d26409941894cf5308b1, type: 2}
+    requiredAmount: 4
+    rewardItem: {fileID: 11400000, guid: fafc598dfaddb414c8f04473a6ccfe0e, type: 2}
+    rewardAmount: 2
+  - requiredItem: {fileID: 11400000, guid: 70f16d90eb17ed042ada2f061d12fd67, type: 2}
+    requiredAmount: 5
+    rewardItem: {fileID: 11400000, guid: 802106cbd3fb4724baf432d0b47e3f91, type: 2}
+    rewardAmount: 2
+  shopUI: {fileID: 0}
+  tradeButtonPrefab: {fileID: 7746839127293452355, guid: 518be61c4562d0b4089cf60af60adef3, type: 3}
+  tradeButtonParent: {fileID: 0}
+--- !u!114 &447873545632396509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4401215942090192636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6268e3872ae197448b877b2b6d531d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredQuestToUnlock: 5
 --- !u!1 &4411171438814448232
 GameObject:
   m_ObjectHideFlags: 0

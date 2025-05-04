@@ -29,9 +29,12 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
+    attemptTurnIn: 0
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Jim:'
     line: "\"Is that just the sea air on the breeze, or do you have somethin\u2019
       for ol\u2019 Jim?\""
@@ -47,9 +50,12 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
+    attemptTurnIn: 0
+    requiresQuest: 1
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
     line: '"See you around, Jim."'
     choices: []
@@ -60,9 +66,12 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
+    attemptTurnIn: 0
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Jim:'
     line: "\"Sounds good\u2014I\u2019ll give you a fair trade, something tasty for
       you.\""
@@ -74,6 +83,9 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
+    attemptTurnIn: 0
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
+    changeSceneAfter: 0
+    sceneToLoad: 

@@ -327,8 +327,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4564326110997091280}
   - component: {fileID: 8713711557003209385}
-  - component: {fileID: 7836876746056050874}
-  - component: {fileID: 1683348730224338336}
   - component: {fileID: 2878053189805272860}
   - component: {fileID: 5984005482163935212}
   - component: {fileID: 3043924691414373941}
@@ -371,47 +369,14 @@ MonoBehaviour:
   model: {fileID: 2749957220216384472}
   anim: {fileID: 267020996188791449}
   agent: {fileID: 3043924691414373941}
-  roamPauseTime: 0
-  roamDist: 0
+  roamPauseTime: 1
+  roamDist: 1
   shopUnlocked: 1
-  shop: {fileID: 1683348730224338336}
+  shop: {fileID: 6426552128065184027}
   autoOpenShopAfterTurnIn: 1
   requiredQuestToUnlock: 6
   requiredItemName: 
   requiredItemAmount: 0
---- !u!114 &7836876746056050874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276080082449643618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6268e3872ae197448b877b2b6d531d90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requiredQuestToUnlock: 6
---- !u!114 &1683348730224338336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276080082449643618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cd65f02717b13b40b84932ac5fcdfaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tradeOptions:
-  - requiredItem: Scrap
-    requiredAmount: 2
-    rewardItem: Knife+
-    rewardAmount: 1
-  shopUI: {fileID: 0}
-  tradeButtonPrefab: {fileID: 7746839127293452355, guid: 518be61c4562d0b4089cf60af60adef3, type: 3}
-  tradeButtonParent: {fileID: 0}
 --- !u!136 &2878053189805272860
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -481,7 +446,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: -0.1
+  m_BaseOffset: -0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &1290075469651568214
@@ -805,6 +770,8 @@ GameObject:
   - component: {fileID: 260860855898101544}
   - component: {fileID: 5184298499855810136}
   - component: {fileID: 7532600388939481866}
+  - component: {fileID: 6426552128065184027}
+  - component: {fileID: 6544792398177649126}
   m_Layer: 0
   m_Name: Talktrigger
   m_TagString: NPC
@@ -863,8 +830,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultDialogue: {fileID: 11400000, guid: ec8433f9e1302124ab8b813dc172c310, type: 2}
-  dialogueConditions: []
+  dialogueConditions:
+  - requiredQuest: 1
+    dialogueToUse: {fileID: 11400000, guid: ec8433f9e1302124ab8b813dc172c310, type: 2}
+    questMustBeCompleted: 0
+  - requiredQuest: 2
+    dialogueToUse: {fileID: 11400000, guid: db7685012a6003c4393354c6d0b7c7f0, type: 2}
+    questMustBeCompleted: 0
+  - requiredQuest: 3
+    dialogueToUse: {fileID: 11400000, guid: 501ea289e4ab78347ad6c52673025e9a, type: 2}
+    questMustBeCompleted: 0
   clueinDialogue: {fileID: 0}
+--- !u!114 &6426552128065184027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3054221277258601670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd65f02717b13b40b84932ac5fcdfaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tradeOptions:
+  - requiredItem: {fileID: 0}
+    requiredAmount: 2
+    rewardItem: {fileID: 0}
+    rewardAmount: 1
+  - requiredItem: {fileID: 0}
+    requiredAmount: 4
+    rewardItem: {fileID: 0}
+    rewardAmount: 1
+  - requiredItem: {fileID: 0}
+    requiredAmount: 10
+    rewardItem: {fileID: 0}
+    rewardAmount: 1
+  shopUI: {fileID: 0}
+  tradeButtonPrefab: {fileID: 0}
+  tradeButtonParent: {fileID: 0}
+--- !u!114 &6544792398177649126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3054221277258601670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6268e3872ae197448b877b2b6d531d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredQuestToUnlock: 6
 --- !u!1 &3220114940869651969
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a688ceb77ec1554a9c1805812809e50, type: 3}
-  m_Name: AlanAfterJewel
+  m_Name: Default
   m_EditorClassIdentifier: 
-  npcName: Alan
+  npcName: 
   lines:
-  - speakerName: 'Alan:'
-    line: "\"Let\u2019s fly. Alan\u2019s Flight of Fancy, at your service. Like a
-      fish in the current\u2014watch how I glide.\""
+  - speakerName: 
+    line: '"Oh Hey. Do ya need somethin''?"'
     choices: []
-    completeQuest: 1
-    questToComplete: 7
+    completeQuest: 0
+    questToComplete: 0
     startQuest: 0
     questToStart: 0
     requiresItem: 0
@@ -28,12 +27,11 @@ MonoBehaviour:
     attemptTurnIn: 0
     changeSceneAfter: 0
     sceneToLoad: 
-  - speakerName: 'Alan:'
-    line: "\"Then let\u2019s fly. Alan\u2019s Flight of Fancy, at your service. Like
-      a fish in the current\u2014watch how I glide.\""
+  - speakerName: 
+    line: '"Oh Hey. Do ya need somethin''?"'
     choices: []
-    completeQuest: 1
-    questToComplete: 7
+    completeQuest: 0
+    questToComplete: 0
     startQuest: 0
     questToStart: 0
     requiresItem: 0
@@ -43,20 +41,7 @@ MonoBehaviour:
     changeSceneAfter: 0
     sceneToLoad: 
   - speakerName: 'Player:'
-    line: "\"Alright. Just as long as you're not the dead fish, we\u2019ll be fine.\""
-    choices: []
-    completeQuest: 0
-    questToComplete: 0
-    startQuest: 1
-    questToStart: 8
-    requiresItem: 0
-    requiredItemName: 
-    requiredItemAmount: 0
-    attemptTurnIn: 0
-    changeSceneAfter: 0
-    sceneToLoad: 
-  - speakerName: 'Alan:'
-    line: '"Have a little faith won''t ya."'
+    line: '"No, just saying hi. See ya around."'
     choices: []
     completeQuest: 0
     questToComplete: 0
@@ -66,5 +51,5 @@ MonoBehaviour:
     requiredItemName: 
     requiredItemAmount: 0
     attemptTurnIn: 0
-    changeSceneAfter: 1
-    sceneToLoad: Demo
+    changeSceneAfter: 0
+    sceneToLoad: 

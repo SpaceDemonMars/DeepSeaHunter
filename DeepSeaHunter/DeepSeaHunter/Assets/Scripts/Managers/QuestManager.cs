@@ -35,6 +35,8 @@ public class QuestManager : MonoBehaviour
             activeQuests.Add(newQuest);
             ActivateFirstObjective(newQuest);
             GameManager.instance.ShowQuestPopup($"New Quest: {newQuest.questName}!");
+            GameManager.instance.UpdateGameGoalFromQuest("");
+
         }
     }
 
@@ -55,7 +57,7 @@ public class QuestManager : MonoBehaviour
         if (quest != null && objectiveIndex < quest.objectives.Count)
         {
             quest.objectives[objectiveIndex].status = ObjectiveStatus.Completed;
-    //        Debug.Log($"Objective {objectiveIndex} completed: {quest.objectives[objectiveIndex].description}");
+            //        Debug.Log($"Objective {objectiveIndex} completed: {quest.objectives[objectiveIndex].description}");
 
             if (objectiveIndex + 1 < quest.objectives.Count)
             {
@@ -66,6 +68,8 @@ public class QuestManager : MonoBehaviour
                 CompleteQuest(quest);
             }
         }
+        GameManager.instance.UpdateGameGoalFromQuest("");
+
     }
 
     public void AutoAssignFirstQuest()

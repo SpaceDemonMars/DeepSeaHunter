@@ -1,268 +1,255 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
 using System;
-using System.Reflection;
 
 public class playerInven : MonoBehaviour
 {
     public int currencyFish;
     public int currencyScrap;
 
-    List<Item> items;
-    List<int> qty;
-
     public static playerInven Instance;
+
+    private List<Item> items = new();
+    private List<int> qty = new();
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
     private void Start()
     {
         items = new List<Item>();
         qty = new List<int>();
     }
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-    }
 
-    //Save/Load
+    // Save/Load
     public invenSAVE saveInven()
     {
-        invenSAVE iSave = new()
+        invenSAVE save = new()
         {
             fish = currencyFish,
             scrap = currencyScrap,
             items = new List<ItemSAVE>()
         };
-        //save items list
+
         for (int i = 0; i < items.Count; i++)
-            iSave.items.Add(convertToSave(items[i], qty[i]));
-        
-  //      Debug.Log("Success: Save (Inven)");
-        return iSave;
+        {
+            save.items.Add(convertToSave(items[i], qty[i]));
+        }
+
+        return save;
     }
-    public void loadInven(invenSAVE iSave)
+
+    public void loadInven(invenSAVE data)
     {
-        currencyFish = iSave.fish;
+        currencyFish = data.fish;
+        currencyScrap = data.scrap;
         setFishText();
-        currencyScrap = iSave.scrap;
         setScrapText();
-        //load saved items
+
         clearInventory();
-        foreach (ItemSAVE save in iSave.items)
-            addItem(convertFromSave(save));
+
+        foreach (ItemSAVE i in data.items)
+        {
+            addItem(convertFromSave(i));
+        }
 
         GameManager.instance.loadInventory();
-  //      Debug.Log("Success: Load (Inven)");
     }
-    
+
     ItemSAVE convertToSave(Item item, int qty)
     {
-        ItemSAVE save = new ItemSAVE();
-
-        save.itemId = item.itemId;
-        save.itemName = item.itemName;
-        save.itemDescription = item.itemDescription;
-        save.quantity = qty;
-        //save.itemIcon = item.itemIcon;
-        save.fishValue = item.fishValue;
-        save.scrapValue = item.scrapValue;
-        save.hp = item.hp;
-        save.o2 = item.o2;
-        save.sanity = item.sanity;
-
-        return save;
+        return new ItemSAVE
+        {
+            itemId = item.itemId,
+            itemName = item.itemName,
+            itemDescription = item.itemDescription,
+            quantity = qty,
+            fishValue = item.fishValue,
+            scrapValue = item.scrapValue,
+            hp = item.hp,
+            o2 = item.o2,
+            sanity = item.sanity
+        };
     }
-    Item convertFromSave(ItemSAVE item)
+
+    Item convertFromSave(ItemSAVE i)
     {
-        Item save = ScriptableObject.CreateInstance<Item>();
-
-        save.itemId = item.itemId;
-        save.itemName = item.itemName;
-        save.itemDescription = item.itemDescription;
-        save.quantity = item.quantity;
-        //save.itemIcon = item.itemIcon;
-        save.fishValue = item.fishValue;
-        save.scrapValue = item.scrapValue;
-        save.hp = item.hp;
-        save.o2 = item.o2;
-        save.sanity = item.sanity;
-
-        return save;
+        Item item = ScriptableObject.CreateInstance<Item>();
+        item.itemId = i.itemId;
+        item.itemName = i.itemName;
+        item.itemDescription = i.itemDescription;
+        item.quantity = i.quantity;
+        item.fishValue = i.fishValue;
+        item.scrapValue = i.scrapValue;
+        item.hp = i.hp;
+        item.o2 = i.o2;
+        item.sanity = i.sanity;
+        return item;
     }
 
-    //Add/Remove(Use)
+    // Add Item (by object)
     public void addItem(Item item)
     {
-        if (item != null)
-        {
-            if (items.Count == 0) //inventory empty
-            {
-                items.Add(item);
-                qty.Add(item.quantity);
-            }
-            else
-            {
-                //find index to insert
-                int index = 0;
-                for (; index < items.Count; index++)
-                {
-                    if (items[index].itemId == item.itemId)
-                    {
-                        qty[index] += item.quantity; //increase quantity
-                        GameManager.instance.loadInventory();
-                        if (displayingThisItem(item))
-                            GameManager.instance.itemInfoQty.text = "x" + qty[index].ToString();
-                        return;
-                    }
-                    if (items[index].itemId > item.itemId) break; ////item not in inventory, insert @ index found
-                }
+        if (item == null) return;
 
-                items.Insert(index, item); //insert item
-                qty.Insert(index, item.quantity);
-            }
-            GameManager.instance.loadInventory();
+        int index = items.FindIndex(i => i.itemId == item.itemId);
+        if (index >= 0)
+        {
+            qty[index] += item.quantity;
+            updateUI(index);
         }
+        else
+        {
+            Item copy = ScriptableObject.Instantiate(item);
+            items.Add(copy);
+            qty.Add(copy.quantity);
+        }
+
+        GameManager.instance.loadInventory();
+        GameManager.instance.ShowItemPopup($"+{item.quantity} {item.itemName}");
+
     }
+
+    // Add item by name + amount (fallback logic)
     public void AddItem(string itemName, int amount)
     {
-        for (int i = 0; i < items.Count; i++)
+        int index = items.FindIndex(i => i.itemName == itemName);
+        if (index >= 0)
         {
-            if (items[i].itemName == itemName)
-            {
-                qty[i] += amount;
-                GameManager.instance.loadInventory();
-                if (displayingThisItem(items[i]))
-                    GameManager.instance.itemInfoQty.text = "x" + qty[i].ToString();
-                return;
-            }
+            qty[index] += amount;
+            updateUI(index);
         }
-
-        Item newItem = new Item
+        else
         {
-            itemName = itemName,
-            quantity = amount,
-            itemId = GenerateItemID(itemName)
-        };
-        items.Add(newItem);
-        qty.Add(amount);
+            Item newItem = ScriptableObject.CreateInstance<Item>();
+            newItem.itemName = itemName;
+            newItem.quantity = amount;
+            newItem.itemId = GenerateItemID(itemName);
+            items.Add(newItem);
+            qty.Add(amount);
+        }
         GameManager.instance.loadInventory();
+        GameManager.instance.ShowItemPopup($"+{amount} {itemName}");
     }
-    public void removeItem(int index) //remove by index
+
+    public bool HasItem(string itemName, int requiredAmount)
     {
-        if (index >= items.Count) return; //if index OOB exit
-        useItem(items[index]);
-        qty[index]--;
-        if (qty[index] <= 0) //out of item
+        int index = items.FindIndex(i => i.itemName == itemName);
+        return (index >= 0 && qty[index] >= requiredAmount);
+    }
+
+    public int getItemQuantity(string itemName)
+    {
+        int index = items.FindIndex(i => i.itemName == itemName);
+        return index >= 0 ? qty[index] : 0;
+    }
+
+    public void RemoveItem(string itemName, int amount)
+    {
+        int index = items.FindIndex(i => i.itemName == itemName);
+        if (index < 0) return;
+
+        qty[index] -= amount;
+
+        if (qty[index] <= 0)
         {
             items.RemoveAt(index);
             qty.RemoveAt(index);
             GameManager.instance.itemInfo.SetActive(false);
         }
-        else if (displayingThisItem(items[index]))
-            GameManager.instance.itemInfoQty.text = "x" + qty[index].ToString();
+        else updateUI(index);
+
         GameManager.instance.loadInventory();
     }
-    public void RemoveItem(string itemName, int amount)
+
+    public void removeItem(int index)
     {
-        for (int i = 0; i < items.Count; i++)
+        if (index >= items.Count) return;
+        useItem(items[index]);
+
+        qty[index]--;
+        if (qty[index] <= 0)
         {
-            if (items[i].itemName == itemName)
-            {
-                qty[i] -= amount;
-                if (qty[i] <= 0)
-                {
-                    items.RemoveAt(i);
-                    qty.RemoveAt(i);
-                    GameManager.instance.itemInfo.SetActive(false);
-                }
-                else if (displayingThisItem(items[i]))
-                    GameManager.instance.itemInfoQty.text = "x" + qty[i].ToString();
-                GameManager.instance.loadInventory();
-                return;
-            }
+            items.RemoveAt(index);
+            qty.RemoveAt(index);
+            GameManager.instance.itemInfo.SetActive(false);
         }
+        else updateUI(index);
+
+        GameManager.instance.loadInventory();
     }
 
     void useItem(Item item)
     {
-        //currency
         addFish(item.fishValue);
         addScrap(item.scrapValue);
-        //consumable
         GameManager.instance.playerScript.takeDamage(item.hp * -1, 0);
         GameManager.instance.o2.modifyO2(item.o2);
-        //update sanity
+        // todo: handle sanity logic
     }
-    void clearInventory()
+
+    void updateUI(int index)
+    {
+        if (displayingThisItem(items[index]))
+            GameManager.instance.itemInfoQty.text = "x" + qty[index].ToString();
+    }
+
+    public void clearInventory()
     {
         items.Clear();
         qty.Clear();
         GameManager.instance.loadInventory();
     }
 
-    //getters/setters
-    public int getInvenSize() { return items.Count; }
-    
-    public Item getItem(int index) { return (index < items.Count) ? items[index] : null; }
-    public bool HasItem(string itemName, int requiredAmount)
-    {
-        for (int i = 0; i < items.Count; i++)
-        {
-            if (items[i].itemName == itemName && qty[i] >= requiredAmount)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    public int getQty(int index) { return (index < qty.Count) ? qty[index] : 0; }
-    public int getItemQuantity(string itemName)
-    {
-        for (int i = 0; i < items.Count; i++)
-        {
-            if (items[i].itemName == itemName)
-                return qty[i];
-        }
-        return 0;
-    }
-    
+    public int getInvenSize() => items.Count;
+    public Item getItem(int index) => index < items.Count ? items[index] : null;
+    public int getQty(int index) => index < qty.Count ? qty[index] : 0;
+
     bool displayingThisItem(Item currItem)
     {
         return GameManager.instance.itemInfoName.text == currItem.itemName;
     }
 
-    public int getFish() { return currencyFish; }
+    // Currency management
+    public int getFish() => currencyFish;
     public void setFish(int fish) { currencyFish = fish; setFishText(); }
     public void addFish(int fish) { currencyFish += fish; setFishText(); }
-    public int getScrap() { return currencyScrap; }
+
+    public int getScrap() => currencyScrap;
     public void setScrap(int scrap) { currencyScrap = scrap; setScrapText(); }
     public void addScrap(int scrap) { currencyScrap += scrap; setScrapText(); }
-    public void setFishText() { GameManager.instance.fishText.text = currencyFish.ToString(); }
-    public void setScrapText() { GameManager.instance.scrapText.text = currencyScrap.ToString(); }
+
+    public void setFishText() => GameManager.instance.fishText.text = currencyFish.ToString();
+    public void setScrapText() => GameManager.instance.scrapText.text = currencyScrap.ToString();
 
     public bool attemptFishTrade(int reqFish)
     {
         if (currencyFish >= reqFish)
         {
-            setFish(currencyFish - reqFish);
-            return true;
-        }
-        return false;
-    }
-    public bool attemptScrapTrade(int reqScrap)
-    {
-        if (currencyScrap >= reqScrap)
-        {
-            setScrap(currencyScrap - reqScrap);
+            currencyFish -= reqFish;
+            setFishText();
             return true;
         }
         return false;
     }
 
-    private int GenerateItemID(string itemName) { return itemName.GetHashCode(); }
+    public bool attemptScrapTrade(int reqScrap)
+    {
+        if (currencyScrap >= reqScrap)
+        {
+            currencyScrap -= reqScrap;
+            setScrapText();
+            return true;
+        }
+        return false;
+    }
+
+    private int GenerateItemID(string itemName)
+    {
+        return itemName.GetHashCode();
+    }
 }

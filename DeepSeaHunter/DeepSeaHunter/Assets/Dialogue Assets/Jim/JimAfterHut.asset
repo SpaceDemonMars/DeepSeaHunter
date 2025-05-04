@@ -25,9 +25,10 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
+    attemptTurnIn: 0
     requiresQuest: 1
-    requiredQuestID: 2
-    questMustBeCompleted: 1
+    requiredQuestID: 3
+    questMustBeCompleted: 0
     changeSceneAfter: 0
     sceneToLoad: 
   - speakerName: 'Player:'
@@ -41,9 +42,10 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
+    attemptTurnIn: 0
     requiresQuest: 1
-    requiredQuestID: 2
-    questMustBeCompleted: 1
+    requiredQuestID: 3
+    questMustBeCompleted: 0
     changeSceneAfter: 0
     sceneToLoad: 
   - speakerName: 'Jim:'
@@ -59,6 +61,7 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
+    attemptTurnIn: 0
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0
@@ -74,6 +77,7 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
+    attemptTurnIn: 0
     requiresQuest: 0
     requiredQuestID: 0
     questMustBeCompleted: 0

@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9ab88ad7bd070428fe6c1b23a112dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupPrefab: {fileID: 774143862851430196, guid: eabe746db9075444faa34dfdb24da968, type: 3}
+  pickupPrefab: {fileID: 774143862851430196, guid: 5837dd18d3d44ff4b94a8a9ed9445800, type: 3}
   dropPoint: {fileID: 0}
   itemNameOverride: 
 --- !u!1 &7255297881435993695

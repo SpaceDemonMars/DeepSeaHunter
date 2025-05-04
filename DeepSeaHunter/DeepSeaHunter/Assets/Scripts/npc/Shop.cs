@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using TMPro;
-using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
@@ -8,17 +8,17 @@ public class Shop : MonoBehaviour
     [System.Serializable]
     public class TradeItem
     {
-        public string requiredItem;
+        public Item requiredItem;
         public int requiredAmount;
-        public string rewardItem;
+        public Item rewardItem;
         public int rewardAmount = 1;
     }
 
     public List<TradeItem> tradeOptions = new List<TradeItem>();
 
     public GameObject shopUI;
-    public GameObject tradeButtonPrefab; 
-    public Transform tradeButtonParent; 
+    public GameObject tradeButtonPrefab;
+    public Transform tradeButtonParent;
 
     private void Start()
     {
@@ -36,62 +36,51 @@ public class Shop : MonoBehaviour
         shopUI.SetActive(false);
         ClearShopUI();
     }
-        public void AttemptTrade(int index)
+
+    public void AttemptTrade(int index)
     {
-        if (index >= 0 && index < tradeOptions.Count)
+        if (index < 0 || index >= tradeOptions.Count) return;
+
+        TradeItem trade = tradeOptions[index];
+        if (trade.requiredItem == null || trade.rewardItem == null) return;
+
+        string requiredName = trade.requiredItem.itemName.ToLower();
+
+        // Handle currency trades
+        if (requiredName == "fish")
         {
-            TradeItem trade = tradeOptions[index];
-            string requiredItemLower = trade.requiredItem.ToLower();
-
-            if (requiredItemLower == "fish")
+            if (playerInven.Instance.getFish() >= trade.requiredAmount)
             {
-                if (playerInven.Instance.getFish() >= trade.requiredAmount)
-                {
-                    playerInven.Instance.setFish(playerInven.Instance.getFish() - trade.requiredAmount);
-                    playerInven.Instance.AddItem(trade.rewardItem, trade.rewardAmount);
-
-            //        Debug.Log($"Traded {trade.requiredAmount} fish for {trade.rewardAmount} {trade.rewardItem}");
-                    AudioManager.Instance.PlaySFX();
-                }
-                else
-                {
-             //       Debug.Log("Not enough fish to trade.");
-                }
+                playerInven.Instance.setFish(playerInven.Instance.getFish() - trade.requiredAmount);
+                playerInven.Instance.addItem(trade.rewardItem);
+                PlayTradeSFX();
             }
-            else if (requiredItemLower == "scrap")
+        }
+        else if (requiredName == "scrap")
+        {
+            if (playerInven.Instance.getScrap() >= trade.requiredAmount)
             {
-                if (playerInven.Instance.getScrap() >= trade.requiredAmount)
-                {
-                    playerInven.Instance.setScrap(playerInven.Instance.getScrap() - trade.requiredAmount);
-                    playerInven.Instance.AddItem(trade.rewardItem, trade.rewardAmount);
-
-            //        Debug.Log($"Traded {trade.requiredAmount} scrap for {trade.rewardAmount} {trade.rewardItem}");
-                    AudioManager.Instance.PlaySFX();
-                }
-                else
-                {
-          //          Debug.Log("Not enough scrap to trade.");
-                }
+                playerInven.Instance.setScrap(playerInven.Instance.getScrap() - trade.requiredAmount);
+                playerInven.Instance.addItem(trade.rewardItem);
+                PlayTradeSFX();
             }
-            else
+        }
+        else
+        {
+            // Regular item trade
+            if (playerInven.Instance.HasItem(trade.requiredItem.itemName, trade.requiredAmount))
             {
-                if (playerInven.Instance.HasItem(trade.requiredItem, trade.requiredAmount))
-                {
-                    playerInven.Instance.RemoveItem(trade.requiredItem, trade.requiredAmount);
-                    playerInven.Instance.AddItem(trade.rewardItem, trade.rewardAmount);
+                playerInven.Instance.RemoveItem(trade.requiredItem.itemName, trade.requiredAmount);
 
-          //          Debug.Log($"Traded {trade.requiredAmount} {trade.requiredItem} for {trade.rewardAmount} {trade.rewardItem}");
-                    AudioManager.Instance.PlaySFX();
-                }
-                else
-                {
-           //         Debug.Log("Not enough items to trade.");
-                }
+                Item rewardCopy = ScriptableObject.Instantiate(trade.rewardItem);
+                rewardCopy.quantity = trade.rewardAmount;
+                playerInven.Instance.addItem(rewardCopy);
+                PlayTradeSFX();
             }
         }
     }
 
-    void PopulateShopUI()
+    private void PopulateShopUI()
     {
         ClearShopUI();
 
@@ -103,7 +92,9 @@ public class Shop : MonoBehaviour
             TMP_Text buttonText = buttonObj.GetComponentInChildren<TMP_Text>();
             if (buttonText != null)
             {
-                buttonText.text = $"Trade {trade.requiredAmount} {trade.requiredItem} → {trade.rewardAmount} {trade.rewardItem}";
+                string req = trade.requiredItem != null ? trade.requiredItem.itemName : "???";
+                string rew = trade.rewardItem != null ? trade.rewardItem.itemName : "???";
+                buttonText.text = $"Trade {trade.requiredAmount} {req} → {trade.rewardAmount} {rew}";
             }
 
             Button button = buttonObj.GetComponent<Button>();
@@ -115,11 +106,17 @@ public class Shop : MonoBehaviour
         }
     }
 
-    void ClearShopUI()
+    private void ClearShopUI()
     {
         foreach (Transform child in tradeButtonParent)
         {
             Destroy(child.gameObject);
         }
+    }
+
+    private void PlayTradeSFX()
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlaySFX();
     }
 }

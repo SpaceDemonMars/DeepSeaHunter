@@ -28,9 +28,26 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
+  - speakerName: 'Player:'
+    line: "The mechanic\u2019s clothes were pocked with grease, coolant, and wear. 
+      A patch stitched over her chest read Jewel, and her wild red hair scattered
+      about her face in fiery wisps. If it weren\u2019t for the oil smears mixing
+      with her freckles, she might\u2019ve looked like a poster girl for island charm\u2014but
+      she wore grit like a second skin."
+    choices: []
+    completeQuest: 0
+    questToComplete: 0
+    startQuest: 0
+    questToStart: 0
+    requiresItem: 0
+    requiredItemName: 
+    requiredItemAmount: 0
+    attemptTurnIn: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
     line: "\u201CI'm looking for my friend Nathan, do ya know where i can find him?\u201D"
     choices: []
@@ -41,9 +58,9 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Jewel:'
     line: "\u201CNate? He would swing by at least twice a week to get me to fix up
       something he busted on his gear. Kept telling him he needed to give the girl
@@ -58,9 +75,9 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
   - speakerName: 'Player:'
     line: '"Ok, if you see him, tell him I was looking for him."'
     choices: []
@@ -71,6 +88,6 @@ MonoBehaviour:
     requiresItem: 0
     requiredItemName: 
     requiredItemAmount: 0
-    requiresQuest: 0
-    requiredQuestID: 0
-    questMustBeCompleted: 0
+    attemptTurnIn: 0
+    changeSceneAfter: 0
+    sceneToLoad: 
