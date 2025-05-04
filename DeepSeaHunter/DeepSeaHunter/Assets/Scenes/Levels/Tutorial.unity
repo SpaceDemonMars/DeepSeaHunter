@@ -7864,6 +7864,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 267020996188791449, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1276080082449643618, guid: 795e7b4ef1e05ae4ca3102dce87094c8, type: 3}
       propertyPath: m_Name
       value: Jewel
@@ -7993,6 +7997,10 @@ PrefabInstance:
     - target: {fileID: 5845628799553503784, guid: 6b892263602c35c47afc9f74e28f3c60, type: 3}
       propertyPath: m_Name
       value: Alan
+      objectReference: {fileID: 0}
+    - target: {fileID: 7586235489814856676, guid: 6b892263602c35c47afc9f74e28f3c60, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8322861480764584285, guid: 6b892263602c35c47afc9f74e28f3c60, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8516,6 +8524,10 @@ PrefabInstance:
     - target: {fileID: 2651606950418531518, guid: 63f17fb69ac21bb4daa3821bb4a7e136, type: 3}
       propertyPath: m_Name
       value: Doc Maher
+      objectReference: {fileID: 0}
+    - target: {fileID: 3824036994407795910, guid: 63f17fb69ac21bb4daa3821bb4a7e136, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4621267981205001051, guid: 63f17fb69ac21bb4daa3821bb4a7e136, type: 3}
       propertyPath: m_LocalPosition.x
