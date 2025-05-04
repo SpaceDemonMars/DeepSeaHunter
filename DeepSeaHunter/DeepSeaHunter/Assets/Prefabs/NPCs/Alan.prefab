@@ -359,18 +359,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d9f825a8371ea4ebc337b4fce8de35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDialogue: {fileID: 11400000, guid: bcaf95df75d90374687cd8942649ae05, type: 2}
+  defaultDialogue: {fileID: 11400000, guid: 4767551431fbb3c4fb28d4fe15c7c674, type: 2}
   dialogueConditions:
   - requiredQuest: 1
     dialogueToUse: {fileID: 11400000, guid: bcaf95df75d90374687cd8942649ae05, type: 2}
     questMustBeCompleted: 0
-  - requiredQuest: 2
+  - requiredQuest: 3
     dialogueToUse: {fileID: 11400000, guid: 80cb605cede45c34d94d32a23ae0842f, type: 2}
     questMustBeCompleted: 0
-  - requiredQuest: 4
+  - requiredQuest: 5
     dialogueToUse: {fileID: 11400000, guid: 31c1c88e5cee49f4f919017340388383, type: 2}
     questMustBeCompleted: 0
-  - requiredQuest: 6
+  - requiredQuest: 7
     dialogueToUse: {fileID: 11400000, guid: 2bfe96d8b144fa74db0c9285c72022e9, type: 2}
     questMustBeCompleted: 0
   clueinDialogue: {fileID: 0}

@@ -271,7 +271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1550a75e61bd91b4787bbbd9a0a08583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pSAVE: {fileID: 11400000, guid: 7dddec97a31d3dc419d72cc7fba4c61b, type: 2}
   HP: 10
   ignoreLayer:
     serializedVersion: 2
@@ -281,10 +280,10 @@ MonoBehaviour:
   tempScript: {fileID: 1480138211415246043}
   radioScript: {fileID: 1951845911028339932}
   inven: {fileID: 1487154134465998985}
-  speed: 3
+  speed: 4
   pushResolve: 12
   dashStr: 35
-  dashMax: 3
+  dashMax: 4
   dashRechargeTimer: 5
   dashDuration: 0.2
   jumpStr: 7
@@ -304,6 +303,7 @@ MonoBehaviour:
   grappleLine: {fileID: 5492269644277114618}
   linePos: {fileID: 6024145779619747732}
   rangedCurr: {fileID: 0}
+  gearCurr: {fileID: 0}
   aud: {fileID: 5276844529127416839}
   audStepsVol: 0.02
   audSteps:
@@ -718,7 +718,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aud: {fileID: 682561069561198982}
-  radioVol: 0.5
   menuPlaylist:
   - {fileID: 8300000, guid: 8278c22637785a5479649a228afd6670, type: 3}
 --- !u!82 &682561069561198982
@@ -975,7 +974,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aud: {fileID: 2949645483885760927}
-  radioVol: 0.5
   radioPlaylist:
   - {fileID: 8300000, guid: f1fdac8567aee1640b1299e14f8440af, type: 3}
   - {fileID: 8300000, guid: 209b0d684d3793044b0449d62ca48cc4, type: 3}

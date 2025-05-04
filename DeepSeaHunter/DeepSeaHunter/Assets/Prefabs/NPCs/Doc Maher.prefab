@@ -106,7 +106,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: -0.1
+  m_BaseOffset: -0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &3500530607034025486
@@ -200,8 +200,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d9f825a8371ea4ebc337b4fce8de35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDialogue: {fileID: 11400000, guid: 007a772937a981e4799292a1a3c3b78e, type: 2}
-  dialogueConditions: []
+  defaultDialogue: {fileID: 11400000, guid: 4767551431fbb3c4fb28d4fe15c7c674, type: 2}
+  dialogueConditions:
+  - requiredQuest: 1
+    dialogueToUse: {fileID: 11400000, guid: 007a772937a981e4799292a1a3c3b78e, type: 2}
+    questMustBeCompleted: 0
   clueinDialogue: {fileID: 0}
 --- !u!1001 &7240416883124580695
 PrefabInstance:
