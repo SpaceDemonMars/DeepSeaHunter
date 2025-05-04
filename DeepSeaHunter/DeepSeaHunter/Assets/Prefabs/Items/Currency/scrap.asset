@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51515c0b943fc7d40998eb97dd845cf9, type: 3}
   m_Name: scrap
   m_EditorClassIdentifier: 
-  itemId: 1
+  itemId: 2
   itemName: Scrap
   itemDescription: A piece of scap metal found in the ocean. A metal working villager
     might tade you something good for it. \nUse to obtain scrap currency.

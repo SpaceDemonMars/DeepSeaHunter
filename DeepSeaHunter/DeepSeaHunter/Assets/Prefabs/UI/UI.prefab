@@ -14318,7 +14318,8 @@ MonoBehaviour:
     - description: Find Nathan
       status: 0
     rewards:
-    - itemName: Fish
+    - reward: {fileID: 11400000, guid: 70f16d90eb17ed042ada2f061d12fd67, type: 2}
+      rewardGear: {fileID: 0}
       amount: 1
     requiredQuest: 0
     isCompleted: 0
@@ -14329,7 +14330,8 @@ MonoBehaviour:
     - description: Defeat the Boss
       status: 0
     rewards:
-    - itemName: Scrap
+    - reward: {fileID: 11400000, guid: ad5d43ff32c6c144a9ed0a8f420049c4, type: 2}
+      rewardGear: {fileID: 0}
       amount: 1
     requiredQuest: 1
     isCompleted: 1
@@ -14340,7 +14342,8 @@ MonoBehaviour:
     - description: '"Talk to the villagers."'
       status: 0
     rewards:
-    - itemName: Crabs
+    - reward: {fileID: 11400000, guid: 1f75b7b825b7d26409941894cf5308b1, type: 2}
+      rewardGear: {fileID: 0}
       amount: 3
     requiredQuest: 2
     isCompleted: 1
@@ -14353,7 +14356,8 @@ MonoBehaviour:
     - description: '"Give crabs to Jim"'
       status: 0
     rewards:
-    - itemName: Crab Skewer
+    - reward: {fileID: 11400000, guid: fafc598dfaddb414c8f04473a6ccfe0e, type: 2}
+      rewardGear: {fileID: 0}
       amount: 1
     requiredQuest: 3
     isCompleted: 1
@@ -14364,7 +14368,8 @@ MonoBehaviour:
     - description: Talk to Alan
       status: 0
     rewards:
-    - itemName: 
+    - reward: {fileID: 0}
+      rewardGear: {fileID: 0}
       amount: 0
     requiredQuest: 4
     isCompleted: 1
@@ -14375,7 +14380,8 @@ MonoBehaviour:
     - description: Talk to Jewel
       status: 0
     rewards:
-    - itemName: Old Diving Gear
+    - reward: {fileID: 0}
+      rewardGear: {fileID: 11400000, guid: 00a4e2c1d798633468abd8e4a4efff0c, type: 2}
       amount: 1
     requiredQuest: 5
     isCompleted: 1

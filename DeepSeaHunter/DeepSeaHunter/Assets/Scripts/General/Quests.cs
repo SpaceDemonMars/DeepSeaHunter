@@ -40,7 +40,8 @@ public class Objective
 [Serializable]
 public class QuestReward
 {
-    public string itemName;
+    public Item reward;
+    public equipStats rewardGear;
     public int amount;
 }
 

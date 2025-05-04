@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51515c0b943fc7d40998eb97dd845cf9, type: 3}
   m_Name: Crab
   m_EditorClassIdentifier: 
-  itemId: 0
+  itemId: 1
   itemName: Crab
   itemDescription: "\"Plump and perfect for bait\u2014or dinner.\""
-  quantity: 1
+  quantity: 3
   itemIcon: {fileID: 0}
   fishValue: 2
   scrapValue: 0

@@ -105,13 +105,15 @@ public class QuestManager : MonoBehaviour
     {
         foreach (QuestReward reward in quest.rewards)
         {
-            Item rewardItem = new Item
+            if (reward.reward) //item
             {
-                itemName = reward.itemName,
-                quantity = reward.amount,
-                itemId = GenerateItemID(reward.itemName) // Simple placeholder
-            };
-            GameManager.instance.playerScript.inven.addItem(rewardItem);
+                reward.reward.quantity = reward.amount;
+                GameManager.instance.playerScript.inven.addItem(reward.reward);
+            }
+            if (reward.rewardGear) //gear
+            {
+                GameManager.instance.playerScript.getEquipStats(reward.rewardGear);
+            }
   //          Debug.Log($"Reward: {reward.amount}x {reward.itemName}");
         }
     }

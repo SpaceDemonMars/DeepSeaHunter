@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51515c0b943fc7d40998eb97dd845cf9, type: 3}
   m_Name: health temp
   m_EditorClassIdentifier: 
-  itemId: 2
+  itemId: 4
   itemName: Health Potion
   itemDescription: A small vial of restorative medicine.\nUse to restore a small
     amount of Health.
