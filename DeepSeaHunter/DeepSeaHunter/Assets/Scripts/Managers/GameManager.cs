@@ -139,7 +139,17 @@ public class GameManager : MonoBehaviour
         loseTextColors[0] = loseTextColorDamage;
         loseTextColors[1] = loseTextColorO2;
         loseTextColors[2] = loseTextColorTemp;
+        if (LoadOnSceneChange()) //if temp save data loaded successfully
+        {
+            SaveManager.instance.DeleteOnSceneChangeSave(); //delete temp save
+            Save(); //make permanent save
+        }
+        else //no temp data
+        {
+            //Load();
+        }
     }
+
     void Update()
     {
         openTabSettings();
@@ -202,11 +212,11 @@ public class GameManager : MonoBehaviour
         SaveManager.instance.SaveOnSceneChange(iSave);
     }
 
-    public void Load() 
+    public bool Load() 
     {
         //retrieve save file
         generalSAVE gameSave = SaveManager.instance.Load();
-        if (gameSave == null) return; //no save dat; do nothing
+        if (gameSave == null) return false; //no save dat; do nothing
 
         //update data
         if (SceneManager.GetActiveScene().name != gameSave.sceneName) SceneManager.LoadScene(gameSave.sceneName);
@@ -217,14 +227,18 @@ public class GameManager : MonoBehaviour
         radioScript.setInStatic(gameSave.inStatic);
         radioScript.setRadioOn(gameSave.radioOn);
         stateUnpause(); //added bc sometimes time scale gets messed up when loading scene
+        Debug.Log("Success: Load (General)");
+        return true;
  //       Debug.Log("Success: Load (General)");
     }
-    public void LoadOnSceneChange()
+    public bool LoadOnSceneChange()
     {
         invenSAVE iSave = SaveManager.instance.LoadOnSceneChange();
-        if (iSave == null) return;
+        if (iSave == null) return false;
 
         playerScript.inven.loadInven(iSave);
+        stateUnpause();
+        return true;
     }
     public void openTabSettings(bool buttonClick = false)
     {
@@ -382,8 +396,10 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         radioScript.aud.UnPause();
         Time.timeScale = 1;
-        menuActive.SetActive(false);
-        menuActive = null;
+        if (menuActive) {
+            menuActive.SetActive(false);
+            menuActive = null;
+        }
         if (menuActiveTab != null) {
             menuActiveTab.SetActive(false);
             menuActiveTab = null;

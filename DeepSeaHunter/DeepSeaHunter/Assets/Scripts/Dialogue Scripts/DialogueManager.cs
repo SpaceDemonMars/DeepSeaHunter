@@ -176,7 +176,8 @@ public class DialogueManager : MonoBehaviour
         // Handle scene change
         if (lastSpokenEntry != null && lastSpokenEntry.changeSceneAfter && !string.IsNullOrEmpty(lastSpokenEntry.sceneToLoad))
         {
-            GameManager.instance.Save();
+            GameManager.instance.Save(); //create backup incase smth goes wrong
+            GameManager.instance.SaveOnSceneChange();
             UnityEngine.SceneManagement.SceneManager.LoadScene(lastSpokenEntry.sceneToLoad);
             return;
         }

@@ -9,6 +9,8 @@ public class loadScene : MonoBehaviour
         playerController player = other.GetComponent<playerController>();
         if (player != null)
         {
+            GameManager.instance.Save(); //create backup incase smth goes wrong
+            GameManager.instance.SaveOnSceneChange();
             SceneManager.LoadScene(sceneName);
         }
     }
