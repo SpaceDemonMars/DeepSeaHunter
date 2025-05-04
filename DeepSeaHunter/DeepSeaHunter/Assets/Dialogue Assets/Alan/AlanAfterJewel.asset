@@ -67,4 +67,4 @@ MonoBehaviour:
     requiredItemAmount: 0
     attemptTurnIn: 0
     changeSceneAfter: 1
-    sceneToLoad: Demo
+    sceneToLoad: lv1 - reef
