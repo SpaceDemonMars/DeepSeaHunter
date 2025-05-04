@@ -45,6 +45,7 @@ public class playerInven : MonoBehaviour
 
     public void loadInven(invenSAVE data)
     {
+        Debug.Log("Called loadInven");
         currencyFish = data.fish;
         currencyScrap = data.scrap;
         setFishText();
@@ -62,6 +63,7 @@ public class playerInven : MonoBehaviour
 
     ItemSAVE convertToSave(Item item, int qty)
     {
+        Debug.Log("Saving Item : " + item.name);
         return new ItemSAVE
         {
             itemId = item.itemId,
@@ -88,6 +90,7 @@ public class playerInven : MonoBehaviour
         item.hp = i.hp;
         item.o2 = i.o2;
         item.sanity = i.sanity;
+        Debug.Log("Loaded Item : " + item.name);
         return item;
     }
 
@@ -96,17 +99,30 @@ public class playerInven : MonoBehaviour
     {
         if (item == null) return;
 
-        int index = items.FindIndex(i => i.itemId == item.itemId);
-        if (index >= 0)
+        if (items.Count == 0) //inventory empty
         {
-            qty[index] += item.quantity;
-            updateUI(index);
+            items.Add(item);
+            qty.Add(item.quantity);
         }
         else
         {
-            Item copy = ScriptableObject.Instantiate(item);
-            items.Add(copy);
-            qty.Add(copy.quantity);
+            //find index to insert
+            int index = 0;
+            for (; index < items.Count; index++)
+            {
+                if (items[index].itemId == item.itemId)
+                {
+                    qty[index] += item.quantity; //increase quantity
+                    GameManager.instance.loadInventory();
+                    if (displayingThisItem(item))
+                        GameManager.instance.itemInfoQty.text = "x" + qty[index].ToString();
+                    return;
+                }
+                if (items[index].itemId > item.itemId) break; ////item not in inventory, insert @ index found
+            }
+
+            items.Insert(index, item); //insert item
+            qty.Insert(index, item.quantity);
         }
 
         GameManager.instance.loadInventory();
