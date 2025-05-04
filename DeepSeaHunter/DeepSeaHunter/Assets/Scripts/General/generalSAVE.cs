@@ -6,6 +6,7 @@ using UnityEngine;
 public class generalSAVE
 {
     public playerSAVE pSave;
+    public string sceneName;
 
     public invenSAVE iSave;
 

@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SaveManager : MonoBehaviour
@@ -29,6 +30,17 @@ public class SaveManager : MonoBehaviour
         file.Close();
    //     Debug.Log("Success: Save");
     }
+    public void SaveOnSceneChange(invenSAVE saveDat)
+    {
+        if (File.Exists(Application.persistentDataPath + "/invenSave.dat")) //clears existing saveDat
+            File.Delete(Application.persistentDataPath + "/invenSave.dat");
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/invenSave.dat");
+
+        bf.Serialize(file, saveDat);
+
+        file.Close();
+    }
 
     public generalSAVE Load()
     {
@@ -42,12 +54,33 @@ public class SaveManager : MonoBehaviour
       //  Debug.Log("Success: Load");
         return saveDat;
     }
+    public invenSAVE LoadOnSceneChange()
+    {
+        if (!File.Exists(Application.persistentDataPath + "/invenSave.dat")) return null; //no file to load
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Open(Application.persistentDataPath + "/invenSave.dat", FileMode.Open);
+
+        invenSAVE saveDat = (invenSAVE)bf.Deserialize(file);
+        file.Close();
+
+        //  Debug.Log("Success: Load");
+        return saveDat;
+    }
+
     public void DeleteSave()
     {
         if (File.Exists(Application.persistentDataPath + "/save.dat"))
         {
             File.Delete(Application.persistentDataPath + "/save.dat");
      //       Debug.Log("Success: Save Deleted");
+        }
+    }
+    public void DeleteOnSceneChangeSave()
+    {
+        if (File.Exists(Application.persistentDataPath + "/invenSave.dat"))
+        {
+            File.Delete(Application.persistentDataPath + "/invenSave.dat");
+            //       Debug.Log("Success: Save Deleted");
         }
     }
 

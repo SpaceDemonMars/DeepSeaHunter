@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -183,6 +184,7 @@ public class GameManager : MonoBehaviour
         {
             //update save data
             pSave = playerScript.savePlayer(),
+            sceneName = SceneManager.GetActiveScene().name,
             iSave = playerScript.inven.saveInven(),
             o2 = o2.getO2(),
             inO2Zone = o2.getOxygen(),
@@ -194,7 +196,12 @@ public class GameManager : MonoBehaviour
         //create save file
         SaveManager.instance.Save(gameSave);
     }
- 
+    public void SaveOnSceneChange()
+    {
+        invenSAVE iSave = playerScript.inven.saveInven();
+        SaveManager.instance.SaveOnSceneChange(iSave);
+    }
+
     public void Load() 
     {
         //retrieve save file
@@ -202,13 +209,22 @@ public class GameManager : MonoBehaviour
         if (gameSave == null) return; //no save dat; do nothing
 
         //update data
+        if (SceneManager.GetActiveScene().name != gameSave.sceneName) SceneManager.LoadScene(gameSave.sceneName);
         playerScript.loadPlayer(gameSave.pSave);
         playerScript.inven.loadInven(gameSave.iSave);
         o2.setO2(gameSave.o2);
         o2.setOxygen(gameSave.inO2Zone);
         radioScript.setInStatic(gameSave.inStatic);
         radioScript.setRadioOn(gameSave.radioOn);
+        stateUnpause(); //added bc sometimes time scale gets messed up when loading scene
  //       Debug.Log("Success: Load (General)");
+    }
+    public void LoadOnSceneChange()
+    {
+        invenSAVE iSave = SaveManager.instance.LoadOnSceneChange();
+        if (iSave == null) return;
+
+        playerScript.inven.loadInven(iSave);
     }
     public void openTabSettings(bool buttonClick = false)
     {
