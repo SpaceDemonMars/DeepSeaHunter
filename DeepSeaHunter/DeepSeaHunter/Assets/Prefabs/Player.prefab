@@ -280,7 +280,7 @@ MonoBehaviour:
   tempScript: {fileID: 1480138211415246043}
   radioScript: {fileID: 1951845911028339932}
   inven: {fileID: 1487154134465998985}
-  speed: 4
+  speed: 10
   pushResolve: 12
   dashStr: 35
   dashMax: 4

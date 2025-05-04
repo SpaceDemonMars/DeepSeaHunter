@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
     private List<int> savedClueIDs = new List<int>();
 
     private bool loadInStart = false;
+    private bool needsReload = false;
 
     void Awake()
     {
@@ -143,8 +144,9 @@ public class GameManager : MonoBehaviour
         {
             SaveManager.instance.DeleteOnSceneChangeSave(); //delete temp save
             Save(); //make permanent save
-            Load();
+            needsReload = true;
         }
+        if (SaveManager.instance != null && needsReload) Load();
         else loadInStart = true;
     }
 
@@ -156,6 +158,7 @@ public class GameManager : MonoBehaviour
             Save(); //make permanent save
             Load();
         }
+        if (needsReload) Load();
     }
 
     void Update()
@@ -227,7 +230,7 @@ public class GameManager : MonoBehaviour
         if (gameSave == null) return false; //no save dat; do nothing
 
         //update data
-        if (SceneManager.GetActiveScene().name != gameSave.sceneName) SceneManager.LoadScene(gameSave.sceneName);
+        if (SceneManager.GetActiveScene().name != gameSave.sceneName) needsReload = true; SceneManager.LoadScene(gameSave.sceneName);
         playerScript.loadPlayer(gameSave.pSave);
         playerScript.inven.loadInven(gameSave.iSave);
         o2.setO2(gameSave.o2);
@@ -236,6 +239,7 @@ public class GameManager : MonoBehaviour
         radioScript.setRadioOn(gameSave.radioOn);
         stateUnpause(); //added bc sometimes time scale gets messed up when loading scene
         Debug.Log("Success: Load (General)");
+        needsReload = false;
         return true;
  //       Debug.Log("Success: Load (General)");
     }
