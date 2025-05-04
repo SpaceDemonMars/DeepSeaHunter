@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
     public GameObject questPopupObject;
     private List<int> savedClueIDs = new List<int>();
 
-    private bool loadInStart = false;
+    private bool loadInStart = true;
     private bool needsReload = false;
     private bool skipInven = false;
 
@@ -142,28 +142,40 @@ public class GameManager : MonoBehaviour
         loseTextColors[1] = loseTextColorO2;
         loseTextColors[2] = loseTextColorTemp;
         if (SaveManager.instance == null) loadInStart = true;
-        if (SaveManager.instance != null && LoadOnSceneChange()) //if temp save data loaded successfully
+        /*if (SaveManager.instance != null && LoadOnSceneChange()) //if temp save data loaded successfully
         {
             SaveManager.instance.DeleteOnSceneChangeSave(); //delete temp save
             Save(); //make permanent save
             Load();
         }
-        if (SaveManager.instance != null && needsReload) Load();
+        if (SaveManager.instance != null && needsReload) Load();*/
     }
 
     private void Start()
     {
-        if (loadInStart && LoadOnSceneChange())
+        /*if (LoadOnSceneChange())
         {
             SaveManager.instance.DeleteOnSceneChangeSave(); //delete temp save
             Save(); //make permanent save
             Load();
         }
         if (needsReload) Load();
+        Load();*/
     }
 
     void Update()
     {
+        if (loadInStart) {
+            if (LoadOnSceneChange())
+            {
+                SaveManager.instance.DeleteOnSceneChangeSave(); //delete temp save
+                Save(); //make permanent save
+                Load();
+            }
+            if (needsReload) { Load(); }
+            //Load();
+            loadInStart = false;
+        }
         openTabSettings();
         openTabInventory();
         openTabEquipment();
